@@ -7,7 +7,7 @@
 						<div class="widget-title">IEDC TKMCE</div>
 						<a>About us</a>
 						<p align="justify">The Innovation and Entrepreneurship Development Cell of TKMCE is an organisation that aims to promote the institutional vision....</p>
-						<a href="<?=base_url()?>about" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+						<a href="<?=base_url()?>#about" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
 
 					</div>
 				</div>
@@ -17,11 +17,11 @@
 							<div class="widget">
 								<div class="widget-title">Discover</div>
 								<ul class="list">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Missiom</a></li>
-									<li><a href="#">Vision</a></li>
-									<li><a href="#">My Profile</a></li>
-									<li><a href="#">Stories</a></li>
+									<li><a href="<?=base_url()?>#about">About us</a></li>
+									<li><a href="<?=base_url()?>#mission">Mission</a></li>
+									<li><a href="<?=base_url()?>#vision">Vision</a></li>
+									<li><a href="<?=base_url()?>profile">My Profile</a></li>
+									<li><a href="<?=base_url()?>stories">Stories</a></li>
 								</ul>
 							</div>
 						</div>
@@ -29,9 +29,9 @@
 							<div class="widget">
 								<div class="widget-title">Pages</div>
 								<ul class="list">
-									<li><a href="#">IR-Cell</a></li>
-									<li><a href="#">E-Cell</a></li>
-									<li><a href="#">Communities</a></li>
+									<li><a href="<?=base_url()?>ircell">IR-Cell</a></li>
+									<li><a href="<?=base_url()?>ecell">E-Cell</a></li>
+									<li><a href="<?=base_url()?>communities">Communities</a></li>
 								</ul>
 							</div>
 						</div>

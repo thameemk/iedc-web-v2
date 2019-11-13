@@ -45,7 +45,7 @@
         </div>
 
     </div>
-    <div class="container">
+    <div class="container" id="about">
         <div class="heading-text heading-section">
             <h2>About Us</h2>
             <span class="lead"> The Innovation and Entrepreneurship Development Cell of TKMCE is an organisation
