@@ -6,7 +6,6 @@
 		<div class="breadcrumb">
 			<ul>
 				<li><a href="<?=base_url()?>">Home</a> </li>
-
 				<li class="active"><a href="<?=base_url()?>ecell">E-Cell</a> </li>
 			</ul>
 		</div>
