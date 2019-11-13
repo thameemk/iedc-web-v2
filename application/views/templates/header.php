@@ -38,18 +38,18 @@
 									<li class="dropdown"> <a href="#">Initiatives</a>
 										<ul class="dropdown-menu">
 											<li> <a href="<?=base_url()?>ircell">IR cell</a> </li>
-											<li> <a href="">E-cell</a> </li>
-											<li> <a href="">Communities</a> </li>
+											<li> <a href="<?=base_url()?>ecell">E-cell</a> </li>
+											<li> <a href="<?=base_url()?>communities">Communities</a> </li>
 										</ul>
 									</li>
-									<li> <a href="">Team</a></li>
-									<li> <a href="">Stories</a></li>
-									<li> <a href="">Contact</a></li>
-									<li class="dropdown"> <a href="#">My Profile</a>
+									<li> <a href="<?=base_url()?>team">Team</a></li>
+									<li> <a href="<?=base_url()?>stories">Stories</a></li>
+									<li> <a href="<?=base_url()?>contact">Contact</a></li>
+									<li class="dropdown"> <a href="<?=base_url()?>profile">My Profile</a>
 										<ul class="dropdown-menu">
-											<li> <a href="">Log In
+											<li> <a href="<?=base_url()?>login">Log In
 												</a> </li>
-											<li> <a href="">Sign Up</a>
+											<li> <a href="<?=base_url()?>signup">Sign Up</a>
 											</li>
 										</ul>
 									</li>
