@@ -10,7 +10,17 @@
            gtag('js', new Date());
 
            gtag('config', 'UA-128744750-1');
-         </script>  	
+         </script>
+         <div class="form-group">
+           <script src="https://www.google.com/recaptcha/api.js?render=6LcWbLIUAAAAAEUH--dvi0CZGWgFsa6Lj9LZjl91"></script>
+           <script>
+           grecaptcha.ready(function() {
+               grecaptcha.execute('6LcWbLIUAAAAAEUH--dvi0CZGWgFsa6Lj9LZjl91', {action: 'homepage'}).then(function(token) {
+                  ...
+               });
+           });
+           </script>
+         </div>
 	<title><?php echo $page_title ?> - Innovation and Entrepreneurship Development Cell, TKM College of Engineering</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />

@@ -40,10 +40,7 @@
 							<label for="message">Message</label>
 							<textarea type="text" name="widget-contact-form-message" rows="5" class="form-control required" placeholder="Enter your Message"></textarea>
 						</div>
-						<div class="form-group">
-							<script src="https://www.google.com/recaptcha/api.js"></script>
-							<div class="g-recaptcha" data-sitekey="fggggggggggggg"></div>
-						</div>
+			
 						<button class="btn" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Send message</button>
 					</form>
 				</div>
