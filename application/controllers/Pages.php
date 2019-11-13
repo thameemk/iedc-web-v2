@@ -11,18 +11,18 @@ class Pages extends CI_Controller {
 
 	public function index()
 	{
-        $data['page_title'] = 'Home';    
+    $data['page_title'] = 'Home - Innovation and Entrepreneurship Development Cell, TKM College of Engineering';    
 		$this->load->view('templates/header',$data);
 		$this->load->view('static/home',$data);
 		$this->load->view('templates/footer');
 	}
- 
+
     function view($page){
       if ( ! file_exists(APPPATH.'views/static/'.$page.'.php')){
           show_404();
       }
       $temp = ucfirst($page);
-      $data['page_title'] = $temp;     
+      $data['page_title'] = $temp;
       $this->load->view('templates/header',$data);
       $this->load->view('static/'.$page,$data);
       $this->load->view('templates/footer');
