@@ -26,7 +26,7 @@
                 <p class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
                     this as our mantra. We make constant efforts to improve and enhance our outlook about
                     Innovation & Entrepreneurship. </p>
-                <a class="btn btn-red" href="<?=bse_url()?>contact">Contact
+                <a class="btn btn-red" href="<?=base_url()?>contact">Contact
                     Us</a>
 
             </div>
