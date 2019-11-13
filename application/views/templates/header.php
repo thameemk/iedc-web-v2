@@ -47,9 +47,9 @@
 									<li> <a href="<?=base_url()?>contact">Contact</a></li>
 									<li class="dropdown"> <a href="#">My Profile</a>
 										<ul class="dropdown-menu">
-											<li> <a href="<?=base_url()?>login">Log In
+											<li> <a href="<?=base_url()?>login">Login
 												</a> </li>
-											<li> <a href="<?=base_url()?>signup">Sign Up</a>
+											<li> <a href="<?=base_url()?>signup">SignUp</a>
 											</li>
 										</ul>
 									</li>

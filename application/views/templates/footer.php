@@ -20,7 +20,7 @@
 									<li><a href="<?=base_url()?>#about">About us</a></li>
 									<li><a href="<?=base_url()?>#mission">Mission</a></li>
 									<li><a href="<?=base_url()?>#vision">Vision</a></li>
-									<li><a href="<?=base_url()?>profile">My Profile</a></li>
+									<li><a href="<?=base_url()?>profile">My profile</a></li>
 									<li><a href="<?=base_url()?>stories">Stories</a></li>
 								</ul>
 							</div>

@@ -33,5 +33,10 @@ class Pages extends CI_Controller {
       $this->load->view('static/'.$page,$data);
       $this->load->view('templates/footer');
     }
+    public function login()
+    {
+      $data['page_title'] = 'Login';
+      $this->load->view('login',$data);
+    }
 
 }
