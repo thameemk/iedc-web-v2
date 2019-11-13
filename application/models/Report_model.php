@@ -10,10 +10,15 @@ class Report_model extends CI_Model {
         $query = $this->db->get_where('eCell',array('companyType' => $companyType));
         return $query->result_array();
     }
-    
+
     public function upcomingEvents(){
         $query = $this->db->get('upcomingEvents');
         return $query->result_array();
+    }
+
+    public function execomInfo($execomYear){
+       $query = $this->db->get_where('execom',array('year' => $execomYear));
+       return $query->result_array();
     }
 
 }
