@@ -2,13 +2,11 @@
 	<div class="container">
 		<div class="page-title">
 			<h1>Contact Us</h1>
-			<span>The most happiest time of the day!.</span>
 		</div>
 		<div class="breadcrumb">
 			<ul>
-				<li><a href="#">Home</a> </li>
-				<li><a href="#">Pages</a> </li>
-				<li class="active"><a href="#">Contact Us</a> </li>
+				<li><a href="<?=base_url()?>">Home</a> </li>
+				<li class="active"><a href="<?=base_url()?>contact">Contact Us</a> </li>
 			</ul>
 		</div>
 	</div>
