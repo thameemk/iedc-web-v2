@@ -16,9 +16,12 @@ class Report_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function execomInfo($execomYear){
-       $query = $this->db->get_where('execom',array('year' => $execomYear));
+    public function execomInfo(){
+       $query = $this->db->get('execom');
        return $query->result_array();
     }
-
+    public function execomYear(){
+       $query = $this->db->get('execomYear');
+       return $query->result_array();
+    }
 }
