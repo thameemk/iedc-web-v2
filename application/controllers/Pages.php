@@ -9,20 +9,24 @@ class Pages extends CI_Controller {
       $this->load->helper(array('form', 'url'));
     }
 
-	public function index()
-	{
-        $data['page_title'] = 'Home';    
-		$this->load->view('templates/header',$data);
-		$this->load->view('static/home',$data);
-		$this->load->view('templates/footer');
-	}
- 
+  	public function index()
+  	{
+      $data['page_title'] = 'Home';
+      $data['upcomingInfo']=$this->report_model->upcomingEvents();
+  		$this->load->view('templates/header',$data);
+  		$this->load->view('static/home',$data);
+  		$this->load->view('templates/footer');
+	  }
+
     function view($page){
       if ( ! file_exists(APPPATH.'views/static/'.$page.'.php')){
           show_404();
       }
       $temp = ucfirst($page);
-      $data['page_title'] = $temp;     
+      $data['page_title'] = $temp;
+      $data['upcomingInfo']=$this->report_model->upcomingEvents();
+      $data['incubated']=$this->report_model->ecellInfo('incubated');
+			$data['incubating']=$this->report_model->ecellInfo('incubating');
       $this->load->view('templates/header',$data);
       $this->load->view('static/'.$page,$data);
       $this->load->view('templates/footer');
