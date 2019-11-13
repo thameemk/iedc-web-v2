@@ -23,17 +23,13 @@
                                             <i class="fab fa-facebook-f"></i>
                                             <span>Facebook</span>
                                         </a>
-                                        <a class="btn btn-xs btn-slide btn-twitter" href="#" data-width="100">
+                                        <a class="btn btn-xs btn-slide btn-linkedin" href="#" data-width="100">
                                             <i class="fab fa-twitter"></i>
-                                            <span>Twitter</span>
+                                            <span>Linkedin</span>
                                         </a>
                                         <a class="btn btn-xs btn-slide btn-instagram" href="#" data-width="118">
                                             <i class="fab fa-instagram"></i>
                                             <span>Instagram</span>
-                                        </a>
-                                        <a class="btn btn-xs btn-slide btn-googleplus" href="mailto:#" data-width="80">
-                                            <i class="far fa-envelope"></i>
-                                            <span>Mail</span>
                                         </a>
                                     </div>
                                 </div>
@@ -70,25 +66,6 @@
                                     a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum
                                     convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae
                                     velit.</p>
-                            </div>
-                            <div class="post-tags">
-                                <a href="#">Life</a>
-                                <a href="#">Sport</a>
-                                <a href="#">Tech</a>
-                                <a href="#">Travel</a>
-                            </div>
-                            <div class="post-navigation">
-                                <a href="#" class="post-prev">
-                                    <div class="post-prev-title"><span>Previous Post</span>Post with a slider
-                                        and lightbox</div>
-                                </a>
-                                <a href="#" class="post-all">
-                                    <i class="icon-grid"> </i>
-                                </a>
-                                <a href="#" class="post-next">
-                                    <div class="post-next-title"><span>Next Post</span>Post with YouTube Video
-                                    </div>
-                                </a>
                             </div>
                         </div>
                     </div>
