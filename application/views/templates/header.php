@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title><?php echo $page_title ?></title>
+	<title><?php echo $page_title ?> - Innovation and Entrepreneurship Development Cell, TKM College of Engineering</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Official website of Innovation and Entrepreneurship Development Cell, TKM College of Engineering.">
@@ -16,7 +16,7 @@
 
 <body>
 	<div class="body-inner">
-		
+
 		<header id="header">
 			<div class="header-inner">
 				<div class="container">
