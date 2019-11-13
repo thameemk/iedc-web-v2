@@ -5,13 +5,10 @@
             <div class="slide-captions text-center">
 
                 <h2 class="text-uppercase text-medium text-light">Always deliver more</h2>
-                <h6 class="text-light">Larry Page</h6>
-                <p class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
+                <h3 class="text-light">Larry Page</h3>
+                <h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
                     this as our mantra. We make constant efforts to improve and enhance our outlook about
-                    Innovation & Entrepreneurship. </p>
-                <a class="btn btn-red" href="<?=base_url()?>contact">Contact
-                    Us</a>
-
+                    Innovation & Entrepreneurship. </h4>
             </div>
         </div>
     </div>
@@ -22,13 +19,10 @@
             <div class="slide-captions text-center">
 
                 <h2 class="text-uppercase text-medium text-light">Always deliver more</h2>
-                <h6 class="text-light">Larry Page</h6>
-                <p class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
+                <h3 class="text-light">Larry Page</h3>
+                <h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
                     this as our mantra. We make constant efforts to improve and enhance our outlook about
-                    Innovation & Entrepreneurship. </p>
-                <a class="btn btn-red" href="<?=base_url()?>contact">Contact
-                    Us</a>
-
+                    Innovation & Entrepreneurship. </h4>
             </div>
         </div>
     </div>
@@ -48,7 +42,7 @@
     <div class="container" id="about">
         <div class="heading-text heading-section">
             <h2>About Us</h2>
-            <span class="lead"> The Innovation and Entrepreneurship Development Cell of TKMCE is an organisation
+            <span align="justify" class="lead"> The Innovation and Entrepreneurship Development Cell of TKMCE is an organisation
                 that aims to promote the institutional vision of transforming youngsters into technological
                 entrepreneurs and innovative leaders. The initiative is to address the rising trend of corporate
                 job culture and establish a platform to pursue ideas and businesses at an early stage. We at
@@ -64,74 +58,37 @@
     <div class="container">
         <div class="heading-text heading-section">
             <h2>Upcoming Treks</h2>
-            <span class="lead">Lorem ipsum dolor sit amet, coper suscipit lobortis nisl ut aliquip ex ea commodo
-                consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</span>
+            <span align="justify" class="lead">Check Out our new events and Programms</span>
         </div>
     </div>
     <div class="portfolio">
 
         <div id="portfolio" class="grid-layout portfolio-4-columns" data-margin="0">
-
+            <?php
+              foreach(array_reverse($upcomingInfo) as $row){
+            ?>
             <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
                 <div class="portfolio-item-wrap">
                     <div class="portfolio-image">
-                        <a href="<?=base_url()?>"><img src="<?=base_url()?>assets/uploads/updates/evoke.jpeg" alt=""></a>
+                        <img src="<?=base_url()?>assets/uploads/images/updates/<?=$row['imageLink']?>" alt="<?=$row['uTitle']?>">
                     </div>
                     <div class="portfolio-description">
                         <a href="portfolio-page-grid-gallery.html">
-                            <h3>Let's Go Outside</h3>
-                            <span>Illustrations / Graphics</span>
+                            <h3><?=$row['uTitle']?></h3>
+                            <span>
+                            <b>
+                              Date : <?=$row['uDate']?><br>
+            									Time : <?=$row['uTime']?><br>
+            									Venue : <?=$row['uVenue']?> <br>
+            									Contact : <?=$row['uContact']?><br>
+                            </b>
+                            </span>
+                            <a class="btn btn-red fadeInUp" href="<?=$row['uRegistration']?>" style="animation-duration: 600ms;">Register</a>
                         </a>
                     </div>
                 </div>
             </div>
-
-
-            <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
-                <div class="portfolio-item-wrap">
-                    <div class="portfolio-image">
-                        <a href="<?=base_url()?>"><img src="<?=base_url()?>assets/uploads/updates/evoke.jpeg" alt=""></a>
-                    </div>
-                    <div class="portfolio-description">
-                        <a href="portfolio-page-grid-gallery.html">
-                            <h3>Let's Go Outside</h3>
-                            <span>Illustrations / Graphics</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
-                <div class="portfolio-item-wrap">
-                    <div class="portfolio-image">
-                        <a href="<?=base_url()?>"><img src="<?=base_url()?>assets/uploads/updates/evoke.jpeg" alt=""></a>
-                    </div>
-                    <div class="portfolio-description">
-                        <a href="portfolio-page-grid-gallery.html">
-                            <h3>Let's Go Outside</h3>
-                            <span>Illustrations / Graphics</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
-                <div class="portfolio-item-wrap">
-                    <div class="portfolio-image">
-                        <a href="<?=base_url()?>"><img src="<?=base_url()?>assets/uploads/updates/evoke.jpeg" alt=""></a>
-                    </div>
-                    <div class="portfolio-description">
-                        <a href="portfolio-page-grid-gallery.html">
-                            <h3>Let's Go Outside</h3>
-                            <span>Illustrations / Graphics</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
     </div>
 </section>
