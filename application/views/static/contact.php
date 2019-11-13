@@ -39,6 +39,9 @@
 
                     <div class="mb-4 social-icons social-icons-large social-icons-colored-hover">
                         <ul>
+                            <li class="social-linkedin"><a href="mailto:info@iedctkmce.com"><i
+                                        class="fa fa-envelope"></i></a>
+                            </li>
                             <li class="social-linkedin"><a href="https://www.linkedin.com/company/iedc-tkmce/"><i
                                         class="fab fa-linkedin"></i></a>
                             </li>
@@ -55,20 +58,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div id="map" style="margin-top: 60px; margin-left: 240px;">
-                    <a target="_blank"
-                        href="https://www.google.com/maps/place/TKM+College+of+Engineering/@8.9146691,76.6323343,16z/data=!4m5!3m4!1s0x3b05fd3036020df5:0xc3c1007e5232dc27!8m2!3d8.9142251!4d76.6319521"><img
-                            width="680" height="470"
-                            src="https://tkmce.ac.in/wp-content/uploads/2018/11/tmce_google_map.jpg"
-                            class="attachment-full size-full wp-post-image" alt=""
-                            srcset="https://tkmce.ac.in/wp-content/uploads/2018/11/tmce_google_map.jpg 2900w, http://tkmce.ac.in/wp-content/uploads/2018/11/tmce_google_map-300x113.jpg 300w, http://tkmce.ac.in/wp-content/uploads/2018/11/tmce_google_map-768x290.jpg 768w, http://tkmce.ac.in/wp-content/uploads/2018/11/tmce_google_map-1024x387.jpg 1024w, http://tkmce.ac.in/wp-content/uploads/2018/11/tmce_google_map-156x59.jpg 156w"
-                            sizes="(max-width: 1000px) 100vw, 1000px" /></a>
-
-                </div>
-            </div>
-
+        <div class="row mt-5">
+          <div class="ml-3 mr-5 col-lg-12">
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.626941914857!2d76.62975804973976!3d8.914230393200489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fd3036020df5%3A0xc3c1007e5232dc27!2sTKM+College+of+Engineering!5e0!3m2!1sen!2sin!4v1555440606199!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
         </div>
     </div>
 </section>

@@ -45,7 +45,7 @@
 									<li> <a href="<?=base_url()?>team">Team</a></li>
 									<li> <a href="<?=base_url()?>stories">Stories</a></li>
 									<li> <a href="<?=base_url()?>contact">Contact</a></li>
-									<li class="dropdown"> <a href="<?=base_url()?>profile">My Profile</a>
+									<li class="dropdown"> <a href="#">My Profile</a>
 										<ul class="dropdown-menu">
 											<li> <a href="<?=base_url()?>login">Log In
 												</a> </li>
