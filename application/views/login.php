@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+			 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128744750-1"></script>
+			 <script>
+				 window.dataLayer = window.dataLayer || [];
+				 function gtag(){dataLayer.push(arguments);}
+				 gtag('js', new Date());
+
+				 gtag('config', 'UA-128744750-1');
+			 </script>  
 	<title><?php echo $page_title ?> - Innovation and Entrepreneurship Development Cell, TKM College of Engineering</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
