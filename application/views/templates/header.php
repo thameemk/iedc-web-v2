@@ -42,7 +42,6 @@
 											<li> <a href="">Communities</a> </li>
 										</ul>
 									</li>
-									<li class="dropdown"> <a href="gallery.html">Gallery</a></li>
 									<li> <a href="">Team</a></li>
 									<li> <a href="">Stories</a></li>
 									<li> <a href="">Contact</a></li>
