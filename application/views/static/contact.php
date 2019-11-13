@@ -18,22 +18,16 @@
             <div class="col-lg-6">
                 <div style="margin-left: 240px;">
                     <h3 class="text-uppercase">Contact Us</h3>
-                    <div class="row">
-                        <div class="col-lg-6">
                             <address>
                                 <strong>IEDC TKMCE</strong><br>
                                 TKM College of Engineering,<br>
                                 Karicode, Kollam, Kerala<br>
                                 PIN : 691005<br>
                             </address>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div style="border-left: 2px solid lightgrey; height: 170px;"></div>
-            </div>
-            <div class="col-lg-4" style="margin-left: 720px; margin-top: -180px;">
+            <div style="border-left: 2px solid lightgrey; height: 170px;"></div>
+            <div class="col-lg-6" style="margin-left: 720px; margin-top: -180px;">
                 <div>
                     <h3 class="text-uppercase">Get In Touch</h3>
 
