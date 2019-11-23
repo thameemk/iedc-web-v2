@@ -33,22 +33,22 @@
 						<div class="row">
 							<div class="form-group col-md-6">
 								<label for="name">Name</label>
-								<input type="text" aria-required="true" name="name" class="form-control" placeholder="Enter your Name">
+								<input type="text" aria-required="true" name="name" class="form-control" placeholder="Enter your Name" required>
 							</div>
 							<div class="form-group col-md-6">
 								<label for="email">Email</label>
-								<input type="email" aria-required="true" name="email" class="form-control" placeholder="Enter your Email" >
+								<input type="email" aria-required="true" name="email" class="form-control" placeholder="Enter your Email"required >
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-12">
 								<label for="subject">Your Subject</label>
-								<input type="text" name="subject" class="form-control" placeholder="Subject...">
+								<input type="text" name="subject" class="form-control" placeholder="Subject..." required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="message">Message</label>
-							<textarea type="text" name="message" rows="5" class="form-control" placeholder="Enter your Message"></textarea>
+							<textarea type="text" name="message" rows="5" class="form-control" placeholder="Enter your Message" required></textarea>
 						</div>
 						<button class="btn" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;Send message</button>
 					</form>
