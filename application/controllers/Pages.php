@@ -22,8 +22,9 @@ class Pages extends CI_Controller {
       if ( ! file_exists(APPPATH.'views/static/'.$page.'.php')){
           show_404();
       }
-      $temp = ucfirst($page);
-      $data['page_title'] = $temp;
+      $temp = str_replace("-"," ",$page);
+      $temp1 = ucfirst($temp);
+      $data['page_title'] = $temp1;
       $data['upcomingInfo']=$this->report_model->upcomingEvents();
       $data['incubated']=$this->report_model->ecellInfo('incubated');
 			$data['incubating']=$this->report_model->ecellInfo('incubating');

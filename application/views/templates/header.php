@@ -61,7 +61,14 @@
 											<li> <a href="<?=base_url()?>communities">Communities</a> </li>
 										</ul>
 									</li>
-									<li> <a href="<?=base_url()?>team">Team</a></li>
+									<li class="dropdown"> <a href="#">Team</a>
+                    <ul class="dropdown-menu">
+											<li> <a href="<?=base_url()?>execom">Execom
+												</a> </li>
+											<li> <a href="<?=base_url()?>web-team">Web Team</a>
+											</li>
+										</ul>
+                  </li>
 									<li> <a href="<?=base_url()?>stories">Stories</a></li>
 									<li> <a href="<?=base_url()?>contact">Contact</a></li>
 									<li class="dropdown"> <a href="#">My Profile</a>
