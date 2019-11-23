@@ -3,14 +3,14 @@
 
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128744750-1"></script>
+         <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128744750-1"></script>
          <script>
            window.dataLayer = window.dataLayer || [];
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
 
            gtag('config', 'UA-128744750-1');
-         </script>
+         </script> -->
          <div class="form-group">
            <script src="https://www.google.com/recaptcha/api.js?render=6LcWbLIUAAAAAEUH--dvi0CZGWgFsa6Lj9LZjl91"></script>
            <script>
