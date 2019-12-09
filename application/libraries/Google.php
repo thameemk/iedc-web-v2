@@ -21,7 +21,7 @@ class Google {
 
 	}
 
-	public function get_login_url(){
+	public function loginURL(){
 		return  $this->client->createAuthUrl();
 
 	}

@@ -17,12 +17,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |  scopes            string   Specify scopes
 */
 
-$config['google']['client_id']        = '49399106268-drjm609mmifa4856l8sv5duifh98s8dk.apps.googleusercontent.com';
-$config['google']['client_secret']    = 'zXBV5juoMlRf1wXGItMPRhZ0';
+$config['google']['client_id']        = '870850862261-c6f0tti5skp8cto73p396ngg78recgcs.apps.googleusercontent.com';
+$config['google']['client_secret']    = 'ql0oMDW1r5S_Rp7DlbPF0cs2';
 
-$config['google']['redirect_uri']     = 'http://hestialocal.live/Auth/oauth2callback';
+$config['google']['redirect_uri']     = 'http://localhost/iedc-web-v2/login';
 
-$config['google']['application_name'] = 'Hestia';
+$config['google']['application_name'] = 'iedcweb';
 $config['google']['api_key']          = '';
 $config['google']['scopes']           = array();
 
