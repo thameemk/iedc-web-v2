@@ -16,7 +16,7 @@ class User_Authentication extends CI_Controller {
     public function index(){
         // Redirect to profile page if the user already logged in
         if($this->session->userdata('loggedIn') == true){
-            redirect('user_authentication/profile/');
+            redirect('profile');
         }
 
         if(isset($_GET['code'])){
