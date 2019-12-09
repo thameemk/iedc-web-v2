@@ -32,7 +32,7 @@ class User_Authentication extends CI_Controller {
                 $userData['oauth_uid']      = $gpInfo['id'];
                 $userData['first_name']     = $gpInfo['given_name'];
                 $userData['last_name']      = $gpInfo['family_name'];
-                $userData['email']          = $gpInfo['email'];              
+                $userData['email']          = $gpInfo['email'];
                 $userData['locale']         = !empty($gpInfo['locale'])?$gpInfo['locale']:'';
                 $userData['link']           = !empty($gpInfo['link'])?$gpInfo['link']:'';
                 $userData['picture']        = !empty($gpInfo['picture'])?$gpInfo['picture']:'';
@@ -45,7 +45,7 @@ class User_Authentication extends CI_Controller {
                 $this->session->set_userdata('userData', $userData);
 
                 // Redirect to profile page
-                redirect('user_authentication/profile/');
+                redirect('profile/');
             }
         }
 
@@ -53,7 +53,8 @@ class User_Authentication extends CI_Controller {
         $data['loginURL'] = $this->google->loginURL();
 
         // Load google login view
-        $this->load->view('user_authentication/index',$data);
+        $data['page_title'] = 'Login';
+        $this->load->view('login',$data);
     }
 
     public function profile(){
@@ -61,12 +62,11 @@ class User_Authentication extends CI_Controller {
         if(!$this->session->userdata('loggedIn')){
             redirect('/user_authentication/');
         }
-
         // Get user info from session
         $data['userData'] = $this->session->userdata('userData');
 
         // Load user profile view
-        $this->load->view('user_authentication/profile',$data);
+        $this->load->view('profile',$data);
     }
 
     public function logout(){

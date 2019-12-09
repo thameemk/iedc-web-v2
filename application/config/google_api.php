@@ -16,9 +16,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |  api_key           string   Developer key.
 |  scopes            string   Specify scopes
 */
-$config['google']['client_id']        = 'Google_API_Client_ID';
-$config['google']['client_secret']    = 'Google_API_Client_Secret';
-$config['google']['redirect_uri']     = 'https://example.com/project_folder_name/user_authentication/';
-$config['google']['application_name'] = 'Login to CodexWorld.com';
+
+$config['google']['client_id']        = '49399106268-drjm609mmifa4856l8sv5duifh98s8dk.apps.googleusercontent.com';
+$config['google']['client_secret']    = 'zXBV5juoMlRf1wXGItMPRhZ0';
+
+$config['google']['redirect_uri']     = 'http://hestialocal.live/Auth/oauth2callback';
+
+$config['google']['application_name'] = 'Hestia';
 $config['google']['api_key']          = '';
 $config['google']['scopes']           = array();
+
+?>

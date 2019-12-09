@@ -45,11 +45,9 @@
 					</div>
 					<div class="row">
 						<div class="center p-50 background-white b-r-6">
-							<form>
 								<div class="text-left form-group">
-									<button type="button" class="btn">Sign in with google</button>
+									<button href="<?php echo $loginURL; ?>" type="button" class="btn">Sign in with google</button>
 								</div>
-							</form>
 							</p>
 						</div>
 					</div>
