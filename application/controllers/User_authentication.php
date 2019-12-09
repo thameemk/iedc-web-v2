@@ -32,8 +32,7 @@ class User_Authentication extends CI_Controller {
                 $userData['oauth_uid']      = $gpInfo['id'];
                 $userData['first_name']     = $gpInfo['given_name'];
                 $userData['last_name']      = $gpInfo['family_name'];
-                $userData['email']          = $gpInfo['email'];
-                $userData['gender']         = !empty($gpInfo['gender'])?$gpInfo['gender']:'';
+                $userData['email']          = $gpInfo['email'];              
                 $userData['locale']         = !empty($gpInfo['locale'])?$gpInfo['locale']:'';
                 $userData['link']           = !empty($gpInfo['link'])?$gpInfo['link']:'';
                 $userData['picture']        = !empty($gpInfo['picture'])?$gpInfo['picture']:'';
