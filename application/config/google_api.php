@@ -21,7 +21,7 @@ $config['google']['client_id']        = '870850862261-c6f0tti5skp8cto73p396ngg78
 $config['google']['client_secret']    = 'ql0oMDW1r5S_Rp7DlbPF0cs2';
 
 // $config['google']['redirect_uri']     = 'http://localhost/iedc-web-v2/login';
-$config['google']['redirect_uri']     = 'https://www.iedctkmce.com/login';
+$config['google']['redirect_uri']     = 'https://iedc.thameeem.com/login';
 
 
 $config['google']['application_name'] = 'iedcweb';
