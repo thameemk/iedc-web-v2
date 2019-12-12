@@ -17,14 +17,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |  scopes            string   Specify scopes
 */
 
-$config['google']['client_id']        = '870850862261-c6f0tti5skp8cto73p396ngg78recgcs.apps.googleusercontent.com';
-$config['google']['client_secret']    = 'ql0oMDW1r5S_Rp7DlbPF0cs2';
+$config['google']['client_id']        = '184229103860-ufhui7qua4qb28ijg2aa1njfcva38362.apps.googleusercontent.com';
+$config['google']['client_secret']    = 'ueLUT7a3lhAhWrgNyfuR-W-A';
 
-// $config['google']['redirect_uri']     = 'http://localhost/iedc-web-v2/login';
-$config['google']['redirect_uri']     = 'https://iedc.thameeem.com/login';
+$config['google']['redirect_uri']     = 'http://localhost/iedc-web-v2/login';
 
 
-$config['google']['application_name'] = 'iedcweb';
+$config['google']['application_name'] = 'iedc-web';
 $config['google']['api_key']          = '';
 $config['google']['scopes']           = array();
 
