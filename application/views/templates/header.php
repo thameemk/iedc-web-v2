@@ -71,14 +71,8 @@
                   </li>
 									<li> <a href="<?=base_url()?>stories">Stories</a></li>
 									<li> <a href="<?=base_url()?>contact">Contact</a></li>
-									<li class="dropdown"> <a href="#">My Profile</a>
-										<ul class="dropdown-menu">
-											<li> <a href="<?=base_url()?>login">Login
-												</a> </li>
-											<li> <a href="<?=base_url()?>signup">SignUp</a>
-											</li>
-										</ul>
-									</li>
+									<li class="dropdown"> <a href="<?=base_url()?>login">My Profile</a></li>
+                  <li class="dropdown"> <a href="<?=base_url()?>login">Login</a></li>                  
 							</nav>
 						</div>
 					</div>

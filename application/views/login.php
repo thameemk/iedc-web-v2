@@ -31,6 +31,13 @@
 	<link href="<?=base_url()?>assets/front/css/plugins.css" rel="stylesheet">
 	<link href="<?=base_url()?>assets/front/css/style.css" rel="stylesheet">
 	<link href="<?=base_url()?>assets/front/css/responsive.css" rel="stylesheet">
+	<style>
+	body {
+		overflow: -moz-scrollbars-vertical;
+		overflow-x: auto;
+		overflow-y: hidden;
+		}
+</style>
 </head>
 
 <body>
