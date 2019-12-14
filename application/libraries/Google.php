@@ -1,5 +1,5 @@
 <?php
-require_once(APPPATH . 'third_party/google-api-client/vendor/autoload.php');
+require_once('Google/autoload.php');
 
 class Google {
 	protected $CI;
@@ -7,26 +7,27 @@ class Google {
 	public function __construct(){
 		$this->CI =& get_instance();
         $this->CI->load->library('session');
-        $this->CI->config->load('google_api');
+        $this->CI->config->load('google_config');
         $this->client = new Google_Client();
-		$this->client->setClientId($this->CI->config->item('google')['client_id']);
-		$this->client->setClientSecret($this->CI->config->item('google')['client_secret']);
-		$this->client->setRedirectUri($this->CI->config->item('google')['redirect_uri']);
+		$this->client->setClientId($this->CI->config->item('google_client_id'));
+		$this->client->setClientSecret($this->CI->config->item('google_client_secret'));
+		$this->client->setRedirectUri($this->CI->config->item('google_redirect_url'));
 		$this->client->setScopes(array(
-			"https://www.googleapis.com/auth/userinfo.email",
-			"https://www.googleapis.com/auth/userinfo.profile"
+				"https://www.googleapis.com/auth/userinfo.email",
+				"https://www.googleapis.com/auth/userinfo.profile",
+				// "https://www.googleapis.com/auth/user.emails.read"				 
 			)
 		);
 
 
 	}
 
-	public function loginURL(){
+	public function get_login_url(){
 		return  $this->client->createAuthUrl();
 
 	}
 
-	public function getAuthenticate(){
+	public function validate(){
 		if (isset($_GET['code'])) {
 		  $this->client->authenticate($_GET['code']);
 		  $_SESSION['access_token'] = $this->client->getAccessToken();
@@ -40,7 +41,7 @@ class Google {
 			$info['email']=$person['emails'][0]['value'];
 			$info['name']=$person['displayName'];
 			$info['link']=$person['url'];
-			$info['profile_pic']=$person['image']['url'];
+			$info['profile_pic']=substr($person['image']['url'],0,strpos($person['image']['url'],"?sz=50")) . '?sz=800';
 
 		   return  $info;
 		}
