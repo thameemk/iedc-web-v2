@@ -32,15 +32,6 @@ class Auth extends CI_Controller{
 		$this->session->sess_destroy();
 		$this->googleplus->revokeToken();
 		redirect('');
+
 	}
-}//class ends here
-
-
-	// public function logout(){
-	// 	session_destroy();
-	// 	unset($_SESSION['access_token']);
-	// 	$session_data=array(
-	// 			'sess_logged_in'=>0);
-	// 	$this->session->set_userdata($session_data);
-	// 	redirect(base_url());
-	// }
+}
