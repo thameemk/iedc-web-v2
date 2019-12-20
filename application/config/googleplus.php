@@ -2,9 +2,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['googleplus']['application_name'] = '';
-$config['googleplus']['client_id']        = '140323478693-r43kj9jvll0396up5fbhqpp2apmmt9g4.apps.googleusercontent.com';
-$config['googleplus']['client_secret']    = 'mt-ZL_3nNu8WVicQBQGzFo_L';
-$config['googleplus']['redirect_uri']     = 'http://localhost/Login-with-google-plus-in-codeigniter/';
+$config['googleplus']['application_name'] = 'iedclocal.com';
+$config['googleplus']['client_id']        = '184229103860-jh8tpg261u3ma9450tohs279sgqoqto2.apps.googleusercontent.com';
+$config['googleplus']['client_secret']    = 'o9o4W1JyV-ZhfJgMVvrQNri5';
+$config['googleplus']['redirect_uri']     = 'http://iedclocal.com/iedc-web-v2/';
 $config['googleplus']['api_key']          = '';
 $config['googleplus']['scopes']           = array();
