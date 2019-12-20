@@ -11,6 +11,14 @@ class Pages extends CI_Controller {
 
   	public function index()
   	{
+      if(isset($_GET['code']))
+      {
+        $this->googleplus->getAuthenticate();
+        $this->session->set_userdata('login',true);
+        $this->session->set_userdata('userProfile',$this->googleplus->getUserInfo());
+        redirect('Auth/profile');
+      }
+      $data['loginURL'] = $this->googleplus->loginURL();
       $data['page_title'] = 'Home';
       $data['upcomingInfo']=$this->report_model->upcomingEvents();
   		$this->load->view('templates/header',$data);
@@ -34,5 +42,5 @@ class Pages extends CI_Controller {
       $this->load->view('static/'.$page,$data);
       $this->load->view('templates/footer');
     }
-    
+
 }

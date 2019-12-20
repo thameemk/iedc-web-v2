@@ -12,9 +12,8 @@ class Auth extends CI_Controller{
 			$this->session->set_userdata('userProfile',$this->googleplus->getUserInfo());
 			redirect('Auth/profile');
 		}
-
 		$data['loginURL'] = $this->googleplus->loginURL();
-		$this->load->view('login',$data);
+		$this->load->view('pages/index',$data);
 	}
 
 	public function profile(){
