@@ -3,24 +3,15 @@
 
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-         <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128744750-1"></script>
+         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128744750-1"></script>
          <script>
            window.dataLayer = window.dataLayer || [];
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
 
            gtag('config', 'UA-128744750-1');
-         </script> -->
-         <div class="form-group">
-           <script src="https://www.google.com/recaptcha/api.js?render=6LcWbLIUAAAAAEUH--dvi0CZGWgFsa6Lj9LZjl91"></script>
-           <script>
-           grecaptcha.ready(function() {
-               grecaptcha.execute('6LcWbLIUAAAAAEUH--dvi0CZGWgFsa6Lj9LZjl91', {action: 'homepage'}).then(function(token) {
-                  ...
-               });
-           });
-           </script>
-         </div>
+         </script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 	<title><?php echo $page_title ?> - Innovation and Entrepreneurship Development Cell, TKM College of Engineering</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,6 +22,11 @@
 	<link href="<?=base_url()?>assets/front/css/plugins.css" rel="stylesheet">
 	<link href="<?=base_url()?>assets/front/css/style.css" rel="stylesheet">
 	<link href="<?=base_url()?>assets/front/css/responsive.css" rel="stylesheet">
+  <style>
+  .g-recaptcha {
+    margin: 0 0 25px 0;
+   }
+   </style>
 </head>
 
 <body>
@@ -72,7 +68,7 @@
 									<li> <a href="<?=base_url()?>stories">Stories</a></li>
 									<li> <a href="<?=base_url()?>contact">Contact</a></li>
                   <?php if($this->session->userdata('sess_logged_in')==0){?>
-                      <li class="dropdown"> <a href="<?php echo $loginURL;?>">Login</a></li>
+                      <li class="dropdown"> <a href="<?=base_url()?>login">Login</a></li>
                   <?php } else { ?>
 									    <li class="dropdown"> <a href="<?=base_url()?>auth/profile">My Profile</a></li>
                   <?php } ?>
