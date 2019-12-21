@@ -13,7 +13,7 @@ class Auth extends CI_Controller{
 			redirect('Auth/profile');
 		}
 		$data['loginURL'] = $this->googleplus->loginURL();
-		$this->load->view('pages/index',$data);
+		$this->load->view('login',$data);
 	}
 
 	public function profile(){

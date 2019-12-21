@@ -74,7 +74,7 @@
                   <?php if($this->session->userdata('sess_logged_in')==0){?>
                       <li class="dropdown"> <a href="<?php echo $loginURL;?>">Login</a></li>
                   <?php } else { ?>
-									    <li class="dropdown"> <a href="<?=base_url()?>user/profile">My Profile</a></li>
+									    <li class="dropdown"> <a href="<?=base_url()?>auth/profile">My Profile</a></li>
                   <?php } ?>
 							</nav>
 						</div>

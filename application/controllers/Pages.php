@@ -16,8 +16,18 @@ class Pages extends CI_Controller {
         $this->googleplus->getAuthenticate();
         $this->session->set_userdata('login',true);
         $this->session->set_userdata('userProfile',$this->googleplus->getUserInfo());
-        redirect('Auth/profile');
+        redirect('');
       }
+      $google_data = $this->googleplus->getAuthenticate();      
+      $session_data=array(
+			'name'=>$google_data['name'],
+			'email'=>$google_data['email'],
+			'source'=>'google',
+			'profile_pic'=>$google_data['profile_pic'],
+			'link'=>$google_data['link'],
+			'sess_logged_in'=>1
+		);
+		$this->session->set_userdata($session_data);
       $data['loginURL'] = $this->googleplus->loginURL();
       $data['page_title'] = 'Home';
       $data['upcomingInfo']=$this->report_model->upcomingEvents();

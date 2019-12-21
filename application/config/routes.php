@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$route['default_controller'] = 'pages/index';
-$route['login'] = 'auth';
+$route['default_controller'] = 'auth';
+// $route['login'] = 'auth';
 
 
 
