@@ -38,7 +38,7 @@
 					<div class="post-item-description">
 						<h2><a href="#">Open Source Community
 							</a></h2>
-						<p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
+						<p align="justify">Free and open source community is a colabration of young free open source enthusiastic developers and supporters in the college.The major objectives are to provide a platform for students to learn more about systems and to make students feel comfortable in handling the free and open source softwares and hardwares.More over it provide a great infrastructure along technical and financial support for students.The community is to implement and promote the Free and open source products in the region.</p>
 					</div>
 				</div>
 			</div>
