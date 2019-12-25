@@ -19,14 +19,16 @@ class Auth extends CI_Controller{
 
 	public function oauth2callback(){
 		$google_data = $this->googleplus->getAuthenticate();
-		$session_data=array(
-			'name'=>$google_data['name'],
-			'email'=>$google_data['email'],
-			'source'=>'google',
-			'profile_pic'=>$google_data['profile_pic'],
-			'link'=>$google_data['link'],
-			'sess_logged_in'=>1
-		);
+		$session_data['profileData'] = $this->session->userdata('userProfile');
+		// var_dump($profileData);
+		// $session_data=array(
+		// 	'name'=>$profileData['name'],
+		// 	'email'=>$profileData['email'],
+		// 	'source'=>'google',
+		// 	'profile_pic'=>$profileData['picture'],
+		// 	// 'link'=>$profileData['link'],
+		// 	'sess_logged_in'=>1
+		// );
 		$this->session->set_userdata($session_data);
 		redirect(base_url().'profile/complete');
 	}
