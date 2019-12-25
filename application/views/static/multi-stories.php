@@ -1,5 +1,5 @@
 
-        <section id="page-title" data-parallax-image="polo/images/parallax/5.jpg">
+        <section id="page-title" data-parallax-image="<?=base_url()?>assets/front/images/banner/stories.jpg">
             <div class="container">
                 <div class="page-title">
                     <h1>Stories</h1>
@@ -16,7 +16,7 @@
             </div>
         </section>
 
-        
+
 
         <section id="page-content">
             <div class="container">

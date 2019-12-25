@@ -1,4 +1,4 @@
-<section id="page-title" data-parallax-image="polo/images/parallax/5.jpg">
+<section id="page-title" data-parallax-image="<?=base_url()?>assets/front/images/banner/community.jpg">
 	<div class="container">
 		<div class="page-title">
 			<h1>Community</h1>
@@ -54,7 +54,7 @@
 					<div class="post-item-description">
 						<h2><a href="#">Maker Community
 							</a></h2>
-						<p>A Community intended to promote the maker culture among the students. Maker space running under the community provides basic infrastructure & resources for the students to transform their ideas in to reality.The Makers space equips modern machineries and rapid proto typing tools to support the young minds with advanced technological development</p>					
+						<p>A Community intended to promote the maker culture among the students. Maker space running under the community provides basic infrastructure & resources for the students to transform their ideas in to reality.The Makers space equips modern machineries and rapid proto typing tools to support the young minds with advanced technological development</p>
 					</div>
 				</div>
 			</div>

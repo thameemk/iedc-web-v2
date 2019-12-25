@@ -15,7 +15,7 @@
 	</div>
 
 
-	<div class="slide background-overlay-one background-image" style="background-image:url('<?=base_url()?>assets/front/images/banner/home.jpg');">
+	<div class="slide background-overlay-one background-image" style="background-image:url('<?=base_url()?>assets/front/images/banner/home-2.jpg');">
 		<div class="container">
 			<div class="slide-captions text-center">
 

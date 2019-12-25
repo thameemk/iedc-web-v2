@@ -1,4 +1,4 @@
-<section id="page-title" data-parallax-image="">
+<section id="page-title" data-parallax-image="<?=base_url()?>assets/front/images/banner/contact.jpg">
 	<div class="container">
 		<div class="page-title">
 			<h1>Contact Us</h1>
