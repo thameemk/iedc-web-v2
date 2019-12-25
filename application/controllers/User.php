@@ -1,7 +1,7 @@
 <?php
 
 
-class Auth extends CI_Controller{
+class User extends CI_Controller{
 
 	public function index(){
 
@@ -10,7 +10,8 @@ class Auth extends CI_Controller{
 			$this->googleplus->getAuthenticate();
 			$this->session->set_userdata('login',true);
 			$this->session->set_userdata('userProfile',$this->googleplus->getUserInfo());
-			redirect('Auth/profile');
+			
+			redirect('user/profile');
 		}
 		$data['loginURL'] = $this->googleplus->loginURL();
 		$this->load->view('login',$data);
