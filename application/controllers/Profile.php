@@ -8,23 +8,20 @@ class Profile extends CI_Controller {
     }
 
     public function complete(){
-      $session_data['profileData'] = $this->session->userdata('userProfile');
-      echo var_dump($profileData);
-      // echo $profileData['email'];exit;
-      echo $this->session->email;exit;
-
       if($this->user_model->is_registered($this->session->email,"Y") == TRUE OR $this->session->email == NULL) {
-            redirect(base_url());
-        }
+            redirect(base_url("myprofile"));
+      }
         $data['title'] = ucfirst('Complete Profile');
         $this->load->view('dashboard/complete',$data);
           if( $this->input->post('branch') != NULL && $this->input->post('phone') != NULL ){
               $user['branch'] = $this->input->post('branch');
               $user['phone'] = $this->input->post('phone');
               $user['fullname'] = $this->input->post('fullname');
-              echo $this->session->email;exit;
               $user['course_duration_from'] = $this->input->post('course_duration_from');
               $user['course_duration_to'] = $this->input->post('course_duration_to');
+              $user['whyiedc'] = $this->input->post('whyiedc');
+              $user['admission_number'] = $this->input->post('admission_number');
+              $user['profile_completed'] = '1';
               $this->user_model->complete_signin($user);
               if(isset($_SESSION['back_url']) && strpos($_SESSION['back_url'], 'ico') == false){
                   $link=$_SESSION['back_url'];
@@ -35,6 +32,26 @@ class Profile extends CI_Controller {
               }
 
           }
+    }
+
+    public function update(){
+        if(isset($_SESSION['email'])){
+            $data['title'] = ucfirst('Update Profile');
+            $data['userinfo']=$this->user_model->get_user_single($this->session->email);
+              if($data['userinfo']['profile_completed']==0){
+                $this->load->view('dashboard/updateprofile',$data);
+              }
+              else{
+                redirect(base_url());
+              }
+        }
+        else{
+            // set the expiration date to one hour ago
+            setcookie("redir", "myprofile", time() + 3600);
+            $data['google_login_url']=$this->google->get_login_url();
+            header('Location: '.$data['google_login_url']);
+            exit('');
+        }
     }
 
 

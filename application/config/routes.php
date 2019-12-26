@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'pages/index';
 $route['login'] = 'auth/login';
-
+$route['myprofile'] = 'Profile/update';
 
 
 

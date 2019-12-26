@@ -18,17 +18,16 @@ class Auth extends CI_Controller{
 	}
 
 	public function oauth2callback(){
-		$google_data = $this->googleplus->getAuthenticate();
-		$session_data['profileData'] = $this->session->userdata('userProfile');
-		// var_dump($profileData);
-		// $session_data=array(
-		// 	'name'=>$profileData['name'],
-		// 	'email'=>$profileData['email'],
-		// 	'source'=>'google',
-		// 	'profile_pic'=>$profileData['picture'],
-		// 	// 'link'=>$profileData['link'],
-		// 	'sess_logged_in'=>1
-		// );
+		$google_data_auth = $this->googleplus->getAuthenticate();
+		$google_data = $this->googleplus->getUserInfo();		
+		$session_data=array(
+			'name'=>$google_data['name'],
+			'email'=>$google_data['email'],
+			'source'=>'google',
+			'profile_pic'=>$google_data['picture'],
+			'link'=>$google_data['link'],
+			'sess_logged_in'=>1
+		);
 		$this->session->set_userdata($session_data);
 		redirect(base_url().'profile/complete');
 	}
@@ -36,11 +35,13 @@ class Auth extends CI_Controller{
 	public function profile(){
 		if($this->session->userdata('login') == true)
 		{
+			echo "flag1";exit;
 			$data['profileData'] = $this->session->userdata('userProfile');
 			$this->load->view('profile',$data);
 		}
 		else
 		{
+			echo "flag2";exit;
 			redirect('');
 		}
 	}

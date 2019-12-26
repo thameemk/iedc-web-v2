@@ -24,16 +24,19 @@ class User_model extends CI_Model {
         if($this->is_registered($this->session->email,"N")==FALSE){
             $data['email'] = $this->session->email;
             $data['hashcode'] =password_hash($data['email'],PASSWORD_BCRYPT);
-            // $this->create($data);
-            foreach ($data as $row) {
-              echo $row;
-              echo "<br>";
-            }
-            exit;
+            $this->db->insert('userRegister', $data);
         }
         else{
             $this->modify($this->session->email,$data);
         }
+    }
+
+    public function get_user_single($email){
+      $this->db->select('*');
+      $this->db->from('userRegister');
+      $this->db->where('email', $email);
+      $query=$this->db->get();
+      return $query->result_array()[0];
     }
 
 }

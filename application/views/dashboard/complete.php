@@ -73,7 +73,7 @@
 									<?php if($this->session->userdata('sess_logged_in')==0){?>
 									<li class="dropdown"> <a href="<?=base_url()?>login">Login</a></li>
 									<?php } else { ?>
-									<li class="dropdown"> <a href="<?=base_url()?>auth/profile">My Profile</a></li>
+									<li class="dropdown"> <a href="<?=base_url()?>myprofile">My Profile</a></li>
 									<?php } ?>
 							</nav>
 						</div>
@@ -161,11 +161,11 @@
 								</div>
 								<div class="col-lg-6 form-group">
 									<label class="sr-only">Admission Number</label>
-									<input type="number" placeholder="Admission Number" class="form-control">
+									<input name="admission_number" type="number" placeholder="Admission Number" class="form-control">
 								</div>
 								<div class="col-lg-12">
 									<div class="form-group">
-										<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Why IEDC ?"></textarea>
+										<textarea name="whyiedc" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Why IEDC ?"></textarea>
 									</div>
 								</div>
 								<div class="col-lg-12 form-group">
