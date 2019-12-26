@@ -50,7 +50,7 @@ class Profile extends CI_Controller {
         else{
             // set the expiration date to one hour ago
             setcookie("redir", "myprofile", time() + 3600);
-            $data['loginURL']=$this->google->loginURL();
+            $data['loginURL']=$this->googleplus->loginURL();
             header('Location: '.$data['loginURL']);
             exit('');
         }
