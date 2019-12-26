@@ -34,15 +34,17 @@ class Profile extends CI_Controller {
           }
     }
 
-    public function update(){
+    public function user_profile(){
         if(isset($_SESSION['email'])){
-            $data['title'] = ucfirst('Update Profile');
             $data['userinfo']=$this->user_model->get_user_single($this->session->email);
-              if($data['userinfo']['profile_completed']==0){
-                $this->load->view('dashboard/updateprofile',$data);
+            $data['profile_pic'] = $this->session->profile_pic;
+            $data['verify_user'] = $this->user_model->get_user_single_verify($this->session->email);
+              if($data['verify_user']['profile_completed']==1){
+                $this->load->view('dashboard/myprofile',$data);
               }
               else{
-                redirect(base_url());
+                $data['title'] = ucfirst('Complete Profile');
+                $this->load->view('dashboard/complete',$data);
               }
         }
         else{

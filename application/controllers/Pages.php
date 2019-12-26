@@ -11,7 +11,7 @@ class Pages extends CI_Controller {
 
   	public function index()
   	{
-        
+      $data['loginURL'] = $this->googleplus->loginURL();
       $data['page_title'] = 'Home';
       $data['upcomingInfo']=$this->report_model->upcomingEvents();
   		$this->load->view('templates/header',$data);
@@ -26,6 +26,7 @@ class Pages extends CI_Controller {
       $temp = str_replace("-"," ",$page);
       $temp1 = ucfirst($temp);
       $data['page_title'] = $temp1;
+      $data['loginURL'] = $this->googleplus->loginURL();
       $data['upcomingInfo']=$this->report_model->upcomingEvents();
       $data['incubated']=$this->report_model->ecellInfo('incubated');
 			$data['incubating']=$this->report_model->ecellInfo('incubating');

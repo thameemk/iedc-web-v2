@@ -69,12 +69,8 @@
 										</ul>
 									</li>
 									<li> <a href="<?=base_url()?>multi-stories">Stories</a></li>
-									<li> <a href="<?=base_url()?>contact">Contact</a></li>
-									<?php if($this->session->userdata('sess_logged_in')==0){?>
-									<li class="dropdown"> <a href="<?=base_url()?>login">Login</a></li>
-									<?php } else { ?>
+									<li> <a href="<?=base_url()?>contact">Contact</a></li>								
 									<li class="dropdown"> <a href="<?=base_url()?>myprofile">My Profile</a></li>
-									<?php } ?>
 							</nav>
 						</div>
 					</div>

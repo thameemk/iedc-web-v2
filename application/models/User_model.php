@@ -36,6 +36,13 @@ class User_model extends CI_Model {
       $this->db->from('userRegister');
       $this->db->where('email', $email);
       $query=$this->db->get();
+      return $query->result_array();
+    }
+    public function get_user_single_verify($email){
+      $this->db->select('*');
+      $this->db->from('userRegister');
+      $this->db->where('email', $email);
+      $query=$this->db->get();
       return $query->result_array()[0];
     }
 
