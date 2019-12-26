@@ -17,7 +17,7 @@ Year : <?=$row['course_duration_from']?> - <?=$row['course_duration_to']?><br>
 Phone : <?=$row['phone']?><br>
 Admission Number : <?=$row['admission_number']?><br>
 Hash Code : <?=$row['hashcode']?><br><br>
-
+Link : <?= $link ?><br><br>
 <?php } ?>
 
 <a href="<?=base_url();?>auth/logout">Logout</a>

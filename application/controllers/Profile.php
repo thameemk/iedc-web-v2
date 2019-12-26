@@ -38,6 +38,7 @@ class Profile extends CI_Controller {
         if(isset($_SESSION['email'])){
             $data['userinfo']=$this->user_model->get_user_single($this->session->email);
             $data['profile_pic'] = $this->session->profile_pic;
+            $data['link'] = $this->session->link;            
             $data['verify_user'] = $this->user_model->get_user_single_verify($this->session->email);
               if($data['verify_user']['profile_completed']==1){
                 $this->load->view('dashboard/myprofile',$data);
