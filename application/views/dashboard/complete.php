@@ -69,8 +69,7 @@
 										</ul>
 									</li>
 									<li> <a href="<?=base_url()?>multi-stories">Stories</a></li>
-									<li> <a href="<?=base_url()?>contact">Contact</a></li>								
-									<li class="dropdown"> <a href="<?=base_url()?>myprofile">My Profile</a></li>
+									<li> <a href="<?=base_url()?>contact">Contact</a></li>																
 							</nav>
 						</div>
 					</div>

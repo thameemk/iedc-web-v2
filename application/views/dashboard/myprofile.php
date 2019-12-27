@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </header>
 <body>
-
+  <?php if($this->session->flashdata('success')): ?>
+  <div class="alert alert-success" role="alert">
+    <center><?php echo $this->session->flashdata('success'); ?></center>
+  </div>
+  <?php endif; ?>
+  <br><br><br>
   <a href="<?=base_url()?>">Home</a><br><br>
 <?php foreach ($userinfo as $row) { ?>
 

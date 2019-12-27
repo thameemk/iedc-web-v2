@@ -13,6 +13,9 @@ class Profile extends CI_Controller {
       }
         $data['title'] = ucfirst('Complete Profile');
         $this->load->view('dashboard/complete',$data);
+        $user = $this->input->post();
+        $user = $this->security->xss_clean($user);
+
           if( $this->input->post('branch') != NULL && $this->input->post('phone') != NULL ){
               $user['branch'] = $this->input->post('branch');
               $user['phone'] = $this->input->post('phone');
@@ -28,6 +31,7 @@ class Profile extends CI_Controller {
                   unset($_SESSION['back_url']);
                   redirect($link);
               }else{
+                  $this->session->set_flashdata('success', 'Your registration is Successfull!!');              
                   redirect(base_url("myprofile"));
               }
 
@@ -38,7 +42,7 @@ class Profile extends CI_Controller {
         if(isset($_SESSION['email'])){
             $data['userinfo']=$this->user_model->get_user_single($this->session->email);
             $data['profile_pic'] = $this->session->profile_pic;
-            $data['link'] = $this->session->link;            
+            $data['link'] = $this->session->link;
             $data['verify_user'] = $this->user_model->get_user_single_verify($this->session->email);
               if($data['verify_user']['profile_completed']==1){
                 $this->load->view('dashboard/myprofile',$data);
@@ -47,7 +51,7 @@ class Profile extends CI_Controller {
                 $data['title'] = ucfirst('Complete Profile');
                 $this->load->view('dashboard/complete',$data);
               }
-        }
+          }
         else{
             // set the expiration date to one hour ago
             setcookie("redir", "myprofile", time() + 3600);
