@@ -31,7 +31,7 @@ class Profile extends CI_Controller {
                   unset($_SESSION['back_url']);
                   redirect($link);
               }else{
-                  $this->session->set_flashdata('success', 'Your registration is Successfull!!');              
+                  $this->session->set_flashdata('success', 'Your registration is Successfull!!');
                   redirect(base_url("myprofile"));
               }
 
@@ -45,6 +45,7 @@ class Profile extends CI_Controller {
             $data['link'] = $this->session->link;
             $data['verify_user'] = $this->user_model->get_user_single_verify($this->session->email);
               if($data['verify_user']['profile_completed']==1){
+                $this->session->set_flashdata('success', 'Login Successfull!!');                
                 $this->load->view('dashboard/myprofile',$data);
               }
               else{
