@@ -68,7 +68,7 @@
 			<?php
               foreach(array_reverse($upcomingInfo) as $row){
             ?>
-			<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
+			<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?=$row['uEvent']?>">
 				<div class="portfolio-item-wrap">
 					<div class="portfolio-image">
 						<img src="<?=base_url()?>assets/uploads/images/updates/<?=$row['imageLink']?>" alt="<?=$row['uTitle']?>">
