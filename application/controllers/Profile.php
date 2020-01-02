@@ -9,7 +9,7 @@ class Profile extends CI_Controller {
 
     public function complete(){
       if($this->user_model->is_registered($this->session->email,"Y") == TRUE OR $this->session->email == NULL) {
-            redirect(base_url("myprofile"));
+            redirect(base_url("user/dashboard"));
       }
         $data['title'] = ucfirst('Complete Profile');
         $this->load->view('dashboard/complete',$data);
@@ -32,7 +32,7 @@ class Profile extends CI_Controller {
                   redirect($link);
               }else{
                   $this->session->set_flashdata('success', 'Your registration is Successfull!!');
-                  redirect(base_url("myprofile"));
+                  redirect(base_url("user/dashboard"));
               }
 
           }
@@ -43,10 +43,16 @@ class Profile extends CI_Controller {
             $data['userinfo']=$this->user_model->get_user_single($this->session->email);
             $data['profile_pic'] = $this->session->profile_pic;
             $data['link'] = $this->session->link;
+            $data['loginURL'] = $this->googleplus->loginURL();
             $data['verify_user'] = $this->user_model->get_user_single_verify($this->session->email);
               if($data['verify_user']['profile_completed']==1){
-                $this->session->set_flashdata('success', 'Login Successfull!!');                
-                $this->load->view('dashboard/myprofile',$data);
+                $this->session->set_flashdata('success', 'Login Successfull!!');
+                // $this->load->view('dashboard/myprofile',$data);
+                $this->load->view('dashboard/sidebar',$data);
+                $this->load->view('dashboard/header',$data);
+                $this->load->view('dashboard/home',$data);
+                $this->load->view('dashboard/footer',$data);
+
               }
               else{
                 $data['title'] = ucfirst('Complete Profile');
