@@ -69,7 +69,12 @@
 										</ul>
 									</li>
 									<li> <a href="<?=base_url()?>multi-stories">Stories</a></li>
-									<li> <a href="<?=base_url()?>contact">Contact</a></li>																
+									<li> <a href="<?=base_url()?>contact">Contact</a></li>
+									<?php if($this->session->userdata('sess_logged_in')==0){?>
+                      <li> <a href="<?php echo $loginURL ?>">Login</a></li>
+                  <?php } else { ?>
+									    <li> <a href="<?=base_url()?>auth/logout">Logout</a></li>
+                  <?php } ?>
 							</nav>
 						</div>
 					</div>
@@ -101,11 +106,17 @@
 				<div class="row">
 					<div class="col-lg-8 center no-padding">
 						<form class="form-transparent-grey" method="post">
+							<?php if($this->session->flashdata('fail')): ?>
+							<div class="alert alert-danger" role="alert">
+								<center><?php echo $this->session->flashdata('fail'); ?></center>
+							</div>
+							<?php endif; ?>
 							<div class="row">
 								<div class="col-lg-12">
 									<h3>Complete Profile</h3>
 									<br>
 								</div>
+
 								<div class="col-lg-6 form-group">
 									<label class="sr-only">Full Name</label>
 									<input name="fullname" type="text" placeholder="Full Name" class="form-control">
@@ -155,12 +166,12 @@
 									</select>
 								</div>
 								<div class="col-lg-6 form-group">
-									<label class="sr-only">Admission Number</label>
-									<input name="admission_number" type="number" placeholder="Admission Number" class="form-control">
+									<label class="sr-only">Access Code</label>
+									<input name="access_code" type="text" placeholder="Access Code" class="form-control" required>
 								</div>
 								<div class="col-lg-12">
 									<div class="form-group">
-										<textarea name="whyiedc" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Why IEDC ?"></textarea>
+										<textarea name="whyiedc" class="form-control"  rows="3" placeholder="Why IEDC ?"></textarea>
 									</div>
 								</div>
 								<div class="col-lg-12 form-group">
