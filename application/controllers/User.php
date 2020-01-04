@@ -27,7 +27,7 @@ class User extends CI_Controller {
               $this->form_validation->set_rules('course_duration_from','Course Duration ','required');
               $this->form_validation->set_rules('course_duration_to','Course Duration To ','required');
               if($this->form_validation->run() == FALSE){
-                  $this->session->set_flashdata('fail', 'Fill all fields! ');
+                  $this->session->set_flashdata('fail', 'Fill all required fields.<br>OR<br> Check your Access code !!');
               }else{
                   if($this->user_model->check_access($this->session->email,$this->input->post('access_code')) == TRUE){
                       $user = array(
@@ -44,7 +44,7 @@ class User extends CI_Controller {
                       redirect(base_url("user/dashboard"));
                   }
                   else{
-                    $this->session->set_flashdata('fail', 'You are not authorized.<br> Wrong Access code !!');
+                    $this->session->set_flashdata('fail', 'Fill all required fields.<br>OR<br> Check your Access code !!');
                   }
               }
           }
