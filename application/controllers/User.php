@@ -5,8 +5,10 @@ class User extends CI_Controller {
     parent::__construct();
 		$this->load->model('user_model');
 		$this->load->library('googleplus');
-      if(!$this->session->userdata('sess_logged_in')==1 AND !$this->user_model->is_available($this->session->email) == TRUE){
-          echo "Never think you are smart!!";exit;
+      if(!$this->session->userdata('sess_logged_in')==1 OR !$this->user_model->is_available($this->session->email) == TRUE){
+          echo "You are not authorized . Wrong Access code !!!!<br><br>";
+          $url = base_url('auth/logout');
+          echo "<a href=\"$url\">Return To Home</a>";exit;
       }
     }
 
@@ -38,17 +40,11 @@ class User extends CI_Controller {
                         'profile_completed' => '1'
                       );
                       $this->user_model->complete_signin($user);
-                      if(isset($_SESSION['back_url']) && strpos($_SESSION['back_url'], 'ico') == false){
-                          $link=$_SESSION['back_url'];
-                          unset($_SESSION['back_url']);
-                          redirect($link);
-                      }else{
-                          $this->session->set_flashdata('success', 'Your registration is Successfull!!');
-                          redirect(base_url("user/dashboard"));
-                      }
+                      $this->session->set_flashdata('success', 'Your registration is Successfull!!');
+                      redirect(base_url("user/dashboard"));
                   }
                   else{
-                    $this->session->set_flashdata('fail', 'You are not authorized to access.<br> Wrong Access code !!');
+                    $this->session->set_flashdata('fail', 'You are not authorized.<br> Wrong Access code !!');
                   }
               }
           }
