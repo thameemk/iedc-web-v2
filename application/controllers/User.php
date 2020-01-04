@@ -6,7 +6,7 @@ class User extends CI_Controller {
 		$this->load->model('user_model');
 		$this->load->library('googleplus');
       if(!$this->session->userdata('sess_logged_in')==1 OR !$this->user_model->is_available($this->session->email) == TRUE){
-          echo "You are not authorized . Wrong Access code !!!!<br><br>";
+          echo "You are not authorized . Contact Web Admin !!!!<br><br>";
           $url = base_url('auth/logout');
           echo "<a href=\"$url\">Return To Home</a>";exit;
       }
