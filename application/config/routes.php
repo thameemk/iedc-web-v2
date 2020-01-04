@@ -3,9 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route['default_controller'] = 'pages/index';
-$route['dashboard'] = 'profile/user_profile';
-
-
 
 $route['404_override'] = '';
 $route['(:any)'] = 'pages/view/$1';

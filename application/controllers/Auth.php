@@ -11,7 +11,7 @@ class Auth extends CI_Controller{
 	public function index(){
 		redirect(base_url());
 	}
-	
+
 	public function oauth2callback(){
 		$google_data_auth = $this->googleplus->getAuthenticate();
 		$google_data = $this->googleplus->getUserInfo();
@@ -24,7 +24,7 @@ class Auth extends CI_Controller{
 			'sess_logged_in'=>1
 		);
 		$this->session->set_userdata($session_data);
-		redirect(base_url().'profile/complete');
+		redirect(base_url().'user/complete');
 	}
 
 	public function logout(){
