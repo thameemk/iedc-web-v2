@@ -88,7 +88,7 @@
                         <li class="ml-3">Yadhu 8547171173
                       </ol>
                 </span>
-              <span><a href="#more" data-toggle="collapse">Click to expand</span>
+              <span><a href="#more" data-toggle="collapse">Click to expand</a></span>
 				   </div>
 				    <img src="<?=base_url()?>assets/uploads/images/updates/InnovateforTKM.jpg" width="auto" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 			   </div>
