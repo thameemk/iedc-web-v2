@@ -20,8 +20,7 @@
 									<li><a href="<?=base_url()?>#about">About us</a></li>
 									<li><a href="<?=base_url()?>#mission">Mission</a></li>
 									<li><a href="<?=base_url()?>#vision">Vision</a></li>
-									<li><a href="<?=base_url()?>profile">My profile</a></li>
-									<li><a href="<?=base_url()?>stories">Stories</a></li>
+									<li><a href="<?=base_url()?>user/dashboard">User Panel</a></li>
 								</ul>
 							</div>
 						</div>
@@ -32,6 +31,8 @@
 									<li><a href="<?=base_url()?>ircell">IR-Cell</a></li>
 									<li><a href="<?=base_url()?>ecell">E-Cell</a></li>
 									<li><a href="<?=base_url()?>communities">Communities</a></li>
+									<li><a href="<?=base_url()?>execom">Execom</a></li>
+									<li><a href="<?=base_url()?>web-team">Web Team</a></li>
 								</ul>
 							</div>
 						</div>

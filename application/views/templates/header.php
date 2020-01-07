@@ -64,8 +64,7 @@
 											<li> <a href="<?=base_url()?>web-team">Web Team</a>
 											</li>
 										</ul>
-                  </li>
-									<li> <a href="<?=base_url()?>multi-stories">Stories</a></li>
+                  </li>						
 									<li> <a href="<?=base_url()?>contact">Contact</a></li>
                   <?php if($this->session->userdata('sess_logged_in')==0){?>
                       <li> <a href="<?php echo $loginURL ?>">Login</a></li>

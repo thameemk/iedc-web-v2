@@ -32,13 +32,14 @@
 				<div class="post-item-wrap">
 					<div class="post-image">
 						<a href="#">
-							<img src="<?=base_url()?>assets/front/images/community/open-source.png" alt="" class="img-fluid" alt="open-source" class="img-fluid" style="height: 150px ; width: 200px;">
+							<img src="<?=base_url()?>assets/front/images/community/sig.jpg" alt="" class="img-fluid" alt="open-source" class="img-fluid" style="height: 150px ; width: 200px;">
 						</a>
 					</div>
 					<div class="post-item-description">
-						<h2><a href="#">Open Source Community
+						<h2><a href="#">Special Interest Group
 							</a></h2>
-						<p align="justify">Free and open source community is a colabration of young free open source enthusiastic developers and supporters in the college.The major objectives are to provide a platform for students to learn more about systems and to make students feel comfortable in handling the free and open source softwares and hardwares.More over it provide a great infrastructure along technical and financial support for students.The community is to implement and promote the Free and open source products in the region.</p>
+						<p align="justify">IEDC IR CELL and <a href="//ieeesbtkmce.in" target="_blank">IEEE IAS TKMCE SBC</a> proudly presents a Special Interest Group (SIG) focussing on AI and IoT. We are looking for enthusiastic people who have relevant or basic experience to facilitate the SIG AI, IChemE and SIG IoT group. Be it a little knowledge; little literally counts!
+						</p>
 					</div>
 				</div>
 			</div>

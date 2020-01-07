@@ -71,17 +71,22 @@
 			<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?=$row['uEvent']?>">
 				<div class="portfolio-item-wrap">
 					<div class="portfolio-image">
-						<img src="<?=base_url()?>assets/uploads/images/updates/<?=$row['imageLink']?>" alt="<?=$row['uTitle']?>">
+						<img height="100px" width="auto" src="<?=base_url()?>assets/uploads/images/updates/<?=$row['imageLink']?>" alt="<?=$row['uTitle']?>">
 					</div>
 					<div class="portfolio-description">
 						<a href="portfolio-page-grid-gallery.html">
 							<h3><?=$row['uTitle']?></h3>
 							<span>
 								<b>
+                  <?php if($row['uDate'] != NULL) { ?>
 									Date : <?=$row['uDate']?><br>
+                  <?php } if($row['uTime'] != NULL) { ?>
 									Time : <?=$row['uTime']?><br>
+                  <?php } if($row['uVenue'] != NULL) { ?>
 									Venue : <?=$row['uVenue']?> <br>
+                  <?php } if($row['uContact'] != NULL) { ?>
 									Contact : <?=$row['uContact']?><br>
+                  <?php } ?>
 								</b>
 							</span>
 							<a class="btn btn-red fadeInUp" href="<?=$row['uRegistration']?>" style="animation-duration: 600ms;">Register</a>
