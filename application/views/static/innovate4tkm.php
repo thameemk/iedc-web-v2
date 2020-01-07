@@ -1,3 +1,4 @@
+
 <section id="page-title" data-parallax-image="<?=base_url()?>assets/front/images/banner/contact.jpg">
 	<div class="container">
 		<div class="page-title">
@@ -34,8 +35,10 @@
                   solution for any problem you come across inside our college.
                 </p>
               </div>
-              <h5 id="rules">Rules & Regulations</h5>
-              <div class="smalldesc">
+							<span class="teaser">
+                <h5 id="rules">Rules & Regulations</h5>
+              </span>
+							<span class="collapse smalldesc" id="more">
                       <ol type="1"><b>Event criteria</b>
                         <li class="ml-3">The participants can participate in a team of 3 or 4
                         <li class="ml-3">ALone wolfs are also welcome.
@@ -84,7 +87,8 @@
                         <li class="ml-3">Jishnu 9562438038
                         <li class="ml-3">Yadhu 8547171173
                       </ol>
-                    </div>
+                </span>
+              <span><a href="#more" data-toggle="collapse">Click to expand</span>
 				   </div>
 				    <img src="<?=base_url()?>assets/uploads/images/updates/InnovateforTKM.jpg" width="auto" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 			   </div>

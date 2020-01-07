@@ -21,10 +21,13 @@
 	<link rel="shortcut icon" href="<?=base_url()?>assets/front/images/icon.png">
 	<link href="<?=base_url()?>assets/front/css/plugins.css" rel="stylesheet">
 	<link href="<?=base_url()?>assets/front/css/style.css" rel="stylesheet">
-	<link href="<?=base_url()?>assets/front/css/responsive.css" rel="stylesheet">
+	<link href="<?=base_url()?>assets/front/css/responsive.css" rel="stylesheet">  
   <style>
   .g-recaptcha {
     margin: 0 0 25px 0;
+   }
+   .collapse.in {
+     display: inline !important;
    }
    </style>
 </head>
@@ -64,7 +67,7 @@
 											<li> <a href="<?=base_url()?>web-team">Web Team</a>
 											</li>
 										</ul>
-                  </li>						
+                  </li>
 									<li> <a href="<?=base_url()?>contact">Contact</a></li>
                   <?php if($this->session->userdata('sess_logged_in')==0){?>
                       <li> <a href="<?php echo $loginURL ?>">Login</a></li>
