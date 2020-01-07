@@ -8,20 +8,20 @@
 </div>
 
 
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/core/core.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/core/core.js"></script>
 
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/chartjs/Chart.min.js"></script>
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/jquery.flot/jquery.flot.js"></script>
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/apexcharts/apexcharts.min.js"></script>
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/progressbar.js/progressbar.min.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/chartjs/Chart.min.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/jquery.flot/jquery.flot.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/jquery.flot/jquery.flot.resize.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/apexcharts/apexcharts.min.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/progressbar.js/progressbar.min.js"></script>
 
-<script src="<?=base_url()?>assets/dashboard/assets/vendors/feather-icons/feather.min.js"></script>
-<script src="<?=base_url()?>assets/dashboard/assets/js/template.js"></script>
+<script src="<?=base_url()?>assets/dashboard/vendors/feather-icons/feather.min.js"></script>
+<script src="<?=base_url()?>assets/dashboard/js/template.js"></script>
 
-<script src="<?=base_url()?>assets/dashboard/assets/js/dashboard.js"></script>
-<script src="<?=base_url()?>assets/dashboard/assets/js/datepicker.js"></script>
+<script src="<?=base_url()?>assets/dashboard/js/dashboard.js"></script>
+<script src="<?=base_url()?>assets/dashboard/js/datepicker.js"></script>
 
 </body>
 

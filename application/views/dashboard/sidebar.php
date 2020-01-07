@@ -7,12 +7,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<?php foreach ($userinfo as $row) { ?>
 	<title><?=$row['fullname']?> | Dashboard - Innovation and Entrepreneurship Development Cell, TKM College of Engineering</title>
-	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/assets/vendors/core/core.css">
-	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/assets/fonts/feather-font/css/iconfont.css">
-	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/assets/css/demo_1/style.css">
+	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/vendors/core/core.css">
+	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/fonts/feather-font/css/iconfont.css">
+	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/css/demo_1/style.css">
 	<link rel="shortcut icon" href="<?=base_url()?>assets/front/images/icon.png">
-	
+
 
 </head>
 
