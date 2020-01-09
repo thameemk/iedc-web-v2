@@ -10,7 +10,7 @@ class Contact extends CI_Controller{
 
 	public function postmessage(){
 
-		$recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
+	$recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
     // $userIp=$this->input->ip_address();
     $secret='6LclF8kUAAAAADHKdPmhmxRQ6wY2sJ9YXtV9fSsq';
     $credential = array(
