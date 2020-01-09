@@ -37,6 +37,9 @@ class Report_model extends CI_Model {
       $this->db->insert('contacts', $data);
     }
     public function registration_innovate4tkm($data){
-      $this->db->insert('users_innovate_4_tkm', $data);      
+      $this->db->insert('users_innovate_4_tkm', $data);
+    }
+    public function registration_ai_ml($data){
+      $this->db->insert('users_ai_ml', $data);            
     }
 }
