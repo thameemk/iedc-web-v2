@@ -30,16 +30,23 @@
 					  <div class="mb-3 mt-5">
               <div>
                 <h3>AI & ML</h3>
-                <p align="justify">Innovate for TKM is an event conducted by IEDC, TKMCE focused on first and second year
-                  students of any branch. The event is developing and prototyping an idea that fits as a
-                  solution for any problem you come across inside our college.
+                <p align="justify">"Computers will overtake humans with AI 🤖 within the next 100 years. When this happens we need to make sure the computers have goals aligned with ours. "
                 </p>
               </div>
               <span class="teaser">
                 <h5 id="rules">Rules & Regulations</h5>
               </span>
               <span class="collapse smalldesc" id="more">
+								<p>It's time to prepare for the future.<br>
+								IEDC TKMCE presents a 2-day WORKSHOP on ARTIFICIAL INTELLIGENCE and MACHINE LEARNING . on JANUARY 25 , 26 2020. The workshop is conducted in association with  ACADEVO Research labs ,
+								Grab the opportunity before it's too late. 🕑<br>	<br>
+								Registration fee : Rs.700<br>
+								Registration fee for IEDC members : Rs.550<br><br>
 
+								For Queries Contact :<br>
+								Aneesh: 9447546457<br>
+								Babitha : 9400665722<br>
+								</p>
                 </span>
               <span><a href="#more" data-toggle="collapse">Click to expand</a></span>
 				   </div>
