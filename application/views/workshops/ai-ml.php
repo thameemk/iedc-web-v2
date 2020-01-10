@@ -102,9 +102,9 @@
               </div>
 							<div class="form-group  col-md-6">
 								<label for="IEDC Member" name="iedc_member">IEDC Member</label>
-								<input name="is_iedc_member" type="radio">Yes
+								<input value="yes" name="is_iedc_member" type="radio">Yes
 								<span class="mr-3"></span>
-								<input name="is_iedc_member" type="radio">No
+								<input value="no"name="is_iedc_member" type="radio">No
 							</div>
 						</div>
             <div class="form-group">
