@@ -1,3 +1,12 @@
+<div class="page-content">
+
+	<nav class="page-breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Admin</a></li>
+			<li class="breadcrumb-item active" aria-current="page">AI & ML Registred Users</li>
+		</ol>
+	</nav>
+
 <section class="mt-5">
 	<div class="row">
 		<div style="max-width:100%;" class="col-lg-7 col-xl-8 stretch-card">
@@ -59,3 +68,4 @@
 		</div>
 	</div>
 </section>
+</div>

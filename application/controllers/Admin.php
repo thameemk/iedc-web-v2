@@ -16,8 +16,8 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function events_registration($admin){
-      if ( ! file_exists(APPPATH.'views/dashboard/events/'.$admin.'.php')){
+    public function dynamic_admin($admin){
+      if ( ! file_exists(APPPATH.'views/dashboard/dynamic_admin/'.$admin.'.php')){
           show_404();
       }
       $data['admin'] = $this->admin_model->is_admin($this->session->email);
@@ -28,7 +28,7 @@ class Admin extends CI_Controller {
       $data['loginURL'] = $this->googleplus->loginURL();
       $this->load->view('dashboard/sidebar',$data);
       $this->load->view('dashboard/header',$data);
-      $this->load->view('dashboard/events/'.$admin,$data);
+      $this->load->view('dashboard/dynamic_admin/'.$admin,$data);
       $this->load->view('dashboard/footer',$data);
     }
 
@@ -38,4 +38,31 @@ class Admin extends CI_Controller {
       $this->admin_model->payment_verify_ai_ml($email,$paid_email);
       redirect('admin/dashboard/ai-ml');
     }
+
+    public function add_user(){
+      $data = $this->input->post();
+      $data = $this->security->xss_clean($data);
+      $this->form_validation->set_rules('email','User Email','required|is_unique[userRegister.email]');
+      if($this->form_validation->run() == FALSE){
+        $this->session->set_flashdata('fail', 'You have already registred');
+        redirect('admin/dashboard/add-user');
+      }
+      else{
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        if($this->form_validation->run() == FALSE){
+            $this->session->set_flashdata('fail', 'Fill all fields');
+            redirect('admin/dashboard/add-user');
+        }
+        else{
+          $data = array(
+            'email' => $this->input->post('email'),
+            'user_hash' => password_hash($this->input->post('password'),PASSWORD_BCRYPT)
+            );
+            $this->admin_model->add_user($data);
+            $this->session->set_flashdata('success', 'Success!');
+            redirect('admin/dashboard/add-user');
+        }
+      }
+    }
+
 }
