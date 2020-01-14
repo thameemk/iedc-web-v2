@@ -4,6 +4,7 @@ class User extends CI_Controller {
     function __construct() {
     parent::__construct();
 		$this->load->model('user_model');
+    $this->load->model('admin_model');
 		$this->load->library('googleplus');
       if(!$this->session->userdata('sess_logged_in')==1 OR !$this->user_model->is_available($this->session->email) == TRUE){
           echo "You are not authorized . Contact Web Admin !!!!<br><br>";
@@ -52,6 +53,7 @@ class User extends CI_Controller {
 
     public function dashboard(){
       if(isset($_SESSION['email'])){
+          $data['admin'] = $this->admin_model->is_admin($this->session->email);
           $data['userinfo']=$this->user_model->get_user_single($this->session->email);
           $data['profile_pic'] = $this->session->profile_pic;
           $data['link'] = $this->session->link;
