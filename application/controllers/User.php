@@ -37,6 +37,7 @@ class User extends CI_Controller {
                         'fullname' => $this->input->post('fullname'),
                         'course_duration_from' => $this->input->post('course_duration_from'),
                         'course_duration_to' => $this->input->post('course_duration_to'),
+                        'admission_number' => $this->input->post('admission_number'),
                         'whyiedc' =>  $this->input->post('whyiedc'),
                         'profile_completed' => '1'
                       );

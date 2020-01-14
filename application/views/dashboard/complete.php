@@ -169,6 +169,10 @@
 									<label class="sr-only">Access Code</label>
 									<input name="access_code" type="text" placeholder="Access Code" class="form-control" required>
 								</div>
+								<div class="col-lg-6 form-group">
+									<label class="sr-only">Admission Number</label>
+									<input name="admission_number" type="text" placeholder="Admission Number" class="form-control" required>
+								</div>
 								<div class="col-lg-12">
 									<div class="form-group">
 										<textarea name="whyiedc" class="form-control"  rows="3" placeholder="Why IEDC ?"></textarea>
