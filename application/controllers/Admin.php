@@ -16,7 +16,10 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function ai_ml_worskhop(){
+    public function events_registration($admin){
+      if ( ! file_exists(APPPATH.'views/dashboard/events/'.$admin.'.php')){
+          show_404();
+      }
       $data['admin'] = $this->admin_model->is_admin($this->session->email);
       $data['users_ai_ml']=$this->admin_model->get_ai_ml_users();
       $data['userinfo']=$this->user_model->get_user_single($this->session->email);
@@ -25,9 +28,10 @@ class Admin extends CI_Controller {
       $data['loginURL'] = $this->googleplus->loginURL();
       $this->load->view('dashboard/sidebar',$data);
       $this->load->view('dashboard/header',$data);
-      $this->load->view('dashboard/ai-ml',$data);
+      $this->load->view('dashboard/events/'.$admin,$data);
       $this->load->view('dashboard/footer',$data);
     }
+
     public function ai_ml_paid(){
       $email = $this->input->post('email');
       $paid_email = $this->session->email;
