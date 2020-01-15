@@ -56,7 +56,8 @@ class Admin extends CI_Controller {
         else{
           $data = array(
             'email' => $this->input->post('email'),
-            'user_hash' => password_hash($this->input->post('password'),PASSWORD_BCRYPT)
+            'user_hash' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+            'added_user' => $this->session->email       
             );
             $this->admin_model->add_user($data);
             $this->session->set_flashdata('success', 'Success!');
