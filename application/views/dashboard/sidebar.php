@@ -7,12 +7,26 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<?php foreach ($userinfo as $row) { ?>
 	<title><?=$row['fullname']?> | Dashboard - Innovation and Entrepreneurship Development Cell, TKM College of Engineering</title>
+
+	<script>
+	$('select[name=business_ownership]').change(function () {
+	    if ($(this).val() == 'other') {
+	        $('#bussinessOwnershipOther').show();
+	    } else {
+	        $('#bussinessOwnershipOther').hide();
+	    }
+	});
+	</script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
 	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/vendors/core/core.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/fonts/feather-font/css/iconfont.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/css/demo_1/style.css">
 	<link rel="shortcut icon" href="<?=base_url()?>assets/front/images/icon.png">
-
+	<style>
+		#bussinessOwnershipOther{display:none;}
+	</style>
 
 </head>
 
@@ -41,7 +55,7 @@
 					</li>
 					<li class="nav-item nav-category">TOOLS</li>
 					<li class="nav-item">
-						<a href="<?=base_url()?>user/dashboard" class="nav-link">
+						<a href="<?=base_url()?>user/dashboard/maker-library" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
 								<span class="link-title">Maker Library</span>
 						</a>
@@ -59,7 +73,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?=base_url()?>user/dashboard/" class="nav-link">
+						<a href="<?=base_url()?>user/dashboard/incubation-application" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
 							<span class="link-title">Incubation Application</span>
 						</a>
