@@ -17,6 +17,10 @@ class Admin_model extends CI_Model {
       $query = $this->db->get('users_ai_ml');
       return $query->result_array();
     }
+    public function get_innovate_users(){
+      $query = $this->db->get('users_innovate_4_tkm');
+      return $query->result_array();
+    }
 
     public function payment_verify_ai_ml($email,$paid_email){
      $this->db->where('email',$email);

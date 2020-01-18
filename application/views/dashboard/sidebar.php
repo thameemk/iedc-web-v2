@@ -17,6 +17,11 @@
 	    }
 	});
 	</script>
+	<script>
+	var html = $('span').html();
+	html = html.replace(/((\w+\W+){5})/, '$1<br/>');
+	$('div').html(html);
+	</script>
 	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 
 	<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/vendors/core/core.css">
@@ -85,6 +90,12 @@
 						<a href="<?=base_url()?>admin/dashboard/ai-ml" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
 							<span class="link-title">AI & ML Workshop</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?=base_url()?>admin/dashboard/innovate-4-tkm" class="nav-link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+							<span class="link-title">Innovate 4 TKM</span>
 						</a>
 					</li>
 					<li class="nav-item">

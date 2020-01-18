@@ -22,6 +22,7 @@ class Admin extends CI_Controller {
       }
       $data['admin'] = $this->admin_model->is_admin($this->session->email);
       $data['users_ai_ml']=$this->admin_model->get_ai_ml_users();
+      $data['users_innovate']=$this->admin_model->get_innovate_users();      
       $data['userinfo']=$this->user_model->get_user_single($this->session->email);
       $data['profile_pic'] = $this->session->profile_pic;
       $data['link'] = $this->session->link;
@@ -57,7 +58,7 @@ class Admin extends CI_Controller {
           $data = array(
             'email' => $this->input->post('email'),
             'user_hash' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
-            'added_user' => $this->session->email       
+            'added_user' => $this->session->email
             );
             $this->admin_model->add_user($data);
             $this->session->set_flashdata('success', 'Success!');
