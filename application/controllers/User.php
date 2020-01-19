@@ -3,6 +3,7 @@ class User extends CI_Controller {
 
     function __construct() {
     parent::__construct();
+    $this->load->helper('url');
 		$this->load->model('user_model');
     $this->load->model('admin_model');
 		$this->load->library('googleplus');
@@ -78,6 +79,21 @@ class User extends CI_Controller {
         exit('');
       }
 
+    }
+
+    public function dynamic_user($user){
+      if ( ! file_exists(APPPATH.'views/dashboard/dynamic_user/'.$user.'.php')){
+          show_404();
+      }
+      $data['admin'] = $this->admin_model->is_admin($this->session->email);
+      $data['userinfo']=$this->user_model->get_user_single($this->session->email);
+      $data['profile_pic'] = $this->session->profile_pic;
+      $data['link'] = $this->session->link;
+      $data['loginURL'] = $this->googleplus->loginURL();
+      $this->load->view('dashboard/sidebar',$data);
+      $this->load->view('dashboard/header',$data);
+      $this->load->view('dashboard/dynamic_user/'.$user,$data);
+      $this->load->view('dashboard/footer',$data);
     }
 
 }
