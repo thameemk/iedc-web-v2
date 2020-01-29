@@ -60,6 +60,7 @@ class User extends CI_Controller {
           $data['profile_pic'] = $this->session->profile_pic;
           $data['link'] = $this->session->link;
           $data['loginURL'] = $this->googleplus->loginURL();
+          $data['get_maker_items']=$this->user_model->get_maker_items();
           if($this->user_model->is_profile_completed($this->session->email) == TRUE){
             $this->load->view('dashboard/sidebar',$data);
             $this->load->view('dashboard/header',$data);
@@ -90,6 +91,7 @@ class User extends CI_Controller {
       $data['profile_pic'] = $this->session->profile_pic;
       $data['link'] = $this->session->link;
       $data['loginURL'] = $this->googleplus->loginURL();
+      $data['get_maker_items']=$this->user_model->get_maker_items();      
       $this->load->view('dashboard/sidebar',$data);
       $this->load->view('dashboard/header',$data);
       $this->load->view('dashboard/dynamic_user/'.$user,$data);

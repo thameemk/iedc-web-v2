@@ -55,4 +55,9 @@ class User_model extends CI_Model {
        $this->db->update('userRegister', $data);
      }
 
+     public function get_maker_items(){
+       $query = $this->db->get('maker_library');
+       return $query->result_array();
+     }
+
 }
