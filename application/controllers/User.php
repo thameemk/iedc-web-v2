@@ -87,6 +87,7 @@ class User extends CI_Controller {
           show_404();
       }
       $data['admin'] = $this->admin_model->is_admin($this->session->email);
+      $data['maker_user_req'] = $this->user_model->maker_user_req($this->session->email);
       $data['userinfo']=$this->user_model->get_user_single($this->session->email);
       $data['profile_pic'] = $this->session->profile_pic;
       $data['link'] = $this->session->link;

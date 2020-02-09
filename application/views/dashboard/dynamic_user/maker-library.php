@@ -13,6 +13,7 @@
 				<?php if($this->session->flashdata('success')): ?>
 				<span style="line-height:3" class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
 				<?php endif; ?>
+	<section>					
 	<div class="row mt-5">
 	
 		<?php foreach ($get_maker_items as $key) { ?>
@@ -43,4 +44,46 @@
 		<?php } ?>
 
 	</div>
+	</section>
+	<section class="mt-5">
+	<div class="row">
+		<div style="max-width:100%;" class="col-lg-7 col-xl-11 stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-flex justify-content-between align-items-baseline mb-2">
+						<h6 class="card-title mb-0">Your Requests</h6>
+						<div class="dropdown mb-2">
+							<button class="btn p-0" type="button" id="dropdownMenuButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+							</button>
+						</div>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-hover mb-0">
+							<thead>
+								<tr>									
+									<th class="pt-0">Name</th>
+									<th class="pt-0">Request Date</th>
+									<th class="pt-0">Issue Date</th>
+									<th class="pt-0">Return Date</th>									
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach ($maker_user_req as $row ){?>
+								<tr>
+									<td><?=$row['req_component']?></td>
+									<td><?=$row['req_date']?></td>
+									<td><?=$row['issue_date']?></td>
+									<td><?=$row['return_date']?></td>
+									
+								</tr>
+								<?php }?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 </div>

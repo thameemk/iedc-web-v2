@@ -73,6 +73,7 @@ class User_model extends CI_Model {
       $total_count = $num[0]['available_count'] - 1;      
       $this->user_model->update_count($total_count,$data);      
      }
+
      public function update_count($total_count,$data){
        $this->db->where('comp_num', $data);
        $temp = array(
@@ -80,5 +81,14 @@ class User_model extends CI_Model {
        );
        $this->db->update('maker_library', $temp);              
      }
+
+     public function maker_user_req($email){
+      $this->db->select('*');
+      $this->db->from('maker_lib_requests');
+      $this->db->where('user_email', $email);
+      $query=$this->db->get();
+      return $query->result_array();
+     }
+
 
 }
