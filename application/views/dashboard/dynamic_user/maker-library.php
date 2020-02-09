@@ -7,9 +7,14 @@
 			</ol>
 		</nav>
 	</section>
-
-	<div class="row">
-
+	<?php if($this->session->flashdata('fail')): ?>
+				<span style="line-height:3" class="badge badge-danger"><?php echo $this->session->flashdata('fail'); ?></span>
+				<?php endif; ?>
+				<?php if($this->session->flashdata('success')): ?>
+				<span style="line-height:3" class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
+				<?php endif; ?>
+	<div class="row mt-5">
+	
 		<?php foreach ($get_maker_items as $key) { ?>
 
 		<div class="col-md-3">
@@ -25,9 +30,12 @@
 						Not Available
 				</li>
 				<?php }else { ?>
-				<li class="btn btn-success">
-						<?=$key['available_count']?>/<?=$key['total_count']?> Available
-				</li>
+				<form action="<?=base_url()?>user/maker_request" method="post">
+					<input type="hidden" name="comp_num" value="<?=$key['comp_num']?>">			
+					<li>
+						<button class="btn btn-success" type="submit">Book Now</button>
+					</li>
+				</form>
 				<?php } ?>
 			</ul>
 		</div>

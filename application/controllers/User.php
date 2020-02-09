@@ -98,4 +98,19 @@ class User extends CI_Controller {
       $this->load->view('dashboard/footer',$data);
     }
 
+    public function maker_request(){
+      $data = $this->input->post();
+      $data = $this->security->xss_clean($data);
+      date_default_timezone_set('Asia/Kolkata');
+      $data = array(
+          'user_email' => $this->session->email,
+          'req_component' => $this->input->post('comp_num'),
+          'req_date' => date('d-m-Y H:i')
+      );
+      $this->user_model->change_count_lib($this->input->post('comp_num'));
+      $this->user_model->add_maker_request($data);
+      $this->session->set_flashdata('success', 'Success! Contact IEDC officials to get the component');
+      redirect('user/dashboard/maker-library');
+    }
+
 }

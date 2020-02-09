@@ -60,4 +60,25 @@ class User_model extends CI_Model {
        return $query->result_array();
      }
 
+     public function add_maker_request($data){
+      $this->db->insert('maker_lib_requests', $data);    
+     }
+
+     public function change_count_lib($data){   
+      $this->db->select ( 'available_count' );  
+      $this->db->from('maker_library');
+      $this->db->where('comp_num', $data);
+      $query = $this->db->get();
+      $num = $query->result_array();
+      $total_count = $num[0]['available_count'] - 1;      
+      $this->user_model->update_count($total_count,$data);      
+     }
+     public function update_count($total_count,$data){
+       $this->db->where('comp_num', $data);
+       $temp = array(
+        'available_count' => $total_count
+       );
+       $this->db->update('maker_library', $temp);              
+     }
+
 }
