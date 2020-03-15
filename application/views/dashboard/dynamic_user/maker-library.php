@@ -71,7 +71,7 @@
 							<tbody>
 								<?php foreach ($maker_user_req as $row ){?>
 								<tr>
-									<td><?=$row['req_component']?></td>
+									<td><?=$row['name']?> - <?=$row['req_component']?></td>
 									<td><?=$row['req_date']?></td>
 									<td><?=$row['issue_date']?></td>
 									<td><?=$row['return_date']?></td>

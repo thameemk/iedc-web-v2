@@ -71,6 +71,7 @@ class User_model extends CI_Model {
       $query = $this->db->get();
       $num = $query->result_array();
       $total_count = $num[0]['available_count'] - 1;      
+      // print_r($num);exit;   
       $this->user_model->update_count($total_count,$data);      
      }
 
@@ -83,10 +84,7 @@ class User_model extends CI_Model {
      }
 
      public function maker_user_req($email){
-      $this->db->select('*');
-      $this->db->from('maker_lib_requests');
-      $this->db->where('user_email', $email);
-      $query=$this->db->get();
+      $query = $this->db->query("select m.req_date,m.issue_date,m.return_date,m.req_component,c.name from maker_lib_requests m,maker_library c where c.comp_num = m.req_component and m.user_email= '".$email."' order by req_date DESC");       
       return $query->result_array();
      }
 

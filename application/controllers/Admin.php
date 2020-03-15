@@ -20,6 +20,7 @@ class Admin extends CI_Controller {
       if ( ! file_exists(APPPATH.'views/dashboard/dynamic_admin/'.$admin.'.php')){
           show_404();
       }
+      $data['maker_req'] = $this->admin_model->get_all_maker_requests();
       $data['admin'] = $this->admin_model->is_admin($this->session->email);
       $data['users_ai_ml']=$this->admin_model->get_ai_ml_users();
       $data['users_innovate']=$this->admin_model->get_innovate_users();      
@@ -65,6 +66,39 @@ class Admin extends CI_Controller {
             redirect('admin/dashboard/add-user');
         }
       }
+    }
+
+    public function issue_component(){
+
+      $data = $this->input->post();
+      $data = $this->security->xss_clean($data);
+      date_default_timezone_set('Asia/Kolkata');
+      $issue_date = date('d-m-Y H:i');     
+      $data = array(
+        'issue_date' => $issue_date,
+        'issued_admin' => $this->session->email             
+      );
+      $this->admin_model->issue_maker_component($data);
+      $this->session->set_flashdata('success', 'Success! You have issued maker library component');
+      redirect('admin/dashboard/maker-library');
+    }
+
+    public function mark_as_return_component(){
+      $data = $this->input->post();
+      $data = $this->security->xss_clean($data);
+      date_default_timezone_set('Asia/Kolkata');
+      $return_date = date('d-m-Y H:i');
+      $data = array(
+        'return_date' => $return_date,
+        'issued_admin' => $this->session->email              
+      );
+      // print_r($data);exit;
+
+      $this->admin_model->change_count_lib_admin($this->input->post('req_component'));
+      $this->admin_model->return_maker_component($data);
+      $this->session->set_flashdata('success', 'Successfully marked as user returned maker library component');
+      redirect('admin/dashboard/maker-library');
+
     }
 
 }
