@@ -70,4 +70,35 @@ class Admin_model extends CI_Model {
       $query = $this->db->update('maker_lib_requests',$data);
      }
 
+     public function save_component(){
+        // $data = $this->input->post();
+        // $data = $this->security->xss_clean($data);
+        $data = array(
+          'name' => $this->input->post('name'),
+          'comp_num' => $this->input->post('comp_num'),
+          'total_count' => $this->input->post('total_count'),
+          'available_count' => $this->input->post('total_count')          
+        );        
+        $configss['allowed_types'] = '*';
+        $configss['max_filename'] = '255';
+        $configss['overwrite'] = TRUE;
+        $configss['max_size'] = '1024';
+        $configss['upload_path'] = 'assets/uploads/images/maker-library/';
+        $file_name = $_FILES["img_link"]['name'];       
+        $this->load->library('upload',$configss);         
+           if ( ! $this->upload->do_upload('img_link')){
+                  $error = array('error' => $this->upload->display_errors());
+                  print_r($error);exit;
+                  $this->session->set_flashdata('fail', 'Some error has been occured!');
+                   redirect("admin/dashboard/edit-maker-library");
+              }
+            else{
+                  // print_r($data);
+                  $data['img_link'] = $file_name;
+                  $this->db->insert('maker_library', $data);
+                  $this->session->set_flashdata('success', 'Successfully added one component!');
+                  redirect("admin/dashboard/edit-maker-library");
+            }
+     }
+
 }

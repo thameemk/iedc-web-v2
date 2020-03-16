@@ -80,7 +80,7 @@ class Admin extends CI_Controller {
       );
       $this->admin_model->issue_maker_component($data);
       $this->session->set_flashdata('success', 'Success! You have issued maker library component');
-      redirect('admin/dashboard/maker-library');
+      redirect('admin/dashboard/maker-library-requests');
     }
 
     public function mark_as_return_component(){
@@ -97,8 +97,13 @@ class Admin extends CI_Controller {
       $this->admin_model->change_count_lib_admin($this->input->post('req_component'));
       $this->admin_model->return_maker_component($data);
       $this->session->set_flashdata('success', 'Successfully marked as user returned maker library component');
-      redirect('admin/dashboard/maker-library');
+      redirect('admin/dashboard/maker-library-requests');
 
+    }
+
+    public function add_component(){      
+          $this->admin_model->save_component();       
+       
     }
 
 }
