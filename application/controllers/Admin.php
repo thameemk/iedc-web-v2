@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
       $data = $this->security->xss_clean($data);
       $this->form_validation->set_rules('email','User Email','required|is_unique[userRegister.email]');
       if($this->form_validation->run() == FALSE){
-        $this->session->set_flashdata('fail', 'You have already registred');
+        $this->session->set_flashdata('fail', 'Already registred');
         redirect('admin/dashboard/add-user');
       }
       else{
