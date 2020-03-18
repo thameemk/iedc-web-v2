@@ -20,7 +20,7 @@ class Auth extends CI_Controller{
 			'email'=>$google_data['email'],
 			'source'=>'google',
 			'profile_pic'=>$google_data['picture'],
-			'link'=>$google_data['link'],
+			// 'link'=>$google_data['link'],
 			'sess_logged_in'=>1
 		);
 		$this->session->set_userdata($session_data);
