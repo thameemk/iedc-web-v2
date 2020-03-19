@@ -106,4 +106,23 @@ class Admin extends CI_Controller {
        
     }
 
+    public function add_bulk_user(){
+      $query = $this->db->get('ece17');
+      $users= $query->result_array();
+      // print_r($users);exit;
+      foreach ($users as $row ) {
+        $data['email'] = $row['email'];                       
+        $data['user_hash']=password_hash($row['email'], PASSWORD_BCRYPT);
+        $email = $row['email']; 
+        $query1 = $this->db->get_where('userRegister',"email='$email'" );
+        $temp = $query1->num_rows();
+        if($temp != TRUE){
+          $this->db->insert('userRegister', $data);
+          echo "Success<br>";
+        }else{
+          echo "Error/Duplicate<br>";
+        }
+      }
+    }
+
 }
