@@ -35,7 +35,7 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Choose image</label>
-							<input type="file" name="img_link" class="form-control"  required>
+							<input type="file" name="img_link" class="form-control">
 						</div>
 						<button type="submit" class="btn btn-primary mr-2">Submit</button>
 						<button type="reset" class="btn btn-light">Reset</button>
