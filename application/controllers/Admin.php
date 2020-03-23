@@ -107,7 +107,7 @@ class Admin extends CI_Controller {
     }
 
     public function add_bulk_user(){
-      $query = $this->db->get('ece17');
+      $query = $this->db->get('bulk_user');
       $users= $query->result_array();
       // print_r($users);exit;
       foreach ($users as $row ) {
