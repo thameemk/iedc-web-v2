@@ -33,3 +33,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 ## website template
 theme/*
+theme_1/*
