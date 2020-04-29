@@ -32,9 +32,11 @@
                         <img alt ="<?=$col['name']?>" height="250px" width="100px" src="<?=base_url()?>assets/uploads/images/web-team/<?=$col['year']?>/<?=$col['image_link']?>">
                     </div>
                     <div class="team-desc">
-                        <h3><?=$col['name']?></h3>
-                        <p><a href="mailto:<?=$col['contact_mail']?>"><?=$col['contact_mail']?></a></p>
-                        <p><a target="_blank" href="<?=$col['remarks']?>">More Info</a></p>
+                        <h3><?=$col['name']?></h3>                        
+                        <p><a href="<?=$col['contact_mail']?>" target="_blank">Connect on Linkedin&nbsp;<i class="fab fa-linkedin-in"></i></a></p>
+                        <?php if($col['remarks']){ ?>
+                            <p><a target="_blank" href="<?=$col['remarks']?>">Visit Website</a></p>
+                        <?php } ?>      
                     </div>
                 </div>
             </div>
