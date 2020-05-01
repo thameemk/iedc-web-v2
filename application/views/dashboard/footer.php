@@ -22,7 +22,9 @@
 
 <script src="<?=base_url()?>assets/dashboard/js/dashboard.js"></script>
 <script src="<?=base_url()?>assets/dashboard/js/datepicker.js"></script>
-
+<script src="<?= base_url() ?>assets/dashboard/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/js/data-table.js"></script>
 </body>
 
 </html>

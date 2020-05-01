@@ -349,7 +349,7 @@
                             </div>
 
                             <div class="form-group  col-md-12">
-                                <label class="required" for="coverletter">Upload your cover letter here (600 words). State why you wish to work with us. Add in your qualities that would fit for the role. Also mention your interests, passion, motivation, major achievements in college, past experience etc. Initial screening will be based on your cover letter. (Upload in .pdf format)</label>
+                                <label class="required" for="coverletter">Upload your cover letter here (600 words). State why you wish to work with us. Add in your qualities that would fit for the role. Also mention your interests, passion, motivation, major achievements in college, past experience etc. Initial screening will be based on your cover letter. <span color="red">(Upload in .pdf format. Maximum file size is 1MB)</span></label>
                                 <input type="file" aria-required="true" name="coverletter" class="form-control" placeholder="Upload" required>
                             </div>
 

@@ -23,7 +23,7 @@
 			$('div').html(html);
 		</script>
 		<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-
+		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/core/core.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/fonts/feather-font/css/iconfont.css">
