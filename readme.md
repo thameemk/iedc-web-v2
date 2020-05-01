@@ -2,7 +2,7 @@
 
 ## ___Web application developed for Innovation and Entrepreneurship Development Cell, TKM College of Engineering, Kollam___
 
-### ___View Project : https://wwww.iedctkmce.com___ 
+### ___View Project : https://www.iedctkmce.com___ 
 
 ### ___Web Team : https://www.iedctkmce.com/web-team___
 
