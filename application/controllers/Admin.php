@@ -28,6 +28,7 @@ class Admin extends CI_Controller {
       $data['profile_pic'] = $this->session->profile_pic;
       $data['link'] = $this->session->link;
       $data['loginURL'] = $this->googleplus->loginURL();
+      $data['execom_reg']= $this->admin_model->get_execom_reg();
       $this->load->view('dashboard/sidebar',$data);
       $this->load->view('dashboard/header',$data);
       $this->load->view('dashboard/dynamic_admin/'.$admin,$data);
