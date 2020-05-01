@@ -162,10 +162,30 @@
                             <li> Overseeing operations of the IEDC TKMCE and the work of executives.
                             <li> Allot and select IEDC members for attending number of competitions, hackathons,
                                 Exhibitions and workshops.
-                                Chief Financial Officer (CFO)
-                                The CFO is entrusted with the responsibility of maintenance of the books and audit and filings
-                                along with a local auditor for the society.
-                                Chief Marketing Officer (CMO)
+                                <h4>Chief Financial Officer (CFO)</h4>
+                                The CFO has primary responsibility for managing IEDC&#39;s finances, including financial planning,
+                                record-keeping, and financial reporting. The CFO directly assists the CEO on all strategic and
+                                tactical matters relating to budget management and securing of new funding.
+                            <li> Should prepare a financial budget including all the proposed expenses for each
+                                academic year.
+                            <li> Allocation of funds for various IEDC activities.
+                            <li> The CFO should maintain an account book for activities and be audited by the Assistant
+                                Nodal officer.
+                            <li> Control and evaluate the IEDC fundraising plans and capital structure.
+                            <li> The CFO should collect all the Bills and related documents and keep it in safe custody.
+                                All the bills and other related documents should be verified by the Nodal Officer.
+                            <li> The CFO should ensure the allocation of funds for various activities as per the rules of
+                                Kerala Startup mission.
+                            <li> The CFO should present a Finance statement in the weekly IEDC meeting.
+
+                            <li> Honorarium for Speakers, Judging Panels and Invitees for external events are decided by
+                                CFO, with the advice and consent of the IEDC Nodal Officer.
+                            <li> Registration fees for various events should be collected by the CFO and the collected
+                                amount should be deposited in the bank account within a particular period of time.
+                            <li> Facilities like food, snacks, stationery items etc are purchased by the CFO.
+                            <li> A three member financial team should be created with member from the junior year to
+                                plan and execute the financial tasks.
+                                <h4>Chief Marketing Officer (CMO)</h4>
                                 The CMO has to coordinate evangelization and marketing drives. The CMO also has the
                                 responsibility to raise sponsorships. CMO plays a major role in the overall Outlook of IEDC
                                 TKMCE.
@@ -182,7 +202,7 @@
                                 College events.
                             <li> CMO will be one of the executive members in the IEDC Design startup – DesigNova
 
-                                <h4> Technology Officer (CTO)</h4>
+                                <h4> Chief Technology Officer (CTO)</h4>
                                 CTO is in charge for technological information dissemination and technical skill development of
                                 students.
                                 Major Responsibilities:
@@ -234,7 +254,17 @@
                                 programs and information regarding KSUM, Summits, events etc.
 
                                 <h4>Chief Social Officer (CSO)</h4>
-
+                                The Chief Social Officer would head a social media team responsible for regularly producing
+                                social media content including blogs, tweets, status updates and other useful contents for all
+                                social media platforms of IEDC including IEDC Website, Linkedin, Instagram, Facebook,
+                                Whatsapp etc.
+                            <li> Maintain all social media platforms of IEDC including Linkedin, Instagram, Facebook and
+                                all Whatsapp groups in collaboration with CMO.
+                            <li> Finding out various central government and state government schemes for promoting
+                                start up and Entrepreneurship.
+                            <li> Provide a link between other clubs in college and coordinate events with other clubs.
+                            <li> CSO must be aware of all the new programs conducted in other colleges/ tech summits
+                                etc and must keep a POC in every college/organisation.
                                 <h4> IR-CELL HEAD</h4>
                                 Responsible for introducing a culture of Academic research-oriented studies among students.
                             <li> Conduct seminars on latest technological advancements.
@@ -271,7 +301,7 @@
                 <div class="col-lg-12 mt-5">
                     <h3 class="mb-5 text-center">Apply Here</h3>
                     <div class="m-t-30">
-                        <?php echo form_open_multipart('Pages/execom_reg'); ?>                       
+                        <?php echo form_open_multipart('Pages/execom_reg'); ?>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="required" for="name">Name </label>
@@ -332,7 +362,7 @@
                             </div>
                             <div class="form-group  col-md-6">
                                 <label for="position_2">Which position are you interested in? (Position 2)</label>
-                                <select name="position_2" class="form-control" >
+                                <select name="position_2" class="form-control">
                                     <option></option>
                                     <option value="ceo">Chief Executive Officer</option>
                                     <option value="coo">Chief Operational Officer</option>
@@ -349,7 +379,9 @@
                             </div>
 
                             <div class="form-group  col-md-12">
-                                <label class="required" for="coverletter">Upload your cover letter here (600 words). State why you wish to work with us. Add in your qualities that would fit for the role. Also mention your interests, passion, motivation, major achievements in college, past experience etc. Initial screening will be based on your cover letter. <span color="red">(Upload in .pdf format. Maximum file size is 1MB)</span></label>
+                                <label class="required" for="coverletter">Upload your cover letter here (600 words). State why you wish to work with us. Add in your qualities that would fit for the role. Also mention your interests, passion, motivation, major achievements in college, past experience etc. Initial screening will be based on your cover letter.<br>
+                                    <font color="D32500">(Upload in .pdf format. Maximum file size is 1MB)</font>
+                                </label>
                                 <input type="file" aria-required="true" name="coverletter" class="form-control" placeholder="Upload" required>
                             </div>
 
