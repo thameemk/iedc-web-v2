@@ -34,31 +34,28 @@
                 <div class="row">
                     <div class="mb-3 mt-5">
                         <h3 class="text-bold" id="rules">EXCOM 20-21 GUIDELINES</h3>
-                        <div class="collapse" id="more">
-                            <p>To be a great place to work, we need great people to work with us. Everything we do, every
-                                year, in more ways than one, helps to make a unique contribution to the spirit of Innovation
-                                and Entrepreneurship in our Campus.</p>
+                        <p>To be a great place to work, we need great people to work with us. Everything we do, every
+                            year, in more ways than one, helps to make a unique contribution to the spirit of Innovation
+                            and Entrepreneurship in our Campus.</p>
 
-                            <p>IEDC TKMCE an open opportunity to all students to join our core Executive Committee. We are
-                                looking forward to meet new potential candidates who are committed to our core values, with
-                                strong work ethic, and exceptional skills. We strongly believe that bringing together Exceptional
-                                people yields stellar results.</p>
+                        <p>IEDC TKMCE an open opportunity to all students to join our core Executive Committee. We are
+                            looking forward to meet new potential candidates who are committed to our core values, with
+                            strong work ethic, and exceptional skills. We strongly believe that bringing together Exceptional
+                            people yields stellar results.</p>
 
-                            <p>We have fundamentally restructured our core objectives and functions. We intent to follow a
-                                strict code of conduct which will be monitored by our Nodal Officer, Dr. Imthias Ahammed T P.
-                                Working along with us will not only boost your managerial and technical skills, but also benefit
-                                you to develop a strong network with all communities across Kerala. You will be an official
-                                representative of TKMCE working with Kerala Startup Mission Authorities.</p>
+                        <p>We have fundamentally restructured our core objectives and functions. We intent to follow a
+                            strict code of conduct which will be monitored by our Nodal Officer, Dr. Imthias Ahammed T P.
+                            Working along with us will not only boost your managerial and technical skills, but also benefit
+                            you to develop a strong network with all communities across Kerala. You will be an official
+                            representative of TKMCE working with Kerala Startup Mission Authorities.</p>
 
-                            <p>If you love the idea of working with our amazing team in a culture of creative excellence, we
-                                want to hear from you! Inspire. Innovate. Ignite.</p>
+                        <p>If you love the idea of working with our amazing team in a culture of creative excellence, we
+                            want to hear from you! Inspire. Innovate. Ignite.</p>
 
-                            <p>Carefully read the General Information about IEDC TKMCE, Objectives and Functions, Roles and
-                                Responsibilities as you will be having a two stage interview with our Founders and Board
-                                members. Please go through all the sections as you are applying.</p>
+                        <p>Carefully read the General Information about IEDC TKMCE, Objectives and Functions, Roles and
+                            Responsibilities as you will be having a two stage interview with our Founders and Board
+                            members. Please go through all the sections as you are applying.</p>
 
-                        </div>
-                        <span><a href="#more" data-toggle="collapse">Click to expand </a></span>
                         <p>
                             <h3>About IEDC</h3>
                             <div class="collapse" id="more1">
