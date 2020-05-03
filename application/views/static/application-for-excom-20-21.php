@@ -116,7 +116,6 @@
                                 <li>CMO: Chief Marketing Officer (3rd Year or 2nd Year)
                                 <li>CCO: Chief Creative Officer (3rd Year or 2nd Year)
                                 <li>CIO: Chief Information Officer (3rd Year or 2nd Year)
-                                <li>CSO: Chief Social Officer (3rd Year or 2nd Year)
                                 <li>E-CELL HEAD (3rd Year or 2nd Year)
                                 <li>IR-Cell Head (3rd Year or 2nd Year)
                                 <li>Maker Space Head (3rd Year or 2nd Year)
@@ -198,7 +197,7 @@
 
                             <li> Stay up to date with the latest best marketing practices followed in Instagram and
                                 LinkedIn.
-                            <li> CMO has to collectively work with CCO and CSO to ensure maximum participation for
+                            <li> CMO has to collectively work with CCO to ensure maximum participation for
                                 College events.
                             <li> CMO will be one of the executive members in the IEDC Design startup – DesigNova
 
@@ -206,16 +205,15 @@
                                 CTO is in charge for technological information dissemination and technical skill development of
                                 students.
                                 Major Responsibilities:
-                            <li> Setting a vision for how technology will be used in the company.
-                            <li> Ensuring that the technological resources meet the company&#39;s short and long-term
-                                needs.
+                            <li> Setting a vision for how technology will be used in IEDC initiatives.
+                            <li> Ensuring that the technological resources meet the IEDC requirements.
                             <li> Outline the goals for research and development.
-                            <li> Making executive decisions on behalf of the company&#39;s technological requirements.
                             <li> Acting as a mentor to team members.
                             <li> Staying on top of technology trends and developments.
                             <li> Introduce topics for technical workshops.
                             <li> Initiate peer learning groups.
                             <li> Liaison with SIG Excom, on the conduction of classes.
+
                             <li> Monitor the works undertaken by Maker Cell and IR Cell.
                             <li> Student side decision maker regarding funding of projects.
 
@@ -240,6 +238,11 @@
                                 <h4> Chief Information Officer (CIO)</h4>
                                 The Chief Information Officer is responsible for the providing information to the public and
                                 answering questions about the processes and programs of the Society.
+                            <li> CIO must know how IEDC operates in college. The processes involved, Byelaws etc. are
+                                to be fully understood by the CIO.
+                            <li> CIO has to stay updated regarding all the Startup Schemes in KSUM, latest initiatives and
+                                events.
+                            <li> CIO will be the PoC with KSUM Authorities.
                             <li> The CIO should document each and every activity held under IEDC TKMCE. He/She
                                 should prepare an event report with a short description and pictures from the event
                                 after each activity.
@@ -247,32 +250,10 @@
                                 is the duty of the CIO.
                             <li> The Chief Information Officer must make sure that all the activities are being updated in
                                 the IEDC Portal by Kerala Startup Mission.
+
                             <li> He/She should also prepare the Annual Activity Report of IEDC TKMCE for the
                                 corresponding year at the end of each year which is to be presented at the Annual
                                 General Meeting.
-                            <li> CIO must work collaboratively along with CSO and stay updated regarding all the latest
-                                programs and information regarding KSUM, Summits, events etc.
-
-                                <h4>Chief Social Officer (CSO)</h4>
-                                The Chief Social Officer would head a social media team responsible for regularly producing
-                                social media content including blogs, tweets, status updates and other useful contents for all
-                                social media platforms of IEDC including IEDC Website, Linkedin, Instagram, Facebook,
-                                Whatsapp etc.
-                            <li> Maintain all social media platforms of IEDC including Linkedin, Instagram, Facebook and
-                                all Whatsapp groups in collaboration with CMO.
-                            <li> Finding out various central government and state government schemes for promoting
-                                start up and Entrepreneurship.
-                            <li> Provide a link between other clubs in college and coordinate events with other clubs.
-                            <li> CSO must be aware of all the new programs conducted in other colleges/ tech summits
-                                etc and must keep a POC in every college/organisation.
-                                <h4> IR-CELL HEAD</h4>
-                                Responsible for introducing a culture of Academic research-oriented studies among students.
-                            <li> Conduct seminars on latest technological advancements.
-                            <li> Introducing topics for student level research.
-                            <li> Monitoring the completion of such research activities.
-                            <li> Introducing Technical writing and how to get a paper published.
-                            <li> Promoting International level prestigious conferences in campus and ensuring quality
-                                participation.
 
                                 <h4>MAKER SPACE HEAD</h4>
 
@@ -354,7 +335,6 @@
                                     <option value="cco">Chief Creative Officer</option>
                                     <option value="cmo">Chief Marketing Officer</option>
                                     <option value="cio">Chief Information Officer</option>
-                                    <option value="cso">Chief Social Officer</option>
                                     <option value="maker-head">Maker Space Head</option>
                                     <option value="ecell-head">E Cell Head</option>
                                     <option value="ircell-head">IR Cell Head</option>
@@ -371,7 +351,6 @@
                                     <option value="cco">Chief Creative Officer</option>
                                     <option value="cmo">Chief Marketing Officer</option>
                                     <option value="cio">Chief Information Officer</option>
-                                    <option value="cso">Chief Social Officer</option>
                                     <option value="maker-head">Maker Space Head</option>
                                     <option value="ecell-head">E Cell Head</option>
                                     <option value="ircell-head">IR Cell Head</option>
@@ -389,7 +368,7 @@
                         <div class="form-group">
                             <input type="checkbox" name="accept_rule" class="mr-3" required>Accept <a href="#rules">rules and regulations</a>
                         </div>
-                        <div class="g-recaptcha" name="g-recaptcha-response" data-sitekey="6LclF8kUAAAAADNhcUpBX--IP7XYwy_GMROgtv07"></div>
+                        <div class="g-recaptcha" name="g-recaptcha-response" data-sitekey="6LfZF_EUAAAAANZ8kcPRhCXKepzq_RIOYd55Mob5"></div>
                         <button class="btn" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;Register</button>
                         </form>
                     </div>
