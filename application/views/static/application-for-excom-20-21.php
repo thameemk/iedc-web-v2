@@ -106,7 +106,7 @@
                                 <li> To arrange interaction with entrepreneurs, bankers, professionals, potential customers
                                     and create a mentorship structure for student innovators.
                             </div>
-                            <span><a href="#more2" data-toggle="collapse">Click to expand</a></span>
+                            <span><a href="#more3" data-toggle="collapse">Click to expand</a></span>
                         </p>
                         <p>
                             <h3>Office Bearers – Roles &amp; Responsibilities</h3>
