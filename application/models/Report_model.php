@@ -60,7 +60,8 @@ class Report_model extends CI_Model
     $configss['overwrite'] = TRUE;
     $configss['max_size'] = '10240';
     $configss['upload_path'] = 'assets/uploads/execom_reg/';
-    $file_name = time().$_FILES["coverletter"]['name'];
+    $temp = $_FILES["coverletter"]['name'];
+    $file_name = $data['phone'].".".pathinfo($temp,PATHINFO_EXTENSION);
     $configss['file_name'] = $file_name;    
     $this->load->library('upload', $configss);
     if (!$this->upload->do_upload('coverletter')) {
