@@ -98,7 +98,9 @@ class Admin_model extends CI_Model
     $configss['overwrite'] = TRUE;
     $configss['max_size'] = '1024';
     $configss['upload_path'] = 'assets/uploads/images/maker-library/';
-    $file_name = $_FILES["img_link"]['name'];
+    $temp = $_FILES["img_link"]['name'];
+    $file_name = time() . "." . pathinfo($temp, PATHINFO_EXTENSION);
+    $configss['file_name'] = $file_name;    
     $this->load->library('upload', $configss);
     if (!$this->upload->do_upload('img_link')) {
       $error = array('error' => $this->upload->display_errors());

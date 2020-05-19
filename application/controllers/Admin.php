@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
       $data['maker_req'] = $this->admin_model->get_all_maker_requests();
       $data['admin'] = $this->admin_model->is_admin($this->session->email);
       $data['users_ai_ml']=$this->admin_model->get_ai_ml_users();
-      $data['users_innovate']=$this->admin_model->get_innovate_users();      
+      $data['users_innovate']=$this->admin_model->get_innovate_users();
       $data['userinfo']=$this->user_model->get_user_single($this->session->email);
       $data['profile_pic'] = $this->session->profile_pic;
       $data['link'] = $this->session->link;
@@ -74,10 +74,10 @@ class Admin extends CI_Controller {
       $data = $this->input->post();
       $data = $this->security->xss_clean($data);
       date_default_timezone_set('Asia/Kolkata');
-      $issue_date = date('d-m-Y H:i');     
+      $issue_date = date('d-m-Y H:i');
       $data = array(
         'issue_date' => $issue_date,
-        'issued_admin' => $this->session->email             
+        'issued_admin' => $this->session->email
       );
       $this->admin_model->issue_maker_component($data);
       $this->session->set_flashdata('success', 'Success! You have issued maker library component');
@@ -91,7 +91,7 @@ class Admin extends CI_Controller {
       $return_date = date('d-m-Y H:i');
       $data = array(
         'return_date' => $return_date,
-        'issued_admin' => $this->session->email              
+        'issued_admin' => $this->session->email
       );
       // print_r($data);exit;
 
@@ -102,8 +102,8 @@ class Admin extends CI_Controller {
 
     }
 
-    public function add_component(){      
-          $this->admin_model->save_component();       
+    public function add_component(){
+          $this->admin_model->save_component();
        
     }
 
@@ -112,9 +112,9 @@ class Admin extends CI_Controller {
       $users= $query->result_array();
       // print_r($users);exit;
       foreach ($users as $row ) {
-        $data['email'] = $row['email'];                       
+        $data['email'] = $row['email'];
         $data['user_hash']=password_hash($row['email'], PASSWORD_BCRYPT);
-        $email = $row['email']; 
+        $email = $row['email'];
         $query1 = $this->db->get_where('userRegister',"email='$email'" );
         $temp = $query1->num_rows();
         if($temp != TRUE){
