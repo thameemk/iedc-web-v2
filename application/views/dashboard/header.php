@@ -28,16 +28,16 @@
 						</div>
 						<div class="dropdown-body">
 							<div class="d-flex align-items-center apps">
-								<a href="pages/apps/chat.html"><i data-feather="message-square" class="icon-lg"></i>
+								<a href="javascript:;"><i data-feather="message-square" class="icon-lg"></i>
 									<p>Chat</p>
 								</a>
-								<a href="pages/apps/calendar.html"><i data-feather="calendar" class="icon-lg"></i>
+								<a href="javascript:;"><i data-feather="calendar" class="icon-lg"></i>
 									<p>Calendar</p>
 								</a>
-								<a href="pages/email/inbox.html"><i data-feather="mail" class="icon-lg"></i>
+								<a href="javascript:;"><i data-feather="mail" class="icon-lg"></i>
 									<p>Email</p>
 								</a>
-								<a href="pages/general/profile.html"><i data-feather="instagram" class="icon-lg"></i>
+								<a href="javascript:;"><i data-feather="instagram" class="icon-lg"></i>
 									<p>Profile</p>
 								</a>
 							</div>
@@ -128,7 +128,7 @@
 						<div class="dropdown-body">
 							<ul class="profile-nav p-0 pt-3">
 								<li class="nav-item">
-									<a href="pages/general/profile.html" class="nav-link">
+									<a href="javascript:;" class="nav-link">
 										<i data-feather="user"></i>
 										<span>Profile</span>
 									</a>
