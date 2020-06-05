@@ -411,10 +411,10 @@
 										</div>
 									</div>
 								</div>
-								<button class="btn btn-primary mr-2">Add Member</button>
+								<button class="btn btn-primary mr-2" disabled>Add Member</button>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary mr-2" disabled>Submit</button>			
+						<button type="submit" class="btn btn-primary mr-2" disabled>Submit</button>
 				</div>
 			</div>
 		</form>
