@@ -68,7 +68,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>user/dashboard" class="nav-link">
+						<a href="javascript:;" class="nav-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather link-icon"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
 							<span class="link-title">Project Proposal</span>
 						</a>
@@ -82,7 +82,13 @@
 					<li class="nav-item">
 						<a href="<?= base_url() ?>user/dashboard/incubation-application" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox link-icon"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
-							<span class="link-title">Incubation Application</span>
+							<span class="link-title">Pre Incubation</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="javascript:;" class="nav-link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout link-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+							<span class="link-title">Business Model</span>
 						</a>
 					</li>
 					<hr>
