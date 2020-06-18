@@ -57,9 +57,9 @@ https://gist.github.com/thameemk612/1c7482cc8cf160613172cc160d289bb0
 
 ![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/6.png?token=AH47VIHZHWFS2PPKLLQRL4K6WL52A)
 
-![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/3.png?token=AH47VIHCF3GESETYTNDUVLC6WL52Y)
+![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/4.png)
 
-![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/4.png?token=AH47VIFLXTX66KMUYZKW76S6WL53W)
+![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/3.png)
 
 ![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/5.png?token=AH47VIEFJJ3PAFMWNDC74HK6WL54M)
 

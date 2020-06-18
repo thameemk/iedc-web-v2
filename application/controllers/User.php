@@ -92,7 +92,7 @@ class User extends CI_Controller {
       $data['profile_pic'] = $this->session->profile_pic;
       $data['link'] = $this->session->link;
       $data['loginURL'] = $this->googleplus->loginURL();
-      $data['get_maker_items']=$this->user_model->get_maker_items();      
+      $data['get_maker_items']=$this->user_model->get_maker_items();
       $this->load->view('dashboard/sidebar',$data);
       $this->load->view('dashboard/header',$data);
       $this->load->view('dashboard/dynamic_user/'.$user,$data);
@@ -112,6 +112,23 @@ class User extends CI_Controller {
       $this->user_model->add_maker_request($data);
       $this->session->set_flashdata('success', 'Success! Contact IEDC officials to get the component');
       redirect('user/dashboard/maker-library');
+    }
+
+    public function schedule_meeting_post()
+    {
+      $status = $this->user_model->reg_schedule_meeting();
+      if($status == true){
+        $this->session->set_flashdata('success', 'Success! Contact IEDC officials to know more');
+        redirect('user/dashboard/schedule-meeting');
+      }
+      elseif($status == false){
+        $this->session->set_flashdata('fail', 'Fill all fields!!');
+        redirect('user/dashboard/schedule-meeting');
+      }
+      else{
+        $this->session->set_flashdata('fail', 'Some error has been occurred. Please try again later!!');
+        redirect('user/dashboard/schedule-meeting');
+      }
     }
 
 }
