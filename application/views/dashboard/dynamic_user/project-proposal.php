@@ -23,13 +23,13 @@
 
                         <div class="form-group">
                             <label for="title_">Title :</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="title" required>
                         </div>
 
                         <div class="form-group">
 
                             <label for="summary">Abstract/Summary :</label>
-                            <textarea type="text" class="form-control" name="summary" style="display: inline;"></textarea>
+                            <textarea type="text" class="form-control" name="summary" style="display: inline;" required></textarea>
 
                         </div>
 
@@ -124,7 +124,7 @@
                         <h6>Recommended By</h6><br>
                         <div class="form-group">
                             <label for="title_">Faculty Name :</label>
-                            <input type="text" class="form-control" name="faculty_recommend">
+                            <input type="text" class="form-control" name="faculty_recommend" required>
                         </div>
                         <div class="row">
                             <button type="submit" class="btn btn-primary">Submit</button>
