@@ -11,20 +11,25 @@
 
         <div class="col-md-8 grid-margin stretch-card">
             <div class="card">
+                <?php if ($this->session->flashdata('fail')) : ?>
+                    <span style="line-height:3" class="badge badge-danger"><?php echo $this->session->flashdata('fail'); ?></span>
+                <?php endif; ?>
+                <?php if ($this->session->flashdata('success')) : ?>
+                    <span style="line-height:3" class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
+                <?php endif; ?>
                 <div class="card-body">
                     <h6 class="card-title">Project proposal</h6>
-                    <form>
+                    <form method="post" action="<?= base_url() ?>User/project_proposal_post/">
 
                         <div class="form-group">
                             <label for="title_">Title :</label>
-                            <input type="text" class="form-control" id="title">
+                            <input type="text" class="form-control" name="title">
                         </div>
 
                         <div class="form-group">
 
                             <label for="summary">Abstract/Summary :</label>
-                            <textarea type="text" class="form-control" id="summary"
-                                style="display: inline;"></textarea>
+                            <textarea type="text" class="form-control" name="summary" style="display: inline;"></textarea>
 
                         </div>
 
@@ -45,31 +50,27 @@
                                                         Class
                                                     </th>
                                                     <th style="width:7.5rem ;">
-                                                        Contact No.
+                                                        Contact No
                                                     </th>
 
                                                 </tr>
                                             </thead>
-                                            <tbody id="team_members">
+                                            <tbody id="wrapper">
                                                 <tr>
                                                     <td>
-                                                        <input type=" text " class="form-control " id="name_ ">
+                                                        <input type="text" class="form-control" name="name[]">
                                                     </td>
                                                     <td>
-                                                        <input type="text " class="form-control " id="class_ "
-                                                            style="width: 5rem; ">
+                                                        <input type="text " class="form-control " name="class[]" style="width: 5rem; ">
                                                     </td>
                                                     <td>
-                                                        <input type="number " class="form-control " id="contact_no "
-                                                            style="width: 10rem; ">
+                                                        <input type="number " class="form-control " name="contact_no[]" style="width: 10rem; ">
                                                     </td>
                                                 </tr>
+                                                <!-- <span class="wrapper"></span> -->
                                             </tbody>
                                         </table>
-                                        <button type="submit" name="add_member" id="add_member"
-                                            class="btn btn-primary mt-2 mr-2" value="Add Member"
-                                            onclick="rowFunction()" disabled >Add
-                                            member</button>
+                                        <span name="add_member" id="add_member" class="btn btn-primary mt-2 mr-2" value="Add Member" onclick="addMember()">Add member</span>
                                     </div>
                                 </div>
 
@@ -98,32 +99,22 @@
 
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="wrapper_1">
                                                 <tr>
-
                                                     <td>
-                                                        <input type=" text " class="form-control " id="requirement ">
+                                                        <input type=" text " class="form-control " name="requirement[]">
                                                     </td>
                                                     <td>
-                                                        <input type="number " class="form-control " id="amt "
-                                                            style="width: 7.5rem; ">
+                                                        <input type="number " class="form-control " name="amount[]" style="width: 7.5rem; ">
                                                     </td>
                                                     <td>
-                                                        <input type="text " class="form-control " id="remarks "
-                                                            style="width: 12 rem; ">
+                                                        <input type="text " class="form-control " name="remarks[]" style="width: 12 rem; ">
                                                     </td>
                                                 </tr>
                                             </tbody>
-
-                                            <tr>
-                                                <td></td>
-                                                <td>Total:</td>
-                                                <td><input type="number" class="form-control" id="total" disabled></td>                                                
-                                            </tr>
                                         </table>
-                                        <button type="submit" class="btn btn-primary mt-2 mr-2" value="Add Requirement"
-                                            onclick="addField1(this);" disabled>Add
-                                            Requirement</button>
+                                        <span class="btn btn-primary mt-2 mr-2" value="Add Requirement" onclick="addRequirement();">Add
+                                            Requirement</span>
                                     </div>
                                 </div>
 
@@ -133,11 +124,12 @@
                         <h6>Recommended By</h6><br>
                         <div class="form-group">
                             <label for="title_">Faculty Name :</label>
-                            <input type="text" class="form-control" id="faculty_recommend">
+                            <input type="text" class="form-control" name="faculty_recommend">
                         </div>
                         <div class="row">
-                            <button type="submit" class="btn btn-primary" disabled>Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
+                    </form>
                 </div>
 
             </div>
@@ -146,3 +138,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    function addMember() {
+        document.getElementById('wrapper').innerHTML += '<tr><td><input type="text" class="form-control" name="name[]"></td><td><input type="text " class="form-control " name="class[]"style="width: 5rem; "></td><td><input type="number " class="form-control " name="contact_no[]"style="width: 10rem; "></td></tr>\r\n';
+    }
+
+    function addRequirement() {
+        document.getElementById('wrapper_1').innerHTML += '<tr><td><input type=" text " class="form-control " name="requirement[]"></td><td><input type="number " class="form-control " name="amount[]"style="width: 7.5rem; "></td><td><input type="text " class="form-control " name="remarks[]"style="width: 12 rem; "></td></tr>\r\n';
+    }
+</script>
