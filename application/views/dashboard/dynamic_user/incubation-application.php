@@ -168,18 +168,19 @@
 					</div>
 
 					<div class="form-group">
-						<label for="businessTime">Do you or your team members have any previous experience?</label>
-						<select class="form-control" name="businessTime">
-							<option>Yes</option>
-							<option>No</option>
+						<label for="bus_experience">Do you or your team members have any previous experience?</label>
+						<select onchange="businessExperienceYes(this.value)" required class="form-control" name="bus_experience">
+							<option>select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no" >No</option>
 						</select>
-						<div class="form-group" style="padding-left: 20px;">
-							<label for="extra">1.If yes,how many years? Furnish Details(100 Words) :</label>
-							<textarea type="text" class="form-control" name="extra"></textarea>
-							<label for="extra">2.How do you think your past experience is going to help you in this new venture?(Maximum 150 words) :</label>
-							<textarea type="text" class="form-control" name="extra"></textarea>
-							<label for="extra">3.Write a brief note about your product or service(Maximum 300 words) :</label>
-							<textarea type="text" class="form-control" name="extra"></textarea>
+						<div id="bus_experience" class="form-group" style="padding-left: 20px; display:none">
+							<label>1. If yes,how many years? Furnish Details(100 Words) :</label>
+							<textarea type="text" class="form-control" name="bus_experience_years"></textarea>
+							<label>2. How do you think your past experience is going to help you in this new venture?(Maximum 150 words) :</label>
+							<textarea type="text" class="form-control" name="bus_experience_help"></textarea>
+							<label>3. Write a brief note about your product or service(Maximum 300 words) :</label>
+							<textarea type="text" class="form-control" name="bus_experience_service"></textarea>
 						</div>
 					</div>
 
@@ -439,5 +440,13 @@
 		} else {
 			text.style.display = "none";
 		}
+	}
+
+	function businessExperienceYes(val) {
+		var element = document.getElementById('bus_experience');
+		if (val == 'yes')
+			element.style.display = 'block';
+		else
+			element.style.display = 'none';
 	}
 </script>
