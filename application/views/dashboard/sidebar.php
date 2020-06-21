@@ -29,6 +29,7 @@
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/fonts/feather-font/css/iconfont.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/css/demo_1/style.css">
 		<link rel="shortcut icon" href="<?= base_url() ?>assets/front/images/icon.png">
+		<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/vendors/sweetalert2/sweetalert2.min.css">
 		<style>
 			#bussinessOwnershipOther {
 				display: none;

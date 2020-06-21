@@ -13,9 +13,11 @@
         </span>
         <input type="text" class="form-control" disabled>
       </div>
-      <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
-        <i class="btn-icon-prepend" data-feather="download-cloud"></i> Download Report
-      </button>
+      <a href="<?= base_url() ?>user/dashboard/profile">
+        <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
+          <i class="btn-icon-prepend" data-feather="user"></i> Your Profile
+        </button>
+      </a>
     </div>
   </div>
   <div class="example">
