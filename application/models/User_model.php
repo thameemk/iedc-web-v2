@@ -166,4 +166,27 @@ class User_model extends CI_Model
       return true;
     }
   }
+
+  public function reg_for_server_accsess()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);
+    $this->form_validation->set_rules('tech_or_lang', 'tech_or_lang', 'required');
+    $this->form_validation->set_rules('purpose', 'purpose', 'required');
+    $this->form_validation->set_rules('title', 'title', 'required');   
+    if ($this->form_validation->run() == FALSE) {
+      return false;
+    } else {
+      $data = array(
+        'user_email' => $_SESSION['email'],
+        'tech_or_lang' => $this->input->post('tech_or_lang'),
+        'purpose' => $this->input->post('purpose'),
+        'title' => $this->input->post('title'),
+        'domain' => $this->input->post('domain'),
+        'duration' => $this->input->post('duration'),        
+      );
+      $this->db->insert('server_accsess', $data);
+      return true;
+    }
+  }
 }

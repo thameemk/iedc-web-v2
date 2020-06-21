@@ -31,6 +31,16 @@
         </div>
       </div>
       <div class="col-12 col-md-6 grid-margin">
+        <div class="card text-white bg-warning">
+          <a href="<?= base_url() ?>user/dashboard/server-access">
+            <h5 class="card-header text-white">Server access</h5>
+            <div class="card-body">
+              <p class="card-text text-white">Host your website free and boost your startup</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 grid-margin">
         <div class="card text-white bg-success">
           <a href="<?= base_url() ?>user/dashboard/project-proposal">
             <h5 class="card-header text-white">Project Proposal</h5>

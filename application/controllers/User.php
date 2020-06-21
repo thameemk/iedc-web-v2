@@ -145,4 +145,19 @@ class User extends CI_Controller
       redirect('user/dashboard/project-proposal');
     }
   }
+
+  public function server_accsess_post()
+  {
+    $status = $this->user_model->reg_for_server_accsess();
+    if ($status == true) {
+      $this->session->set_flashdata('success', 'Success! Contact IEDC officials to know more');
+      redirect('user/dashboard/server-access');
+    } elseif ($status == false) {
+      $this->session->set_flashdata('fail', 'Fill all fields!!');
+      redirect('user/dashboard/server-access');
+    } else {
+      $this->session->set_flashdata('fail', 'Some error has been occurred. Please try again later!!');
+      redirect('user/dashboard/server-access');
+    }
+  }
 }
