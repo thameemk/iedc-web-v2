@@ -18,7 +18,7 @@ $(function() {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'This option is disabled by Wrb Admin !!',
+        text: 'This option is disabled by Web Admin !!',
         footer: '<p>Please try again later !!</p>'
       })
     } else if (type === 'custom-html') {

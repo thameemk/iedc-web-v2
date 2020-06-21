@@ -160,4 +160,10 @@ class User extends CI_Controller
       redirect('user/dashboard/server-access');
     }
   }
+
+
+  public function pre_incubation_app_post()
+  {
+    echo "Some error has been occurred";exit;
+  }
 }

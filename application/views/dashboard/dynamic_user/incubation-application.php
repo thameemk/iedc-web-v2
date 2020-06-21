@@ -5,7 +5,7 @@
 			<li class="breadcrumb-item active" aria-current="page">Pre Incubation</li>
 		</ol>
 	</nav>
-	<form method="post" action="">
+	<form method="post" action="<?=base_url()?>User/pre_incubation_app_post">
 		<div class="col-md-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
@@ -60,19 +60,19 @@
 					<div class="form-group" style="margin-left:10px ;">
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input name="business_category_1" type="checkbox" value="service" class="form-check-input">
+								<input name="business_category_1" type="checkbox" value="yes" class="form-check-input">
 								Service
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input name="business_category_2" value="product" type="checkbox" class="form-check-input">
+								<input name="business_category_2" value="yes" type="checkbox" class="form-check-input">
 								Product
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input type="checkbox" value="not_for_profit" name="business_category_3" class="form-check-input">
+								<input type="checkbox" value="yes" name="business_category_3" class="form-check-input">
 								Not For Profit(Trust/NGO etc)
 							</label>
 						</div>
@@ -131,37 +131,37 @@
 					<div class="form-group" style="margin-left:10px ;">
 						<div class="form-check">
 							<label class="form-check-label">
-								<input name="ser_workspace" type="checkbox" value="workspace" class="form-check-input">
+								<input name="ser_workspace" type="checkbox" value="yes" class="form-check-input">
 								Workspace
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input name="ser_lab" value="share_laboratory_facility" type="checkbox" class="form-check-input">
+								<input name="ser_lab" value="yes" type="checkbox" class="form-check-input">
 								Share Laboratory Facility
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input name="ser_web" value="web_based_service" type="checkbox" class="form-check-input">
+								<input name="ser_web" value="yes" type="checkbox" class="form-check-input">
 								Web Based Service
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input name="ser_res" value="r_and_d_support" type="checkbox" class="form-check-input">
+								<input name="ser_res" value="yes" type="checkbox" class="form-check-input">
 								R&D Support
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input name="ser_adv" value="advisory_service" type="checkbox" class="form-check-input">
+								<input name="ser_adv" value="yes" type="checkbox" class="form-check-input">
 								Advisory Services
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input name="ser_oth" id="ser_others" value="others" type="checkbox" onclick="serviceShowSpecifyOthers()" class="form-check-input">
+								<input name="ser_oth" id="ser_others" value="yes" type="checkbox" onclick="serviceShowSpecifyOthers()" class="form-check-input">
 								Others
 						</div>
 						<input id="ser_others_text" type="text" class="form-control" placeholder="Specify" name="ser_others_text" style="display: none;">
@@ -172,9 +172,9 @@
 						<select onchange="businessExperienceYes(this.value)" required class="form-control" name="bus_experience">
 							<option>select an option</option>
 							<option value="yes">Yes</option>
-							<option value="no" >No</option>
+							<option value="no">No</option>
 						</select>
-						<div id="bus_experience" class="form-group" style="padding-left: 20px; display:none">
+						<div id="bus_experience" class="form-group mt-3" style="padding-left: 20px; display:none">
 							<label>1. If yes,how many years? Furnish Details(100 Words) :</label>
 							<textarea type="text" class="form-control" name="bus_experience_years"></textarea>
 							<label>2. How do you think your past experience is going to help you in this new venture?(Maximum 150 words) :</label>
@@ -185,268 +185,332 @@
 					</div>
 
 					<div class="form-group">
-						<label for="applicantName">Do you currently have the following?(Tick all that apply) :</label>
+						<label>Do you currently have the following? (Tick all that apply) :</label>
 
 					</div>
 					<div class="form-group" style="margin-left:10px ;">
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="business_plan" value="yes" class="form-check-input">
 								Business Plan
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="business_plan_outline" value="yes" class="form-check-input">
 								Business Plan Outline
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="maket_feasibility_study" value="yes" class="form-check-input">
 								Market Feasibility Study
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="intellectual_property_strategy" value="yes" class="form-check-input">
 								Intellectual Property Strategy
 							</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="businessTime">Do you need any machinery or capital item for starting your venture?</label>
-						<select class="form-control" name="businessTime">
-							<option>Yes</option>
-							<option>No</option>
+						<select class="form-control" name="bus_machinary_capital" required onchange="busMachinaryCapital(this.value)">
+							<option>select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
-						<div>
-							<input type="text" class="form-control" placeholder="Specify" name="items">
-						</div>
+						<input type="text" class="form-control mt-3" placeholder="Specify" style="display: none;" id="bus_machinary_capital" name="bus_machinary_capital_yes">
 					</div>
 					<div class="form-group">
 						<label for="businessTime">Have you estimated your project cost?</label>
-						<select class="form-control" name="businessTime">
-							<option>Yes</option>
-							<option>No</option>
+						<select class="form-control" name="bussiness_estimate" required onchange="busEstimateYes(this.value)">
+							<option>select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
-						<div style="padding-left: 20px;">
-							<label for="items">Preoperative expenses: Rs.</label>
-							<input type="text" class="form-group" name="items"><br>
-							<label for="items">Prototype Development: Rs.</label>
-							<input type="text" class="form-group" name="items"><br>
-							<label for="items">Test Marketing: Rs.</label>
-							<input type="text" class="form-group" name="items"><br>
-							<label for="items">Equipment: Rs.</label>
-							<input type="text" class="form-group" name="items"><br>
-							<label for="items">Working Capital: Rs.</label>
-							<input type="text" class="form-group" name="items"><br>
-							<label for="items">Other Requirements: Rs.</label>
-							<input type="text" class="form-group" name="items"><br>
-							<label for="items"><b>Total: Rs.</b></label>
-							<input type="text" class="form-group" name="items"><br>
+						<div style="padding-left: 20px; display:none" class="mt-3" id="bussiness_estimate">
+							<label>Preoperative expenses: Rs.</label>
+							<input type="number" class="form-control" name="bussiness_estimate_preoperative">
+							<label>Prototype Development: Rs.</label>
+							<input type="number" class="form-control" name="bussiness_estimate_prototype">
+							<label>Test Marketing: Rs.</label>
+							<input type="number" class="form-control" name="bussiness_estimate_marketing">
+							<label>Equipment: Rs.</label>
+							<input type="number" class="form-control" name="bussiness_estimate_equipment">
+							<label>Working Capital: Rs.</label>
+							<input type="number" class="form-control" name="bussiness_estimate_capital">
+							<label>Other Requirements: Rs.</label>
+							<input type="number" class="form-control" name="bussiness_estimate_other_req">
+							<label><b>Total: Rs.</b></label>
+							<input type="number" class="form-control" name="bussiness_estimate_total">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="fundingSource">Have you estimated and identified your seed financing needs/source?(Furnish Details) :</label>
-						<textarea type="text" class="form-control" name="fundingSource"></textarea>
+						<label>Have you estimated and identified your seed financing needs/source? (Furnish Details) :</label>
+						<textarea type="text" class="form-control" name="funding_needs_source" required></textarea>
 					</div>
 					<div class="form-group">
-						<label for="finance">How do you intend to finance the business for the next 2 years?(100 Words) :</label>
-						<textarea type="text" class="form-control" name="finance"></textarea>
+						<label>How do you intend to finance the business for the next 2 years? (100 Words) :</label>
+						<textarea type="text" class="form-control" name="intend_finance" required></textarea>
 					</div>
 					<div class="form-group">
-						<label for="marketSurvey">Have you done any Market Survey?</label>
-						<select class="form-control" name="businessTime">
-							<option>Yes</option>
-							<option>No</option>
+						<label>Have you done any Market Survey?</label>
+						<select class="form-control" name="market_survey" required onchange="marketSurvey(this.value)">
+							<option>select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
-						<div class="form-group" style="padding-left: 20px;">
-							<label for="marketSurvey">1.If yes,briefly describe the methods and results (Maximum 200 words) :</label>
-							<textarea type="text" class="form-control" name="marketSurvey"></textarea>
-						</div>
-						<div class="form-group" style="padding-left: 20px;">
-							<label for="marketSurvey">2.Describe your target market (Maximum 100 words) :</label>
-							<textarea type="text" class="form-control" name="marketSurvey"></textarea>
+						<div id="market_survey" class="mt-3" style="display: none;">
+							<div class="form-group" style="padding-left: 20px;">
+								<label for="marketSurvey">1. If yes,briefly describe the methods and results (Maximum 200 words) :</label>
+								<textarea type="text" class="form-control" name="market_survey_methods_results"></textarea>
+							</div>
+							<div class="form-group" style="padding-left: 20px;">
+								<label for="marketSurvey">2. Describe your target market (Maximum 100 words) :</label>
+								<textarea type="text" class="form-control" name="market_survey_target"></textarea>
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="source">Is this technology your own or obtained from other sources?</label>
-						<select class="form-control" name="businessTime">
-							<option>Yes</option>
-							<option>No</option>
-						</select><br>
-						<div class="form-group" style="padding-left: 20px;">
-							<label for="source">1.If your own,have you completed technology development? Or what stage you are in the developmental process?What is the estimated tme for completion of development of the technology?(100 Words)
-								:</label>
-							<textarea type="text" class="form-control" name="source"></textarea>
-						</div>
-						<div class="form-group" style="padding-left: 20px;">
-							<label for="source">2.Can your technology or product be patented,trademarked or protected from duplication(if applicable)?If not what other sustainable competitive advatnage do you have? :</label>
-							<textarea type="text" class="form-control" name="source"></textarea>
+						<label for="source">Is this technology your own ?</label>
+						<select class="form-control" required name="tech_own_other" onchange="techOwnOther(this.value)">
+							<option>select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+						<div id="tech_own_other" class="mt-3" style="display: none;">
+							<div class="form-group" style="padding-left: 20px;">
+								<label for="source">1. If your own,have you completed technology development? Or what stage you are in the developmental process?What is the estimated time for completion of development of the technology?(100 Words)
+									:</label>
+								<textarea type="text" class="form-control" name="tech_own_other_one"></textarea>
+							</div>
+							<div class="form-group" style="padding-left: 20px;">
+								<label for="source">2. Can your technology or product be patented,trademarked or protected from duplication(if applicable)?If not what other sustainable competitive advatnage do you have? :</label>
+								<textarea type="text" class="form-control" name="tech_own_other_two"></textarea>
+							</div>
 						</div>
 					</div>
 					<div class=" form-group ">
 						<label for="space">Your reason(s) for seeking space in the incubator(Maximum 100 Words) :</label>
-						<textarea type="text " class="form-control " name="space"></textarea>
+						<textarea type="text " class="form-control " name="bus_reason" required></textarea>
 					</div>
 					<div class=" form-group ">
-						<label for="space">How much money has already been invested in the company and by whom?Furnish details. :</label>
-						<textarea type="text " class="form-control " name="space"></textarea>
+						<label for="space">How much money has already been invested in the company and by whom? Furnish details. :</label>
+						<textarea type="text " class="form-control " name="already_invested" required></textarea>
 					</div>
 					<div class=" form-group ">
 						<label for="space">Does your business have special facility needs? If yes,specify. :</label>
-						<select class="form-control mb-3" name="space">
-							<option>Yes</option>
-							<option>No</option>
+						<select class="form-control mb-3" name="space" required name="bus_special_facility" onchange="busSpecialFacility(this.value)">
+							<option>select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
-						<div style="padding-left: 20px;">
-							<input type="text" class="form-control" name="space">
-						</div>
+						<textarea style="display: none;" id="bus_special_facility" type="text" class="mt-3 form-control" name="bus_special_facility_yes"></textarea>
 					</div>
 					<div class="form-group">
 						<label for="hazardous">Do you expect to use any hazardous or toxic materials?If so,describe. : </label>
-						<select class="form-control mb-3" name="hazardous">
-							<option>Yes</option>
-							<option>No</option><br>
+						<select class="form-control mb-3" name="bus_hazardous" required onchange="busHazardous(this.value)">
+							<option>select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
-						<textarea type="text" class="form-group" name="hazardous"></textarea>
+						<textarea style="display: none;" id="bus_hazardous" type="text" class="mt-3 form-control" name="bus_hazardous_yes"></textarea>
 					</div>
 					<div class="form-group">
 						<label for="assistance">Do you need technology development or assistance? (Tick areas of assistance required from the incubator whichever apply) :</label>
-
 					</div>
 					<div class="form-group" style="margin-left:10px ;">
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="ass_strategy" value="yes" class="form-check-input">
 								Strategy
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="ass_managemet" value="yes" class="form-check-input">
 								Management
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="ass_marketing" value="yes" class="form-check-input">
 								Marketing
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="ass_hr" value="yes" class="form-check-input">
 								Human Resources
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="ass_commercialization" value="yes" class="form-check-input">
 								Commercialization
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" name="ass_legal" value="yes" class="form-check-input">
 								Legal
 							</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+								<input type="checkbox" id="ass_other" name="ass_other" value="yes" class="form-check-input" onclick="assistanceOther()">
 								Others,please specify:
 							</label>
-							<input type="text" class="form-group" name="others">
+							<input type="text" id="ass_other_text" name="ass_other_text" style="display:none;" class="form-control" name="others">
 						</div>
 					</div>
 					<div class="form-group">
-						<label>Department which any of the members belongs to</label><br>
-						<input type="text" class="form-control">
-						<label>Staff Mentors(Can be from any Department)<br>
-							<input type="text" class="form-control">
+						<label>Staff Mentors (Can be from any Department)</label>
+						<textarea type="text" class="form-control" name="staff_mentors"></textarea>
 					</div>
-					<div>
-						<h5>Details of your Team :</h5><br>
-						<div style="padding-left: 20px;">
-							<label>List the name(s) of the Principal(s)/Co-promoter(/Employees)</label>
-							<input type="text" class="form-control"><br>
-						</div>
-					</div>
+					<h5 class="text-center">DETAILS OF YOUR TEAM</h5><br>
 					<div class="form-group">
-						<div style="margin-left: 40 px;padding-left: 20px;">
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label class="control-label">Admission Number :</label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label class="control-label">Year of Study :</label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-5">
-									<div class="form-group">
-										<label class="control-label">Department :</label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
-								<div class="col-sm-5">
-									<div class="form-group">
-										<label class="control-label">Mobile : </label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
-								<div class="col-sm-5">
-									<div class="form-group">
-										<label class="control-label">Email :</label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
-							</div>
-							<button class="btn btn-primary mr-2" disabled>Add Member</button>
+						<div class="table-responsive">
+							<hr>
+							<table class="table table-hover" id="wrapper_3">
+								<tbody class="text-center" >
+									<tr>
+										<th>Name</th>
+										<td><input type="text" class="form-control" name="team_name[]"></td>
+									</tr>
+									<tr>
+										<th>Admission Number</th>
+										<td><input name="team_adm_num[]" class="form-control" type="text"></td>
+									</tr>
+									<tr>
+										<th>Email</th>
+										<td><input name="team_email[]" class="form-control" type="email"></td>
+									</tr>
+									<tr>
+										<th>Phone</th>
+										<td><input name="team_phone[]" class="form-control" type="phone"></td>
+									</tr>
+									<tr>
+										<th>Department</th>
+										<td><input name="team_department" class="form-control" type="text"></td>
+									</tr>
+									<tr>
+										<th>Year</th>
+										<td><input name="team_year[]" class="form-control" type="text"></td>
+									</tr>
+								</tbody>
+							</table>
+							<hr>
+
+							<span  class="btn btn-primary mr-2" onclick="addTeamMember()">Add Member</span>
 						</div>
+						<span class="btn btn-primary mr-2 mt-5"  onclick="showSwal('title-icon-text-footer')">Submit</span>
 					</div>
-					<button type="submit" class="btn btn-primary mr-2" disabled>Submit</button>
 				</div>
-			</div>
 	</form>
-</div>
 
-<script>
-	function businessOwnershipOther(val) {
-		var element = document.getElementById('business_ownership');
-		if (val == 'select an option' || val == 'other')
-			element.style.display = 'block';
-		else
-			element.style.display = 'none';
-	}
-
-	function serviceShowSpecifyOthers() {
-		// Get the checkbox
-		var checkBox = document.getElementById("ser_others");
-		// Get the output text
-		var text = document.getElementById("ser_others_text");
-
-		// If the checkbox is checked, display the output text
-		if (checkBox.checked == true) {
-			text.style.display = "block";
-		} else {
-			text.style.display = "none";
+	<style>
+		hr {
+			border: 1px solid black;			
 		}
-	}
+	</style>
+	<script>
+		function businessOwnershipOther(val) {
+			var element = document.getElementById('business_ownership');
+			if (val == 'select an option' || val == 'other')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
 
-	function businessExperienceYes(val) {
-		var element = document.getElementById('bus_experience');
-		if (val == 'yes')
-			element.style.display = 'block';
-		else
-			element.style.display = 'none';
-	}
-</script>
+		function serviceShowSpecifyOthers() {
+			// Get the checkbox
+			var checkBox = document.getElementById("ser_others");
+			// Get the output text
+			var text = document.getElementById("ser_others_text");
+
+			// If the checkbox is checked, display the output text
+			if (checkBox.checked == true) {
+				text.style.display = "block";
+			} else {
+				text.style.display = "none";
+			}
+		}
+
+		function businessExperienceYes(val) {
+			var element = document.getElementById('bus_experience');
+			if (val == 'yes')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
+
+		function busMachinaryCapital(val) {
+			var element = document.getElementById('bus_machinary_capital');
+			if (val == 'yes')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
+
+		function busEstimateYes(val) {
+			var element = document.getElementById('bussiness_estimate');
+			if (val == 'yes')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
+
+		function marketSurvey(val) {
+			var element = document.getElementById('market_survey');
+			if (val == 'yes')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
+
+		function techOwnOther(val) {
+			var element = document.getElementById('tech_own_other');
+			if (val == 'yes')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
+
+		function busSpecialFacility(val) {
+			var element = document.getElementById('bus_special_facility');
+			if (val == 'yes')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
+
+		function busHazardous(val) {
+			var element = document.getElementById('bus_hazardous');
+			if (val == 'yes')
+				element.style.display = 'block';
+			else
+				element.style.display = 'none';
+		}
+
+
+		function assistanceOther() {
+			// Get the checkbox
+			var checkBox = document.getElementById("ass_other");
+			// Get the output text
+			var text = document.getElementById("ass_other_text");
+
+			// If the checkbox is checked, display the output text
+			if (checkBox.checked == true) {
+				text.style.display = "block";
+			} else {
+				text.style.display = "none";
+			}
+		}
+
+		function addTeamMember() {
+			document.getElementById('wrapper_3').innerHTML += '<hr><table class="table table-hover"><tbody class="text-center" ><tr><th>Name</th><td><input type="text" class="form-control" name="team_name[]"></td></tr><tr><th>Admission Number</th><td><input name="team_adm_num[]" class="form-control" type="text"></td></tr><tr><th>Email</th><td><input name="team_email[]" class="form-control" type="email"></td></tr><tr><th>Phone</th><td><input name="team_phone[]" class="form-control" type="phone"></td></tr><tr><th>Department</th><td><input name="team_department" class="form-control" type="text"></td></tr><tr><th>Year</th><td><input name="team_year[]" class="form-control" type="text"></td></tr></tbody></table>';
+		}
+	</script>
