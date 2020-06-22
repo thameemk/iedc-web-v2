@@ -74,10 +74,12 @@
       </div>
       <div class="col-12 col-md-6 grid-margin">
         <div class="card text-white bg-secondary">
-          <h5 class="card-header text-white">Business Model</h5>
-          <div class="card-body">
-            <p class="card-text text-white">Submit your model for evaluation from our expert mentor pool.</p>
-          </div>
+          <a href="<?= base_url() ?>user/dashboard/business-model">
+            <h5 class="card-header text-white">Business Model</h5>
+            <div class="card-body">
+              <p class="card-text text-white">Submit your model for evaluation from our expert mentor pool.</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>

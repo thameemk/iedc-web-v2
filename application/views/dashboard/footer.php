@@ -6,8 +6,9 @@
 </div>
 </div>
 
-
 <script src="<?= base_url() ?>assets/dashboard/vendors/core/core.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/vendors/jquery-steps/jquery.steps.min.js"></script>
+
 
 <script src="<?= base_url() ?>assets/dashboard/vendors/chartjs/Chart.min.js"></script>
 <script src="<?= base_url() ?>assets/dashboard/vendors/jquery.flot/jquery.flot.js"></script>
@@ -26,6 +27,17 @@
 <script src="<?= base_url() ?>assets/dashboard/js/data-table.js"></script>
 <script src="<?= base_url() ?>assets/dashboard/js/sweet-alert.js"></script>
 <script src="<?= base_url() ?>assets/dashboard/vendors/sweetalert2/sweetalert2.min.js"></script>
+<script>
+	$(function() {
+		'use strict';
+		$("#wizardVertical").steps({
+			headerTag: "h2",
+			bodyTag: "section",
+			transitionEffect: "slideLeft",
+			stepsOrientation: 'vertical'
+		});
+	});
+</script>
 </body>
 
 </html>
