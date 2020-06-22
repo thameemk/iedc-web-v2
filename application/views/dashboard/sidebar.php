@@ -69,16 +69,15 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>user/dashboard/schedule-meeting" class="nav-link">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar link-icon">
-								<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-								<line x1="16" y1="2" x2="16" y2="6"></line>
-								<line x1="8" y1="2" x2="8" y2="6"></line>
-								<line x1="3" y1="10" x2="21" y2="10"></line>
+						<a href="<?= base_url() ?>user/dashboard/incubation-application" class="nav-link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox link-icon">
+								<polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+								<path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
 							</svg>
-							<span class="link-title">Schedule meeting</span>
+							<span class="link-title">Pre Incubation</span>
 						</a>
 					</li>
+
 					<li class="nav-item">
 						<a href="<?= base_url() ?>user/dashboard/server-access" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud-off link-icon">
@@ -89,12 +88,14 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>user/dashboard/incubation-application" class="nav-link">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox link-icon">
-								<polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-								<path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+						<a href="<?= base_url() ?>user/dashboard/schedule-meeting" class="nav-link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar link-icon">
+								<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+								<line x1="16" y1="2" x2="16" y2="6"></line>
+								<line x1="8" y1="2" x2="8" y2="6"></line>
+								<line x1="3" y1="10" x2="21" y2="10"></line>
 							</svg>
-							<span class="link-title">Pre Incubation</span>
+							<span class="link-title">Schedule meeting</span>
 						</a>
 					</li>
 					<li class="nav-item">
