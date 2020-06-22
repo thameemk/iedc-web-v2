@@ -4,9 +4,6 @@
 		<div class="container">
 			<div class="slide-captions text-center">
 
-				<h3 class="text-uppercase text-light" style="font-size: 40px!important;font-weight: 800;line-height: 1.1;">Always deliver more</h3>
-				<h4 class="text-uppercase text-light" style="font-size: 30px!important;font-weight: 800;line-height: 1.1;"> Larry Page</h4>
-
 				<h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
 					this as our mantra. We make constant efforts to improve and enhance our outlook about
 					Innovation & Entrepreneurship. </h4>
@@ -18,9 +15,6 @@
 	<div class="slide background-overlay-one background-image" style="background-image:url('<?= base_url() ?>assets/front/images/banner/home-2.jpg');">
 		<div class="container">
 			<div class="slide-captions text-center">
-
-				<h3 class="text-uppercase text-light" style="font-size: 40px!important;font-weight: 800;line-height: 1.1;">Always deliver more</h3>
-				<h4 class="text-uppercase text-light" style="font-size: 30px!important;font-weight: 800;line-height: 1.1;"> Larry Page</h4>
 
 				<h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
 					this as our mantra. We make constant efforts to improve and enhance our outlook about
@@ -60,19 +54,22 @@
 	<div class="container">
 		<div class="heading-text heading-section">
 			<h2>Upcoming Treks</h2>
-			<span align="justify" class="lead">Check Out our new events and Programms</span>
+			<span align="justify" class="lead">Check Out our new events and Programs</span>
 		</div>
 	</div>
 	<div class="portfolio">
 
 		<div id="portfolio" class="grid-layout portfolio-4-columns" data-margin="0">
 			<?php
+			$i = 0;
 			foreach (array_reverse($upcomingInfo) as $row) {
+				if ($i == 8) break;
+				$i++;
 			?>
 				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['uEvent'] ?>">
 					<div class="portfolio-item-wrap">
 						<div class="portfolio-image">
-							<img height="100px" width="auto" src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
+							<img style="height:300px;" src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
 						</div>
 						<div class="portfolio-description">
 							<a href="portfolio-page-grid-gallery.html">
@@ -98,9 +95,10 @@
 						</div>
 					</div>
 				</div>
-			<?php } ?>
-		</div>
-	</div>
+			<?php } ?>			
+		</div>				
+	</div>	
+	<center><a href="<?= base_url() ?>events" class="btn text-white btn-red btn-outline mt-3">Load More...</a></center>
 </section>
 <section>
 	<div class="call-to-action background-image p-t-100 p-b-100" style="background-image:url('<?= base_url() ?>assets/front/images/contact.jpg')">
