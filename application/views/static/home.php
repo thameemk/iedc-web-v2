@@ -5,8 +5,7 @@
 		<div class="container">
 			<div class="slide-captions text-center">
 
-				<h2 class="text-uppercase text-medium text-light">Always deliver more</h2>
-				<h3 class="text-light">Larry Page</h3>
+				<h3 class="text-uppercase text-light">Always deliver more -<br> Larry Page</h3>				
 				<h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
 					this as our mantra. We make constant efforts to improve and enhance our outlook about
 					Innovation & Entrepreneurship. </h4>
@@ -19,8 +18,7 @@
 		<div class="container">
 			<div class="slide-captions text-center">
 
-				<h2 class="text-uppercase text-medium text-light">Always deliver more</h2>
-				<h3 class="text-light">Larry Page</h3>
+			<h3 class="text-uppercase text-light">Always deliver more -<br> Larry Page</h3>		
 				<h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
 					this as our mantra. We make constant efforts to improve and enhance our outlook about
 					Innovation & Entrepreneurship. </h4>
