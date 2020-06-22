@@ -90,14 +90,16 @@
 										<?php } ?>
 									</b>
 								</span>
-								<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">Register</a>
+								<?php if ($row['uRegistration'] != NULL) { ?>
+									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">Register</a>
+								<?php } ?>
 							</a>
 						</div>
 					</div>
 				</div>
-			<?php } ?>			
-		</div>				
-	</div>	
+			<?php } ?>
+		</div>
+	</div>
 	<center><a href="<?= base_url() ?>events" class="btn text-white btn-red btn-outline mt-3">Load More...</a></center>
 </section>
 <section>

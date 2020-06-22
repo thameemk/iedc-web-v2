@@ -9,7 +9,7 @@
 
 		<div id="portfolio" class="grid-layout portfolio-4-columns" data-margin="0">
 			<?php
-			foreach (array_reverse($upcomingInfo) as $row) {				
+			foreach (array_reverse($upcomingInfo) as $row) {
 			?>
 				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['uEvent'] ?>">
 					<div class="portfolio-item-wrap">
@@ -35,12 +35,14 @@
 										<?php } ?>
 									</b>
 								</span>
-								<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">Register</a>
+								<?php if ($row['uRegistration'] != NULL) { ?>
+									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">Register</a>
+								<?php } ?>
 							</a>
 						</div>
 					</div>
 				</div>
-			<?php } ?>			
-		</div>				
-	</div>		
+			<?php } ?>
+		</div>
+	</div>
 </section>
