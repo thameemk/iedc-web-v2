@@ -1,7 +1,7 @@
 <section class="p-b-0">
 	<div class="container">
 		<div class="heading-text heading-section">
-			<h2>Events</h2>
+			<h2>Events & Programs</h2>
 			<span align="justify" class="lead">Check Out our new events and Programs</span>
 		</div>
 	</div>
