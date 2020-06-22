@@ -72,7 +72,7 @@
 											</li>
 										</ul>
 									</li>
-									<li> <a href="<?= base_url() ?>events">Events</a></li>
+									<li> <a href="<?= base_url() ?>events-and-programs">Events & Programs</a></li>
 									<li> <a href="<?= base_url() ?>contact">Contact</a></li>
 									<?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
 										<li> <a href="<?php echo $loginURL ?>">Login</a></li>
