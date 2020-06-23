@@ -30,7 +30,7 @@
 					<div class="post-item-wrap">
 						<div class="post-image">
 							<?php if ($row['imageLink']) { ?>
-								<img src="<?= base_url() ?>/assets/uploads/images/ecell/<?= $row['imageLink'] ?>" alt="<?= $row['companyHead'] ?>" class="img-fluid" style="height: 150px ; width: 200px;">
+								<img src="<?= base_url() ?>/assets/uploads/images/ecell/<?= $row['imageLink'] ?>" alt="<?= $row['companyHead'] ?>" class="img-fluid" style="height: auto ; width: 200px;">
 							<?php } else { ?>
 								<p>File contain no image data</p>
 							<?php } ?>
