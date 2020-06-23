@@ -68,42 +68,42 @@
       <div class="row">
          <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="0">
             <div class="icon-box effect medium border small">
-               <div class="icon"> <a href="#"><i class="fa fa-cogs"></i></a> </div>
+               <div class="icon"> <a href="javascript:;"><i class="fa fa-cogs"></i></a> </div>
                <h3>Maker Library</h3>
                <p>Book your componets virtually</p>
             </div>
          </div>
          <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="200">
             <div class="icon-box effect medium border small">
-               <div class="icon"> <a href="#"><i class="fa fa-lightbulb"></i></a> </div>
+               <div class="icon"> <a href="javascript:;"><i class="fa fa-lightbulb"></i></a> </div>
                <h3>Project Proposal</h3>
                <p>Submit your project proposal. We will help you to buid your dream projects</p>
             </div>
          </div>
          <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="400">
             <div class="icon-box effect medium border small">
-               <div class="icon"> <a href="#"><i class="fa fa-rocket"></i></a> </div>
+               <div class="icon"> <a href="javascript:;"><i class="fa fa-rocket"></i></a> </div>
                <h3>Pre Incubation</h3>
                <p>Start on the right path with our expert opinion.</p>
             </div>
          </div>
          <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="600">
             <div class="icon-box effect medium border small">
-               <div class="icon"> <a href="#"><i class="fa fa-cloud"></i></a> </div>
+               <div class="icon"> <a href="javascript:;"><i class="fa fa-cloud"></i></a> </div>
                <h3>Server Access</h3>
                <p>Host your website and boost your startups and projects.</p>
             </div>
          </div>
          <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="800">
             <div class="icon-box effect medium border small">
-               <div class="icon"> <a href="#"><i class="fa fa-calendar"></i></a> </div>
+               <div class="icon"> <a href="javascript:;"><i class="fa fa-calendar"></i></a> </div>
                <h3>Schedule Meeting </h3>
                <p>Digitalise all your meetings with a personalised calender</p>
             </div>
          </div>
          <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="1000">
             <div class="icon-box effect medium border small">
-               <div class="icon"> <a href="#"><i class="fa fa-clipboard-list"></i></a> </div>
+               <div class="icon"> <a href="javascript:;"><i class="fa fa-clipboard-list"></i></a> </div>
                <h3>Business Model</h3>
                <p>Submit your model for evaluation from our expert mentor pool.</p>
             </div>
