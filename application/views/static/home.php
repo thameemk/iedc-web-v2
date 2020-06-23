@@ -91,7 +91,7 @@
 			<?php } ?>
 		</div>
 	</div>
-	<center><a href="<?= base_url() ?>events" class="btn text-white btn-red btn-outline mt-3">Load More...</a></center>
+	<center><a href="<?= base_url() ?>events-and-programs" class="btn text-white btn-red btn-outline mt-3">Load More...</a></center>
 </section>
 <section>
 	<div class="call-to-action background-image p-t-100 p-b-100" style="background-image:url('<?= base_url() ?>assets/front/images/contact.jpg')">
