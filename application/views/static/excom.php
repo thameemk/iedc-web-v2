@@ -6,7 +6,7 @@
         <div class="breadcrumb">
             <ul>
                 <li><a href="<?=base_url()?>">Home</a> </li>
-                <li class="active"><a href="<?=base_url()?>execom">Execom</a> </li>
+                <li class="active"><a href="<?=base_url()?>excom">Excom</a> </li>
             </ul>
         </div>
     </div>

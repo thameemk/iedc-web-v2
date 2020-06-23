@@ -1,3 +1,16 @@
+<section id="page-title" data-parallax-image="">
+	<div class="container">
+		<div class="page-title">
+			<h1>Meet the team</h1>
+		</div>
+		<div class="breadcrumb">
+			<ul>
+				<li><a href="<?= base_url() ?>">Home</a> </li>
+				<li class="active"><a href="<?= base_url() ?>events-and-programs">Events & Programs</a> </li>
+			</ul>
+		</div>
+	</div>
+</section>
 <section class="p-b-0">
 	<div class="container">
 		<div class="heading-text heading-section">

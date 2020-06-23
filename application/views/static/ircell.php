@@ -30,11 +30,7 @@
                     <div class="post-item">
                         <div class="post-item-wrap">
                             <h2>Innovation & Research Cell</h2>
-                            <p>Every fabulous invention that we have come across results form a thought that wandered
-                                out of the box. Innovation & research cell is a community which aims to foster such
-                                research culture in the young budding minds of the student community, through
-                                mentorships and support in all respects. The community strives to build a generation
-                                brimming with innovation ideas for a better tomorrow.</p>
+                            <p>Every fabulous invention that we have come across results from a thought that wandered out of the box. Innovation and Research Cell is a community which aims to foster such research culture in the young budding minds of the student community, through mentorships and support in all respects. The community strives to build a generation brimming with innovative ideas for a better tomorrow.</p>
                         </div>
                     </div>
                 </div>

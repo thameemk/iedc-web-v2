@@ -4,9 +4,7 @@
 		<div class="container">
 			<div class="slide-captions text-center">
 
-				<h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
-					this as our mantra. We make constant efforts to improve and enhance our outlook about
-					Innovation & Entrepreneurship. </h4>
+				<h4 align="justify" class="lead text-light text-bold">We at IEDC TKMCE follow the mantra to put in the effort needed to improve and enhance our outlook on Innovation and Entrepreneurship.</h4>
 			</div>
 		</div>
 	</div>
@@ -16,9 +14,7 @@
 		<div class="container">
 			<div class="slide-captions text-center">
 
-				<h4 align="justify" class="lead text-light">At Innovation and Entrepreneurship Development Cell, TKMCE we take
-					this as our mantra. We make constant efforts to improve and enhance our outlook about
-					Innovation & Entrepreneurship. </h4>
+				<h4 align="justify" class="lead text-light text-bold">We at IEDC TKMCE follow the mantra to put in the effort needed to improve and enhance our outlook on Innovation and Entrepreneurship. </h4>
 			</div>
 		</div>
 	</div>
@@ -28,10 +24,7 @@
 	<div class="container">
 		<div class="heading-text heading-section">
 			<h2>Vision</h2>
-			<span class="lead">The Innovation and Entrepreneurship Development Cell aims to encourage and
-				develop, innovative and entrepreneurship spirit among the students and to undertake major
-				initiatives to assist innovation promotion in the region. We have facilitate the metamorphosis
-				and create products, services and solutions contributing to a brighter future. </span>
+			<span class="lead">The Innovation and Entrepreneurship Development Cell aims to help students develop a spirit of innovation and entrepreneurship and to undertake major initiatives to assist the promotion of the same in the region by providing them the facilities to create the products and the services that will take us together towards a brighter future.</span>
 		</div>
 
 	</div>
