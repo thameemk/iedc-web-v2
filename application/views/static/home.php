@@ -65,7 +65,7 @@
 							<img style="height:300px;" src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
 						</div>
 						<div class="portfolio-description">
-							<a href="portfolio-page-grid-gallery.html">
+							<a href="javascript:;">
 								<h3><?= $row['uTitle'] ?></h3>
 								<span>
 									<b>
