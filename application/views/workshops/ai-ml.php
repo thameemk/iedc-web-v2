@@ -1,5 +1,5 @@
 
-<section id="page-title" data-parallax-image="<?=base_url()?>assets/front/images/banner/home.jpg">
+<section id="page-title">
 	<div class="container">
 		<div class="page-title">
 			<h1>AI & ML</h1>

@@ -1,6 +1,6 @@
 
 
-    <section id="page-title" data-parallax-image="<?=base_url()?>assets/images/add-story-banner.jpg">
+    <section id="page-title">
         <div class="container">
             <div class="page-title">
                 <h1>Add story</h1>

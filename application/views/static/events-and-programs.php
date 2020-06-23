@@ -1,7 +1,7 @@
-<section id="page-title" data-parallax-image="">
+<section id="page-title" >
 	<div class="container">
 		<div class="page-title">
-			<h1>Meet the team</h1>
+			<h1>Events & Programs</h1>
 		</div>
 		<div class="breadcrumb">
 			<ul>
