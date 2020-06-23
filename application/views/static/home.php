@@ -39,7 +39,79 @@
 
 	</div>
 </section>
+<section>
+	<div class="container">
+		<div class="heading-text text-center">
+			<h3>Nodal Officer's Message!</h3>			
+		</div>			
+		<div class="carousel arrows-visibile testimonial testimonial-single testimonial-left" data-items="1">
 
+			<div class="testimonial-item">
+				<img src="<?=base_url()?>assets/uploads/images/nodal-officer.jpg"  alt="Dr. Imthias Ahamed T.P">
+			<!-- <img src="https://tkmce.ac.in/wp-content/uploads/users/EEE02343-1416683315-thumb.jpg" alt="Dr. Imthias Ahamed T.P"> -->
+			<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
+			<span class="text-bold mt-3" style="color:black;">Dr. Imthias Ahamed T.P</span>
+			<span class="text-bold">Professor - 
+			Department of Electrical and Electronics Engineering</span>
+			</div>
+
+		</div>
+
+	</div>
+</section>
+<section>
+   <div class="container">
+      <div class="heading-text heading-section text-center">
+		 <h2>SERVICES</h2>
+		 <p>Find your right tools</p>        
+      </div>
+      <div class="row">
+         <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="0">
+            <div class="icon-box effect medium border small">
+               <div class="icon"> <a href="#"><i class="fa fa-cogs"></i></a> </div>
+               <h3>Maker Library</h3>
+               <p>Book your componets virtually</p>
+            </div>
+         </div>
+         <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="200">
+            <div class="icon-box effect medium border small">
+               <div class="icon"> <a href="#"><i class="fa fa-lightbulb"></i></a> </div>
+               <h3>Project Proposal</h3>
+               <p>Submit your project proposal. We will help you to buid your dream projects</p>
+            </div>
+         </div>
+         <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="400">
+            <div class="icon-box effect medium border small">
+               <div class="icon"> <a href="#"><i class="fa fa-rocket"></i></a> </div>
+               <h3>Pre Incubation</h3>
+               <p>Start on the right path with our expert opinion.</p>
+            </div>
+         </div>
+         <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="600">
+            <div class="icon-box effect medium border small">
+               <div class="icon"> <a href="#"><i class="fa fa-cloud"></i></a> </div>
+               <h3>Server Access</h3>
+               <p>Host your website and boost your startups and projects.</p>
+            </div>
+         </div>
+         <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="800">
+            <div class="icon-box effect medium border small">
+               <div class="icon"> <a href="#"><i class="fa fa-calendar"></i></a> </div>
+               <h3>Schedule Meeting </h3>
+               <p>Digitalise all your meetings with a personalised calender</p>
+            </div>
+         </div>
+         <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="1000">
+            <div class="icon-box effect medium border small">
+               <div class="icon"> <a href="#"><i class="fa fa-clipboard-list"></i></a> </div>
+               <h3>Business Model</h3>
+               <p>Submit your model for evaluation from our expert mentor pool.</p>
+            </div>
+         </div>
+    
+      </div>
+   </div>
+</section>
 
 <section class="p-b-0">
 	<div class="container">
