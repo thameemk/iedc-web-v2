@@ -1,5 +1,5 @@
 
-<section id="page-title" data-parallax-image="<?=base_url()?>assets/front/images/banner/contact.jpg">
+<section id="page-title" data-parallax-image="">
 	<div class="container">
 		<div class="page-title">
 			<h1>Innovate For TKM</h1>

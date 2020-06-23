@@ -3,8 +3,7 @@
 	<div class="slide background-overlay-one background-image" style="background-image:url('<?= base_url() ?>assets/front/images/banner/home.jpg');">
 		<div class="container">
 			<div class="slide-captions text-center">
-
-				<h4 align="justify" class="lead text-light text-bold">We at IEDC TKMCE follow the mantra to put in the effort needed to improve and enhance our outlook on Innovation and Entrepreneurship.</h4>
+				<h4 align="justify" class="lead text-light">We at IEDC TKMCE follow the mantra to put in the effort needed to improve and enhance our outlook on Innovation and Entrepreneurship.</h4>
 			</div>
 		</div>
 	</div>
@@ -13,8 +12,7 @@
 	<div class="slide background-overlay-one background-image" style="background-image:url('<?= base_url() ?>assets/front/images/banner/home-2.jpg');">
 		<div class="container">
 			<div class="slide-captions text-center">
-
-				<h4 align="justify" class="lead text-light text-bold">We at IEDC TKMCE follow the mantra to put in the effort needed to improve and enhance our outlook on Innovation and Entrepreneurship. </h4>
+				<h4 align="justify" class="lead text-light">We at IEDC TKMCE follow the mantra to put in the effort needed to improve and enhance our outlook on Innovation and Entrepreneurship. </h4>
 			</div>
 		</div>
 	</div>

@@ -1,12 +1,12 @@
-<section id="page-title" data-parallax-image="<?= base_url() ?>assets/front/images/banner/ecell.jpg">
+<section id="page-title" data-parallax-image="">
 	<div class="container">
 		<div class="page-title">
-			<h1>E-Cell</h1>
+			<h1>E - Cell</h1>
 		</div>
 		<div class="breadcrumb">
 			<ul>
 				<li><a href="<?= base_url() ?>">Home</a> </li>
-				<li class="active"><a href="<?= base_url() ?>ecell">E-Cell</a> </li>
+				<li class="active"><a href="<?= base_url() ?>ecell">E - Cell</a> </li>
 			</ul>
 		</div>
 	</div>
