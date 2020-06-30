@@ -29,7 +29,7 @@
                         <div class="form-group">
 
                             <label for="summary">Abstract/Summary :</label>
-                            <textarea type="text" class="form-control" name="summary" style="display: inline;" required></textarea>
+                            <textarea rows="10" type="text" class="form-control" name="summary" style="display: inline;" required></textarea>
 
                         </div>
 
