@@ -27,7 +27,7 @@
 						</div>
 					</div>
 					<div class="table-responsive">
-						<table class="table table-hover mb-0">
+						<table  id="dataTableExample" class="table table-hover mb-0">
 							<thead>
 								<tr>
 									<th class="pt-0">Name</th>

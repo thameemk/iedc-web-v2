@@ -100,7 +100,7 @@ class Admin_model extends CI_Model
     $configss['upload_path'] = 'assets/uploads/images/maker-library/';
     $temp = $_FILES["img_link"]['name'];
     $file_name = time() . "." . pathinfo($temp, PATHINFO_EXTENSION);
-    $configss['file_name'] = $file_name;    
+    $configss['file_name'] = $file_name;
     $this->load->library('upload', $configss);
     if (!$this->upload->do_upload('img_link')) {
       $error = array('error' => $this->upload->display_errors());
@@ -121,5 +121,32 @@ class Admin_model extends CI_Model
   {
     $query = $this->db->get('execom_reg');
     return $query->result_array();
+  }
+
+  public function get_all_project_proposals()
+  {
+    $query = $this->db->get('project_proposal');
+    return $query->result_array();
+  }
+
+  public function get_project_team_details($project_id)
+  {
+    $this->db->where('project_id', $project_id);
+    $query = $this->db->get('project_proposal_team_members');
+    return json_encode($query->result());
+  }
+
+  public function get_project_requirements($project_id)
+  {
+    $this->db->where('project_id', $project_id);
+    $query = $this->db->get('project_proposal_requirements');
+    return json_encode($query->result());
+  }
+  public function get_project_summary($project_id)
+  {
+    $this->db->select('summary');
+    $this->db->where('project_id', $project_id);
+    $query = $this->db->get('project_proposal');
+    return json_encode($query->result());
   }
 }
