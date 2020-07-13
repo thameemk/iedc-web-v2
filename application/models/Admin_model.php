@@ -149,4 +149,34 @@ class Admin_model extends CI_Model
     $query = $this->db->get('project_proposal');
     return json_encode($query->result());
   }
+
+  function add_volunteer()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);
+    $this->form_validation->set_rules('email', 'User Email', 'required');
+    $this->form_validation->set_rules('name', 'Name', 'required');
+    $this->form_validation->set_rules('phone', 'Phone', 'required');
+    $this->form_validation->set_rules('branch', 'Branch', 'required');
+    $this->form_validation->set_rules('year', 'Year', 'required');
+    $this->form_validation->set_rules('role', 'Role', 'required');
+     $this->form_validation->set_rules('duration', 'Duration', 'required');
+    if ($this->form_validation->run() == FALSE) {
+      $this->session->set_flashdata('fail', 'Fill all fields');
+      redirect('admin/dashboard/add-user');
+    } else {            
+        $data = array(
+          'email' => $this->input->post('email'),
+          'name' => $this->input->post('name'),
+          'phone' => $this->input->post('phone'),
+          'branch' => $this->input->post('branch'),
+          'year' => $this->input->post('year'),
+          'role' => $this->input->post('role'),
+           'duration' => $this->input->post('duration'),
+        );
+        $this->db->insert('volunteers',$data);
+        $this->session->set_flashdata('success', 'Success!');
+        redirect('admin/dashboard/volunteer-database');      
+    }
+  }
 }

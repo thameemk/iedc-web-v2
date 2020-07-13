@@ -147,4 +147,10 @@ class Admin extends CI_Controller
   {
     echo $this->admin_model->get_project_requirements($project_id);
   }
+
+  function add_volunteer_post()
+  {
+    $this->admin_model->add_volunteer();
+  }
+
 }
