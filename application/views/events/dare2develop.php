@@ -1,28 +1,18 @@
-<section id="page-title" style="background-color: #1D2C49;">
-    <div class="container">
-        <div class="page-title">
-            <h1 class="text-white">Dare2Develop</h1>
-        </div>
-        <div class="breadcrumb">
-            <ul>
-                <li class="text-white"><a href="<?= base_url() ?>">Home</a> </li>
-                <li class="active text-white"><a href="<?= base_url() ?>events/dare2develop">Dare2Develop</a> </li>
-            </ul>
-        </div>
-    </div>
+<style>
+    .banner-img-height {
+        height: 350px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .banner-img-height {
+            height: 150px;
+        }
+    }
+</style>
+<section class="banner-img-height" id="page-title" style="background-color: #1D2C49;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/dare2develop.png">
 </section>
-<section>
+<section class="text-white" style="background-color: #181918;">
     <div class="container">
-        <?php if ($this->session->flashdata('fail')) : ?>
-            <div class="alert alert-danger" role="alert">
-                <center><?php echo $this->session->flashdata('fail'); ?></center>
-            </div>
-        <?php endif; ?>
-        <?php if ($this->session->flashdata('success')) : ?>
-            <div class="alert alert-success" role="alert">
-                <center><?php echo $this->session->flashdata('success'); ?></center>
-            </div>
-        <?php endif; ?>
         <div class="row">
             <div class="col-lg-12 pr-3">
                 <div class="row">
@@ -42,8 +32,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">                                           
-                        <iframe src="https://open.spotify.com/embed-podcast/show/2O5FfJYAclgd38qZGh3eVp" width="100%" height="450px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    <div class="col-lg-4">
+                        <iframe src="https://open.spotify.com/embed-podcast/episode/3mHpSE29sxsKAYJjXcflcN" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                     </div>
                 </div>
             </div>
