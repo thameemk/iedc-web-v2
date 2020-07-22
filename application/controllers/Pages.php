@@ -196,4 +196,11 @@ class Pages extends CI_Controller
       }
     }
   }
+
+  function dare2develop()
+  {
+    $data['page_title'] = 'Dare2Develop';
+    $data['loginURL'] = $this->googleplus->loginURL();   
+    $this->load->view('events/dare2develop', $data);    
+  }
 }
