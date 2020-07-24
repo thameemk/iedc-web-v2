@@ -56,14 +56,14 @@
                                 <ul>
                                     <li><a href="<?= base_url() ?>">Home</a></li>
                                     <li class="dropdown"> <a href="#">Initiatives</a>
-                                        <ul class="dropdown-menu"  style="background-color: #181918;" >
+                                        <ul class="dropdown-menu" style="background-color: #181918;">
                                             <li> <a href="<?= base_url() ?>ircell">IR cell</a> </li>
                                             <li> <a href="<?= base_url() ?>ecell">E-cell</a> </li>
                                             <li> <a href="<?= base_url() ?>communities">Communities</a> </li>
                                         </ul>
                                     </li>
                                     <li class="dropdown"> <a href="#">Team</a>
-                                        <ul class="dropdown-menu"  style="background-color: #181918;">
+                                        <ul class="dropdown-menu" style="background-color: #181918;">
                                             <li> <a href="<?= base_url() ?>excom">Excom
                                                 </a> </li>
                                             <li> <a href="<?= base_url() ?>web-team">Web Team</a>
@@ -122,12 +122,12 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                               <iframe src="https://open.spotify.com/embed-podcast/episode/2IJ6VWNdzzPj28YP45USXy" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/2IJ6VWNdzzPj28YP45USXy" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
                             <div class="col-lg-6">
                                 <iframe src="https://open.spotify.com/embed-podcast/episode/6RRz9H7tUguKXOebL0Hh7P" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,11 @@
                                             <li><a href="<?= base_url() ?>#mission">Mission</a></li>
                                             <li><a href="<?= base_url() ?>#vision">Vision</a></li>
                                             <li><a href="<?= base_url() ?>events">Events</a></li>
-                                            <li><a href="<?php echo $loginURL ?>">Login</a></li>
+                                            <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
+                                                <li> <a href="<?php echo $loginURL ?>">Login</a></li>
+                                            <?php } else { ?>
+                                                <li> <a href="<?= base_url() ?>user/dashboard">My Profile</a></li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </div>

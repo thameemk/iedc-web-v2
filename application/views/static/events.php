@@ -48,7 +48,7 @@
 									</b>
 								</span>
 								<?php if ($row['uRegistration'] != NULL) { ?>
-									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">Register</a>
+									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">View / Register</a>
 								<?php } ?>
 							</a>
 						</div>

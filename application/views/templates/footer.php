@@ -21,7 +21,11 @@
 									<li><a href="<?= base_url() ?>#mission">Mission</a></li>
 									<li><a href="<?= base_url() ?>#vision">Vision</a></li>
 									<li><a href="<?= base_url() ?>events">Events</a></li>
-									<li><a href="<?php echo $loginURL ?>">Login</a></li>
+									<?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
+										<li> <a href="<?php echo $loginURL ?>">Login</a></li>
+									<?php } else { ?>
+										<li> <a href="<?= base_url() ?>user/dashboard">My Profile</a></li>
+									<?php } ?>
 								</ul>
 							</div>
 						</div>
