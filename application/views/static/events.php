@@ -6,15 +6,14 @@
 		<div class="breadcrumb">
 			<ul>
 				<li><a href="<?= base_url() ?>">Home</a> </li>
-				<li class="active"><a href="<?= base_url() ?>events-and-programs">Events & Programs</a> </li>
+				<li class="active"><a href="<?= base_url() ?>events">Events & Programs</a> </li>
 			</ul>
 		</div>
 	</div>
 </section>
 <section class="p-b-0">
 	<div class="container">
-		<div class="heading-text heading-section">
-			<h2>Events & Programs</h2>
+		<div class="heading-text heading-section">			
 			<span align="justify" class="lead">Check Out our new events and Programs</span>
 		</div>
 	</div>
@@ -49,7 +48,7 @@
 									</b>
 								</span>
 								<?php if ($row['uRegistration'] != NULL) { ?>
-									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">Register</a>
+									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">View / Register</a>
 								<?php } ?>
 							</a>
 						</div>

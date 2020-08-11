@@ -56,21 +56,21 @@
                                 <ul>
                                     <li><a href="<?= base_url() ?>">Home</a></li>
                                     <li class="dropdown"> <a href="#">Initiatives</a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu" style="background-color: #181918;">
                                             <li> <a href="<?= base_url() ?>ircell">IR cell</a> </li>
                                             <li> <a href="<?= base_url() ?>ecell">E-cell</a> </li>
                                             <li> <a href="<?= base_url() ?>communities">Communities</a> </li>
                                         </ul>
                                     </li>
                                     <li class="dropdown"> <a href="#">Team</a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu" style="background-color: #181918;">
                                             <li> <a href="<?= base_url() ?>excom">Excom
                                                 </a> </li>
                                             <li> <a href="<?= base_url() ?>web-team">Web Team</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li> <a href="<?= base_url() ?>events-and-programs">Events & Programs</a></li>
+                                    <li> <a href="<?= base_url() ?>events">Events</a></li>
                                     <li> <a href="<?= base_url() ?>contact">Contact</a></li>
                                     <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
                                         <li> <a href="<?php echo $loginURL ?>">Login</a></li>
@@ -107,7 +107,7 @@
         <section class="text-white" style="background-color: #181918;">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 pr-3" style="margin:2px">
+                    <div class="col-lg-12 pr-3">
                         <div class="row mb-5">
                             <div class="mb-3 mt-5">
                                 <span class="smalldesc">
@@ -121,9 +121,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4">
-                                <iframe src="https://open.spotify.com/embed-podcast/episode/3mHpSE29sxsKAYJjXcflcN" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/2IJ6VWNdzzPj28YP45USXy" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/6RRz9H7tUguKXOebL0Hh7P" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -150,8 +154,12 @@
                                             <li><a href="<?= base_url() ?>#about">About us</a></li>
                                             <li><a href="<?= base_url() ?>#mission">Mission</a></li>
                                             <li><a href="<?= base_url() ?>#vision">Vision</a></li>
-                                            <li><a href="<?= base_url() ?>events-and-programs">Events & Programs</a></li>
-                                            <li><a href="<?= base_url() ?>user/dashboard">User Panel</a></li>
+                                            <li><a href="<?= base_url() ?>events">Events</a></li>
+                                            <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
+                                                <li> <a href="<?php echo $loginURL ?>">Login</a></li>
+                                            <?php } else { ?>
+                                                <li> <a href="<?= base_url() ?>user/dashboard">My Profile</a></li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
