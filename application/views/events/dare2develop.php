@@ -37,7 +37,7 @@
 <body>
     <div class="body-inner">
 
-        <header id="header" class="text-white">
+        <header style="background-color: #181918;" id="header" class="text-white">
             <div class="header-inner" style="background-color: #181918 !important">
                 <div class="container" style="background-color: #181918;">
 
@@ -174,7 +174,7 @@
             </div>
             <div class="copyright-content" style="background-color: #181918;">
                 <div class="container">
-                    <div class="copyright-text text-center">&copy; 2019 IEDC TKMCE</div>
+                    <div class="copyright-text text-center">&copy; 2020 IEDC TKMCE</div>
                 </div>
             </div>
         </footer>

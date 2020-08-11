@@ -52,25 +52,30 @@ class Admin extends CI_Controller
   {
     $data = $this->input->post();
     $data = $this->security->xss_clean($data);
-    $this->form_validation->set_rules('email', 'User Email', 'required|is_unique[userRegister.email]');
-    if ($this->form_validation->run() == FALSE) {
-      $this->session->set_flashdata('fail', 'Already registred');
-      redirect('admin/dashboard/add-user');
-    } else {
-      $this->form_validation->set_rules('password', 'Password', 'required');
+    if ($this->admin_model->is_super_admin($this->session->email) == TRUE) {
+      $this->form_validation->set_rules('email', 'User Email', 'required|is_unique[userRegister.email]');
       if ($this->form_validation->run() == FALSE) {
-        $this->session->set_flashdata('fail', 'Fill all fields');
+        $this->session->set_flashdata('fail', 'Already registred');
         redirect('admin/dashboard/add-user');
       } else {
-        $data = array(
-          'email' => $this->input->post('email'),
-          'user_hash' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-          'added_user' => $this->session->email
-        );
-        $this->admin_model->add_user($data);
-        $this->session->set_flashdata('success', 'Success!');
-        redirect('admin/dashboard/add-user');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        if ($this->form_validation->run() == FALSE) {
+          $this->session->set_flashdata('fail', 'Fill all fields');
+          redirect('admin/dashboard/add-user');
+        } else {
+          $data = array(
+            'email' => $this->input->post('email'),
+            'user_hash' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+            'added_user' => $this->session->email
+          );
+          $this->admin_model->add_user($data);
+          $this->session->set_flashdata('success', 'Success!');
+          redirect('admin/dashboard/add-user');
+        }
       }
+    } else {
+      $this->session->set_flashdata('fail', 'You are not authorized. Please contact Web Admin');
+      redirect('admin/dashboard/add-user');
     }
   }
 
@@ -142,7 +147,7 @@ class Admin extends CI_Controller
   {
     echo $this->admin_model->get_project_summary($project_id);
   }
-  
+
   function getProjectRequirements($project_id)
   {
     echo $this->admin_model->get_project_requirements($project_id);
@@ -152,5 +157,4 @@ class Admin extends CI_Controller
   {
     $this->admin_model->add_volunteer();
   }
-
 }
