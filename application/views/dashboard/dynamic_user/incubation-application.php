@@ -8,6 +8,12 @@
 	<form method="post" action="<?=base_url()?>User/pre_incubation_app_post">
 		<div class="col-md-12 grid-margin stretch-card">
 			<div class="card">
+				<?php if ($this->session->flashdata('fail')) : ?>
+                    <span style="line-height:3" class="badge badge-danger"><?php echo $this->session->flashdata('fail'); ?></span>
+                <?php endif; ?>
+                <?php if ($this->session->flashdata('success')) : ?>
+                    <span style="line-height:3" class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
+                <?php endif; ?>
 				<div class="card-body">
 					<h3 class="card-sub-title text-center mb-5">
 						APPLICANT DETAILS
@@ -406,7 +412,7 @@
 
 							<span  class="btn btn-primary mr-2" onclick="addTeamMember()">Add Member</span>
 						</div>
-						<span class="btn btn-primary mr-2 mt-5"  onclick="showSwal('title-icon-text-footer')">Submit</span>
+						<button class="btn btn-primary mr-2 mt-5" type="submit">Submit</button>
 					</div>
 				</div>
 	</form>

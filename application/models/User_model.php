@@ -189,4 +189,84 @@ class User_model extends CI_Model
       return true;
     }
   }
+
+  function pre_incubation_reg()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);
+    $this->form_validation->set_rules('company_name', 'company_name', 'required');
+    $this->form_validation->set_rules('parent_name', 'parent_name', 'required');
+    $this->form_validation->set_rules('parent_mobile_number', 'parent_mobile_number', 'required');
+    if ($this->form_validation->run() == FALSE) {
+      return false;
+    } else {
+      $project_id = "PRE_" . time();
+      $data = array(
+        'reg_email' => $_SESSION['email'],
+        'reg_id' => $project_id,
+        'company_name' => $this->input->post('company_name'),
+        'parent_name' => $this->input->post('parent_name'),
+        'parent_mobile_number' => $this->input->post('parent_mobile_number'),       
+        'parent_email' => $this->input->post('parent_email'),
+        'comm_address' => $this->input->post('comm_address'),
+        'perm_address' => $this->input->post('perm_address'),
+        'business_category_1' => $this->input->post('business_category_1'),
+        'business_category_2' => $this->input->post('business_category_2'),
+        'business_category_3' => $this->input->post('business_category_3'),       
+        'business_idea' => $this->input->post('business_idea'),
+        'business_time' => $this->input->post('business_time'),
+        'business_ownership' => $this->input->post('business_ownership'),
+        'problem_statement' => $this->input->post('problem_statement'),
+        'solution' => $this->input->post('solution'),
+        'targeted_customer' => $this->input->post('targeted_customer'),       
+        'description' => $this->input->post('description'),
+        'possible_application' => $this->input->post('possible_application'),
+        'ser_workspace' => $this->input->post('ser_workspace'),
+        'ser_lab' => $this->input->post('ser_lab'),
+        'ser_web' => $this->input->post('ser_web'),
+        'ser_res' => $this->input->post('ser_res'),       
+        'ser_adv' => $this->input->post('ser_adv'),
+        'ser_oth' => $this->input->post('ser_oth'),
+        'bus_experience' => $this->input->post('bus_experience'),
+        'business_plan' => $this->input->post('business_plan'),
+        'business_plan_outline' => $this->input->post('business_plan_outline'),
+        'maket_feasibility_study' => $this->input->post('maket_feasibility_study'),       
+        'intellectual_property_strategy' => $this->input->post('intellectual_property_strategy'),
+        'bus_machinary_capital' => $this->input->post('bus_machinary_capital'),
+        'bussiness_estimate' => $this->input->post('bussiness_estimate'),
+        'funding_needs_source' => $this->input->post('funding_needs_source'),
+        'intend_finance' => $this->input->post('intend_finance'),
+        'market_survey' => $this->input->post('market_survey'),
+        'tech_own_other' => $this->input->post('tech_own_other'),       
+        'bus_reason' => $this->input->post('bus_reason'),
+        'already_invested' => $this->input->post('already_invested'),
+        'space' => $this->input->post('space'),
+        'bus_hazardous' => $this->input->post('bus_hazardous'),
+        'ass_strategy' => $this->input->post('ass_strategy'),
+        'ass_managemet' => $this->input->post('ass_managemet'),
+        'ass_marketing' => $this->input->post('ass_marketing'),
+        'ass_hr' => $this->input->post('ass_hr'),       
+        'ass_commercialization' => $this->input->post('ass_commercialization'),
+        'ass_legal' => $this->input->post('ass_legal'),
+        'ass_other' => $this->input->post('ass_other'),
+        'staff_mentors' => $this->input->post('staff_mentors'),
+        
+      );
+      $this->db->insert('pre_incubation', $data);
+      for ($x = 0; $x < count($this->input->post('team_name')); $x++) {
+        $data_1 = array(
+          'member_id' => "PRE_MEM_" . time(),
+          'team_name' =>  $this->input->post('team_name')[$x],
+          'team_adm_num' =>  $this->input->post('team_adm_num')[$x],
+          'incubation_reg_id' => $project_id,
+          'team_email' =>  $this->input->post('team_email')[$x],
+          'team_phone' =>  $this->input->post('team_phone')[$x],
+          'team_department	' =>  $this->input->post('team_department')[$x],
+          'team_year' =>  $this->input->post('team_year')[$x],
+        );
+        $this->db->insert('pre_incubation_team_members', $data_1);
+      }      
+      return true;
+    }
+  }
 }

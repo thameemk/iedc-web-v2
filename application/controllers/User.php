@@ -166,6 +166,16 @@ class User extends CI_Controller
 
   public function pre_incubation_app_post()
   {
-    echo "Some error has been occurred";exit;
+    $status = $this->user_model->pre_incubation_reg();
+    if ($status == true) {
+      $this->session->set_flashdata('success', 'Success! Contact IEDC officials to know more');
+      redirect('user/dashboard/incubation-application');
+    } elseif ($status == false) {
+      $this->session->set_flashdata('fail', 'Fill all fields!!');
+      redirect('user/dashboard/incubation-application');
+    } else {
+      $this->session->set_flashdata('fail', 'Some error has been occurred. Please try again later!!');
+      redirect('user/dashboard/incubation-application');
+    }
   }
 }
