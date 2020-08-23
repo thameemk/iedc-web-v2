@@ -204,7 +204,7 @@ class Pages extends CI_Controller
     $status = json_decode($response, true);
     if (!$status['success']) {
       $this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
-      redirect(base_url() . "new_registration");
+      redirect(base_url() . "membership-registration");
     } else {
       $this->form_validation->set_rules('name', 'Name', 'required');
       $this->form_validation->set_rules('email', 'Email', 'required');
@@ -214,7 +214,7 @@ class Pages extends CI_Controller
       $this->form_validation->set_rules('branch', 'branch', 'required');
       if ($this->form_validation->run() == FALSE) {
         $this->session->set_flashdata('fail', 'Fill all fields! ');
-        redirect(base_url() . "new_registration");
+        redirect(base_url() . "membership-registration");
       }  else {
         $data = array(
           'name' => $this->input->post('name'),
@@ -227,10 +227,10 @@ class Pages extends CI_Controller
         $status = $this->report_model->new_user_registration($data);
         if ($status == 201) {
           $this->session->set_flashdata('success', 'Registration successful! ');
-          redirect(base_url() . "new_registration");
+          redirect(base_url() . "membership-registration");
         } else {
           $this->session->set_flashdata('fail', 'Some error has been occurred ! Please try after some time ');
-          redirect(base_url() . "new_registration");
+          redirect(base_url() . "membership-registration");
         }
       }
     }

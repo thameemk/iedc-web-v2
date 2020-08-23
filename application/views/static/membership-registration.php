@@ -38,7 +38,7 @@
 </section>
 <div class="row">
     <div class="container mt-3 mb-5">
-        <h3 class="mb-5 text-center">New Registration</h3>
+        <h3 class="mb-5 text-center">Membership Registration</h3>
         <div class="">
             <form action="<?= base_url() ?>pages/new_user_registration" method="post">
                 <div class="row">
