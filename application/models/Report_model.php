@@ -53,6 +53,12 @@ class Report_model extends CI_Model
     $this->db->insert('users_ai_ml', $data);
   }
 
+
+  public function new_user_registration($data)
+  {
+    $this->db->insert('new_users', $data);
+  }
+
   public function execom_reg($data)
   {
     $configss['allowed_types'] = 'pdf';
@@ -76,6 +82,8 @@ class Report_model extends CI_Model
       return 201;
     }
   }
+
+
 
   public function google_recaptcha($recaptcha){
     $recaptchaResponse = trim($recaptcha);

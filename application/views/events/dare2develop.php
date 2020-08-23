@@ -131,6 +131,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
         <footer id="footer" class="text-white" style="background-color: #181918;">
             <div class="footer-content">

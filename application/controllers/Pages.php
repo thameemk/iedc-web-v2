@@ -64,8 +64,6 @@ class Pages extends CI_Controller
     $recaptcha = $this->input->post('g-recaptcha-response');
     $response = $this->report_model->google_recaptcha($recaptcha);
     $status = json_decode($response, true);
-
-
     if (!$status['success']) {
       $this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
       redirect(base_url() . "innovate4tkm");
@@ -197,10 +195,51 @@ class Pages extends CI_Controller
     }
   }
 
+  public function new_user_registration()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);
+    $recaptcha = $this->input->post('g-recaptcha-response');
+    $response = $this->report_model->google_recaptcha($recaptcha);
+    $status = json_decode($response, true);
+    if (!$status['success']) {
+      $this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
+      redirect(base_url() . "new_registration");
+    } else {
+      $this->form_validation->set_rules('name', 'Name', 'required');
+      $this->form_validation->set_rules('email', 'Email', 'required');
+      $this->form_validation->set_rules('phone_number', 'Phone', 'required');
+      $this->form_validation->set_rules('admission_number', 'admission_number', 'required');
+      $this->form_validation->set_rules('year', 'year of Study', 'required');
+      $this->form_validation->set_rules('branch', 'branch', 'required');
+      if ($this->form_validation->run() == FALSE) {
+        $this->session->set_flashdata('fail', 'Fill all fields! ');
+        redirect(base_url() . "new_registration");
+      }  else {
+        $data = array(
+          'name' => $this->input->post('name'),
+          'email' => $this->input->post('email'),
+          'phone_number' => $this->input->post('phone_number'),
+          'admission_number' => $this->input->post('admission_number'),
+          'year' => $this->input->post('year'),
+          'branch' => $this->input->post('branch'),
+        );
+        $status = $this->report_model->new_user_registration($data);
+        if ($status == 201) {
+          $this->session->set_flashdata('success', 'Registration successful! ');
+          redirect(base_url() . "new_registration");
+        } else {
+          $this->session->set_flashdata('fail', 'Some error has been occurred ! Please try after some time ');
+          redirect(base_url() . "new_registration");
+        }
+      }
+    }
+  }
+
   function dare2develop()
   {
     $data['page_title'] = 'Dare2Develop';
-    $data['loginURL'] = $this->googleplus->loginURL();   
-    $this->load->view('events/dare2develop', $data);    
+    $data['loginURL'] = $this->googleplus->loginURL();
+    $this->load->view('events/dare2develop', $data);
   }
 }
