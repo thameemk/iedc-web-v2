@@ -18,19 +18,35 @@
     }
 </style>
 
-<section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/dare2develop.png">
+<section class="banner-img-height" id="page-title" style="background-color: #181918;background-size: contain;background-repeat: no-repeat;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/registration.jpg">
 </section>
 <section>
     <div class="container">
         <div class="row">
-            <div class="mb-3 mt-5">
+            <div class="mb-1">
                 <span class="smalldesc">
-                    <h5 align="justify" class="custom-para"><span class="first-letter text-bold">T</span>he voice of innovation and passion that lies dormant in us is brought to life through Dare2Develop, your dose of inspiring tales of people who have made it big in all things entrepreneurial. Made by IEDC TKMCE, this podcast is the perfect blend of fun and facts in each scintillating episode. Join us on this journey as we unravel the how's and why's of being a successful entrepreneur.
+                    <h5 align="justify" class="mx-sm-5 custom-para">
+                        <span class="first-letter text-bold">I</span><span style="font-style:italic;">f you can change nothing, nothing is changed</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Joyce<br>
+
+                        Is your brain sizzling with thoughts that are unimagined? Want a companion to implement your ideas to rule the sphere? Then join hands with IEDC.
+                        IEDC TKMCE has opened the door to welcome all young geniuses to the world of inspiration and innovation and the benefits for the members of this igniting organisation is countless.
+                        <br><br>
+                        1. Mentorship will be provided to all the members and they shall make use of the resources of IEDC.<br>
+                        2. Funding for incubation of potentially excelling startups.<br>
+                        3. Necessary Funding for projects.<br>
+                        4. Access to hardware library.<br>
+                        5. Provision of server access and many other exciting features that are solely dedicated to IEDC members.<br>
+
+                        So sign up and get ready to ignite the genius in you.
+
+                        This registration is for students of batch 2019-2023.<br>
+                        <br>
+                        Registration fee: Rs.300
+
                     </h5>
                     <br>
-                    <h5>
-                        Stay tuned to have some fun.
-                    </h5>
+
                 </span>
             </div>
         </div>
