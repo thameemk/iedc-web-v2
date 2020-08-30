@@ -78,9 +78,9 @@
                     <div class="form-group col-md-6">
                         <label class="required" for="Year of study">Year of Study</label>
                         <select name="year" class="form-control" required>
-                            <option>Second Year</option>
-                            <option>Third Year</option>
-                            <option>Fourth Year</option>
+                            <option value="second-year">Second Year</option>
+                          <!--   <option>Third Year</option>
+                            <option>Fourth Year</option> -->
                         </select>
                     </div>
                     <div class="form-group  col-md-6">
