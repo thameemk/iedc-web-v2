@@ -66,13 +66,13 @@ class Pages extends CI_Controller
     $status = json_decode($response, true);
     if (!$status['success']) {
       $this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
-      redirect(base_url() . "innovate4tkm");
+      redirect(base_url() . "events/innovate4tkm");
     } else {
       $this->form_validation->set_rules('tlemail', 'Email', 'required|is_unique[users_innovate_4_tkm.tlemail]');
       $this->form_validation->set_rules('tlphone', 'Phone', 'required|is_unique[users_innovate_4_tkm.tlphone]');
       if ($this->form_validation->run() == FALSE) {
         $this->session->set_flashdata('fail', 'You have already registred');
-        redirect(base_url() . "innovate4tkm");
+        redirect(base_url() . "events/innovate4tkm");
       } else {
         $this->form_validation->set_rules('tlname', 'Name', 'required');
         $this->form_validation->set_rules('tlyear', 'year of Study', 'required');
@@ -80,7 +80,7 @@ class Pages extends CI_Controller
         $this->form_validation->set_rules('accept_rule', 'Rules and Regulations', 'required');
         if ($this->form_validation->run() == FALSE) {
           $this->session->set_flashdata('fail', 'Fill all fields! ');
-          redirect(base_url() . "innovate4tkm");
+          redirect(base_url() . "events/innovate4tkm");
         } else {
           $data = array(
             'tlname' => $this->input->post('tlname'),
@@ -94,7 +94,7 @@ class Pages extends CI_Controller
           );
           $this->report_model->registration_innovate4tkm($data);
           $this->session->set_flashdata('success', 'Registration successful! ');
-          redirect(base_url() . "innovate4tkm");
+          redirect(base_url() . "events/innovate4tkm");
         }
       }
     }
