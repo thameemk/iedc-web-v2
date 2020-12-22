@@ -66,6 +66,8 @@
                                         <ul class="dropdown-menu" style="background-color: #181918;">
                                             <li> <a href="<?= base_url() ?>excom">Excom
                                                 </a> </li>
+                                            <li> <a href="<?= base_url() ?>core-team">Core Team
+                                                </a> </li>
                                             <li> <a href="<?= base_url() ?>web-team">Web Team</a>
                                             </li>
                                         </ul>
@@ -121,17 +123,56 @@
                             </div>
                         </div>
                         <div class="row">
+                            <h2 class="mb-3 mb-md-5">Trending</h2>
+                        </div>
+                        <div class="row">
                             <div class="col-lg-6">
-                                <iframe src="https://open.spotify.com/embed-podcast/episode/2IJ6VWNdzzPj28YP45USXy" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/2n2rd8UVLw6LxNP654A8dG" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/5UDPO4WFpkjFE9oe6SpfgL" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/27QVAYV5xXfglLTJINMOzT" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 pr-3">
+                        <div class="row">
+                            <h2 class="mb-3 mt-sm-5 mb-md-5">Others</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/4b3gRemynd7LZpQIk8uZoM" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/7N1ewn399PyWK3w5v3IVwf" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/2azgT0ezTDZAwwyYQ33agh" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/4QTrZdnussACMqsVZERu67" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/0TMVAPbZBWTAK89YmhbmXb" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/0wjtaOXRAC1cYAfPxjfMb3" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/3oX41bSAJ7IWMOpVH8HI3p" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
                             <div class="col-lg-6">
                                 <iframe src="https://open.spotify.com/embed-podcast/episode/6RRz9H7tUguKXOebL0Hh7P" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
-
+                            <div class="col-lg-6">
+                                <iframe src="https://open.spotify.com/embed-podcast/episode/2IJ6VWNdzzPj28YP45USXy" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </section>
         <footer id="footer" class="text-white" style="background-color: #181918;">
             <div class="footer-content">

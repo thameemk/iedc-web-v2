@@ -1,5 +1,4 @@
 <div class="page-content">
-
 	<nav class="page-breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Admin</a></li>

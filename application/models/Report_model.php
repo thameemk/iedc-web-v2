@@ -56,7 +56,11 @@ class Report_model extends CI_Model
 
   public function new_user_registration($data)
   {
-    $this->db->insert('new_users', $data);
+    $this->db->insert('member_registration20', $data);
+  }
+  public function start_up_registration($data)
+  {
+    $this->db->insert('startup_call_2020', $data);
   }
 
   public function execom_reg($data)
@@ -67,8 +71,8 @@ class Report_model extends CI_Model
     $configss['max_size'] = '10240';
     $configss['upload_path'] = 'assets/uploads/execom_reg/';
     $temp = $_FILES["coverletter"]['name'];
-    $file_name = $data['phone'].".".pathinfo($temp,PATHINFO_EXTENSION);
-    $configss['file_name'] = $file_name;    
+    $file_name = $data['phone'] . "." . pathinfo($temp, PATHINFO_EXTENSION);
+    $configss['file_name'] = $file_name;
     $this->load->library('upload', $configss);
     if (!$this->upload->do_upload('coverletter')) {
       $error = array('error' => $this->upload->display_errors());
@@ -77,7 +81,7 @@ class Report_model extends CI_Model
       redirect(base_url() . "application-for-excom-20-21");
     } else {
       $url = base_url("assets/uploads/execom_reg/");
-      $data['coverletter'] = $url.$file_name;
+      $data['coverletter'] = $url . $file_name;
       $this->db->insert('execom_reg', $data);
       return 201;
     }
@@ -85,7 +89,8 @@ class Report_model extends CI_Model
 
 
 
-  public function google_recaptcha($recaptcha){
+  public function google_recaptcha($recaptcha)
+  {
     $recaptchaResponse = trim($recaptcha);
     // $userIp=$this->input->ip_address();
     $secret = '';

@@ -68,6 +68,8 @@
 										<ul class="dropdown-menu">
 											<li> <a href="<?= base_url() ?>excom">Excom
 												</a> </li>
+											<li> <a href="<?= base_url() ?>core-team">Core team
+												</a> </li>
 											<li> <a href="<?= base_url() ?>web-team">Web Team</a>
 											</li>
 										</ul>
