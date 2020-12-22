@@ -5,8 +5,8 @@
 		</div>
 		<div class="breadcrumb">
 			<ul>
-				<li><a href="<?= base_url() ?>">Home</a> </li>
-				<li class="active"><a href="<?= base_url() ?>contact">Innovate For TKM</a> </li>
+				<li><a href="<?=base_url()?>">Home</a> </li>
+				<li class="active"><a href="<?=base_url()?>events/innovate4tkm">Innovate For TKM</a> </li>
 			</ul>
 		</div>
 	</div>
