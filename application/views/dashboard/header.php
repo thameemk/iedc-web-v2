@@ -33,7 +33,7 @@
 									<a href="https://calendar.google.com/" target="_blank"><i data-feather="calendar" class="icon-lg"></i>
 										<p>Calendar</p>
 									</a>
-									<a href="mailto:info@tkmce.ac.in"><i data-feather="mail" class="icon-lg"></i>
+									<a href="mailto:iedc@tkmce.ac.in"><i data-feather="mail" class="icon-lg"></i>
 										<p>Email</p>
 									</a>
 									<a href="https://www.instagram.com/iedc_tkmce/" target="_blank"><i data-feather="instagram" class="icon-lg"></i>

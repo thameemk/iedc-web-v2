@@ -1,18 +1,24 @@
-<section id="page-title" >
-	<div class="container">
-		<div class="page-title">
-			<h1>Contact Us</h1>
-		</div>
-		<div class="breadcrumb">
-			<ul>
-				<li><a href="<?=base_url()?>">Home</a> </li>
-				<li class="active"><a href="<?=base_url()?>contact">Contact Us</a> </li>
-			</ul>
-		</div>
-	</div>
+<style>
+            .banner-img-height {
+                height: 380px;
+            }
+
+            @media screen and (max-width: 600px) {
+                .banner-img-height {
+                    height: 150px;
+                }
+            }
+
+            .first-letter {
+                font-size: 80px;
+            }
+
+            .custom-para {
+                line-height: 40px;
+            }
+        </style>
+<section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/contact us.png">
 </section>
-
-
 <section>
 	<div class="container">
 		<div class="row">
@@ -58,7 +64,7 @@
 			<div class="col-lg-6">
 				<h3 class="text-uppercase">Address & Map</h3>
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-5">
 						<address>
 							<strong>IEDC TKMCE</strong><br>
 							TKM College of Engineering<br>
@@ -66,20 +72,23 @@
 							PIN : 691005<br>
 						</address>
 					</div>
-					<div class="col-lg-6">
+					<div class="col-lg-7">
 						<div class="mb-4 social-icons social-icons-large social-icons-colored-hover">
 											<ul>
-													<li class="social-linkedin"><a href="mailto:info@iedctkmce.com"><i
+													<li class="social-linkedin"><a href="mailto:iedc@tkmce.ac.in"><i
 																			class="fa fa-envelope"></i></a>
 													</li>
 													<li class="social-linkedin"><a href="https://www.linkedin.com/company/iedc-tkmce/"><i
 																			class="fab fa-linkedin"></i></a>
 													</li>
-													<li class="social-facebook"><a href="https://www.facebook.com/tkmedc/"><i
+													<li class="social-facebook"><a href="https://www.facebook.com/tkmiedc/"><i
 																			class="fab fa-facebook-f"></i></a>
 													</li>
 													<li class="social-instagram"><a href="https://www.instagram.com/iedc_tkmce/"><i
 																			class="fab fa-instagram"></i></a>
+													</li>
+													<li class="social-twitter"><a href="https://twitter.com/iedctkmce/"><i
+																			class="fab fa-twitter"></i></a>
 													</li>
 											</ul>
 									</div>

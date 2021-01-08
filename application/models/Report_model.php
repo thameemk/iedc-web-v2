@@ -29,6 +29,11 @@ class Report_model extends CI_Model
     $query = $this->db->get('execomYear');
     return $query->result_array();
   }
+  public function podcast_series()
+  {
+    $query = $this->db->get('dare2develop');
+    return $query->result_array();
+  }
   public function web_team_info()
   {
     $query = $this->db->get('web_team');
@@ -52,11 +57,17 @@ class Report_model extends CI_Model
   {
     $this->db->insert('users_ai_ml', $data);
   }
-
-
+  
   public function new_user_registration($data)
   {
-    $this->db->insert('new_users', $data);
+    $this->db->insert('member_registration20', $data);
+    return 201;
+  }
+  
+  public function start_up_registration($data)
+  {
+    $this->db->insert('startup_call_2020', $data);
+    return 201;
   }
 
   public function execom_reg($data)
@@ -83,12 +94,10 @@ class Report_model extends CI_Model
     }
   }
 
-
-
   public function google_recaptcha($recaptcha){
     $recaptchaResponse = trim($recaptcha);
     // $userIp=$this->input->ip_address();
-    $secret = '';
+    $secret = '6LfZF_EUAAAAAKfJdzIEGneiNI1T0QV5O-7-rdlW';
     $credential = array(
       'secret' => $secret,
       'response' => $recaptcha

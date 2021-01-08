@@ -8,6 +8,7 @@
 	</nav>
 
 	<div class="row">
+	    <?php if($this->session->userdata('user_type')=='S' ||$this->session->userdata('user_type')=='U') {?>
 		<div class="col-md-6 grid-margin stretch-card">
 			<div class="card">
 				<?php if($this->session->flashdata('fail')): ?>
@@ -45,4 +46,7 @@
 				</div>
 			</div>
 		</div>
+			<?php } else { ?>
+    <h5 style="color:red">You are not authorized to access this page</h5>
+    <?php } ?>
 	</div>

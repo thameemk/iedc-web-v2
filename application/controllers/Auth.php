@@ -37,15 +37,15 @@ class Auth extends CI_Controller{
 		$this->session->set_userdata($session_data);
 		redirect('');
 	}
-
+	
 	function getusertype($email)
 	{		
 		$email = $this->security->xss_clean($email);
 		$this->db->where('email', $email);
 		$query = $this->db->get('admin_users');
-		$data = $query->row();
+		$data = $query->result_array();
 		if ($query->num_rows() == 1) {
-			$user_type = $data['type'];
+			$user_type = $data[0]['type'];
 			return $user_type;
 		}
 		else{

@@ -120,7 +120,7 @@ class Admin extends CI_Controller
 
   public function add_bulk_user()
   {
-    $query = $this->db->get('bulk_user');
+    $query = $this->db->get('member_registration20');
     $users = $query->result_array();
     // print_r($users);exit;
     foreach ($users as $row) {
@@ -147,12 +147,11 @@ class Admin extends CI_Controller
   {
     echo $this->admin_model->get_project_summary($project_id);
   }
-
+  
   function getProjectRequirements($project_id)
   {
     echo $this->admin_model->get_project_requirements($project_id);
   }
-
   function add_volunteer_post()
   {
     $this->admin_model->add_volunteer();

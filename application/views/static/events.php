@@ -1,15 +1,23 @@
-<section id="page-title" >
-	<div class="container">
-		<div class="page-title">
-			<h1>Events & Programs</h1>
-		</div>
-		<div class="breadcrumb">
-			<ul>
-				<li><a href="<?= base_url() ?>">Home</a> </li>
-				<li class="active"><a href="<?= base_url() ?>events">Events & Programs</a> </li>
-			</ul>
-		</div>
-	</div>
+<style>
+            .banner-img-height {
+                height: 380px;
+            }
+
+            @media screen and (max-width: 600px) {
+                .banner-img-height {
+                    height: 150px;
+                }
+            }
+
+            .first-letter {
+                font-size: 80px;
+            }
+
+            .custom-para {
+                line-height: 40px;
+            }
+        </style>
+<section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/EVENTS.png">
 </section>
 <section class="p-b-0">
 	<div class="container">
@@ -26,7 +34,7 @@
 				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['uEvent'] ?>">
 					<div class="portfolio-item-wrap">
 						<div class="portfolio-image">
-							<img style="height:300px;" src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
+							<img src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
 						</div>
 						<div class="portfolio-description">
 							<a href="javascript:;">

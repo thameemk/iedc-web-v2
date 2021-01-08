@@ -45,7 +45,7 @@
 
 					<div id="logo">
 						<a href="<?= base_url() ?>" class="logo" data-src-dark="<?= base_url() ?>assets/front/images/logo.png">
-							<img src="<?= base_url() ?>assets/front/images/logo.png" alt="IEDC Logo"> </a>
+							<img src="<?= base_url() ?>assets/front/images/logo.png" alt="IEDC Logo" class="p-2"> </a>
 					</div>
 
 					<div id="mainMenu-trigger">
@@ -68,8 +68,11 @@
 										<ul class="dropdown-menu">
 											<li> <a href="<?= base_url() ?>excom">Excom
 												</a> </li>
+												<li> <a href="<?= base_url() ?>core-team">Core team
+												</a> </li>
 											<li> <a href="<?= base_url() ?>web-team">Web Team</a>
 											</li>
+										
 										</ul>
 									</li>
 									<li> <a href="<?= base_url() ?>events">Events</a></li>

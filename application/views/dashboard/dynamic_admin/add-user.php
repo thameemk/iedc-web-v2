@@ -1,3 +1,4 @@
+
 <div class="page-content">
 
 	<nav class="page-breadcrumb">
@@ -6,7 +7,7 @@
 			<li class="breadcrumb-item active" aria-current="page">Add User</li>
 		</ol>
 	</nav>
-
+    <?php if($this->session->userdata('user_type')=='S'){?>
 	<div class="row">
 		<div class="col-md-6 grid-margin stretch-card">
 			<div class="card">
@@ -34,3 +35,6 @@
 			</div>
 		</div>
 	</div>
+    <?php } else { ?>
+    <h5 style="color:red">You are not authorized to access this page</h5>
+    <?php } ?>

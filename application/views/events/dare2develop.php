@@ -66,6 +66,8 @@
                                         <ul class="dropdown-menu" style="background-color: #181918;">
                                             <li> <a href="<?= base_url() ?>excom">Excom
                                                 </a> </li>
+                                            <li> <a href="<?= base_url() ?>core-team">Core Team
+                                                </a> </li>
                                             <li> <a href="<?= base_url() ?>web-team">Web Team</a>
                                             </li>
                                         </ul>
@@ -86,6 +88,8 @@
         <style>
             .banner-img-height {
                 height: 380px;
+                background-position: center;
+                background-size: cover;
             }
 
             @media screen and (max-width: 600px) {
@@ -106,37 +110,38 @@
         </section>
         <section class="text-white" style="background-color: #181918;">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 pr-3">
-                        <div class="row mb-5">
-                            <div class="mb-3 mt-5">
+                <div class="row ">
+                    <div class="col-lg-12 pr-3 ">
+                        <div class="row mb-4 paragraph">
+                            <div class="mt-3">
                                 <span class="smalldesc">
-                                    <h5 align="justify" class="custom-para"><span class="first-letter text-bold">T</span>he voice of innovation and passion that lies dormant in us is brought to life through Dare2Develop, your dose of inspiring tales of people who have made it big in all things entrepreneurial. Made by IEDC TKMCE, this podcast is the perfect blend of fun and facts in each scintillating episode. Join us on this journey as we unravel the how's and why's of being a successful entrepreneur.
-                                    </h5>
-                                    <br>
-                                    <h5>
+                                    <p align="justify" >The voice of innovation and passion that lies dormant in us is brought to life through Dare2Develop, your dose of inspiring tales of people who have made it big in all things entrepreneurial. Made by IEDC TKMCE, this podcast is the perfect blend of fun and facts in each scintillating episode. Join us on this journey as we unravel the how's and why's of being a successful entrepreneur.
+                                    </p>
+                                    <p>
                                         Stay tuned to have some fun.
-                                    </h5>
+                                    </p>
                                 </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <iframe src="https://open.spotify.com/embed-podcast/episode/2IJ6VWNdzzPj28YP45USXy" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                            <div class="col-lg-6">
-                                <iframe src="https://open.spotify.com/embed-podcast/episode/6RRz9H7tUguKXOebL0Hh7P" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
 
                         </div>
+                        <div class="row pb-2 py-sm-3 buttons">
+                            <button class="btn fadeInUp" onclick=allLang(event) style="animation-duration: 600ms;">All</button>
+                            <button class="btn  fadeInUp" onclick=engLang(event) style="animation-duration: 600ms;">English</button>
+                            <button class="btn  fadeInUp" onclick=malLang(event) style="animation-duration: 600ms;">Malayalam</button>
+                        </div>
+                        <div class="podcasts row">
+                            <?php foreach (array_reverse($podcast_series) as $row) { ?>
+                                <div class=" col-lg-6">
+                                    <?php if ($row['lang'] == 'ml' || 'en') echo ($row['embedded_code']) ?> 
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
-                </div>
-            </div>
         </section>
         <footer id="footer" class="text-white" style="background-color: #181918;">
             <div class="footer-content">
                 <div class="container">
-                    <div class="row">
+                    <div class="row ">
                         <div class="col-lg-5">
                             <div class="widget">
                                 <div class="widget-title">IEDC TKMCE</div>
@@ -192,10 +197,96 @@
 
 
     <a id="scrollTop"><i class="icon-chevron-up1"></i><i class="icon-chevron-up1"></i></a>
+    <script>
+        
+
+        var podcasts_div=document.querySelector('.podcasts');
+        window.onload=()=>{
+            allLang();
+        }
+        const allLang=(e)=>{
+            podcasts_div.innerHTML='';
+            var podcasts = <?=json_encode($podcast_series)?>;
+            podcasts=podcasts.reverse();
+            
+            podcasts.map(podcast=>{
+                var podcast_div=document.createElement('div');
+                podcast_div.classList.add('col-lg-6');
+                podcast_div.innerHTML=podcast['embedded_code'];
+                podcasts_div.appendChild(podcast_div);
+               
+                
+                
+            });
+        }
+        const engLang=(e)=>{
+            podcasts_div.innerHTML='';
+            var podcasts = <?=json_encode($podcast_series)?>;
+            podcasts=podcasts.reverse();
+            
+            podcasts.map(podcast=>{
+                if(podcast['lang']=='en')
+                {
+                var podcast_div=document.createElement('div');
+                podcast_div.classList.add('col-lg-6');
+                podcast_div.innerHTML=podcast['embedded_code'];
+                podcasts_div.appendChild(podcast_div);
+                }
+               
+                
+                
+            });
+        }
+        const malLang=(e)=>{
+            podcasts_div.innerHTML='';
+            var podcasts = <?=json_encode($podcast_series)?>;
+            podcasts=podcasts.reverse();
+            
+            podcasts.map(podcast=>{
+                if(podcast['lang']=='ml')
+                {
+                var podcast_div=document.createElement('div');
+                podcast_div.classList.add('col-lg-6');
+                podcast_div.innerHTML=podcast['embedded_code'];
+                podcasts_div.appendChild(podcast_div);
+                }
+               
+                
+                
+            });
+        }
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/front/js/jquery.js"></script>
     <script src="<?= base_url() ?>assets/front/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/front/js/functions.js"></script>
+    <style>
+        .buttons{
+            justify-content: center;
+        }
+        .paragraph{
+            padding:0% 5%;
+            
+        }
+        .buttons button{
+            border-color: #7E878C;
+            background-color:#7E878C;
+        }
+        .buttons button:hover{
+            border-color: #ca0027;
+            background-color:#c31727;
+        }
+
+        .buttons button:active{
+            border-color: #ca0027;
+            background-color:#c31727;
+        }
+        .buttons button:focus{
+            border-color: #ca0027;
+            background-color:#c31727;
+        }
+        
+    </style>
 
 </body>
 

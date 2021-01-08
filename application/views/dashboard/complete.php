@@ -167,7 +167,7 @@
 								</div>
 								<div class="col-lg-6 form-group">
 									<label class="sr-only">Access Code</label>
-									<input name="access_code" type="text" placeholder="Enter your email id or given access code" class="form-control" required>
+									<input name="access_code" type="text" placeholder="Enter your email id(default) or given access code" class="form-control" required>
 								</div>
 								<div class="col-lg-6 form-group">
 									<label class="sr-only">Admission Number</label>

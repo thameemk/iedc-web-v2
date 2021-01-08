@@ -60,20 +60,42 @@
 </section>
 <section>
 	<div class="container">
-		<div class="heading-text text-center">
-			<h3>Nodal Officer's Message!</h3>
-		</div>
-		<div class="carousel arrows-visibile testimonial testimonial-single testimonial-left" data-items="1">
 
+		<div class="carousel arrows-visibile testimonial testimonial-single testimonial-left" data-items="1">
+			
 			<div class="testimonial-item">
+				<div class="heading-text text-center">
+					<h3>Nodal Officer's Message!</h3>
+				</div>
+				<img src="<?= base_url() ?>assets/uploads/images/MEEN320-1466140193-thumb.jpg" alt="Dr. Mohammed Sadhikh">
+				<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
+				<span class="text-bold mt-3" style="color:black;">Dr. Mohammed Sadhikh</span>
+				<span class="text-bold">Professor -
+					Department of Mechanical Engineering</span>
+			</div>
+			<!-- nodal -->
+			<div class="testimonial-item">
+				<div class="heading-text text-center">
+					<h3>Assistant Nodal Officer's Message!</h3>
+				</div>
+				<img src="<?= base_url() ?>assets/uploads/images/shafi-sir.jpg" alt="">
+				<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
+				<span class="text-bold mt-3" style="color:black;">Mr. Shafi M.N.</span>
+				<span class="text-bold">Professor -
+					Department of Electronics & Communication Engineering</span>
+			</div>
+			<!-- assi .nodal -->
+			<!-- //formal -->
+			<div class="testimonial-item">
+				<div class="heading-text text-center">
+					<h3>Formal Nodal Officer's Message!</h3>
+				</div>
 				<img src="<?= base_url() ?>assets/uploads/images/nodal-officer.jpg" alt="Dr. Imthias Ahamed T.P">
-				<!-- <img src="https://tkmce.ac.in/wp-content/uploads/users/EEE02343-1416683315-thumb.jpg" alt="Dr. Imthias Ahamed T.P"> -->
 				<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
 				<span class="text-bold mt-3" style="color:black;">Dr. Imthias Ahamed T.P</span>
 				<span class="text-bold">Professor -
 					Department of Electrical and Electronics Engineering</span>
 			</div>
-
 		</div>
 
 	</div>
@@ -97,7 +119,7 @@
 				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['uEvent'] ?>">
 					<div class="portfolio-item-wrap">
 						<div class="portfolio-image">
-							<img style="height:300px;" src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
+							<img src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
 						</div>
 						<div class="portfolio-description">
 							<a href="javascript:;">

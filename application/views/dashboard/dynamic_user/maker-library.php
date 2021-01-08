@@ -61,7 +61,8 @@
 					<div class="table-responsive">
 						<table class="table table-hover mb-0">
 							<thead>
-								<tr>									
+								<tr>					
+								    <th class="pt-0">Id</th>
 									<th class="pt-0">Name</th>
 									<th class="pt-0">Request Date</th>
 									<th class="pt-0">Issue Date</th>
@@ -71,7 +72,8 @@
 							<tbody>
 								<?php foreach ($maker_user_req as $row ){?>
 								<tr>
-									<td><?=$row['name']?> - <?=$row['req_component']?></td>
+									<td><?=$row['req_component']?></td>
+									<td><?=$row['name']?></td>
 									<td><?=$row['req_date']?></td>
 									<td><?=$row['issue_date']?></td>
 									<td><?=$row['return_date']?></td>

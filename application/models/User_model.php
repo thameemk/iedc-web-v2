@@ -189,7 +189,7 @@ class User_model extends CI_Model
       return true;
     }
   }
-
+  
   function pre_incubation_reg()
   {
     $data = $this->input->post();

@@ -11,7 +11,7 @@ class User extends CI_Controller
     $this->load->library('googleplus');
     if (!$this->session->userdata('sess_logged_in') == 1 or !$this->user_model->is_available($this->session->email) == TRUE) {
       echo "You are not authorized . Contact Web Admin !!!!<br><br>";
-      $login_url = $this->googleplus->loginURL();
+       $login_url = $this->googleplus->loginURL();
       echo "<a href=\"$login_url\">Please login again !!</a><br><br>";
       $url = base_url('auth/logout');
       echo "<a href=\"$url\">Return To Home</a>";
@@ -34,7 +34,7 @@ class User extends CI_Controller
       $this->form_validation->set_rules('course_duration_from', 'Course Duration ', 'required');
       $this->form_validation->set_rules('course_duration_to', 'Course Duration To ', 'required');
       if ($this->form_validation->run() == FALSE) {
-        $this->session->set_flashdata('fail', 'Fill all required fields.<br>OR<br> Check your Access code !!');
+        $this->session->set_flashdata('fail', 'Fill all required fields !!');
       } else {
         if ($this->user_model->check_access($this->session->email, $this->input->post('access_code')) == TRUE) {
           $user = array(
@@ -51,7 +51,7 @@ class User extends CI_Controller
           $this->session->set_flashdata('success', 'Your registration is Successfull!!');
           redirect(base_url("user/dashboard"));
         } else {
-          $this->session->set_flashdata('fail', 'Fill all required fields.<br>OR<br> Check your Access code !!');
+          $this->session->set_flashdata('fail', 'Check your Access code !!');
         }
       }
     }
