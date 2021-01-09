@@ -212,4 +212,21 @@ class Admin_model extends CI_Model
         redirect('admin/dashboard/volunteer-database');      
     }
   }
+
+  function get_all_maker_components()
+  { 
+    $query = $this->db->get('maker_library');
+    return $query->result_array();
+  }
+
+  function updateMakerComponent($data)
+  {
+    $this->db->where('comp_num', $data['comp_num']);
+    $temp = array(
+      'name'=>$data['comp_name'],
+      'total_count'=>$data['total_count']
+    );
+    $query = $this->db->update('maker_library', $temp);
+    return true;
+  }
 }

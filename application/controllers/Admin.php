@@ -24,6 +24,7 @@ class Admin extends CI_Controller
     if (!file_exists(APPPATH . 'views/dashboard/dynamic_admin/' . $admin . '.php')) {
       show_404();
     }
+    $data['maker_components'] =  $this->admin_model->get_all_maker_components();
     $data['project_proposals'] = $this->admin_model->get_all_project_proposals();
     $data['maker_req'] = $this->admin_model->get_all_maker_requests();
     $data['admin'] = $this->admin_model->is_admin($this->session->email);
@@ -155,5 +156,21 @@ class Admin extends CI_Controller
   function add_volunteer_post()
   {
     $this->admin_model->add_volunteer();
+  }
+
+  function updateComponent()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);
+    $status = $this->admin_model->updateMakerComponent($data);
+    if($status==true)
+    {
+      $this->session->set_flashdata('success', 'Component updated');
+      redirect('admin/dashboard/edit-maker-library');
+    }
+    else{
+      $this->session->set_flashdata('fail', 'Component update failed');
+      redirect('admin/dashboard/edit-maker-library');
+    }
   }
 }
