@@ -140,13 +140,13 @@ class Admin_model extends CI_Model
       print_r($error);
       exit;
       $this->session->set_flashdata('fail', 'Some error has been occured!');
-      redirect("admin/dashboard/edit-maker-library");
+      redirect("admin/dashboard/add-new-maker-component");
     } else {
       // print_r($data);
       $data['img_link'] = $file_name;
       $this->db->insert('maker_library', $data);
       $this->session->set_flashdata('success', 'Successfully added one component!');
-      redirect("admin/dashboard/edit-maker-library");
+      redirect("admin/dashboard/add-new-maker-component");
     }
   }
 
@@ -218,6 +218,7 @@ class Admin_model extends CI_Model
     $query = $this->db->get('maker_library');
     return $query->result_array();
   }
+
 
   function updateMakerComponent($data)
   {

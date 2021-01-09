@@ -32,9 +32,9 @@
                                     <tr>
                                         <th class="pt-0">ID</th>
                                         <th class="pt-0">Component No</th>
-                                        <th class="pt-0">Name</th>                                      
-                                        <th class="pt-0">Available Count</th>
-                                        <th class="pt-0">Total Count</th>   
+                                        <th class="pt-0">Name</th>           
+                                        <th class="pt-0">Total Count</th>                           
+                                        <th class="pt-0">Available Count</th>                                           
                                         <th class="pt-0">Update</th>  
                                     </tr>
                                 </thead>
@@ -49,37 +49,13 @@
                                                 <td><?= $row['available_count'] ?></td> 
                                                 <input type="hidden" value="<?= $row['comp_num'] ?>" name="comp_num"></input>
                                                 <td><input class="btn btn-primary" type="submit"></input></td>
-                                                <!-- <td><span class="btn btn-primary badge badge-primary" data-toggle="modal" onclick="viewComponentDetails(this);" data-target="#exampleModal" id="<?= $row['comp_num'] ?>">Edit</span></td>                                           -->
+                                               
                                             </form>
                                             </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="loading">
-
-                                        </div>
-                                        
-                                        <div class="result-message">
-
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div>                    
                     </div>
                 </div>
             </div>
@@ -89,28 +65,3 @@
         <?php } ?>
     </div>
 
-
-    <script type="text/javascript">
-        function viewComponentDetails(div) {
-        var comp_id = div.id;
-        jQuery.ajax({
-            type: 'post',
-            url: "<?= base_url() ?>Admin/viewComponent/" + comp_id,
-            data: "",
-            async: false,
-            processData: false,
-            contentType: false,
-            beforeSend: function() {
-                // launchpreloader();                                     
-            },
-            complete: function() {
-                //  stopPreloader();               
-            },
-            success: function(result) {
-                var array = JSON.parse(result);
-                $(".result-message").html();              
-                console.log(result);
-                
-            }
-        });
-    </script>
