@@ -196,8 +196,8 @@ class Pages extends CI_Controller
       }
     }
   }
-  
-  
+
+
   public function new_user_registration()
   {
     $data = $this->input->post();
@@ -209,39 +209,46 @@ class Pages extends CI_Controller
       $this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
       redirect(base_url() . "membership-registration");
     } else {
-      $this->form_validation->set_rules('name', 'Name', 'required');
-      $this->form_validation->set_rules('email', 'Email', 'required');
-      $this->form_validation->set_rules('phone_number', 'Phone', 'required');
-      $this->form_validation->set_rules('admission_number', 'admission_number', 'required');
-      $this->form_validation->set_rules('year', 'year of Study', 'required');
-      $this->form_validation->set_rules('branch', 'branch', 'required');
-      $this->form_validation->set_rules('transaction_id', 'transaction_id', 'required');
+
+      $this->form_validation->set_rules('admission_number', 'admission_number', 'required|is_unique[member_registration20.admission_number]');
+      $this->form_validation->set_rules('email', 'Email', 'required|is_unique[member_registration20.email]');
+      $this->form_validation->set_rules('phone_number', 'Phone', 'required|is_unique[member_registration20.phone_number]');
       if ($this->form_validation->run() == FALSE) {
-        $this->session->set_flashdata('fail', 'Fill all fields! ');
+        $this->session->set_flashdata('fail', 'You are already registred! ');
         redirect(base_url() . "membership-registration");
-      }  else {
-        $data = array(
-          'name' => $this->input->post('name'),
-          'email' => $this->input->post('email'),
-          'phone_number' => $this->input->post('phone_number'),
-          'admission_number' => $this->input->post('admission_number'),
-          'year' => $this->input->post('year'),
-          'branch' => $this->input->post('branch'),
-          'transaction_id' => $this->input->post('transaction_id'),
-        );
-        $status = $this->report_model->new_user_registration($data);
-        if ($status == 201) {
-          $this->session->set_flashdata('success', 'Registration successful! ');
+      } else {
+
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('year', 'year of Study', 'required');
+        $this->form_validation->set_rules('branch', 'branch', 'required');
+        $this->form_validation->set_rules('transaction_id', 'transaction_id', 'required');
+        if ($this->form_validation->run() == FALSE) {
+          $this->session->set_flashdata('fail', 'Fill all fields! ');
           redirect(base_url() . "membership-registration");
         } else {
-          $this->session->set_flashdata('fail', 'Some error has been occurred ! Please try after some time ');
-          redirect(base_url() . "membership-registration");
+          $data = array(
+            'name' => $this->input->post('name'),
+            'email' => $this->input->post('email'),
+            'phone_number' => $this->input->post('phone_number'),
+            'admission_number' => $this->input->post('admission_number'),
+            'year' => $this->input->post('year'),
+            'branch' => $this->input->post('branch'),
+            'transaction_id' => $this->input->post('transaction_id'),
+          );
+          $status = $this->report_model->new_user_registration($data);
+          if ($status == 201) {
+            $this->session->set_flashdata('success', 'Registration successful! ');
+            redirect(base_url() . "membership-registration");
+          } else {
+            $this->session->set_flashdata('fail', 'Some error has been occurred ! Please try after some time ');
+            redirect(base_url() . "membership-registration");
+          }
         }
       }
     }
   }
-  
-public function start_up_call()
+
+  public function start_up_call()
   {
     $data = $this->input->post();
     $data = $this->security->xss_clean($data);
@@ -290,9 +297,8 @@ public function start_up_call()
   function dare2develop()
   {
     $data['page_title'] = 'Dare2Develop';
-    $data['loginURL'] = $this->googleplus->loginURL(); 
+    $data['loginURL'] = $this->googleplus->loginURL();
     $data['podcast_series'] = $this->report_model->podcast_series();
-    $this->load->view('events/dare2develop', $data);    
+    $this->load->view('events/dare2develop', $data);
   }
-
 }

@@ -25,6 +25,7 @@ class Admin extends CI_Controller
       show_404();
     }
     $data['maker_components'] =  $this->admin_model->get_all_maker_components();
+    $data['new_members'] = $this->admin_model->get_all_new_membership_reg();
     $data['project_proposals'] = $this->admin_model->get_all_project_proposals();
     $data['maker_req'] = $this->admin_model->get_all_maker_requests();
     $data['admin'] = $this->admin_model->is_admin($this->session->email);
@@ -148,7 +149,7 @@ class Admin extends CI_Controller
   {
     echo $this->admin_model->get_project_summary($project_id);
   }
-  
+
   function getProjectRequirements($project_id)
   {
     echo $this->admin_model->get_project_requirements($project_id);
@@ -163,12 +164,10 @@ class Admin extends CI_Controller
     $data = $this->input->post();
     $data = $this->security->xss_clean($data);
     $status = $this->admin_model->updateMakerComponent($data);
-    if($status==true)
-    {
+    if ($status == true) {
       $this->session->set_flashdata('success', 'Component updated');
       redirect('admin/dashboard/edit-maker-library');
-    }
-    else{
+    } else {
       $this->session->set_flashdata('fail', 'Component update failed');
       redirect('admin/dashboard/edit-maker-library');
     }
