@@ -237,6 +237,24 @@ class Admin_model extends CI_Model
     return $query->result_array();
   }
 
+  function white_list_user($reg_id)
+  {
+    $this->db->where('reg_id', $reg_id);
+    $query = $this->db->get('member_registration20');
+    $user = $query->row();
+    $data['email'] = $user->email;
+    $data['user_hash'] = password_hash($user->email, PASSWORD_BCRYPT);
+    $email = $user->email;
+    $query1 = $this->db->get_where('userRegister', "email='$email'");
+    $temp = $query1->num_rows();
+    if ($temp != TRUE) {
+      $this->db->insert('userRegister', $data);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   function verify_membership_registration($reg_id)
   {
     $this->db->where('reg_id', $reg_id);
@@ -246,9 +264,11 @@ class Admin_model extends CI_Model
     );
     $query = $this->db->update('member_registration20', $temp);
     if ($this->db->affected_rows() == 1) {
+      $response = $this->white_list_user($reg_id);
       $data = array(
         'status' => true,
-        'session_user'=>$this->session->email
+        'session_user' => $this->session->email,
+        'white_list_status' => $response
       );
     } else {
       $data = array(
