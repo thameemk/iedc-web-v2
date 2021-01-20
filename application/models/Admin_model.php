@@ -236,4 +236,26 @@ class Admin_model extends CI_Model
     $query = $this->db->get('member_registration20');
     return $query->result_array();
   }
+
+  function verify_membership_registration($reg_id)
+  {
+    $this->db->where('reg_id', $reg_id);
+    $temp = array(
+      'is_verified' => '1',
+      'verified_user' => $this->session->email
+    );
+    $query = $this->db->update('member_registration20', $temp);
+    if ($this->db->affected_rows() == 1) {
+      $data = array(
+        'status' => true,
+        'session_user'=>$this->session->email
+      );
+    } else {
+      $data = array(
+        'status' => false
+      );
+    }
+    header('Content-Type: application/json');
+    echo json_encode($data);
+  }
 }

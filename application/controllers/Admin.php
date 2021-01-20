@@ -172,4 +172,10 @@ class Admin extends CI_Controller
       redirect('admin/dashboard/edit-maker-library');
     }
   }
+
+  function verify_membership_reg($reg_id)
+  {
+    $reg_id = $this->security->xss_clean($reg_id);
+    $this->admin_model->verify_membership_registration($reg_id);
+  }
 }
