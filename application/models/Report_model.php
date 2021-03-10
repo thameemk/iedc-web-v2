@@ -95,9 +95,8 @@ class Report_model extends CI_Model
   }
 
   public function google_recaptcha($recaptcha){
-    $recaptchaResponse = trim($recaptcha);
-    // $userIp=$this->input->ip_address();
-    $secret = '6LfZF_EUAAAAAKfJdzIEGneiNI1T0QV5O-7-rdlW';
+    $recaptchaResponse = trim($recaptcha);    
+    $secret = '';
     $credential = array(
       'secret' => $secret,
       'response' => $recaptcha
