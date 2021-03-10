@@ -112,11 +112,19 @@
 					<?php if ($admin == TRUE) { ?>
 						<li class="nav-item nav-category">ADMIN TOOLS</li>
 						<li class="nav-item">
+							<a href="<?= base_url() ?>admin/dashboard/pre-incubation" class="nav-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+								<span class="link-title">Pre incubation requests</span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/volunteer-database" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Volunteer Database </span>
+								<span class="link-title">Volunteer database </span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -124,7 +132,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Project Proposals </span>
+								<span class="link-title">Project proposals </span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -132,7 +140,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Execom Registration</span>
+								<span class="link-title">Execom registration</span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -140,7 +148,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">New Membership Reg</span>
+								<span class="link-title">New membership reg</span>
 							</a>
 						</li>
 						
@@ -165,7 +173,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Add new maker Component </span>
+								<span class="link-title">Add new maker component </span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -173,7 +181,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Edit maker Library</span>
+								<span class="link-title">Edit maker library</span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -181,7 +189,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Add new User</span>
+								<span class="link-title">Add new user</span>
 							</a>
 						</li>
 												
@@ -200,7 +208,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">AI & ML Workshop</span>
+								<span class="link-title">AI & ML workshop</span>
 							</a>
 						</li>
 					<?php } ?>
