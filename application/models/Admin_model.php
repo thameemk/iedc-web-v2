@@ -277,4 +277,10 @@ class Admin_model extends CI_Model
     header('Content-Type: application/json');
     echo json_encode($data);
   }
+
+  function get_server_access_requests()
+  {
+    $query = $this->db->query("select u.admission_number,u.fullname,u.branch,u.phone,s.id,s.time_stamp,s.user_email,s.title,s.domain,s.duration,s.purpose,s.tech_or_lang from server_accsess s,userRegister u where s.user_email = u.email order by s.time_stamp ASC");
+    return  $query->result_array();
+  }
 }

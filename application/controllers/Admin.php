@@ -25,7 +25,8 @@ class Admin extends CI_Controller
       show_404();
     }
     $data['maker_components'] =  $this->admin_model->get_all_maker_components();
-     $data['new_members'] = $this->admin_model->get_all_new_membership_reg();
+    $data['server_access']  =  $this->admin_model->get_server_access_requests();
+    $data['new_members'] = $this->admin_model->get_all_new_membership_reg();
     $data['project_proposals'] = $this->admin_model->get_all_project_proposals();
     $data['maker_req'] = $this->admin_model->get_all_maker_requests();
     $data['admin'] = $this->admin_model->is_admin($this->session->email);
