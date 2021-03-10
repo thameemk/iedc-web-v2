@@ -196,8 +196,8 @@ class Pages extends CI_Controller
       }
     }
   }
-
-
+  
+  
   public function new_user_registration()
   {
     $data = $this->input->post();
@@ -212,6 +212,7 @@ class Pages extends CI_Controller
 
       $this->form_validation->set_rules('admission_number', 'admission_number', 'required|is_unique[member_registration20.admission_number]');
       $this->form_validation->set_rules('email', 'Email', 'required|is_unique[member_registration20.email]');
+      $this->form_validation->set_rules('email', 'Email', 'required|is_unique[userRegister.email]');
       $this->form_validation->set_rules('phone_number', 'Phone', 'required|is_unique[member_registration20.phone_number]');
       if ($this->form_validation->run() == FALSE) {
         $this->session->set_flashdata('fail', 'You are already registred! ');
@@ -247,8 +248,8 @@ class Pages extends CI_Controller
       }
     }
   }
-
-  public function start_up_call()
+  
+public function start_up_call()
   {
     $data = $this->input->post();
     $data = $this->security->xss_clean($data);
@@ -297,8 +298,9 @@ class Pages extends CI_Controller
   function dare2develop()
   {
     $data['page_title'] = 'Dare2Develop';
-    $data['loginURL'] = $this->googleplus->loginURL();
+    $data['loginURL'] = $this->googleplus->loginURL(); 
     $data['podcast_series'] = $this->report_model->podcast_series();
-    $this->load->view('events/dare2develop', $data);
+    $this->load->view('events/dare2develop', $data);    
   }
+
 }

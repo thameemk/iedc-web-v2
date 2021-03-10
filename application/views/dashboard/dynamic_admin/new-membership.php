@@ -103,8 +103,8 @@
                     complete: function() {
                         //  stopPreloader();
                     },
-                    success: function(result) {      
-                        console.log(result);                  
+                    success: function(result) {
+                         console.log(result);
                         if (result['status'] == true) {                           
                             var modalHtml = "";
                             $("#" + del_id).html(modalHtml);

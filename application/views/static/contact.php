@@ -51,6 +51,9 @@
 								<label for="subject">Your Subject</label>
 								<input type="text" name="subject" class="form-control" placeholder="Subject..." required>
 							</div>
+							<div class="form-group col-md-12">
+								<input type="hidden" name="spam_check" class="form-control" placeholder="">
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="message">Message</label>

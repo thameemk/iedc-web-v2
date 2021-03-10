@@ -52,11 +52,8 @@
 5. Necessary Funding for projects.<br>
 
                         So sign up and get ready to ignite the genius in you.
-
-                        This registration is for students of batch 2019-2023.<br>
                         <br>
-                        Registration fee: Rs.300
-
+                        <span style="color:red;">This registration is for students of first years only <br> Registration fee: Rs.200</span>
                     </h5>
                     <br>
 
@@ -91,7 +88,7 @@
                     <div class="form-group col-md-6">
                         <label class="required" for="Year of study">Year of Study</label>
                         <select name="year" class="form-control" required>
-                            <option value="second-year">Second Year</option>
+                            <option value="first-year">First Year</option>
                         </select>
                     </div>
                     <div class="form-group  col-md-6">

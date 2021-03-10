@@ -48,7 +48,7 @@
 	</div>
 	<div class="copyright-content">
 		<div class="container">
-			<div class="copyright-text text-center">&copy; 2020 IEDC TKMCE</div>
+			<div class="copyright-text text-center">&copy; <?php echo date("Y"); ?>  IEDC TKMCE</div>
 		</div>
 	</div>
 </footer>

@@ -48,6 +48,14 @@
                             <table class="table table-hover">
                                 <tbody class="text-center">
                                     <tr>
+                                        <th>IEDC Membership Status</th>
+                                        <td style="color:#42BD09"><b>Active</b></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Membership ID</th>
+                                        <td>IEDC_TKMCE_00<?= $row['id'] ?>_<?= $row['admission_number'] ?>_<?= $row['course_duration_from'] ?>_<?= $row['course_duration_to'] ?></td>
+                                    </tr>
+                                    <tr>
                                         <th>Name</th>
                                         <td><?= $row['fullname'] ?></td>
                                     </tr>

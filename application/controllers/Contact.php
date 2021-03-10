@@ -21,7 +21,11 @@ class Contact extends CI_Controller
 			$this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
 			redirect(base_url() . "contact");
 		} else {
-
+            if (!empty($this->input->post('spam_check'))) {
+				die();
+				// redirect(base_url() . "contact");
+            }
+            else{
 			$this->load->model('report_model');
 			$data = $this->input->post();
 			$data = $this->security->xss_clean($data);
@@ -57,6 +61,7 @@ class Contact extends CI_Controller
 					redirect(base_url() . "contact");
 				}
 			}
+		}
 		}
 	}
 }

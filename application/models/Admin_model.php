@@ -14,7 +14,7 @@ class Admin_model extends CI_Model
     }
     return FALSE;
   }
-
+  
   public function is_super_admin($email)
   {
     $this->db->where('type', 'S');
@@ -25,7 +25,7 @@ class Admin_model extends CI_Model
     }
     return FALSE;
   }
-
+  
   public function is_default_admin($email)
   {
     $this->db->where('type', 'U');
@@ -193,50 +193,49 @@ class Admin_model extends CI_Model
     $this->form_validation->set_rules('branch', 'Branch', 'required');
     $this->form_validation->set_rules('year', 'Year', 'required');
     $this->form_validation->set_rules('role', 'Role', 'required');
-    $this->form_validation->set_rules('duration', 'Duration', 'required');
+     $this->form_validation->set_rules('duration', 'Duration', 'required');
     if ($this->form_validation->run() == FALSE) {
       $this->session->set_flashdata('fail', 'Fill all fields');
       redirect('admin/dashboard/add-user');
-    } else {
-      $data = array(
-        'email' => $this->input->post('email'),
-        'name' => $this->input->post('name'),
-        'phone' => $this->input->post('phone'),
-        'branch' => $this->input->post('branch'),
-        'year' => $this->input->post('year'),
-        'role' => $this->input->post('role'),
-        'duration' => $this->input->post('duration'),
-      );
-      $this->db->insert('volunteers', $data);
-      $this->session->set_flashdata('success', 'Success!');
-      redirect('admin/dashboard/volunteer-database');
+    } else {            
+        $data = array(
+          'email' => $this->input->post('email'),
+          'name' => $this->input->post('name'),
+          'phone' => $this->input->post('phone'),
+          'branch' => $this->input->post('branch'),
+          'year' => $this->input->post('year'),
+          'role' => $this->input->post('role'),
+           'duration' => $this->input->post('duration'),
+        );
+        $this->db->insert('volunteers',$data);
+        $this->session->set_flashdata('success', 'Success!');
+        redirect('admin/dashboard/volunteer-database');      
     }
   }
-
-  function get_all_maker_components()
-  {
+  
+   function get_all_maker_components()
+  { 
     $query = $this->db->get('maker_library');
     return $query->result_array();
   }
-
-
+  
   function updateMakerComponent($data)
   {
     $this->db->where('comp_num', $data['comp_num']);
     $temp = array(
-      'name' => $data['comp_name'],
-      'total_count' => $data['total_count']
+      'name'=>$data['comp_name'],
+      'total_count'=>$data['total_count']
     );
     $query = $this->db->update('maker_library', $temp);
     return true;
   }
-
+  
   function get_all_new_membership_reg()
   {
     $query = $this->db->get('member_registration20');
     return $query->result_array();
   }
-
+  
   function white_list_user($reg_id)
   {
     $this->db->where('reg_id', $reg_id);
@@ -254,7 +253,7 @@ class Admin_model extends CI_Model
       return false;
     }
   }
-
+  
   function verify_membership_registration($reg_id)
   {
     $this->db->where('reg_id', $reg_id);
