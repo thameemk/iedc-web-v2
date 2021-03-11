@@ -24,6 +24,7 @@ class Admin extends CI_Controller
     if (!file_exists(APPPATH . 'views/dashboard/dynamic_admin/' . $admin . '.php')) {
       show_404();
     }
+    $data['pre_incubation'] =  $this->admin_model->get_pre_incubation_requests();
     $data['maker_components'] =  $this->admin_model->get_all_maker_components();
     $data['server_access']  =  $this->admin_model->get_server_access_requests();
     $data['new_members'] = $this->admin_model->get_all_new_membership_reg();
@@ -182,5 +183,37 @@ class Admin extends CI_Controller
   {
     $reg_id = $this->security->xss_clean($reg_id);
     $this->admin_model->verify_membership_registration($reg_id);
+  }
+
+  function download_incubation_data()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);    
+    $this->load->dbutil();
+    $this->load->helper('file');
+    $this->load->helper('download');
+    $reg_id = $data['reg_id'];
+    $query = $this->db->query("SELECT * FROM pre_incubation where reg_id='$reg_id'");
+    $delimiter = ",";
+    $newline = "\r\n";
+    $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
+    force_download('Incubation_details_'.$reg_id.'.csv', $data);
+    redirect('admin/dashboard/pre-incubation');    
+  }
+
+  function download_incubation_team_details()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);    
+    $this->load->dbutil();
+    $this->load->helper('file');
+    $this->load->helper('download');
+    $reg_id = $data['reg_id'];
+    $query = $this->db->query("SELECT * FROM pre_incubation_team_members where incubation_reg_id='$reg_id'");
+    $delimiter = ",";
+    $newline = "\r\n";
+    $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
+    force_download('Incubation_team_details'.$reg_id.'.csv', $data);
+    redirect('admin/dashboard/pre-incubation');    
   }
 }

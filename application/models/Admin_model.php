@@ -283,4 +283,10 @@ class Admin_model extends CI_Model
     $query = $this->db->query("select u.admission_number,u.fullname,u.branch,u.phone,s.id,s.time_stamp,s.user_email,s.title,s.domain,s.duration,s.purpose,s.tech_or_lang from server_accsess s,userRegister u where s.user_email = u.email order by s.time_stamp ASC");
     return  $query->result_array();
   }
+
+  function get_pre_incubation_requests()
+  {
+    $query = $this->db->query("select p.reg_id,u.admission_number,u.fullname,u.branch,u.phone,p.time_stamp,p.reg_email,p.company_name from pre_incubation p,userRegister u where p.reg_email = u.email order by p.time_stamp ASC");
+    return  $query->result_array();
+  }
 }
