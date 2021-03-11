@@ -289,4 +289,10 @@ class Admin_model extends CI_Model
     $query = $this->db->query("select p.reg_id,u.admission_number,u.fullname,u.branch,u.phone,p.time_stamp,p.reg_email,p.company_name from pre_incubation p,userRegister u where p.reg_email = u.email order by p.time_stamp ASC");
     return  $query->result_array();
   }
+
+  function get_schedule_meeting_requests()
+  {
+    $query = $this->db->query("select u.*,s.* from schedule_meeting s,userRegister u where s.user_email = u.email order by s.id DESC");
+    return  $query->result_array();
+  }
 }

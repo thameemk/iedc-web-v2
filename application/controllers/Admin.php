@@ -24,6 +24,7 @@ class Admin extends CI_Controller
     if (!file_exists(APPPATH . 'views/dashboard/dynamic_admin/' . $admin . '.php')) {
       show_404();
     }
+    $data['schedule_meeting']  =  $this->admin_model->get_schedule_meeting_requests();
     $data['pre_incubation'] =  $this->admin_model->get_pre_incubation_requests();
     $data['maker_components'] =  $this->admin_model->get_all_maker_components();
     $data['server_access']  =  $this->admin_model->get_server_access_requests();
