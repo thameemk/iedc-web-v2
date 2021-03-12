@@ -223,6 +223,7 @@ class Pages extends CI_Controller
         $this->form_validation->set_rules('year', 'year of Study', 'required');
         $this->form_validation->set_rules('branch', 'branch', 'required');
         $this->form_validation->set_rules('transaction_id', 'transaction_id', 'required');
+        $this->form_validation->set_rules('extras', 'extras', 'required');
         if ($this->form_validation->run() == FALSE) {
           $this->session->set_flashdata('fail', 'Fill all fields! ');
           redirect(base_url() . "membership-registration");
@@ -235,6 +236,7 @@ class Pages extends CI_Controller
             'year' => $this->input->post('year'),
             'branch' => $this->input->post('branch'),
             'transaction_id' => $this->input->post('transaction_id'),
+            'extras' => $this->input->post('extras')
           );
           $status = $this->report_model->new_user_registration($data);
           if ($status == 201) {
