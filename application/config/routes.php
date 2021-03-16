@@ -9,7 +9,7 @@ $route['admin/dashboard/(.+)'] = 'admin/dynamic_admin/$1';
 $route['user/dashboard/project-proposal'] = 'user/public_user_pages/project-proposal';
 $route['user/dashboard/profile'] = 'user/public_user_pages/profile';
 $route['user/dashboard/(.+)'] = 'Member/dynamic_member/$1';
+$route['forbidden'] = 'pages/forbidden';
 $route['(:any)'] = 'pages/view/$1';
-
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

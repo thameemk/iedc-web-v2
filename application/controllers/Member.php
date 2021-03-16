@@ -20,11 +20,12 @@ class Member extends CI_Controller
         }
     
         if (!$this->session->userdata('sess_logged_in') == 1 || $user == FALSE) {
-            echo "You are not authorized . Join IEDC to access this page !!!!<br><br>";
-            $login_url = $this->googleplus->loginURL();
-            echo "<a href=\"$login_url\">If you are alreay a member try login again !!</a><br><br>";
-            $url = base_url('auth/logout');
-            echo "<a href=\"$url\">Return To Home</a>";
+            // echo "You are not authorized . Join IEDC to access this page !!!!<br><br>";
+            $data['login_url'] = $this->googleplus->loginURL();
+            // echo "<a href=\"$login_url\">If you are alreay a member try login again !!</a><br><br>";
+            $data['url'] = base_url('auth/logout');
+            // echo "<a href=\"$url\">Return To Home</a>";
+            redirect(base_url().'forbidden');
             exit;
         }
     }

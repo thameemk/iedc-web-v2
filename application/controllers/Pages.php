@@ -304,4 +304,11 @@ public function start_up_call()
     $this->load->view('events/dare2develop', $data);    
   }
 
+  function forbidden()
+  {
+      $data['login_url'] = $this->googleplus->loginURL();           
+      $data['url'] = base_url('auth/logout');
+      $this->load->view('forbidden',$data);
+  }
+
 }
