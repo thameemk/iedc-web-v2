@@ -12,10 +12,12 @@
         <div class="col-md-8 grid-margin stretch-card">
             <div class="card">
                 <?php if ($this->session->flashdata('fail')) : ?>
-                    <span style="line-height:3" class="badge badge-danger"><?php echo $this->session->flashdata('fail'); ?></span>
+                <span style="line-height:3"
+                    class="badge badge-danger"><?php echo $this->session->flashdata('fail'); ?></span>
                 <?php endif; ?>
                 <?php if ($this->session->flashdata('success')) : ?>
-                    <span style="line-height:3" class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
+                <span style="line-height:3"
+                    class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
                 <?php endif; ?>
                 <div class="card-body">
                     <h6 class="card-title">Project proposal</h6>
@@ -29,13 +31,14 @@
                         <div class="form-group">
 
                             <label for="summary">Abstract/Summary :</label>
-                            <textarea rows="10" type="text" class="form-control" name="summary" style="display: inline;" required></textarea>
+                            <textarea rows="10" type="text" class="form-control" name="summary" style="display: inline;"
+                                required></textarea>
 
                         </div>
 
                         <div>
                             <label>Team members :</label>
-                            <div style="padding-left: 20px;">
+                            <div >
 
                                 <div class="card-body">
 
@@ -43,7 +46,7 @@
                                         <table class="table table-bordered" id="team_table">
                                             <thead>
                                                 <tr>
-                                                    <th>
+                                                    <th style="width: 10rem; ">
                                                         Name
                                                     </th>
                                                     <th style="width:5rem ;">
@@ -58,19 +61,22 @@
                                             <tbody id="wrapper">
                                                 <tr>
                                                     <td>
-                                                        <input type="text" class="form-control" name="name[]">
+                                                        <input type="text" class="form-control" name="name[]" style="width: 10rem; ">
                                                     </td>
                                                     <td>
-                                                        <input type="text " class="form-control " name="class[]" style="width: 5rem; ">
+                                                        <input type="text " class="form-control " name="class[]"
+                                                            style="width: 5rem; ">
                                                     </td>
                                                     <td>
-                                                        <input type="number " class="form-control " name="contact_no[]" style="width: 10rem; ">
+                                                        <input type="number " class="form-control " name="contact_no[]"
+                                                            style="width: 10rem; ">
                                                     </td>
                                                 </tr>
-                                                <!-- <span class="wrapper"></span> -->
+                                              
                                             </tbody>
                                         </table>
-                                        <span name="add_member" id="add_member" class="btn btn-primary mt-2 mr-2" value="Add Member" onclick="addMember()">Add member</span>
+                                        <span name="add_member" id="add_member" class="btn btn-primary mt-2 mr-2"
+                                            value="Add Member" onclick="addMember()">Add member</span>
                                     </div>
                                 </div>
 
@@ -79,7 +85,7 @@
                         </div><br>
                         <div>
                             <label>Details of Fund Requirement :</label><br>
-                            <div style="padding-left: 20px;">
+                            <div>
 
                                 <div class="card-body">
 
@@ -87,7 +93,7 @@
                                         <table class="table table-bordered" id="req_table">
                                             <thead>
                                                 <tr>
-                                                    <th>
+                                                    <th style="width: 10rem; ">
                                                         Requirement
                                                     </th>
                                                     <th style="width:7.5rem ;">
@@ -102,18 +108,21 @@
                                             <tbody id="wrapper_1">
                                                 <tr>
                                                     <td>
-                                                        <input type=" text " class="form-control " name="requirement[]">
+                                                        <input style="width: 10rem; " type=" text " class="form-control " name="requirement[]">
                                                     </td>
                                                     <td>
-                                                        <input type="number " class="form-control " name="amount[]" style="width: 7.5rem; ">
+                                                        <input type="number " class="form-control " name="amount[]"
+                                                            style="width: 7.5rem; ">
                                                     </td>
                                                     <td>
-                                                        <input type="text " class="form-control " name="remarks[]" style="width: 12 rem; ">
+                                                        <input type="text " class="form-control " name="remarks[]"
+                                                            style="width: 12 rem; ">
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <span class="btn btn-primary mt-2 mr-2" value="Add Requirement" onclick="addRequirement();">Add
+                                        <span class="btn btn-primary mt-2 mr-2" value="Add Requirement"
+                                            onclick="addRequirement();">Add
                                             Requirement</span>
                                     </div>
                                 </div>
@@ -140,11 +149,13 @@
 </div>
 
 <script>
-    function addMember() {
-        document.getElementById('wrapper').innerHTML += '<tr><td><input type="text" class="form-control" name="name[]"></td><td><input type="text " class="form-control " name="class[]"style="width: 5rem; "></td><td><input type="number " class="form-control " name="contact_no[]"style="width: 10rem; "></td></tr>\r\n';
-    }
+function addMember() {
+    document.getElementById('wrapper').innerHTML +=
+        '<tr><td><input type="text" class="form-control" name="name[]"style="width: 10rem; "></td><td><input type="text " class="form-control " name="class[]"style="width: 5rem; "></td><td><input type="number " class="form-control " name="contact_no[]"style="width: 10rem; "></td></tr>\r\n';
+}
 
-    function addRequirement() {
-        document.getElementById('wrapper_1').innerHTML += '<tr><td><input type=" text " class="form-control " name="requirement[]"></td><td><input type="number " class="form-control " name="amount[]"style="width: 7.5rem; "></td><td><input type="text " class="form-control " name="remarks[]"style="width: 12 rem; "></td></tr>\r\n';
-    }
+function addRequirement() {
+    document.getElementById('wrapper_1').innerHTML +=
+        '<tr><td><input type=" text " class="form-control " name="requirement[]"style="width: 10rem; "></td><td><input type="number " class="form-control " name="amount[]"style="width: 7.5rem; "></td><td><input type="text " class="form-control " name="remarks[]"style="width: 12 rem; "></td></tr>\r\n';
+}
 </script>
