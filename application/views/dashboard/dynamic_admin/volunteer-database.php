@@ -8,7 +8,7 @@
 	</nav>
 
 	<div class="row">
-	     <?php if($this->session->userdata('user_type')=='S' ||$this->session->userdata('user_type')=='U' ||$this->session->userdata('user_type')=='L1') {?>
+	     <?php if($this->session->userdata('user_type')=='super_admin' ||$this->session->userdata('user_type')=='admin') {?>
 		<div class="col-md-6 grid-margin stretch-card">
 			<div class="card">
 				<?php if($this->session->flashdata('fail')): ?>

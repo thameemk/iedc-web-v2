@@ -6,13 +6,19 @@ class Admin_model extends CI_Model
     $this->load->database();
   }
 
-  public function is_admin($email)
+  public function getusertype($email)
   {
-    $query = $this->db->get_where('admin_users', "email='$email'");
-    if ($query->num_rows() == 1) {
-      return TRUE;
-    }
-    return FALSE;
+		$email = $this->security->xss_clean($email);
+		$this->db->where('email', $email);
+		$query = $this->db->get('userRegister');
+		$data = $query->result_array();
+		if ($query->num_rows() == 1) {
+			$user_type = $data[0]['user_type'];
+			return $user_type;
+		}
+		else{
+			return false;
+		}
   }
   
   public function is_super_admin($email)
@@ -243,14 +249,18 @@ class Admin_model extends CI_Model
     $user = $query->row();
     $data['email'] = $user->email;
     $data['user_hash'] = password_hash($user->email, PASSWORD_BCRYPT);
+    $data['user_type'] = 'iedc_member';
     $email = $user->email;
     $query1 = $this->db->get_where('userRegister', "email='$email'");
-    $temp = $query1->num_rows();
-    if ($temp != TRUE) {
-      $this->db->insert('userRegister', $data);
+    if ($query1->num_rows() == 1) {  
+      $data1['user_hash'] =  $data['user_hash'];
+      $data1['user_type'] = 'iedc_member';
+      $this->db->where('email', $email);
+      $this->db->update('userRegister', $data1);
       return true;
     } else {
-      return false;
+      $this->db->insert('userRegister', $data);
+      return true;
     }
   }
   

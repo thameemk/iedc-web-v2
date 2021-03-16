@@ -8,7 +8,7 @@
 	</nav>
 
 	<section class="mt-5">
-	    <?php if($this->session->userdata('user_type')=='S' ||$this->session->userdata('user_type')=='U' ||$this->session->userdata('user_type')=='L2') {?>
+	    <?php if($this->session->userdata('user_type')=='super_admin' ||$this->session->userdata('user_type')=='admin') {?>
 		<div class="row">
 			<div class="col-md-12 grid-margin stretch-card">
 				<div class="card">

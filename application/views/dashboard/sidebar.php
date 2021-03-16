@@ -109,7 +109,7 @@
 						</a>
 					</li>
 					<hr>
-					<?php if ($admin == TRUE) { ?>
+					<?php if ($admin == 'super_admin' or $admin == 'admin') { ?>
 						<li class="nav-item nav-category">ADMIN TOOLS</li>
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/pre-incubation" class="nav-link">

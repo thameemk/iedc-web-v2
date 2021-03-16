@@ -211,8 +211,7 @@ class Pages extends CI_Controller
     } else {
 
       $this->form_validation->set_rules('admission_number', 'admission_number', 'required|is_unique[member_registration20.admission_number]');
-      $this->form_validation->set_rules('email', 'Email', 'required|is_unique[member_registration20.email]');
-      $this->form_validation->set_rules('email', 'Email', 'required|is_unique[userRegister.email]');
+      $this->form_validation->set_rules('email', 'Email', 'required|is_unique[member_registration20.email]');      
       $this->form_validation->set_rules('phone_number', 'Phone', 'required|is_unique[member_registration20.phone_number]');
       if ($this->form_validation->run() == FALSE) {
         $this->session->set_flashdata('fail', 'You are already registred! ');

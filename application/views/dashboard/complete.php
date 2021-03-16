@@ -164,11 +164,7 @@
 										<option>2022</option>
 										<option>2023</option>
 									</select>
-								</div>
-								<div class="col-lg-6 form-group">
-									<label class="sr-only">Access Code</label>
-									<input name="access_code" type="text" placeholder="Enter your email id(default) or given access code" class="form-control" required>
-								</div>
+								</div>							
 								<div class="col-lg-6 form-group">
 									<label class="sr-only">Admission Number</label>
 									<input name="admission_number" type="text" placeholder="Admission Number" class="form-control" required>

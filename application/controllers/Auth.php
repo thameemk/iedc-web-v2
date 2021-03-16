@@ -42,10 +42,10 @@ class Auth extends CI_Controller{
 	{		
 		$email = $this->security->xss_clean($email);
 		$this->db->where('email', $email);
-		$query = $this->db->get('admin_users');
+		$query = $this->db->get('userRegister');
 		$data = $query->result_array();
 		if ($query->num_rows() == 1) {
-			$user_type = $data[0]['type'];
+			$user_type = $data[0]['user_type'];
 			return $user_type;
 		}
 		else{

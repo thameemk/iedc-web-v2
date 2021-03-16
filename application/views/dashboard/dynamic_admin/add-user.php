@@ -7,7 +7,7 @@
 			<li class="breadcrumb-item active" aria-current="page">Add User</li>
 		</ol>
 	</nav>
-    <?php if($this->session->userdata('user_type')=='S'){?>
+    <?php if($this->session->userdata('user_type')=='super_admin'){?>
 	<div class="row">
 		<div class="col-md-6 grid-margin stretch-card">
 			<div class="card">
