@@ -269,4 +269,64 @@ class User_model extends CI_Model
       return true;
     }
   }
+
+  public function get_event_details($event_id)
+  {
+      if($event_id==NULL)
+      {
+          $query = $this->db->get('events');
+          return $query->result_array();
+      }
+      else
+      {
+          $this->db->where('event_id', $event_id);
+          $query = $this->db->get('events');
+          return json_encode($query->result());
+      }
+  }
+
+  public function is_iedc_member($email)
+  {
+    $this->db->where('email', $email);
+		$query = $this->db->get('userRegister');	
+    $data = $query->result_array();
+		$user_type = $data[0]['user_type'];
+    if($user_type == 'super_admin' || $user_type == 'admin' || $user_type == 'iedc_member')
+      {
+        return true;        
+      }
+      else{
+        return false;
+      }
+  }
+
+  public function is_event_for_iedc_members($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('events');	
+    $data = $query->result_array();
+		$is_type = $data[0]['is_iedc_member'];
+    if($is_type == 1)
+    {
+      return true;      
+    }
+    else{
+      return false;
+    }
+  }
+
+  function check_duplicate_reg_events($email, $event_id)
+  {
+    $this->db->where('reg_email', $email);
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('event_registration');	
+    if ($query->num_rows() == 1)
+    {
+      return true;      
+    }
+    else
+    {
+      return false;
+    }
+  }
 }

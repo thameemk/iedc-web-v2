@@ -100,7 +100,8 @@ class User extends CI_Controller
     {
         if (!file_exists(APPPATH . 'views/dashboard/public_user/' . $page . '.php')) {
             show_404();
-        }       
+        }
+        $data['events'] = $this->user_model->get_event_details(NULL);
         $data['admin'] = $this->admin_model->getusertype($this->session->email);
         $data['maker_user_req'] = $this->user_model->maker_user_req($this->session->email);
         $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
@@ -127,6 +128,59 @@ class User extends CI_Controller
               $this->session->set_flashdata('fail', 'Some error has been occurred. Please try again later!!');
               redirect('user/dashboard/project-proposal');
           }
+    }
+
+    function get_event_details($event_id)    
+    {
+        echo $this->user_model->get_event_details($event_id);
+    }
+
+    function event_registration()
+    {
+        $data = $this->input->post();
+		$data = $this->security->xss_clean($data);
+        $is_iedc_member = $this->user_model->is_iedc_member($this->session->email);
+        $is_event_for_iedc_members = $this->user_model->is_event_for_iedc_members($data['event_id']);
+        $duplicate = $this->user_model->check_duplicate_reg_events($this->session->email,$data['event_id']);
+        if($duplicate == false)
+        {
+            if($is_event_for_iedc_members==true)
+            {
+                if($is_iedc_member == true)
+                {
+                    
+                    $temp = array(
+                            'event_id'=>$data['event_id'],
+                            'reg_email'=>$this->session->email
+                    );
+                    $this->db->insert('event_registration', $temp);
+                    $this->session->set_flashdata('success', 'Registration Successfull!!');
+                    redirect('user/dashboard/events');
+                    
+                }
+                else
+                {
+                    $this->session->set_flashdata('fail', 'You are not an IEDC member!!');
+                    redirect('user/dashboard/events');
+                }
+            }
+            else
+            {
+                $temp = array(
+                    'event_id'=>$data['event_id'],
+                    'reg_email'=>$this->session->email
+                );
+                $this->db->insert('event_registration', $temp);
+                $this->session->set_flashdata('success', 'Registration Successfull!!');
+                redirect('user/dashboard/events');
+            }
+        }
+        else
+        {
+           
+            $this->session->set_flashdata('fail', 'You are already registred for this event!!');
+            redirect('user/dashboard/events');
+        }
     }
 
 }
