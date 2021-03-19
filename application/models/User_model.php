@@ -329,4 +329,19 @@ class User_model extends CI_Model
       return false;
     }
   }
+
+  function check_if_event_closed($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('events');	
+    $data = $query->result_array();
+		$is_reg_open = $data[0]['is_reg_open'];
+    if($is_reg_open == 1)
+    {
+      return true;      
+    }
+    else{
+      return false;
+    }
+  }
 }
