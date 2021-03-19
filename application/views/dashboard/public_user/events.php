@@ -65,8 +65,8 @@
                             data-dismiss="modal">Close</button>
                         <form action="<?=base_url()?>user/event_registration" method="post">
                             <span class="event_id" id="event_id"></span>
-
-                            <button type="submit" class="btn btn-primary">Register Now</button>
+                            <span class="event_reg" id="event_reg"></span>
+                            
                         </form>
                     </div>
                 </div>
@@ -86,6 +86,7 @@ function clearData() {
     $("#event_date").html(modalHtml);
     $("#event_fee").html(modalHtml);
     $("#event_id").html(modalHtml);
+    $("#event_reg").html(modalHtml);
 }
 
 function getEventDetails(div) {
@@ -123,6 +124,14 @@ function getEventDetails(div) {
                     $(".event_fee").append(obj.event_fee);
                     $(".event_id").append("<input type='hidden' name='event_id' value='" + obj
                         .event_id + "'>");
+                    if(obj.is_reg_open==1)
+                    {
+                        $(".event_reg").append("<button type='submit' class='btn btn-primary'>Register Now</button>");
+                    }
+                    else
+                    {
+                        $(".event_reg").append("<button type='submit' class='btn btn-danger' disabled>Registration Closed</button>");
+                    }    
                 });
             }
         }
