@@ -344,4 +344,28 @@ class User_model extends CI_Model
       return false;
     }
   }
+
+  function get_total_reg($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('event_registration');
+    $rowcount = $query->num_rows();
+    return $rowcount;	
+  }
+
+  function check_is_reg_count_max($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('events');	
+    $data = $query->result_array();
+		$max_count = $data[0]['max_members'];
+    $total_reg = $this->get_total_reg($event_id);
+    if($max_count == $total_reg)
+    {
+      return true;      
+    }
+    else{
+      return false;
+    }
+  }
 }
