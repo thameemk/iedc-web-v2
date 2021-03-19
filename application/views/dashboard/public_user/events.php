@@ -21,7 +21,8 @@
                     class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
                 <?php endif; ?>
                 <?php foreach($events as $row) { ?>
-                <div class="col-12 col-md-4 grid-margin mt-3">
+                
+                <div class="col-12 col-md-4 grid-margin" style="background: cadetblue; padding:3px;">
                     <div class="card">
                         <img width="auto" height="150" src="<?=$row['event_img']?>" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -34,6 +35,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <?php } ?>
 
             </div>
@@ -52,17 +54,17 @@
                     <div class="modal-body">
                         <p class="event_disc" id="event_disc" align="justify"></p>
                         <p>
-                            <span class="event_fee" id="event_fee"><b>Fee: </b></span><br>
-                            <span class="event_date" id="event_date"><b>Date: </b></span><br>
-                            <span class="event_time" id="event_time"><b>Time :</b></span><br>
-                            <span class="event_venue" id="event_venue"><b>Vene :</b></span><br>
+                            <b>Fee: </b><span class="event_fee" id="event_fee"></span><br>
+                            <b>Date: </b><span class="event_date" id="event_date"></span><br>
+                            <b>Time :</b> <span class="event_time" id="event_time"></span><br>
+                            <b>Vene :</b><span class="event_venue" id="event_venue"></span><br>
                         </p>
                     </div>
                     <div class="modal-footer">
                         <button onclick="clearData()" type="button" class="btn btn-secondary"
                             data-dismiss="modal">Close</button>
                         <form action="<?=base_url()?>user/event_registration" method="post">
-                            <span  class="event_id" id="event_id"></span>
+                            <span class="event_id" id="event_id"></span>
 
                             <button type="submit" class="btn btn-primary">Register Now</button>
                         </form>
@@ -105,6 +107,11 @@ function getEventDetails(div) {
             var array = JSON.parse(result);
             $(".event_title").html();
             $(".event_disc").html();
+            $(".event_time").html();
+            $(".event_date").html();
+            $(".event_venue").html();
+            $(".event_fee").html();
+            $(".event_id").html();
             console.log(result);
             if (result != "null") {
                 $.each($.parseJSON(result), function(idx, obj) {
@@ -114,7 +121,8 @@ function getEventDetails(div) {
                     $(".event_date").append(obj.event_date);
                     $(".event_venue").append(obj.event_venue);
                     $(".event_fee").append(obj.event_fee);
-                    $(".event_id").append("<input type='hidden' name='event_id' value='"+obj.event_id+"'>");
+                    $(".event_id").append("<input type='hidden' name='event_id' value='" + obj
+                        .event_id + "'>");
                 });
             }
         }
