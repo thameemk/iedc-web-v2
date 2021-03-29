@@ -82,7 +82,7 @@ class Admin_model extends CI_Model
 
   public function get_all_maker_requests()
   {
-    $query = $this->db->query("select u.fullname,u.branch,u.course_duration_from,u.course_duration_to,u.phone,m.user_email,m.req_date,m.issue_date,m.return_date,m.issued_admin,m.req_component,c.name from maker_lib_requests m,maker_library c,userRegister u where m.user_email = u.email and c.comp_num = m.req_component order by issue_date ASC");
+    $query = $this->db->query("select m.id,u.fullname,u.branch,u.course_duration_from,u.course_duration_to,u.phone,m.user_email,m.req_date,m.issue_date,m.return_date,m.issued_admin,m.req_component,c.name from maker_lib_requests m,maker_library c,userRegister u where m.user_email = u.email and c.comp_num = m.req_component");
     return  $query->result_array();
   }
 
