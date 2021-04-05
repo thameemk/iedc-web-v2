@@ -40,7 +40,7 @@ class Admin extends CI_Controller
         $data['new_members'] = $this->admin_model->get_all_new_membership_reg();
         $data['project_proposals'] = $this->admin_model->get_all_project_proposals();
         $data['maker_req'] = $this->admin_model->get_all_maker_requests();
-        $data['admin'] = $this->admin_model->getusertype($this->session->email);
+        $data['user_type'] = $this->admin_model->getusertype($this->session->email);
         $data['users_ai_ml'] = $this->admin_model->get_ai_ml_users();
         $data['users_innovate'] = $this->admin_model->get_innovate_users();
         $data['userinfo'] = $this->user_model->get_user_single($this->session->email);

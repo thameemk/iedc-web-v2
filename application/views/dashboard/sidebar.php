@@ -16,8 +16,7 @@
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/css/demo_1/style.css">
 		<link rel="shortcut icon" href="<?= base_url() ?>assets/front/images/icon.png">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/sweetalert2/sweetalert2.min.css">
-
-
+		
 </head>
 
 <body>
@@ -59,6 +58,17 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="<?= base_url() ?>user/dashboard/events" class="nav-link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar link-icon">
+								<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+								<line x1="16" y1="2" x2="16" y2="6"></line>
+								<line x1="8" y1="2" x2="8" y2="6"></line>
+								<line x1="3" y1="10" x2="21" y2="10"></line>
+							</svg>
+							<span class="link-title">Events & programs</span>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a href="<?= base_url() ?>user/dashboard/project-proposal" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather link-icon">
 								<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
@@ -68,6 +78,7 @@
 							<span class="link-title">Project Proposal</span>
 						</a>
 					</li>
+
 					<li class="nav-item">
 						<a href="<?= base_url() ?>user/dashboard/incubation-application" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox link-icon">
@@ -109,7 +120,7 @@
 						</a>
 					</li>
 					<hr>
-					<?php if ($admin == 'super_admin' or $admin == 'admin') { ?>
+					<?php if ($user_type == 'super_admin' or $user_type == 'admin') { ?>
 						<li class="nav-item nav-category">ADMIN TOOLS</li>
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/pre-incubation" class="nav-link">
@@ -151,7 +162,7 @@
 								<span class="link-title">New membership reg</span>
 							</a>
 						</li>
-						
+
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/innovate-4-tkm" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
@@ -159,7 +170,7 @@
 								</svg>
 								<span class="link-title">Innovate 4 TKM</span>
 							</a>
-						</li>						
+						</li>
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/maker-library-requests" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
@@ -192,7 +203,7 @@
 								<span class="link-title">Add new user</span>
 							</a>
 						</li>
-												
+
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/server-access" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">

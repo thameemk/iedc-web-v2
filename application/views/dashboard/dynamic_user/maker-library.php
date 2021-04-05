@@ -7,7 +7,7 @@
             </ol>
         </nav>
     </section>
-    <?php if ($admin == true) { ?>       
+    <?php if ($user_type == true) { ?>       
         <section>
             <div class="row mt-5">
 

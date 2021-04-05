@@ -72,7 +72,7 @@ class User extends CI_Controller
     public function dashboard()
     {
         if (isset($_SESSION['email'])) {
-              $data['admin'] = $this->admin_model->getusertype($this->session->email);
+              $data['user_type'] = $this->admin_model->getusertype($this->session->email);
               $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
               $data['profile_pic'] = $this->session->profile_pic;
               $data['link'] = $this->session->link;
@@ -96,13 +96,13 @@ class User extends CI_Controller
     }
 
 
-    public function public_user_pages($page)
+    public function dynamic_user($page)
     {
-        if (!file_exists(APPPATH . 'views/dashboard/public_user/' . $page . '.php')) {
+        if (!file_exists(APPPATH . 'views/dashboard/dynamic_user/' . $page . '.php')) {
             show_404();
         }
         $data['events'] = $this->user_model->get_event_details(NULL);
-        $data['admin'] = $this->admin_model->getusertype($this->session->email);
+        $data['user_type'] = $this->admin_model->getusertype($this->session->email);
         $data['maker_user_req'] = $this->user_model->maker_user_req($this->session->email);
         $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
         $data['profile_pic'] = $this->session->profile_pic;
@@ -111,7 +111,7 @@ class User extends CI_Controller
         $data['get_maker_items'] = $this->user_model->get_maker_items();
         $this->load->view('dashboard/sidebar', $data);
         $this->load->view('dashboard/header', $data);
-        $this->load->view('dashboard/public_user/'.$page, $data);
+        $this->load->view('dashboard/dynamic_user/'.$page, $data);
         $this->load->view('dashboard/footer', $data);
     }
 

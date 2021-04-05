@@ -27,24 +27,6 @@ class Member extends CI_Controller
         }
     }
 
-    public function dynamic_member($member)
-    {
-        if (!file_exists(APPPATH . 'views/dashboard/dynamic_member/' . $member . '.php')) {
-            show_404();
-        }
-        $data['admin'] = $this->admin_model->getusertype($this->session->email);
-        $data['maker_user_req'] = $this->user_model->maker_user_req($this->session->email);
-        $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
-        $data['profile_pic'] = $this->session->profile_pic;
-        $data['link'] = $this->session->link;
-        $data['loginURL'] = $this->googleplus->loginURL();
-        $data['get_maker_items'] = $this->user_model->get_maker_items();
-        $this->load->view('dashboard/sidebar', $data);
-        $this->load->view('dashboard/header', $data);
-        $this->load->view('dashboard/dynamic_member/' . $member, $data);
-        $this->load->view('dashboard/footer', $data);
-    }
-
     public function maker_request($comp_id)
     {
         $comp_id = $this->security->xss_clean($comp_id);

@@ -8,7 +8,7 @@
     </nav>
 
     <div class="row">
-        <?php if($admin == true){ ?>
+        <?php if($user_type == true){ ?>
         <div class="col-md-12 stretch-card">
             <div class="card">
                 <div class="card-body">

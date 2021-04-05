@@ -8,7 +8,7 @@
     </nav>
 
     <div class="row">
-        <?php if($admin == true){ ?>
+        <?php if($user_type == true){ ?>
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <?php if ($this->session->flashdata('fail')) : ?>

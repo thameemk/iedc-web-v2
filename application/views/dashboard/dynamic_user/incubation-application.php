@@ -5,7 +5,7 @@
             <li class="breadcrumb-item active" aria-current="page">Pre Incubation</li>
         </ol>
     </nav>
-    <?php if($admin == true){ ?>
+    <?php if($user_type == true){ ?>
     <form method="post" action="<?=base_url()?>Member/pre_incubation_app_post">
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
