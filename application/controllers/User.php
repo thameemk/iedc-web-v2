@@ -87,8 +87,8 @@ class User extends CI_Controller
                   $this->load->view('dashboard/complete', $data);
               }
           } else {
-              // set the expiration date to one hour ago
-              setcookie("redir", "", time() + 3600);
+              // set the expiration date to 24 hour ago
+              setcookie("redir", "", time() + 86400);
               $data['loginURL'] = $this->googleplus->loginURL();
               header('Location: ' . $data['loginURL']);
               exit('');

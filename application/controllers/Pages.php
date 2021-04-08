@@ -8,6 +8,7 @@ class Pages extends CI_Controller
     parent::__construct();
     $this->load->library('form_validation');
     $this->load->model('report_model');
+    $this->session->set_userdata('last_page', current_url());
     $this->load->helper(array('form', 'url'));
   }
 
