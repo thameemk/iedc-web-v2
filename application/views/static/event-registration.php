@@ -20,27 +20,23 @@
             li:not(:last-child) {
                 margin-bottom: 5px;
             }
-        </style>        
+        </style>
         <br>
         <ol style="font-size:1.3em !important;letter-spacing:1px;">
-            <li> Please login or access your profile
-                <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
-                    <a style="color:#007bff !important;"  href="<?php echo $loginURL ?>" target="_blank">[ Click here ]</a>
-                <?php } else { ?>
-                    <a style="color:#007bff !important;" href="<?= base_url() ?>user/dashboard" target="_blank">[ Click here ]</a>
+            <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
+                <li> Please login or access your profile & Complete the profile if not done
+                    <a style="color:#007bff !important;" href="<?php echo $loginURL ?>">[ Click here ]</a>
+                </li>
+                <li>Go to Events & program section
+                    <a style="color:#007bff !important;" href="<?= base_url() ?>user/dashboard/events">[ Click here ]</a>
+                </li>
+            <?php } else { ?>
+                <li>Go to Events & program section
+                    <a style="color:#007bff !important;" href="<?= base_url() ?>user/dashboard/events">[ Click here ]</a>
                 <?php } ?>
-            </li>
-            <li>Complete the profile if not done</li>
-            <li>Go to Events & program section
-                <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
-                    <a style="color:#007bff !important;" href="<?php echo $loginURL ?>" target="_blank">[ Click here ]</a>
-                <?php } else { ?>
-                    <a style="color:#007bff !important;" href="<?= base_url() ?>user/dashboard/events" target="_blank">[ Click here ]</a>
-                <?php } ?>
-            </li>
-            <li>Find the event or program that you want register</li>
-            <li>Open the event or program and click on regsiter</li>
-            <li>That's All</li>
+                </li>
+                <li>Find the event or program that you want and register</li>
+                <li>That's All</li>
         </ol>
     </div>
 

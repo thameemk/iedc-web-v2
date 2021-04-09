@@ -29,11 +29,7 @@ class Auth extends CI_Controller
 			'user_type' => $user_type
 		);
 		$this->session->set_userdata($session_data);
-		if ($this->session->userdata('last_page') == base_url()) {
-			redirect(base_url().'user/dashboard');
-		} else {
-			redirect($this->session->userdata('last_page'));
-		}
+		redirect(base_url().'user/complete');		
 	}
 
 	public function logout()
