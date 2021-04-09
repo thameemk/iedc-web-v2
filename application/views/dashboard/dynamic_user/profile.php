@@ -53,7 +53,7 @@
                             <tbody class="text-center">
                                 <tr>
                                     <th>IEDC Membership Status</th>
-                                    <?php if($admin == true){ ?>
+                                    <?php if($user_type == true){ ?>
                                     <td style="color:#42BD09"><b>Active</b></td>
                                     <?php }else {?>
                                     <td style="color:#890C0C"><b>In Active</b></td>
@@ -61,7 +61,7 @@
                                 </tr>
                                 <tr>
                                     <th>Membership ID</th>
-                                    <?php if($admin == true){ ?>
+                                    <?php if($user_type == true){ ?>
                                     <td>IEDC_TKMCE_00<?= $row['id'] ?>_<?= $row['admission_number'] ?>_<?= $row['course_duration_from'] ?>_<?= $row['course_duration_to'] ?>
                                     </td>
                                     <?php }else {?>
