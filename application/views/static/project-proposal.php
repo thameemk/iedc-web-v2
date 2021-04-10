@@ -41,21 +41,22 @@
 
     <div class="row ml-3 mt-3 mb-3">
         <style>
-        li:not(:last-child) {
-            margin-bottom: 5px;
-        }
+            li:not(:last-child) {
+                margin-bottom: 5px;
+            }
         </style>
         <ol style="font-size:1.3em !important;letter-spacing:1px;">
-            <li> Please login or access your profile <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
-                <a style="color:#007bff !important;" href="<?php echo $loginURL ?>">Click here</a>
-                <?php } else { ?>
-                <a style="color:#007bff !important;" href="<?= base_url() ?>user/dashboard">Click here</a>
-                <?php } ?>
-            </li>
-            <li>Complete profile if not done</li>
-            <li>Find project proposal from the menu and click on it</li>
-            <li>Enter your project details</li>
-            <li>Submit your response</li>
+            <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
+                <li> Please login or access your profile & Complete profile if not done
+                    <a style="color:#007bff !important;" href="<?php echo $loginURL ?>">[ Click here ]</a>
+                </li>
+                <li>Find project proposal from the menu and click on it</li>
+            <?php } else { ?>
+                <li>Go to project proposal application portal <a style="color:#007bff !important;" href="<?php base_url() ?>user/dashboard/project-proposal"> [ Click Here ] </a>
+                </li>
+            <?php } ?>
+
+            <li>Enter your project details & Submit your response</li>
             <li>Thats all</li>
         </ol>
     </div>
