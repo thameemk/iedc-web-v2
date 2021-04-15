@@ -160,7 +160,7 @@ class User extends CI_Controller
                                 'event_id' => $data['event_id'],
                                 'reg_email' => $this->session->email
                             );
-                            $this->db->insert('event_registration', $temp);
+                            $this->db->insert('events_registration', $temp);
                             $this->session->set_flashdata('success', 'Registration Successfull!!');
                             redirect('user/dashboard/events');
                         } else {
@@ -172,7 +172,7 @@ class User extends CI_Controller
                             'event_id' => $data['event_id'],
                             'reg_email' => $this->session->email
                         );
-                        $this->db->insert('event_registration', $temp);
+                        $this->db->insert('events_registration', $temp);
                         $this->session->set_flashdata('success', 'Registration Successfull!!');
                         redirect('user/dashboard/events');
                     }

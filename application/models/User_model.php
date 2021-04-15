@@ -274,7 +274,8 @@ class User_model extends CI_Model
   {
       if($event_id==NULL)
       {
-          $query = $this->db->get('events');
+          $this->db->where('need_registration', 1);
+          $query = $this->db->get('events');          
           return $query->result_array();
       }
       else
@@ -319,7 +320,7 @@ class User_model extends CI_Model
   {
     $this->db->where('reg_email', $email);
     $this->db->where('event_id', $event_id);
-		$query = $this->db->get('event_registration');	
+		$query = $this->db->get('events_registration');	
     if ($query->num_rows() == 1)
     {
       return true;      
@@ -348,7 +349,7 @@ class User_model extends CI_Model
   function get_total_reg($event_id)
   {
     $this->db->where('event_id', $event_id);
-		$query = $this->db->get('event_registration');
+		$query = $this->db->get('events_registration');
     $rowcount = $query->num_rows();
     return $rowcount;	
   }

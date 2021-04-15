@@ -21,7 +21,7 @@
             <?php foreach (array_reverse($events) as $row) { ?>
 
                 <div class="col-md-3 grid-margin" style="background: #e8ebf1; padding:3px;margin:5px;">
-                    <img width="auto" height="150" src="<?= $row['event_img'] ?>" class="card-img-top" alt="...">
+                    <img width="auto" height="150" src="<?= $row['img_link_reg'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <center>
                             <h5 class="card-title"><?= $row['event_title'] ?></h5>
