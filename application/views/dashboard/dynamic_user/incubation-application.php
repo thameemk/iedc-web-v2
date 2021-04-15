@@ -454,6 +454,24 @@
 
                             <span class="btn btn-primary mr-2" onclick="addTeamMember()">Add Member</span>
                         </div>
+                        <h5 class="mt-3">DISCLAIMER</h5>
+                        <p align="justify">Every professional effort would be made by IEDC to treat and handle this information provided here as confidential.
+However, by signing and applying to IEDC for incubation assistance on this application form, you agree not to make
+any claim or demand compensation unconditionally in any form, at any point of time, now or any time in future, on
+the information / technology details provided by you here as trade secret or proprietary intellectual property. This
+information is required by IEDC to assess the candidature for the purpose of providing incubation services. Further
+IEDC does not guarantee acceptance of your proposal until and unless the selection process is over and IEDC has the
+right to reject any proposal without assigning any reason what so ever. IEDC will not pay any compensation to you in
+any form for the delay in communicating the decision or rejecting the proposal at its own discretion. Your team will
+be solely responsible for any damage you made on college assets (Laboratory/ IEDC belongings/ General College
+assets etc...) .Strict action will be taken for any kind of misconduct from the incubates as per college norms.</p>
+                        <h5 class="mt-3">DECLARATION</h5>
+                        <p align="justify">
+                            The information that I have provided is correct. I further declare that the information that I have provided
+here with are not proprietary in nature and that I would not make any claim on same. I have also read and
+understood and accepted the terms and conditions set. We shall follow the rules and regulations of
+Innovation & Entrepreneurship Development Cell TKMCE.
+                        </p>
                         <button class="btn btn-primary mr-2 mt-5" type="submit">Submit</button>
                     </div>
                 </div>
