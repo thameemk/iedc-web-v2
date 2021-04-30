@@ -53,6 +53,11 @@ class User extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $this->session->set_flashdata('fail', 'Fill all required fields !!');
             } else {
+                if($this->input->post('college')==null)
+                    $college = "TKM College of Engineering";
+                else
+                    $college = $this->input->post('college');                    
+
                 $user = array(
                     'branch' => $this->input->post('branch'),
                     'phone' => $this->input->post('phone'),
@@ -61,8 +66,9 @@ class User extends CI_Controller
                     'course_duration_to' => $this->input->post('course_duration_to'),
                     'admission_number' => $this->input->post('admission_number'),
                     'whyiedc' =>  $this->input->post('whyiedc'),
+                    'college' => $college,
                     'profile_completed' => '1'
-                );
+                );                
                 $this->user_model->complete_signin($user);
                 $this->session->set_flashdata('success', 'Your registration is Successfull!!');
                 // redirect(base_url("user/dashboard"));
@@ -108,6 +114,7 @@ class User extends CI_Controller
             show_404();
         }
         $data['events'] = $this->user_model->get_event_details(NULL);
+        $data['myevents'] = $this->user_model->get_user_registred_events($this->session->email);
         $data['user_type'] = $this->admin_model->getusertype($this->session->email);
         $data['maker_user_req'] = $this->user_model->maker_user_req($this->session->email);
         $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
@@ -189,5 +196,23 @@ class User extends CI_Controller
             $this->session->set_flashdata('fail', 'Registration count exceeded!!');
             redirect('user/dashboard/events');
         }
+    }
+
+    public function download_cert($event_id)
+    {
+        $data = $this->security->xss_clean($this->input->post());
+        $cert_status = $this->user_model->is_cert_published($data['event_id']);
+        $user_attendence = $this->user_model->is_user_attended($this->session->email,$data['event_id']);
+        if($cert_status==true && $user_attendence==true)
+        {
+            $this->user_model->download_event_cert($data['event_id'],$this->session->email);
+            $this->session->set_flashdata('success', 'Downloading started!!');
+            redirect('user/dashboard/myevents');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'Error downloading certificate!!');
+            redirect('user/dashboard/myevents');
+        }    
     }
 }

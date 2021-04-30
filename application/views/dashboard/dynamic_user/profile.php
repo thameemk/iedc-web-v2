@@ -26,18 +26,23 @@
                     <div class="header-links">
                         <ul class="links d-flex align-items-center mt-3 mt-md-0">
                             <li class="header-link-item d-flex align-items-center">
-                                <i class="mr-1 icon-md" data-feather="home"></i>
-                                <a class="pt-1px d-none d-md-block" href="<?= base_url() ?>">Home</a>
+                                <a href="<?= base_url() ?>">
+                                    <i class="mr-1 icon-md" data-feather="home"></i>
+                                    <span class="pt-1px d-none d-md-block">Home</span>
+                                </a>
                             </li>
                             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center active">
-                                <i class="mr-1 icon-md" data-feather="user"></i>
-                                <a class="pt-1px d-none d-md-block"
-                                    href="<?= base_url() ?>user/dashboard/profile">About</a>
+                                <a href="<?= base_url() ?>user/dashboard/profile">
+                                    <i class="mr-1 icon-md" data-feather="user"></i>
+                                    <span class="pt-1px d-none d-md-block">About</span>
+                                </a>
                             </li>
                             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
-                                <i class="mr-1 icon-md" data-feather="columns"></i>
-                                <a class="pt-1px d-none d-md-block"
-                                    href="<?= base_url() ?>user/dashboard/">Dashboard</a>
+                                <a href="<?= base_url() ?>user/dashboard/myevents">
+                                    <i class="mr-1 icon-md" data-feather="columns"></i>
+                                    <span class="pt-1px d-none d-md-block">My
+                                        Events</span>
+                                </a>
                             </li>
                         </ul>
                     </div>

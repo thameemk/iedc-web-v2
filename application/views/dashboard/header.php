@@ -96,6 +96,12 @@
 										</a>
 									</li>
 									<li class="nav-item">
+										<a href="<?= base_url() ?>/user/dashboard/myevents" class="nav-link">
+											<i data-feather="bookmark"></i>
+											<span>My Events</span>
+										</a>
+									</li>
+									<li class="nav-item">
 										<span onclick="showSwal('title-icon-text-footer')" class="nav-link">
 											<i data-feather="edit"></i>
 											<span>Edit Profile</span>
