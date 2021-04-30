@@ -94,6 +94,10 @@
                                     <td><?= $row['phone'] ?></td>
                                 </tr>
                                 <tr>
+                                    <th>College</th>
+                                    <td><?= $row['college'] ?></td>
+                                </tr>
+                                <tr>
                                     <th>Branch</th>
                                     <td><?= $row['branch'] ?></td>
                                 </tr>
