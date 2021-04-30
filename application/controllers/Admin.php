@@ -227,4 +227,20 @@ class Admin extends CI_Controller
         force_download('Incubation_team_details'.$reg_id.'.csv', $data);
         redirect('admin/dashboard/pre-incubation');    
     }
+
+    public function event_participants($event_id)
+    {      
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);         
+        $data['user_type'] = $this->admin_model->getusertype($this->session->email);    
+        $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
+        $data['profile_pic'] = $this->session->profile_pic;
+        $data['link'] = $this->session->link;
+        $data['loginURL'] = $this->googleplus->loginURL();
+        $data['participants'] = $this->admin_model->get_participants($event_id);
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);         
+        $this->load->view('dashboard/sidebar', $data);
+        $this->load->view('dashboard/header', $data);
+        $this->load->view('dashboard/dynamic_admin/event_participants', $data);
+        $this->load->view('dashboard/footer', $data);                     
+    }
 }
