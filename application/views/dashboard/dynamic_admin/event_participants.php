@@ -31,6 +31,7 @@
                                         <th class="pt-0">Year</th>
                                         <th class="pt-0">Branch</th>
                                         <th class="pt-0">Attendence</th>
+                                        <th class="pt-0">CERT NO</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +60,7 @@
                                             <?php } ?>
 
                                         </td>
+                                        <td><?= $row['cert_num'] ?></td>
 
                                     </tr>
                                     <?php } ?>

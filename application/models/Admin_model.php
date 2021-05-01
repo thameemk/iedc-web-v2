@@ -315,7 +315,7 @@ class Admin_model extends CI_Model
     function get_participants($event_id)
     {
         $event_id = $this->security->xss_clean($event_id);
-        $query = $this->db->query('select er.id,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch from events_registration er, userRegister u where u.email = er.reg_email and er.event_id="'.$event_id.'"');
+        $query = $this->db->query('select er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch from events_registration er, userRegister u where u.email = er.reg_email and er.event_id="'.$event_id.'"');
         return  $query->result_array();
     }
 
