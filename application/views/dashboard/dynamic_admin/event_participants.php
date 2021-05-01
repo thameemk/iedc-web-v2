@@ -4,7 +4,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Admin</a></li>
             <li class="breadcrumb-item active" aria-current="page">Events Participants</li>
-        </ol>
+        </ol>       
     </nav>
 
 
@@ -16,7 +16,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title"><?= $eventDetails->event_id?> - <?= $eventDetails->event_title?></h6>
+                        <h6 class="card-title"><?= $eventDetails->event_id?> - <?= $eventDetails->event_title?><button class="float-right  btn btn-danger font-weight-bold" disabled>ISSUE CERTIFICATE</button></h6>                       
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
