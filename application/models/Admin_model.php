@@ -326,4 +326,46 @@ class Admin_model extends CI_Model
         $query = $this->db->get('events');
         return $query->row();
     }
+
+    function mark_attendence($participant_id,$status)
+    {
+        $this->db->where('id', $participant_id);
+        $query = $this->db->get('events_registration');
+        if($query->row()->is_attended==NULL)
+        {
+            $this->db->where('id', $participant_id);           
+            if($status==1)
+            {
+                $cert_num = 'IEDC_TKM_'.$participant_id.'_'.rand (10000,99999);;
+                $temp = array(
+                    'is_attended' => $status,
+                    'cert_num' => $cert_num
+                );
+            }
+            else
+            {
+                $temp = array(
+                    'is_attended' => $status,                    
+                );
+            }
+            $query = $this->db->update('events_registration', $temp);
+            if ($this->db->affected_rows() == 1) {           
+                $data = array(
+                'status' => true,              
+                );
+            } else {
+                $data = array(
+                'status' => false
+                );
+            }           
+        }
+        else
+        {
+            $data = array(
+                'status' => false
+            );
+        }
+        header('Content-Type: application/json');
+        echo json_encode($data);
+    }
 }

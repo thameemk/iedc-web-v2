@@ -243,4 +243,17 @@ class Admin extends CI_Controller
         $this->load->view('dashboard/dynamic_admin/event_participants', $data);
         $this->load->view('dashboard/footer', $data);                     
     }
+
+    // Mark attendence for the events
+    function mark_as_present($participant_id)
+    {
+        $participant_id = $this->security->xss_clean($participant_id);
+        $this->admin_model->mark_attendence($participant_id,1);
+    }
+    function mark_as_absent($participant_id)
+    {
+        $participant_id = $this->security->xss_clean($participant_id);
+        $this->admin_model->mark_attendence($participant_id,0);
+    }
+
 }

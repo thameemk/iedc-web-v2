@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/fonts/feather-font/css/iconfont.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/css/demo_1/style.css">
 		<link rel="shortcut icon" href="<?= base_url() ?>assets/front/images/icon.png">
-		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/sweetalert2/sweetalert2.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.min.css" integrity="sha512-/D4S05MnQx/q7V0+15CCVZIeJcV+Z+ejL1ZgkAcXE1KZxTE4cYDvu+Fz+cQO9GopKrDzMNNgGK+dbuqza54jgw==" crossorigin="anonymous" />
 		
 </head>
 
