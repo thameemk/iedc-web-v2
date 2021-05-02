@@ -149,7 +149,7 @@ class User extends CI_Controller
     }
 
     function event_registration()
-    {
+    {           
         $data = $this->input->post();
         $data = $this->security->xss_clean($data);
         $is_iedc_member = $this->user_model->is_iedc_member($this->session->email);
@@ -169,10 +169,10 @@ class User extends CI_Controller
                             );
                             $this->db->insert('events_registration', $temp);
                             $this->session->set_flashdata('success', 'Registration Successfull!!');
-                            redirect('user/dashboard/events');
+                            redirect($this->session->userdata('last_page'));
                         } else {
                             $this->session->set_flashdata('fail', 'You are not an IEDC member!!');
-                            redirect('user/dashboard/events');
+                            redirect($this->session->userdata('last_page'));
                         }
                     } else {
                         $temp = array(
@@ -181,20 +181,20 @@ class User extends CI_Controller
                         );
                         $this->db->insert('events_registration', $temp);
                         $this->session->set_flashdata('success', 'Registration Successfull!!');
-                        redirect('user/dashboard/events');
+                        redirect($this->session->userdata('last_page'));
                     }
                 } else {
 
                     $this->session->set_flashdata('fail', 'You are already registred for this event!!');
-                    redirect('user/dashboard/events');
+                    redirect($this->session->userdata('last_page'));
                 }
             } else {
                 $this->session->set_flashdata('fail', 'Registration Closed!!');
-                redirect('user/dashboard/events');
+                redirect($this->session->userdata('last_page'));
             }
         } else {
             $this->session->set_flashdata('fail', 'Registration count exceeded!!');
-            redirect('user/dashboard/events');
+            redirect($this->session->userdata('last_page'));
         }
     }
 

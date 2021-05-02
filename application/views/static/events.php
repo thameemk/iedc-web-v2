@@ -58,9 +58,7 @@
 										<?php } ?>
 									</b>
 								</span>
-								<?php if ($row['event_reg_link'] != NULL) { ?>
-									<a class="btn btn-red fadeInUp" href="<?= $row['event_reg_link'] ?>" style="animation-duration: 600ms;">View / Register</a>
-								<?php } ?>
+								<a class="btn btn-red fadeInUp" href="<?=base_url()?>events/<?= $row['event_link'] ?>" style="animation-duration: 600ms;">View Event</a>
 							</a>
 						</div>
 					</div>
