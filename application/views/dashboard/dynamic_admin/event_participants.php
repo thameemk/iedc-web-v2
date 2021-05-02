@@ -51,11 +51,14 @@
                                             <?php if($row['is_attended']==1) { ?>
                                             <span class="badge badge-success">PRSENT</span>
                                             <?php } else if ($row['is_attended']==NULL) { ?>
+                                                <?php if($eventDetails->is_cert_published==0) { ?>
                                             <div class="<?=$row['id']?>">
                                                 <button class="domarkatnds btn btn-primary" id="<?=$row['id']?>">Mark
                                                     Attendence</button>
                                             </div>
                                             <?php } else { ?>
+                                                <button class="btn btn-warning">Not Allowed</button>
+                                            <?php }} else { ?>
                                             <span class="badge badge-danger">ABSENT</span>
                                             <?php } ?>
 
