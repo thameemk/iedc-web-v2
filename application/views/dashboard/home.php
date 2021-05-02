@@ -55,7 +55,7 @@
             </div>
             <div class="col-12 col-md-6 grid-margin">
                 <div class="card text-white bg-info">
-                    <a href="<?= base_url() ?>user/dashboard/events">
+                    <a href="<?= base_url() ?>events">
                         <h5 class="card-header text-white">Events & programs</h5>
                         <div class="card-body">
                             <p class="card-text text-white">Register for workshops, talks etc and boost your skills.
