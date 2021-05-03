@@ -325,4 +325,20 @@ class Pages extends CI_Controller
         $this->load->view('forbidden',$data);
     }
 
+    public function verify_certificate()
+    {
+        $cert_no = $this->security->xss_clean($this->input->post('cert_no'));
+        $recaptcha = $this->input->post('g-recaptcha-response');
+        $response = $this->report_model->google_recaptcha($recaptcha);
+        $status = json_decode($response, true);
+        if (!$status['success']) {
+            $this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
+            redirect(base_url() . "verify");
+        } else {
+            $cert_details = $this->report_model->get_cert_details($cert_no);
+            $this->session->set_flashdata('success',$cert_details);
+            redirect(base_url() . "verify");            
+        }
+    }
+
 }

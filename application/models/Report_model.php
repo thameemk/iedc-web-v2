@@ -118,4 +118,10 @@ class Report_model extends CI_Model
         $query = $this->db->get('events');
         return $query->row();
     }
+
+    function get_cert_details($cert_no)
+    {
+        $query = $this->db->query('select er.cert_num,e.event_title,u.fullname,u.college from events_registration er, events e, userRegister u where er.reg_email=u.email and er.event_id=e.event_id and er.cert_num="'.$cert_no.'"');
+        return  json_encode($query->row());
+    }
 }
