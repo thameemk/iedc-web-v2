@@ -255,5 +255,24 @@ class Admin extends CI_Controller
         $participant_id = $this->security->xss_clean($participant_id);
         $this->admin_model->mark_attendence($participant_id,0);
     }
-
+    
+    function issue_cert()
+    {
+        $event_id = $this->security->xss_clean($this->input->post('event_id'));
+        if($this->session->userdata('user_type') == 'super_admin')
+        {
+            $data = array(
+                'is_cert_published' => 1,
+            );
+            $this->db->where('event_id', $event_id);
+            $this->db->update('events', $data);
+            $this->session->set_flashdata('success', 'Certificate issued successfully!!');
+            redirect(base_url() . "admin/event-participants/".$event_id);
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'You are not authorized!!');
+            redirect(base_url() . "admin/event-participants/".$event_id);
+        }           
+    }
 }

@@ -11,13 +11,36 @@
 
 
     <section class="mt-5">
-        <?php if($this->session->userdata('user_type')=='super_admin' ||$this->session->userdata('user_type')=='admin') {?>
-        <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title"><?= $eventDetails->event_id?> - <?= $eventDetails->event_title?><button
-                                class="float-right  btn btn-danger font-weight-bold" disabled>ISSUE CERTIFICATE</button>
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <?php if ($this->session->flashdata('fail')) : ?>
+                <span style="line-height:3"
+                    class="badge badge-danger"><?php echo $this->session->flashdata('fail'); ?></span>
+                <?php endif; ?>
+                <?php if ($this->session->flashdata('success')) : ?>
+                <span style="line-height:3"
+                    class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
+                <?php endif; ?>
+                <div class="card-body">
+                    <?php if($this->session->userdata('user_type')=='super_admin' ||$this->session->userdata('user_type')=='admin') {?>
+                    <div class="row">
+                        <h6 class="card-title"><?= $eventDetails->event_id?> - <?= $eventDetails->event_title?>
+                            <?php if($eventDetails->is_cert_published==0) { ?>
+                            <?php  if($this->session->userdata('user_type') == 'super_admin') { ?>
+                            <form action="<?=base_url()?>admin/issue_cert" method="post" ?>
+                                <input type="hidden" name="event_id" value="<?= $eventDetails->event_id?>" ?>
+                                <button type="submit" class="float-right  btn btn-success font-weight-bold">ISSUE
+                                    CERTIFICATE</button>
+                            </form>
+                            <?php } else { ?>
+                            <button class="float-right  btn btn-danger font-weight-bold" disabled>ISSUE
+                                CERTIFICATE</button>
+                            <?php } ?>
+                            <?php } else { ?>
+                            <button class="float-right  btn btn-success font-weight-bold" disabled>
+                                CERTIFICATE ISSUED</button>
+                            <?php } ?>
+
                         </h6>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
@@ -51,13 +74,13 @@
                                             <?php if($row['is_attended']==1) { ?>
                                             <span class="badge badge-success">PRSENT</span>
                                             <?php } else if ($row['is_attended']==NULL) { ?>
-                                                <?php if($eventDetails->is_cert_published==0) { ?>
+                                            <?php if($eventDetails->is_cert_published==0) { ?>
                                             <div class="<?=$row['id']?>">
                                                 <button class="domarkatnds btn btn-primary" id="<?=$row['id']?>">Mark
                                                     Attendence</button>
                                             </div>
                                             <?php } else { ?>
-                                                <button class="btn btn-warning">Not Allowed</button>
+                                            <button class="btn btn-warning">Not Allowed</button>
                                             <?php }} else { ?>
                                             <span class="badge badge-danger">ABSENT</span>
                                             <?php } ?>
@@ -146,7 +169,7 @@ $(function() {
                             $("." + participant_id).html(modalHtml);
                             $("." + participant_id).append(
                                 '<span class="badge badge-danger">ABSENT</span>'
-                                );
+                            );
                             Swal.fire('Marked as absent', '', 'info')
                         } else {
                             alert("Some error has been occurred !!");
