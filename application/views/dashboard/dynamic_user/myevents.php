@@ -32,7 +32,7 @@
                                 <button class="btn btn-danger" disabled>NOT ATTENDED</button>
                             <?php } else if($row['is_attended']==1) { ?>                           
                                 <form action="<?=base_url()?>user/download_cert" method="post">
-                                    <input type="hidden" value="<?= $row['event_id'] ?>">
+                                    <input type="hidden" name="event_id" value="<?= $row['event_id'] ?>">
                                     <button type="submit" class="btn btn-success">DOWNLOAD CERTIFICATE</button>
                                 </form>
                             <?php } ?>    

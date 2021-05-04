@@ -198,7 +198,7 @@ class User extends CI_Controller
         }
     }
 
-    public function download_cert($event_id)
+    public function download_cert()
     {
         $data = $this->security->xss_clean($this->input->post());
         $cert_status = $this->user_model->is_cert_published($data['event_id']);
