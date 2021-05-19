@@ -53,10 +53,10 @@ class User extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $this->session->set_flashdata('fail', 'Fill all required fields !!');
             } else {
-                if($this->input->post('college')==null)
+                if ($this->input->post('college') == null)
                     $college = "TKM College of Engineering";
                 else
-                    $college = $this->input->post('college');                    
+                    $college = $this->input->post('college');
 
                 $user = array(
                     'branch' => $this->input->post('branch'),
@@ -68,7 +68,7 @@ class User extends CI_Controller
                     'whyiedc' =>  $this->input->post('whyiedc'),
                     'college' => $college,
                     'profile_completed' => '1'
-                );                
+                );
                 $this->user_model->complete_signin($user);
                 $this->session->set_flashdata('success', 'Your registration is Successfull!!');
                 // redirect(base_url("user/dashboard"));
@@ -149,9 +149,10 @@ class User extends CI_Controller
     }
 
     function event_registration()
-    {           
+    {
         $data = $this->input->post();
         $data = $this->security->xss_clean($data);
+        $is_file_submission = $this->user_model->is_file_submission($data['event_id']);
         $is_iedc_member = $this->user_model->is_iedc_member($this->session->email);
         $is_event_for_iedc_members = $this->user_model->is_event_for_iedc_members($data['event_id']);
         $duplicate = $this->user_model->check_duplicate_reg_events($this->session->email, $data['event_id']);
@@ -175,13 +176,30 @@ class User extends CI_Controller
                             redirect($this->session->userdata('last_page'));
                         }
                     } else {
-                        $temp = array(
-                            'event_id' => $data['event_id'],
-                            'reg_email' => $this->session->email
-                        );
-                        $this->db->insert('events_registration', $temp);
-                        $this->session->set_flashdata('success', 'Registration Successfull!!');
-                        redirect($this->session->userdata('last_page'));
+                        if ($is_file_submission == 0) {
+                            $temp = array(
+                                'event_id' => $data['event_id'],
+                                'reg_email' => $this->session->email
+                            );
+                            $this->db->insert('events_registration', $temp);
+                            $this->session->set_flashdata('success', 'Registration Successfull!!');
+                            redirect($this->session->userdata('last_page'));
+                        } else {
+                            $this->form_validation->set_rules('file_link', 'file_link', 'required');
+                            if ($this->form_validation->run() == FALSE) {
+                                $this->session->set_flashdata('fail', 'Please fill all required fields!!');
+                                redirect($this->session->userdata('last_page'));
+                            } else {
+                                $temp = array(
+                                    'event_id' => $data['event_id'],
+                                    'reg_email' => $this->session->email,
+                                    'file_link' => $data['file_link']
+                                );
+                                $this->db->insert('events_registration', $temp);
+                                $this->session->set_flashdata('success', 'Registration Successfull!!');
+                                redirect($this->session->userdata('last_page'));
+                            }
+                        }
                     }
                 } else {
 
@@ -202,17 +220,14 @@ class User extends CI_Controller
     {
         $data = $this->security->xss_clean($this->input->post());
         $cert_status = $this->user_model->is_cert_published($data['event_id']);
-        $user_attendence = $this->user_model->is_user_attended($this->session->email,$data['event_id']);
-        if($cert_status==true && $user_attendence==true)
-        {
-            $this->user_model->download_event_cert($data['event_id'],$this->session->email);
+        $user_attendence = $this->user_model->is_user_attended($this->session->email, $data['event_id']);
+        if ($cert_status == true && $user_attendence == true) {
+            $this->user_model->download_event_cert($data['event_id'], $this->session->email);
             $this->session->set_flashdata('success', 'Downloading started!!');
             redirect('user/dashboard/myevents');
-        }
-        else
-        {
+        } else {
             $this->session->set_flashdata('fail', 'Error downloading certificate!!');
             redirect('user/dashboard/myevents');
-        }    
+        }
     }
 }

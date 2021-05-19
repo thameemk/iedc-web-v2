@@ -419,4 +419,15 @@ class User_model extends CI_Model
         readfile($path); // outputs the content of the file
         exit();
     }
+
+    function is_file_submission($event_id)
+    {
+        $this->db->where('event_id', $event_id);
+        $query = $this->db->get('events');	
+        $result = $query->row();
+        if($result->is_file_submission==1)
+            return true;
+        else
+            return false; 
+    }
 }
