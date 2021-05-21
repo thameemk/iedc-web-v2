@@ -72,6 +72,7 @@
                 <form action="<?= base_url() ?>user/event_registration" method="post">
                     <div class="modal-body">
                         <p><b>Are you sure want to register for the <?= $eventDetails->event_title ?> ?</b></p>
+                        <p style="color:red"><b>Note : If you are an IEDC TKMCE Member please register with the email id used for registration <a style="color:blue" href="<?=base_url()?>user/dashboard/profile" target="_blank">[ Click here to check your membership status ]</a> </b></p>
                         <p style="color:red"><b>Note : Please read the guidelines carefully before registering the event</b></p>
                         <?php if ($eventDetails->is_file_submission == 1) { ?>
                             <div class="form-group">
