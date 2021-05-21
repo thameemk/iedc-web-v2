@@ -42,8 +42,8 @@ class User_model extends CI_Model
             $row = $query->row();
             if (password_verify($access_code, $row->user_hash)) {
                 $data = array(
-                  'email' => $row->email,
-                  'validated' => TRUE
+                    'email' => $row->email,
+                    'validated' => TRUE
                 );
                 return TRUE;
             } else {
@@ -173,7 +173,7 @@ class User_model extends CI_Model
         $data = $this->security->xss_clean($data);
         $this->form_validation->set_rules('tech_or_lang', 'tech_or_lang', 'required');
         $this->form_validation->set_rules('purpose', 'purpose', 'required');
-        $this->form_validation->set_rules('title', 'title', 'required');   
+        $this->form_validation->set_rules('title', 'title', 'required');
         if ($this->form_validation->run() == FALSE) {
             return false;
         } else {
@@ -183,13 +183,13 @@ class User_model extends CI_Model
                 'purpose' => $this->input->post('purpose'),
                 'title' => $this->input->post('title'),
                 'domain' => $this->input->post('domain'),
-                'duration' => $this->input->post('duration'),        
+                'duration' => $this->input->post('duration'),
             );
             $this->db->insert('server_accsess', $data);
             return true;
         }
     }
-    
+
     function pre_incubation_reg()
     {
         $data = $this->input->post();
@@ -206,38 +206,38 @@ class User_model extends CI_Model
                 'reg_id' => $project_id,
                 'company_name' => $this->input->post('company_name'),
                 'parent_name' => $this->input->post('parent_name'),
-                'parent_mobile_number' => $this->input->post('parent_mobile_number'),       
+                'parent_mobile_number' => $this->input->post('parent_mobile_number'),
                 'parent_email' => $this->input->post('parent_email'),
                 'comm_address' => $this->input->post('comm_address'),
                 'perm_address' => $this->input->post('perm_address'),
                 'business_category_1' => $this->input->post('business_category_1'),
                 'business_category_2' => $this->input->post('business_category_2'),
-                'business_category_3' => $this->input->post('business_category_3'),       
+                'business_category_3' => $this->input->post('business_category_3'),
                 'business_idea' => $this->input->post('business_idea'),
                 'business_time' => $this->input->post('business_time'),
                 'business_ownership' => $this->input->post('business_ownership'),
                 'problem_statement' => $this->input->post('problem_statement'),
                 'solution' => $this->input->post('solution'),
-                'targeted_customer' => $this->input->post('targeted_customer'),       
+                'targeted_customer' => $this->input->post('targeted_customer'),
                 'description' => $this->input->post('description'),
                 'possible_application' => $this->input->post('possible_application'),
                 'ser_workspace' => $this->input->post('ser_workspace'),
                 'ser_lab' => $this->input->post('ser_lab'),
                 'ser_web' => $this->input->post('ser_web'),
-                'ser_res' => $this->input->post('ser_res'),       
+                'ser_res' => $this->input->post('ser_res'),
                 'ser_adv' => $this->input->post('ser_adv'),
                 'ser_oth' => $this->input->post('ser_oth'),
                 'bus_experience' => $this->input->post('bus_experience'),
                 'business_plan' => $this->input->post('business_plan'),
                 'business_plan_outline' => $this->input->post('business_plan_outline'),
-                'maket_feasibility_study' => $this->input->post('maket_feasibility_study'),       
+                'maket_feasibility_study' => $this->input->post('maket_feasibility_study'),
                 'intellectual_property_strategy' => $this->input->post('intellectual_property_strategy'),
                 'bus_machinary_capital' => $this->input->post('bus_machinary_capital'),
                 'bussiness_estimate' => $this->input->post('bussiness_estimate'),
                 'funding_needs_source' => $this->input->post('funding_needs_source'),
                 'intend_finance' => $this->input->post('intend_finance'),
                 'market_survey' => $this->input->post('market_survey'),
-                'tech_own_other' => $this->input->post('tech_own_other'),       
+                'tech_own_other' => $this->input->post('tech_own_other'),
                 'bus_reason' => $this->input->post('bus_reason'),
                 'already_invested' => $this->input->post('already_invested'),
                 'space' => $this->input->post('space'),
@@ -245,41 +245,38 @@ class User_model extends CI_Model
                 'ass_strategy' => $this->input->post('ass_strategy'),
                 'ass_managemet' => $this->input->post('ass_managemet'),
                 'ass_marketing' => $this->input->post('ass_marketing'),
-                'ass_hr' => $this->input->post('ass_hr'),       
+                'ass_hr' => $this->input->post('ass_hr'),
                 'ass_commercialization' => $this->input->post('ass_commercialization'),
                 'ass_legal' => $this->input->post('ass_legal'),
                 'ass_other' => $this->input->post('ass_other'),
                 'staff_mentors' => $this->input->post('staff_mentors'),
-              
+
             );
             $this->db->insert('pre_incubation', $data);
             for ($x = 0; $x < count($this->input->post('team_name')); $x++) {
-              $data_1 = array(
-                'member_id' => "PRE_MEM_" . time(),
-                'team_name' =>  $this->input->post('team_name')[$x],
-                'team_adm_num' =>  $this->input->post('team_adm_num')[$x],
-                'incubation_reg_id' => $project_id,
-                'team_email' =>  $this->input->post('team_email')[$x],
-                'team_phone' =>  $this->input->post('team_phone')[$x],
-                'team_department	' =>  $this->input->post('team_department')[$x],
-                'team_year' =>  $this->input->post('team_year')[$x],
-              );
-              $this->db->insert('pre_incubation_team_members', $data_1);
-            }      
+                $data_1 = array(
+                    'member_id' => "PRE_MEM_" . time(),
+                    'team_name' =>  $this->input->post('team_name')[$x],
+                    'team_adm_num' =>  $this->input->post('team_adm_num')[$x],
+                    'incubation_reg_id' => $project_id,
+                    'team_email' =>  $this->input->post('team_email')[$x],
+                    'team_phone' =>  $this->input->post('team_phone')[$x],
+                    'team_department	' =>  $this->input->post('team_department')[$x],
+                    'team_year' =>  $this->input->post('team_year')[$x],
+                );
+                $this->db->insert('pre_incubation_team_members', $data_1);
+            }
             return true;
         }
     }
 
     public function get_event_details($event_id)
     {
-        if($event_id==NULL)
-        {
+        if ($event_id == NULL) {
             $this->db->where('need_registration', 1);
-            $query = $this->db->get('events');          
+            $query = $this->db->get('events');
             return $query->result_array();
-        }
-        else
-        {
+        } else {
             $this->db->where('event_id', $event_id);
             $query = $this->db->get('events');
             return json_encode($query->result());
@@ -289,29 +286,25 @@ class User_model extends CI_Model
     public function is_iedc_member($email)
     {
         $this->db->where('email', $email);
-        $query = $this->db->get('userRegister');	
+        $query = $this->db->get('userRegister');
         $data = $query->result_array();
         $user_type = $data[0]['user_type'];
-        if($user_type == 'super_admin' || $user_type == 'admin' || $user_type == 'iedc_member')
-          {
-              return true;        
-          }
-          else{
-              return false;
-          }
+        if ($user_type == 'super_admin' || $user_type == 'admin' || $user_type == 'iedc_member') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function is_event_for_iedc_members($event_id)
     {
         $this->db->where('event_id', $event_id);
-        $query = $this->db->get('events');	
+        $query = $this->db->get('events');
         $data = $query->result_array();
         $is_type = $data[0]['is_iedc_member'];
-        if($is_type == 1)
-        {
-            return true;      
-        }
-        else{
+        if ($is_type == 1) {
+            return true;
+        } else {
             return false;
         }
     }
@@ -320,13 +313,10 @@ class User_model extends CI_Model
     {
         $this->db->where('reg_email', $email);
         $this->db->where('event_id', $event_id);
-        $query = $this->db->get('events_registration');	
-        if ($query->num_rows() == 1)
-        {
-            return true;      
-        }
-        else
-        {
+        $query = $this->db->get('events_registration');
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
             return false;
         }
     }
@@ -334,14 +324,12 @@ class User_model extends CI_Model
     function check_if_event_closed($event_id)
     {
         $this->db->where('event_id', $event_id);
-        $query = $this->db->get('events');	
+        $query = $this->db->get('events');
         $data = $query->result_array();
         $is_reg_open = $data[0]['is_reg_open'];
-        if($is_reg_open == 1)
-        {
-            return true;      
-        }
-        else{
+        if ($is_reg_open == 1) {
+            return true;
+        } else {
             return false;
         }
     }
@@ -351,61 +339,59 @@ class User_model extends CI_Model
         $this->db->where('event_id', $event_id);
         $query = $this->db->get('events_registration');
         $rowcount = $query->num_rows();
-        return $rowcount;	
+        return $rowcount;
     }
 
     function check_is_reg_count_max($event_id)
     {
         $this->db->where('event_id', $event_id);
-        $query = $this->db->get('events');	
+        $query = $this->db->get('events');
         $data = $query->result_array();
         $max_count = $data[0]['max_members'];
         $total_reg = $this->get_total_reg($event_id);
-        if($max_count == $total_reg)
-        {
-            return true;      
-        }
-        else{
+        if ($max_count == $total_reg) {
+            return true;
+        } else {
             return false;
         }
     }
 
     function get_user_registred_events($email)
     {
-        $query = $this->db->query('select er.*,e.* from events_registration er, events e where e.event_id = er.event_id and er.reg_email="'.$email.'"');
+        $query = $this->db->query('select er.*,e.* from events_registration er, events e where e.event_id = er.event_id and er.reg_email="' . $email . '"');
         return  $query->result_array();
     }
 
     function is_cert_published($event_id)
     {
         $this->db->where('event_id', $event_id);
-        $query = $this->db->get('events');	
+        $query = $this->db->get('events');
         $result = $query->row();
-        if($result->is_cert_published==1)
+        if ($result->is_cert_published == 1)
             return true;
         else
-            return false;    
+            return false;
     }
 
-    function is_user_attended($email,$event_id)
+    function is_user_attended($email, $event_id)
     {
         $this->db->where('event_id', $event_id);
         $this->db->where('reg_email', $email);
-        $query = $this->db->get('events_registration');	
+        $query = $this->db->get('events_registration');
         $result = $query->row();
-        if($result->is_attended==1)
+        if ($result->is_attended == 1)
             return true;
         else
-            return false;    
+            return false;
     }
 
-    function download_event_cert($event_id,$email)
+    function download_event_cert($event_id, $email)
     {
         $this->db->where('event_id', $event_id);
         $this->db->where('reg_email', $email);
-        $query = $this->db->get('events_registration');	
+        $query = $this->db->get('events_registration');
         $result = $query->row();
-        $path = base_url('assets/uploads/cert/'.$event_id.'/'.$result->cert_num.'.pdf');       
+        $path = base_url('assets/uploads/cert/' . $event_id . '/' . $result->cert_num . '.pdf');
         header("Pragma: public");
         header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -413,9 +399,9 @@ class User_model extends CI_Model
         header("Content-Description: File Transfer");
         header("Content-Type: application/pdf");
         $headers  = get_headers($path, 1);
-        header('Content-Length: '.($headers['Content-Length']));
-        header('Content-Disposition: attachment; filename="'.basename($path).'"');
-        header("Content-Transfer-Encoding: binary\n");       
+        header('Content-Length: ' . ($headers['Content-Length']));
+        header('Content-Disposition: attachment; filename="' . basename($path) . '"');
+        header("Content-Transfer-Encoding: binary\n");
         readfile($path); // outputs the content of the file
         exit();
     }
@@ -423,11 +409,67 @@ class User_model extends CI_Model
     function is_file_submission($event_id)
     {
         $this->db->where('event_id', $event_id);
-        $query = $this->db->get('events');	
+        $query = $this->db->get('events');
         $result = $query->row();
-        if($result->is_file_submission==1)
+        if ($result->is_file_submission == 1)
             return true;
         else
-            return false; 
+            return false;
+    }
+
+    function is_team($event_id)
+    {
+        $this->db->where('event_id', $event_id);
+        $query = $this->db->get('events');
+        $result = $query->row();
+        if ($result->is_team == 1)
+            return true;
+        else
+            return false;
+    }
+
+    function event_registration($data)
+    {
+        $status = $this->is_team($data['event_id']);
+        $temp = array(
+            'event_id' => $data['event_id'],
+            'reg_email' => $this->session->email,
+            'added_email' => $this->session->email,
+            'file_link' => $data['file_link']
+        );
+        if ($status == false) {
+            $this->db->insert('events_registration', $temp);
+            $this->session->set_flashdata('success', 'Registration Successfull!!');
+            redirect($this->session->userdata('last_page'));
+        } else {
+            $teamMembers[] = $data['team_email'];
+            $team_status = 1;
+            foreach ($teamMembers[0] as $member) {
+                if ($this->check_duplicate_reg_events($member, $data['event_id']) == true)
+                {
+                    $team_status = 0;                   
+                }
+            }
+            if($team_status==1)
+            {
+                $this->db->insert('events_registration', $temp);
+                foreach ($teamMembers[0] as $member) {
+                    $memberData = array(
+                        'event_id' => $data['event_id'],
+                        'reg_email' => $member,
+                        'added_email' => $this->session->email,
+                        'file_link' => $data['file_link']
+                    );
+                    $this->db->insert('events_registration', $memberData);
+                }
+                $this->session->set_flashdata('success', 'Registration Successfull!!');
+                redirect($this->session->userdata('last_page'));
+            }
+            else
+            {
+                $this->session->set_flashdata('fail', 'One of your team member is already registred for the event!!');
+                redirect($this->session->userdata('last_page'));
+            }
+        }
     }
 }

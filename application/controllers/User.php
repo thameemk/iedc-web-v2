@@ -164,40 +164,21 @@ class User extends CI_Controller
                     if ($is_event_for_iedc_members == true) {
                         if ($is_iedc_member == true) {
 
-                            $temp = array(
-                                'event_id' => $data['event_id'],
-                                'reg_email' => $this->session->email
-                            );
-                            $this->db->insert('events_registration', $temp);
-                            $this->session->set_flashdata('success', 'Registration Successfull!!');
-                            redirect($this->session->userdata('last_page'));
+                            $this->user_model->event_registration($data);
                         } else {
                             $this->session->set_flashdata('fail', 'You are not an IEDC member!!');
                             redirect($this->session->userdata('last_page'));
                         }
                     } else {
                         if ($is_file_submission == 0) {
-                            $temp = array(
-                                'event_id' => $data['event_id'],
-                                'reg_email' => $this->session->email
-                            );
-                            $this->db->insert('events_registration', $temp);
-                            $this->session->set_flashdata('success', 'Registration Successfull!!');
-                            redirect($this->session->userdata('last_page'));
+                            $this->user_model->event_registration($data);
                         } else {
                             $this->form_validation->set_rules('file_link', 'file_link', 'required');
                             if ($this->form_validation->run() == FALSE) {
                                 $this->session->set_flashdata('fail', 'Please fill all required fields!!');
                                 redirect($this->session->userdata('last_page'));
                             } else {
-                                $temp = array(
-                                    'event_id' => $data['event_id'],
-                                    'reg_email' => $this->session->email,
-                                    'file_link' => $data['file_link']
-                                );
-                                $this->db->insert('events_registration', $temp);
-                                $this->session->set_flashdata('success', 'Registration Successfull!!');
-                                redirect($this->session->userdata('last_page'));
+                                $this->user_model->event_registration($data);
                             }
                         }
                     }
