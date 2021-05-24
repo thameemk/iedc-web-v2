@@ -69,10 +69,9 @@ class User extends CI_Controller
                     'college' => $college,
                     'profile_completed' => '1'
                 );
-                $this->user_model->complete_signin($user);
-                $this->session->set_flashdata('success', 'Your registration is Successfull!!');
-                // redirect(base_url("user/dashboard"));
+                $this->user_model->complete_signin($user);                                
                 if ($this->session->userdata('last_page') == base_url()) {
+                    // $this->session->set_flashdata('success', 'Your registration is Successfull!!');
                     redirect(base_url() . 'user/dashboard');
                 } else {
                     redirect($this->session->userdata('last_page'));
