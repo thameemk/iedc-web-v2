@@ -439,7 +439,7 @@ class User_model extends CI_Model
         );
         if ($status == false) {
             $this->db->insert('events_registration', $temp);
-            $this->session->set_flashdata('success', 'Registration Successfull!!');
+            $this->session->set_flashdata('success', 'Registration Successfull!! We Will inform the instructions through email.');
             redirect($this->session->userdata('last_page'));
         } else {
             $teamMembers[] = $data['team_email'];
