@@ -15,43 +15,19 @@ class Admin_model extends CI_Model
         if ($query->num_rows() == 1) {
             $user_type = $data[0]['user_type'];
             return $user_type;
-        }
-        else{
+        } else {
             return false;
-      }
-    }
-    
-    public function is_super_admin($email)
-    {
-        $this->db->where('type', 'S');
-        $this->db->where('email', $email);
-        $query = $this->db->get('admin_users');
-        if ($query->num_rows() == 1) {
-            return TRUE;
         }
-        return FALSE;
-    }
-    
-    public function is_default_admin($email)
-    {
-        $this->db->where('type', 'U');
-        $this->db->where('email', $email);
-        $query = $this->db->get('admin_users');
-        if ($query->num_rows() == 1) {
-            return TRUE;
-        }
-        return FALSE;
     }
 
-    public function is_local_admin($email)
+    function is_iedc_member($email)
     {
-        $this->db->where('type', 'L');
-        $this->db->where('email', $email);
-        $query = $this->db->get('admin_users');
-        if ($query->num_rows() == 1) {
-            return TRUE;
-        }
-        return FALSE;
+        $email = $this->security->xss_clean($email);
+        $user_type = $this->getusertype($email);
+        if($user_type=='super_admin'||$user_type=='admin'||$user_type=='iedc_member')
+            return true;
+        else
+            return false;    
     }
 
     public function get_ai_ml_users()
@@ -203,7 +179,7 @@ class Admin_model extends CI_Model
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('fail', 'Fill all fields');
             redirect('admin/dashboard/add-user');
-        } else {            
+        } else {
             $data = array(
                 'email' => $this->input->post('email'),
                 'name' => $this->input->post('name'),
@@ -213,35 +189,35 @@ class Admin_model extends CI_Model
                 'role' => $this->input->post('role'),
                 'duration' => $this->input->post('duration'),
             );
-            $this->db->insert('volunteers',$data);
+            $this->db->insert('volunteers', $data);
             $this->session->set_flashdata('success', 'Success!');
-            redirect('admin/dashboard/volunteer-database');      
+            redirect('admin/dashboard/volunteer-database');
         }
     }
-    
+
     function get_all_maker_components()
-    { 
+    {
         $query = $this->db->get('maker_library');
         return $query->result_array();
     }
-    
+
     function updateMakerComponent($data)
     {
         $this->db->where('comp_num', $data['comp_num']);
         $temp = array(
-            'name'=>$data['comp_name'],
-            'total_count'=>$data['total_count']
+            'name' => $data['comp_name'],
+            'total_count' => $data['total_count']
         );
         $query = $this->db->update('maker_library', $temp);
         return true;
     }
-    
+
     function get_all_new_membership_reg()
     {
         $query = $this->db->get('member_registration20');
         return $query->result_array();
     }
-    
+
     function white_list_user($reg_id)
     {
         $this->db->where('reg_id', $reg_id);
@@ -252,7 +228,7 @@ class Admin_model extends CI_Model
         $data['user_type'] = 'iedc_member';
         $email = $user->email;
         $query1 = $this->db->get_where('userRegister', "email='$email'");
-        if ($query1->num_rows() == 1) {  
+        if ($query1->num_rows() == 1) {
             $data1['user_hash'] =  $data['user_hash'];
             $data1['user_type'] = 'iedc_member';
             $this->db->where('email', $email);
@@ -263,7 +239,7 @@ class Admin_model extends CI_Model
             return true;
         }
     }
-    
+
     function verify_membership_registration($reg_id)
     {
         $this->db->where('reg_id', $reg_id);
@@ -275,13 +251,13 @@ class Admin_model extends CI_Model
         if ($this->db->affected_rows() == 1) {
             $response = $this->white_list_user($reg_id);
             $data = array(
-              'status' => true,
-              'session_user' => $this->session->email,
-              'white_list_status' => $response
+                'status' => true,
+                'session_user' => $this->session->email,
+                'white_list_status' => $response
             );
         } else {
             $data = array(
-              'status' => false
+                'status' => false
             );
         }
         header('Content-Type: application/json');
@@ -315,7 +291,7 @@ class Admin_model extends CI_Model
     function get_participants($event_id)
     {
         $event_id = $this->security->xss_clean($event_id);
-        $query = $this->db->query('select er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch from events_registration er, userRegister u where u.email = er.reg_email and er.event_id="'.$event_id.'"');
+        $query = $this->db->query('select er.file_link,er.added_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch from events_registration er, userRegister u where u.email = er.reg_email and er.event_id="' . $event_id . '"');
         return  $query->result_array();
     }
 
@@ -327,40 +303,34 @@ class Admin_model extends CI_Model
         return $query->row();
     }
 
-    function mark_attendence($participant_id,$status)
+    function mark_attendence($participant_id, $status)
     {
         $this->db->where('id', $participant_id);
         $query = $this->db->get('events_registration');
-        if($query->row()->is_attended==NULL)
-        {
-            $this->db->where('id', $participant_id);           
-            if($status==1)
-            {
-                $cert_num = 'IEDC_TKM_'.$participant_id.'_'.rand (10000,99999);;
+        if ($query->row()->is_attended == NULL) {
+            $this->db->where('id', $participant_id);
+            if ($status == 1) {
+                $cert_num = 'IEDC_TKM_' . $participant_id . '_' . rand(10000, 99999);;
                 $temp = array(
                     'is_attended' => $status,
                     'cert_num' => $cert_num
                 );
-            }
-            else
-            {
+            } else {
                 $temp = array(
-                    'is_attended' => $status,                    
+                    'is_attended' => $status,
                 );
             }
             $query = $this->db->update('events_registration', $temp);
-            if ($this->db->affected_rows() == 1) {           
+            if ($this->db->affected_rows() == 1) {
                 $data = array(
-                'status' => true,              
+                    'status' => true,
                 );
             } else {
                 $data = array(
-                'status' => false
+                    'status' => false
                 );
-            }           
-        }
-        else
-        {
+            }
+        } else {
             $data = array(
                 'status' => false
             );
