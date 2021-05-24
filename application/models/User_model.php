@@ -462,7 +462,7 @@ class User_model extends CI_Model
                     );
                     $this->db->insert('events_registration', $memberData);
                 }
-                $this->session->set_flashdata('success', 'Registration Successfull!!');
+                $this->session->set_flashdata('success', 'Registration Successfull!! We Will inform the instructions through email.');
                 redirect($this->session->userdata('last_page'));
             }
             else
