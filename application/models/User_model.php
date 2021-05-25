@@ -379,34 +379,12 @@ class User_model extends CI_Model
         $this->db->where('reg_email', $email);
         $query = $this->db->get('events_registration');
         $result = $query->row();
-        if ($result->is_attended == 1)
+        if ($result->is_attended == 1 || $result->is_attended == 101 || $result->is_attended == 102)
             return true;
         else
             return false;
     }
 
-    function download_event_cert($event_id, $email)
-    {
-        $this->db->where('event_id', $event_id);
-        $this->db->where('reg_email', $email);
-        $query = $this->db->get('events_registration');
-        $result = $query->row();
-        $path = base_url('assets/uploads/cert/' . $event_id . '/' . $result->cert_num . '.pdf');
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-        header("Cache-Control: public");
-        header("Content-Description: File Transfer");
-        header("Content-Type: application/pdf");
-        $headers  = get_headers($path, 1);
-        header('Content-Length: ' . ($headers['Content-Length']));
-        header('Content-Disposition: attachment; filename="' . basename($path) . '"');
-        header("Content-Transfer-Encoding: binary\n");
-        readfile($path); // outputs the content of the file
-        exit();
-    }
-
-   
 
     function is_team($event_id)
     {
@@ -464,5 +442,27 @@ class User_model extends CI_Model
                 redirect($this->session->userdata('last_page'));
             }
         }
+    }
+
+
+    function download_event_cert($event_id, $email)
+    {
+        $this->db->where('event_id', $event_id);
+        $this->db->where('reg_email', $email);
+        $query = $this->db->get('events_registration');
+        $result = $query->row();
+        $path = base_url('assets/uploads/cert/' . $event_id . '/' . $result->cert_num . '.pdf');
+        header("Pragma: public");
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+        header("Cache-Control: public");
+        header("Content-Description: File Transfer");
+        header("Content-Type: application/pdf");
+        $headers  = get_headers($path, 1);
+        header('Content-Length: ' . ($headers['Content-Length']));
+        header('Content-Disposition: attachment; filename="' . basename($path) . '"');
+        header("Content-Transfer-Encoding: binary\n");
+        readfile($path); // outputs the content of the file
+        exit();
     }
 }
