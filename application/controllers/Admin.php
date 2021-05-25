@@ -188,7 +188,7 @@ class Admin extends CI_Controller
     }
 
     
-    function dynamic_admin_2($page,$event_id)
+    function event_participants($event_id)
     {
         $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
         $data['user_type'] = $this->admin_model->getusertype($this->session->email);
@@ -200,7 +200,23 @@ class Admin extends CI_Controller
         $data['participants'] = $this->admin_model->get_participants($event_id);
         $this->load->view('dashboard/sidebar', $data);
         $this->load->view('dashboard/header', $data);
-        $this->load->view('dashboard/dynamic_admin/'.$page, $data);
+        $this->load->view('dashboard/dynamic_admin/event-participants', $data);
+        $this->load->view('dashboard/footer', $data);
+    }
+
+    function upload_certificate($event_id)
+    {
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
+        $data['user_type'] = $this->admin_model->getusertype($this->session->email);
+        $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
+        $data['profile_pic'] = $this->session->profile_pic;
+        $data['link'] = $this->session->link;
+        $data['loginURL'] = $this->googleplus->loginURL();
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
+        $data['participants'] = $this->admin_model->get_participants($event_id);
+        $this->load->view('dashboard/sidebar', $data);
+        $this->load->view('dashboard/header', $data);
+        $this->load->view('dashboard/dynamic_admin/upload-certificate', $data);
         $this->load->view('dashboard/footer', $data);
     }
     
