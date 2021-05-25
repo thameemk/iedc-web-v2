@@ -41,7 +41,7 @@ class SuperAdmin extends CI_Controller
         } else {
             $this->session->set_flashdata('fail', 'You are not authorized!!');
         }
-        redirect(base_url() . "admin/event-participants/" . $event_id);
+        redirect(base_url() . "admin/upload-certificate/" . $event_id);
     }
 
     function upload_cert()
@@ -60,10 +60,6 @@ class SuperAdmin extends CI_Controller
                 } else if ($data['cert_type'] == 1) {
                     $temp = array(
                         'cert_file_1' => $status['file_name'],
-                    );
-                } else if ($data['cert_type'] == 2) {
-                    $temp = array(
-                        'cert_file_2' => $status['file_name'],
                     );
                 }
                 $this->db->where('event_id', $data['event_id']);

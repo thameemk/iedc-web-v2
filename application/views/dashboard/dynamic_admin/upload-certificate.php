@@ -20,11 +20,11 @@
                     CERTIFICATE</button>
             </form>
         <?php } else { ?>
-            <button class="float-right  btn btn-danger font-weight-bold" disabled>ISSUE
+            <button class="btn btn-danger font-weight-bold" disabled>ISSUE
                 CERTIFICATE</button>
         <?php } ?>
     <?php } else { ?>
-        <button class="float-right  btn btn-success font-weight-bold" disabled>
+        <button class="btn btn-success font-weight-bold" disabled>
             CERTIFICATE ISSUED</button>
     <?php } ?>
     <?php if ($this->session->userdata('user_type') == 'super_admin') { ?>
@@ -58,7 +58,7 @@
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">FIRST CERTIFICATE</h6>
+                        <h6 class="card-title">WINNER CERTIFICATE</h6>
                         <?php echo form_open_multipart('superAdmin/upload_cert'); ?>
                         <!-- <form class="forms-sample" action="<?= base_url() ?>superAdmin/upload_cert" method="post"> -->
                         <div class="form-group">
@@ -71,24 +71,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title">SECOND CERTIFICATE</h6>
-                        <?php echo form_open_multipart('superAdmin/upload_cert'); ?>
-                        <!-- <form class="forms-sample" action="<?= base_url() ?>superAdmin/upload_cert" method="post"> -->
-                        <div class="form-group">
-                            <label for="exampleInputUsername1">select png file</label>
-                            <input type="file" class="form-control" name="userfile">
-                            <input type="hidden" name="event_id" value="<?= $eventDetails->event_id ?>">
-                            <input type="hidden" name="cert_type" value="2">
-                        </div>
-                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            </div>           
         </div>
     <?php } else { ?>
         <h5 style="color:red">You are not authorized to access this page</h5>
