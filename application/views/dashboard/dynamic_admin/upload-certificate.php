@@ -9,8 +9,24 @@
     <section class="mt-4">
         <h4>Event Details</h4>
         Event Id: <?= $eventDetails->event_id ?><br>
-        Title: <?= $eventDetails->event_title ?>
+        Title: <?= $eventDetails->event_title ?><br>
+        Certificate Issued: <?php if ($eventDetails->is_cert_published == 1) { ?> Yes <?php } else { ?> No <?php } ?>
     </section>
+    <?php if ($eventDetails->is_cert_published == 0) { ?>
+        <?php if ($this->session->userdata('user_type') == 'super_admin') { ?>
+            <form action="<?= base_url() ?>superAdmin/issue_cert" method="post" ?>
+                <input type="hidden" name="event_id" value="<?= $eventDetails->event_id ?>" ?>
+                <button type="submit" class="btn btn-success font-weight-bold">ISSUE
+                    CERTIFICATE</button>
+            </form>
+        <?php } else { ?>
+            <button class="float-right  btn btn-danger font-weight-bold" disabled>ISSUE
+                CERTIFICATE</button>
+        <?php } ?>
+    <?php } else { ?>
+        <button class="float-right  btn btn-success font-weight-bold" disabled>
+            CERTIFICATE ISSUED</button>
+    <?php } ?>
     <?php if ($this->session->userdata('user_type') == 'super_admin') { ?>
         <div class="row col-md-12 grid-margin stretch-card card">
             <?php if ($this->session->flashdata('fail')) : ?>
