@@ -406,16 +406,7 @@ class User_model extends CI_Model
         exit();
     }
 
-    function is_file_submission($event_id)
-    {
-        $this->db->where('event_id', $event_id);
-        $query = $this->db->get('events');
-        $result = $query->row();
-        if ($result->is_file_submission == 1)
-            return true;
-        else
-            return false;
-    }
+   
 
     function is_team($event_id)
     {

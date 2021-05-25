@@ -75,7 +75,7 @@ class User extends CI_Controller
                 'profile_completed' => '1'
             );
             $this->user_model->complete_signin($user);
-            if ($this->session->userdata('last_page') == base_url()) {              
+            if ($this->session->userdata('last_page') == base_url()) {
                 redirect(base_url() . 'user/dashboard');
             } else {
                 redirect($this->session->userdata('last_page'));
@@ -161,7 +161,6 @@ class User extends CI_Controller
     {
         $data = $this->input->post();
         $data = $this->security->xss_clean($data);
-        $is_file_submission = $this->user_model->is_file_submission($data['event_id']);
         $is_iedc_member = $this->user_model->is_iedc_member($this->session->email);
         $is_event_for_iedc_members = $this->user_model->is_event_for_iedc_members($data['event_id']);
         $duplicate = $this->user_model->check_duplicate_reg_events($this->session->email, $data['event_id']);
@@ -179,17 +178,7 @@ class User extends CI_Controller
                             redirect($this->session->userdata('last_page'));
                         }
                     } else {
-                        if ($is_file_submission == 0) {
-                            $this->user_model->event_registration($data);
-                        } else {
-                            $this->form_validation->set_rules('file_link', 'file_link', 'required');
-                            if ($this->form_validation->run() == FALSE) {
-                                $this->session->set_flashdata('fail', 'Please fill all required fields!!');
-                                redirect($this->session->userdata('last_page'));
-                            } else {
-                                $this->user_model->event_registration($data);
-                            }
-                        }
+                        $this->user_model->event_registration($data);
                     }
                 } else {
 
