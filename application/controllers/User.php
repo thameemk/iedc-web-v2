@@ -34,7 +34,6 @@ class User extends CI_Controller
     public function complete_next()
     {
         if ($this->user_model->is_profile_completed($this->session->email) == TRUE) {
-            // redirect(base_url("user/dashboard"));
             if ($this->session->userdata('last_page') == base_url()) {
                 redirect(base_url() . 'user/dashboard');
             } else {
@@ -43,39 +42,43 @@ class User extends CI_Controller
         } else {
             $data['title'] = ucfirst('Complete Profile');
             $this->load->view('dashboard/complete', $data);
-            $user = $this->input->post();
-            $user = $this->security->xss_clean($user);
-            $this->form_validation->set_rules('branch', 'Branch', 'required');
-            $this->form_validation->set_rules('phone', 'Phone', 'required');
-            $this->form_validation->set_rules('fullname', 'Full Name', 'required');
-            $this->form_validation->set_rules('course_duration_from', 'Course Duration ', 'required');
-            $this->form_validation->set_rules('course_duration_to', 'Course Duration To ', 'required');
-            if ($this->form_validation->run() == FALSE) {
-                $this->session->set_flashdata('fail', 'Fill all required fields !!');
-            } else {
-                if ($this->input->post('college') == null)
-                    $college = "TKM College of Engineering";
-                else
-                    $college = $this->input->post('college');
+            $this->complete_profile_post();
+        }
+    }
 
-                $user = array(
-                    'branch' => $this->input->post('branch'),
-                    'phone' => $this->input->post('phone'),
-                    'fullname' => $this->input->post('fullname'),
-                    'course_duration_from' => $this->input->post('course_duration_from'),
-                    'course_duration_to' => $this->input->post('course_duration_to'),
-                    'admission_number' => $this->input->post('admission_number'),
-                    'whyiedc' =>  $this->input->post('whyiedc'),
-                    'college' => $college,
-                    'profile_completed' => '1'
-                );
-                $this->user_model->complete_signin($user);                                
-                if ($this->session->userdata('last_page') == base_url()) {
-                    // $this->session->set_flashdata('success', 'Your registration is Successfull!!');
-                    redirect(base_url() . 'user/dashboard');
-                } else {
-                    redirect($this->session->userdata('last_page'));
-                }
+    function complete_profile_post()
+    {
+        $user = $this->input->post();
+        $user = $this->security->xss_clean($user);
+        $this->form_validation->set_rules('branch', 'Branch', 'required');
+        $this->form_validation->set_rules('phone', 'Phone', 'required');
+        $this->form_validation->set_rules('fullname', 'Full Name', 'required');
+        $this->form_validation->set_rules('course_duration_from', 'Course Duration ', 'required');
+        $this->form_validation->set_rules('course_duration_to', 'Course Duration To ', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('fail', 'Fill all required fields !!');
+        } else {
+            if ($this->input->post('college') == null)
+                $college = "TKM College of Engineering";
+            else
+                $college = $this->input->post('college');
+
+            $user = array(
+                'branch' => $this->input->post('branch'),
+                'phone' => $this->input->post('phone'),
+                'fullname' => $this->input->post('fullname'),
+                'course_duration_from' => $this->input->post('course_duration_from'),
+                'course_duration_to' => $this->input->post('course_duration_to'),
+                'admission_number' => $this->input->post('admission_number'),
+                'whyiedc' =>  $this->input->post('whyiedc'),
+                'college' => $college,
+                'profile_completed' => '1'
+            );
+            $this->user_model->complete_signin($user);
+            if ($this->session->userdata('last_page') == base_url()) {              
+                redirect(base_url() . 'user/dashboard');
+            } else {
+                redirect($this->session->userdata('last_page'));
             }
         }
     }
@@ -94,8 +97,9 @@ class User extends CI_Controller
                 $this->load->view('dashboard/home', $data);
                 $this->load->view('dashboard/footer', $data);
             } else {
-                $data['title'] = ucfirst('Complete Profile');
+                $data['title'] = ucfirst('F2');
                 $this->load->view('dashboard/complete', $data);
+                $this->complete_profile_post();
             }
         } else {
             // set the expiration date to 24 hour ago
@@ -109,22 +113,28 @@ class User extends CI_Controller
 
     public function dynamic_user($page)
     {
-        if (!file_exists(APPPATH . 'views/dashboard/dynamic_user/' . $page . '.php')) {
-            show_404();
+        if ($this->user_model->is_profile_completed($this->session->email) == TRUE) {
+            if (!file_exists(APPPATH . 'views/dashboard/dynamic_user/' . $page . '.php')) {
+                show_404();
+            }
+            $data['events'] = $this->user_model->get_event_details(NULL);
+            $data['myevents'] = $this->user_model->get_user_registred_events($this->session->email);
+            $data['user_type'] = $this->admin_model->getusertype($this->session->email);
+            $data['maker_user_req'] = $this->user_model->maker_user_req($this->session->email);
+            $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
+            $data['profile_pic'] = $this->session->profile_pic;
+            $data['link'] = $this->session->link;
+            $data['loginURL'] = $this->googleplus->loginURL();
+            $data['get_maker_items'] = $this->user_model->get_maker_items();
+            $this->load->view('dashboard/sidebar', $data);
+            $this->load->view('dashboard/header', $data);
+            $this->load->view('dashboard/dynamic_user/' . $page, $data);
+            $this->load->view('dashboard/footer', $data);
+        } else {
+            $data['title'] = ucfirst('F1');
+            $this->load->view('dashboard/complete', $data);
+            $this->complete_profile_post();
         }
-        $data['events'] = $this->user_model->get_event_details(NULL);
-        $data['myevents'] = $this->user_model->get_user_registred_events($this->session->email);
-        $data['user_type'] = $this->admin_model->getusertype($this->session->email);
-        $data['maker_user_req'] = $this->user_model->maker_user_req($this->session->email);
-        $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
-        $data['profile_pic'] = $this->session->profile_pic;
-        $data['link'] = $this->session->link;
-        $data['loginURL'] = $this->googleplus->loginURL();
-        $data['get_maker_items'] = $this->user_model->get_maker_items();
-        $this->load->view('dashboard/sidebar', $data);
-        $this->load->view('dashboard/header', $data);
-        $this->load->view('dashboard/dynamic_user/' . $page, $data);
-        $this->load->view('dashboard/footer', $data);
     }
 
     public function project_proposal_post()
