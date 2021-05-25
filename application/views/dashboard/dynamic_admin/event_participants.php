@@ -55,6 +55,9 @@
                                                 <th class="pt-0">File Link</th>
                                             <?php } ?>
                                             <th class="pt-0">IEDC Member</th>
+                                            <?php if ($eventDetails->is_payment_id == 1) { ?>
+                                                <th class="pt-0">Payment ID</th>
+                                            <?php } ?>
                                             <th class="pt-0">College</th>
                                             <th class="pt-0">Year</th>
                                             <th class="pt-0">Branch</th>
@@ -76,10 +79,13 @@
                                                 <?php if ($eventDetails->is_file_submission == 1) { ?>
                                                     <td><?= $row['file_link'] ?></td>
                                                 <?php } ?>
-                                                <?php if ($this->admin_model->is_iedc_member($row['reg_email'])==true) { ?>
+                                                <?php if ($this->admin_model->is_iedc_member($row['reg_email']) == true) { ?>
                                                     <td><span class="badge badge-success">YES</span></td>
                                                 <?php } else { ?>
                                                     <td><span class="badge badge-danger">NO</span></td>
+                                                <?php } ?>
+                                                <?php if ($eventDetails->is_payment_id == 1) { ?>
+                                                    <td><?= $row['payment_id'] ?></td>
                                                 <?php } ?>
                                                 <td><?= $row['college'] ?></td>
                                                 <td><?= $row['course_duration_from'] ?> - <?= $row['course_duration_to'] ?></td>
