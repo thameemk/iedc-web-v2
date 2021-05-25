@@ -24,6 +24,7 @@
                                         <th class="pt-0">Event ID</th>
                                         <th class="pt-0">Event Name</th>
                                         <th class="pt-0">Edit</th>
+                                        <th class="pt-0">Certificate</th>
                                         <th class="pt-0">Participants</th>
                                     </tr>
                                 </thead>
@@ -34,6 +35,7 @@
                                         <td><?= $row['event_id'] ?></td>
                                         <td><?= $row['event_title'] ?></td>
                                         <td><a href="<?=base_url()?>admin/editevent/<?= $row['event_id'] ?>">Edit Event</a></td>
+                                        <td><a href="<?=base_url()?>admin/upload-certificate/<?= $row['event_id'] ?>">Upload Certificate</a></td>
                                         <td><a href="<?=base_url()?>admin/event-participants/<?= $row['event_id'] ?>">View Participants</a></td>
                                     </tr>
                                     <?php } ?>

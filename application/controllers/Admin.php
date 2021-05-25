@@ -8,20 +8,20 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('admin_model');
+        $this->load->model('upload_file');
         $this->load->helper(array('form', 'url'));
         $this->load->model('user_model');
         $this->load->library('googleplus');
         $user_type = $this->admin_model->getusertype($this->session->email);
-        if($user_type == 'super_admin' || $user_type == 'admin')
-            {
-                $user =  true;
-            }
-            else
-            {
-                $user = false;
-            }
-        if (!$this->session->userdata('sess_logged_in') == 1 or $user == false ) {
+        if ($user_type == 'super_admin' || $user_type == 'admin') {
+            $user =  true;
+        } else {
+            $user = false;
+        }
+        if (!$this->session->userdata('sess_logged_in') == 1 or $user == false) {
             echo "You are not authorized . Contact Web Admin !!!!<br><br>";
+            $login_url = $this->googleplus->loginURL();
+            echo "<a href=\"$login_url\">Please login again !!</a><br><br>";
             $url = base_url('auth/logout');
             echo "<a href=\"$url\">Return To Home</a>";
             exit;
@@ -63,37 +63,6 @@ class Admin extends CI_Controller
         redirect('admin/dashboard/ai-ml');
     }
 
-    public function add_user()
-    {
-        $data = $this->input->post();
-        $data = $this->security->xss_clean($data);
-        if ($this->admin_model->is_super_admin($this->session->email) == TRUE) {
-            $this->form_validation->set_rules('email', 'User Email', 'required|is_unique[userRegister.email]');
-            if ($this->form_validation->run() == FALSE) {
-                $this->session->set_flashdata('fail', 'Already registred');
-                redirect('admin/dashboard/add-user');
-            }else{
-                $this->form_validation->set_rules('password', 'Password', 'required');
-                if ($this->form_validation->run() == FALSE) {
-                    $this->session->set_flashdata('fail', 'Fill all fields');
-                    redirect('admin/dashboard/add-user');
-                } else {
-                    $data = array(
-                      'email' => $this->input->post('email'),
-                      'user_hash' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                      'added_user' => $this->session->email
-                    );
-                    $this->admin_model->add_user($data);
-                    $this->session->set_flashdata('success', 'Success!');
-                    redirect('admin/dashboard/add-user');
-                }
-            }
-        } else {
-            $this->session->set_flashdata('fail', 'You are not authorized. Please contact Web Admin');
-            redirect('admin/dashboard/add-user');
-        }
-    }
-
     public function issue_component()
     {
 
@@ -102,8 +71,8 @@ class Admin extends CI_Controller
         date_default_timezone_set('Asia/Kolkata');
         $issue_date = date('d-m-Y H:i');
         $data = array(
-          'issue_date' => $issue_date,
-          'issued_admin' => $this->session->email
+            'issue_date' => $issue_date,
+            'issued_admin' => $this->session->email
         );
         $this->admin_model->issue_maker_component($data);
         $this->session->set_flashdata('success', 'Success! You have issued maker library component');
@@ -117,8 +86,8 @@ class Admin extends CI_Controller
         date_default_timezone_set('Asia/Kolkata');
         $return_date = date('d-m-Y H:i');
         $data = array(
-          'return_date' => $return_date,
-          'issued_admin' => $this->session->email
+            'return_date' => $return_date,
+            'issued_admin' => $this->session->email
         );
         // print_r($data);exit;
 
@@ -132,27 +101,7 @@ class Admin extends CI_Controller
     {
         $this->admin_model->save_component();
     }
-
-    public function add_bulk_user()
-    {
-        $query = $this->db->get('member_registration20');
-        $users = $query->result_array();
-        // print_r($users);exit;
-        foreach ($users as $row) {
-            $data['email'] = $row['email'];
-            $data['user_hash'] = password_hash($row['email'], PASSWORD_BCRYPT);
-            $email = $row['email'];
-            $query1 = $this->db->get_where('userRegister', "email='$email'");
-            $temp = $query1->num_rows();
-            if ($temp != TRUE) {
-                $this->db->insert('userRegister', $data);
-                echo "Success<br>";
-            } else {
-                echo "Error/Duplicate<br>";
-            }
-        }
-    }
-
+    
     function GetProjectTeamDetails($project_id)
     {
         echo $this->admin_model->get_project_team_details($project_id);
@@ -162,7 +111,7 @@ class Admin extends CI_Controller
     {
         echo $this->admin_model->get_project_summary($project_id);
     }
-    
+
     function getProjectRequirements($project_id)
     {
         echo $this->admin_model->get_project_requirements($project_id);
@@ -171,25 +120,23 @@ class Admin extends CI_Controller
     {
         $this->admin_model->add_volunteer();
     }
-    
-    
-    
+
+
+
     function updateComponent()
     {
         $data = $this->input->post();
         $data = $this->security->xss_clean($data);
         $status = $this->admin_model->updateMakerComponent($data);
-        if($status==true)
-        {
-          $this->session->set_flashdata('success', 'Component updated');
-          redirect('admin/dashboard/edit-maker-library');
-        }
-        else{
-          $this->session->set_flashdata('fail', 'Component update failed');
-          redirect('admin/dashboard/edit-maker-library');
+        if ($status == true) {
+            $this->session->set_flashdata('success', 'Component updated');
+            redirect('admin/dashboard/edit-maker-library');
+        } else {
+            $this->session->set_flashdata('fail', 'Component update failed');
+            redirect('admin/dashboard/edit-maker-library');
         }
     }
-    
+
     function verify_membership_reg($reg_id)
     {
         $reg_id = $this->security->xss_clean($reg_id);
@@ -199,7 +146,7 @@ class Admin extends CI_Controller
     function download_incubation_data()
     {
         $data = $this->input->post();
-        $data = $this->security->xss_clean($data);    
+        $data = $this->security->xss_clean($data);
         $this->load->dbutil();
         $this->load->helper('file');
         $this->load->helper('download');
@@ -208,14 +155,14 @@ class Admin extends CI_Controller
         $delimiter = ",";
         $newline = "\r\n";
         $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
-        force_download('Incubation_details_'.$reg_id.'.csv', $data);
-        redirect('admin/dashboard/pre-incubation');    
+        force_download('Incubation_details_' . $reg_id . '.csv', $data);
+        redirect('admin/dashboard/pre-incubation');
     }
 
     function download_incubation_team_details()
     {
         $data = $this->input->post();
-        $data = $this->security->xss_clean($data);    
+        $data = $this->security->xss_clean($data);
         $this->load->dbutil();
         $this->load->helper('file');
         $this->load->helper('download');
@@ -224,55 +171,37 @@ class Admin extends CI_Controller
         $delimiter = ",";
         $newline = "\r\n";
         $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
-        force_download('Incubation_team_details'.$reg_id.'.csv', $data);
-        redirect('admin/dashboard/pre-incubation');    
-    }
-
-    public function event_participants($event_id)
-    {      
-        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);         
-        $data['user_type'] = $this->admin_model->getusertype($this->session->email);    
-        $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
-        $data['profile_pic'] = $this->session->profile_pic;
-        $data['link'] = $this->session->link;
-        $data['loginURL'] = $this->googleplus->loginURL();
-        $data['participants'] = $this->admin_model->get_participants($event_id);
-        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);         
-        $this->load->view('dashboard/sidebar', $data);
-        $this->load->view('dashboard/header', $data);
-        $this->load->view('dashboard/dynamic_admin/event_participants', $data);
-        $this->load->view('dashboard/footer', $data);                     
+        force_download('Incubation_team_details' . $reg_id . '.csv', $data);
+        redirect('admin/dashboard/pre-incubation');
     }
 
     // Mark attendence for the events
     function mark_as_present($participant_id)
     {
         $participant_id = $this->security->xss_clean($participant_id);
-        $this->admin_model->mark_attendence($participant_id,1);
+        $this->admin_model->mark_attendence($participant_id, 1);
     }
     function mark_as_absent($participant_id)
     {
         $participant_id = $this->security->xss_clean($participant_id);
-        $this->admin_model->mark_attendence($participant_id,0);
+        $this->admin_model->mark_attendence($participant_id, 0);
+    }
+
+    
+    function dynamic_admin_2($page,$event_id)
+    {
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
+        $data['user_type'] = $this->admin_model->getusertype($this->session->email);
+        $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
+        $data['profile_pic'] = $this->session->profile_pic;
+        $data['link'] = $this->session->link;
+        $data['loginURL'] = $this->googleplus->loginURL();
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
+        $data['participants'] = $this->admin_model->get_participants($event_id);
+        $this->load->view('dashboard/sidebar', $data);
+        $this->load->view('dashboard/header', $data);
+        $this->load->view('dashboard/dynamic_admin/'.$page, $data);
+        $this->load->view('dashboard/footer', $data);
     }
     
-    function issue_cert()
-    {
-        $event_id = $this->security->xss_clean($this->input->post('event_id'));
-        if($this->session->userdata('user_type') == 'super_admin')
-        {
-            $data = array(
-                'is_cert_published' => 1,
-            );
-            $this->db->where('event_id', $event_id);
-            $this->db->update('events', $data);
-            $this->session->set_flashdata('success', 'Certificate issued successfully!!');
-            redirect(base_url() . "admin/event-participants/".$event_id);
-        }
-        else
-        {
-            $this->session->set_flashdata('fail', 'You are not authorized!!');
-            redirect(base_url() . "admin/event-participants/".$event_id);
-        }           
-    }
 }
