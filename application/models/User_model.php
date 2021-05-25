@@ -435,7 +435,8 @@ class User_model extends CI_Model
             'event_id' => $data['event_id'],
             'reg_email' => $this->session->email,
             'added_email' => $this->session->email,
-            'file_link' => $data['file_link']
+            'file_link' => $data['file_link'],
+            'payment_id' => $data['payment_id']
         );
         if ($status == false) {
             $this->db->insert('events_registration', $temp);
@@ -458,7 +459,8 @@ class User_model extends CI_Model
                         'event_id' => $data['event_id'],
                         'reg_email' => $member,
                         'added_email' => $this->session->email,
-                        'file_link' => $data['file_link']
+                        'file_link' => $data['file_link'],
+                        'payment_id' => $data['payment_id']
                     );
                     $this->db->insert('events_registration', $memberData);
                 }

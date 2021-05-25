@@ -80,6 +80,12 @@
                                 <input type="text" class="form-control" name="file_link" id="file_link" placeholder="Please type your abstract/file link here" required>
                             </div>
                         <?php } ?>
+                        <?php if ($eventDetails->is_payment_id == 1) { ?>
+                            <div class="form-group">
+                                <label for="payment_id">Enter payment id (If you are a valid user for 'FREE' registration please type 'NA' )</label>
+                                <input type="text" class="form-control" name="payment_id" id="payment_id" placeholder="Payment ID" required>
+                            </div>
+                        <?php } ?>
                         <?php if ($eventDetails->is_team == 1) { ?>
                             <p style="color: blue;"><b>Please fill your teammates email id (if any)</b></p>
                             <input type="email" class="form-control mb-1" value="<?= $_SESSION['email'] ?>" readonly>
