@@ -212,8 +212,7 @@ class Admin extends CI_Controller
         $data['profile_pic'] = $this->session->profile_pic;
         $data['link'] = $this->session->link;
         $data['loginURL'] = $this->googleplus->loginURL();
-        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
-        $data['participants'] = $this->admin_model->get_participants($event_id);
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);       
         $this->load->view('dashboard/sidebar', $data);
         $this->load->view('dashboard/header', $data);
         $this->load->view('dashboard/dynamic_admin/upload-certificate', $data);
