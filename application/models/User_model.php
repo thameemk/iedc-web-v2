@@ -450,7 +450,7 @@ class User_model extends CI_Model
 
     function get_event_reg_data($event_id, $email)
     {
-        $this->db->select('u.email,u.college,er.is_attended,er.cert_num,e.cert_file_0,e.cert_file_1')
+        $this->db->select('u.fullname,u.college,er.is_attended,er.cert_num,e.cert_file_0,e.cert_file_1')
             ->from('userRegister as u')
             ->where('u.email',$email)
             ->join('events_registration as er', 'er.reg_email= "'.$email.'"')
@@ -459,20 +459,4 @@ class User_model extends CI_Model
         return $query->row();
     }
 
-    function download_event_cert($event_id, $email)
-    {
-        $data = $this->get_event_reg_data($event_id, $email);
-        if($data->is_attended==1)
-        {
-            echo "flag";
-        }
-        else if($data->is_attended==101)
-        {
-            echo "flag1";
-        }
-        else if($data->is_attended==102)
-        {
-            echo "flag2";
-        }
-    }
 }

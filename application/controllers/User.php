@@ -194,18 +194,4 @@ class User extends CI_Controller
             redirect($this->session->userdata('last_page'));
         }
     }
-
-    public function download_cert()
-    {
-        $data = $this->security->xss_clean($this->input->post());
-        $cert_status = $this->user_model->is_cert_published($data['event_id']);
-        $user_attendence = $this->user_model->is_user_attended($this->session->email, $data['event_id']);
-        if ($cert_status == true && $user_attendence == true) {
-            $this->user_model->download_event_cert($data['event_id'], $this->session->email);
-            $this->session->set_flashdata('success', 'Downloading started!!');
-        } else {
-            $this->session->set_flashdata('fail', 'Error downloading certificate!!');
-        }
-        // redirect('user/dashboard/myevents');
-    }
 }
