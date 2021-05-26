@@ -76,7 +76,8 @@
                                                             VERIFIED BY <br>
                                                             <span><?= $row['payment_verified_user'] ?> </span>
                                                         <?php } else { ?>
-                                                            <div class="<?= $row['id'] ?>">
+                                                            <?php $cus='cus' ?>
+                                                            <div class="<?= $row['id'].$cus?>">
                                                                 <button id="<?= $row['id'] ?>" class="verifybutton badge badge-danger">VERIFY</button>
                                                             </div>
                                                         <?php } ?>
@@ -224,7 +225,7 @@
                             var modalHtml = "";
                             $("#" + participant_reg_id).html(modalHtml);
                             $("." + participant_reg_id).html();
-                            $("." + participant_reg_id).append('VERIFIED BY <br>'+result['session_user']);                           
+                            $("." + participant_reg_id+"cus").append('VERIFIED BY <br>'+result['session_user']);                           
                         } else {
                             alert("Some error has been occurred !!");
                         }
