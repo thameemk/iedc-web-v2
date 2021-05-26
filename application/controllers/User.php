@@ -203,10 +203,9 @@ class User extends CI_Controller
         if ($cert_status == true && $user_attendence == true) {
             $this->user_model->download_event_cert($data['event_id'], $this->session->email);
             $this->session->set_flashdata('success', 'Downloading started!!');
-            redirect('user/dashboard/myevents');
         } else {
             $this->session->set_flashdata('fail', 'Error downloading certificate!!');
-            redirect('user/dashboard/myevents');
         }
+        // redirect('user/dashboard/myevents');
     }
 }
