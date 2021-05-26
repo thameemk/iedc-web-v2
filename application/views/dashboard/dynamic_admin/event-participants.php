@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <?php if ($this->session->userdata('user_type') == 'super_admin' || $this->session->userdata('user_type') == 'admin') { ?>
                         <div class="row">
-                            <h6 class="card-title"><?= $eventDetails->event_id ?> - <?= $eventDetails->event_title ?>                               
+                            <h6 class="card-title"><?= $eventDetails->event_id ?> - <?= $eventDetails->event_title ?>
                             </h6>
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">
@@ -40,7 +40,8 @@
                                             <?php } ?>
                                             <th class="pt-0">IEDC Member</th>
                                             <?php if ($eventDetails->is_payment_id == 1) { ?>
-                                                <th class="pt-0">Payment ID</th>
+                                                <th class="pt-0">Payment ID <br> Status</th>
+
                                             <?php } ?>
                                             <th class="pt-0">College</th>
                                             <th class="pt-0">Year</th>
@@ -69,7 +70,18 @@
                                                     <td><span class="badge badge-danger">NO</span></td>
                                                 <?php } ?>
                                                 <?php if ($eventDetails->is_payment_id == 1) { ?>
-                                                    <td><?= $row['payment_id'] ?></td>
+                                                    <td>
+                                                        <?= $row['payment_id'] ?><br>
+                                                        <?php if ($row['is_payment_verified'] == 1) { ?>
+                                                            VERIFIED BY <br>
+                                                            <span><?= $row['payment_verified_user'] ?> </span>
+                                                        <?php } else { ?>
+                                                            <div class="<?= $row['id'] ?>">
+                                                                <button id="<?= $row['id'] ?>" class="verifybutton badge badge-danger">VERIFY</button>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </td>
+
                                                 <?php } ?>
                                                 <td><?= $row['college'] ?></td>
                                                 <td><?= $row['course_duration_from'] ?> - <?= $row['course_duration_to'] ?></td>
@@ -187,6 +199,39 @@
 
                 }
             })
+        });
+
+
+        $(".verifybutton").click(function() {
+            var participant_reg_id = $(this).attr("id");
+            if (confirm("Sure you want to Verify this?.")) {
+                $.ajax({
+                    type: "post",
+                    url: "<?= base_url() ?>admin/verify_event_fee_payment/" + participant_reg_id,
+                    data: "",
+                    async: false,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {
+                        // launchpreloader();
+                    },
+                    complete: function() {
+                        //  stopPreloader();
+                    },
+                    success: function(result) {
+                        console.log(result);
+                        if (result['status'] == true) {
+                            var modalHtml = "";
+                            $("#" + participant_reg_id).html(modalHtml);
+                            $("." + participant_reg_id).html();
+                            $("." + participant_reg_id).append('VERIFIED BY <br>'+result['session_user']);                           
+                        } else {
+                            alert("Some error has been occurred !!");
+                        }
+                    }
+                });
+            }
+            return false;
         });
     });
 </script>

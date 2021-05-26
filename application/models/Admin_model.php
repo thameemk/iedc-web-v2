@@ -291,7 +291,7 @@ class Admin_model extends CI_Model
     function get_participants($event_id)
     {
         $event_id = $this->security->xss_clean($event_id);
-        $query = $this->db->query('select er.payment_id,er.file_link,er.added_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch from events_registration er, userRegister u where u.email = er.reg_email and er.event_id="' . $event_id . '"');
+        $query = $this->db->query('select er.payment_verified_user,er.is_payment_verified,er.payment_id,er.file_link,er.added_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch from events_registration er, userRegister u where u.email = er.reg_email and er.event_id="' . $event_id . '"');
         return  $query->result_array();
     }
 
@@ -330,6 +330,28 @@ class Admin_model extends CI_Model
                     'status' => false
                 );
             }
+        } else {
+            $data = array(
+                'status' => false
+            );
+        }
+        header('Content-Type: application/json');
+        echo json_encode($data);
+    }
+
+    function verify_event_payment($participant_reg_id)
+    {
+        $this->db->where('id', $participant_reg_id);
+        $temp = array(
+            'is_payment_verified' => '1',
+            'payment_verified_user' => $this->session->email
+        );
+        $this->db->update('events_registration', $temp);
+        if ($this->db->affected_rows() == 1) {            
+            $data = array(
+                'status' => true,
+                'session_user' => $this->session->email,               
+            );
         } else {
             $data = array(
                 'status' => false

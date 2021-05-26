@@ -219,5 +219,11 @@ class Admin extends CI_Controller
         $this->load->view('dashboard/dynamic_admin/upload-certificate', $data);
         $this->load->view('dashboard/footer', $data);
     }
+
+    function verify_event_fee_payment($participant_reg_id)
+    {
+        $participant_reg_id = $this->security->xss_clean($participant_reg_id);
+        $this->admin_model->verify_event_payment($participant_reg_id);
+    }
     
 }
