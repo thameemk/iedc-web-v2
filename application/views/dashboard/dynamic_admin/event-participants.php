@@ -62,7 +62,7 @@
                                                 <td><?= $row['reg_email'] ?></td>
                                                 <td><?= $row['phone'] ?></td>
                                                 <?php if ($eventDetails->is_file_submission == 1) { ?>
-                                                    <td><?= $row['file_link'] ?></td>
+                                                    <td><a href="<?= $row['file_link'] ?>" target="blank">View</a></td>
                                                 <?php } ?>
                                                 <?php if ($this->admin_model->is_iedc_member($row['reg_email']) == true) { ?>
                                                     <td><span class="badge badge-success">YES</span></td>
