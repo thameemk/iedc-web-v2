@@ -24,10 +24,10 @@ class Admin_model extends CI_Model
     {
         $email = $this->security->xss_clean($email);
         $user_type = $this->getusertype($email);
-        if($user_type=='super_admin'||$user_type=='admin'||$user_type=='iedc_member')
+        if ($user_type == 'super_admin' || $user_type == 'admin' || $user_type == 'iedc_member')
             return true;
         else
-            return false;    
+            return false;
     }
 
     public function get_ai_ml_users()
@@ -290,9 +290,13 @@ class Admin_model extends CI_Model
 
     function get_participants($event_id)
     {
-        $event_id = $this->security->xss_clean($event_id);
-        $query = $this->db->query('select er.payment_verified_user,er.is_payment_verified,er.payment_id,er.file_link,er.added_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch from events_registration er, userRegister u where u.email = er.reg_email and er.event_id="' . $event_id . '"');
-        return  $query->result_array();
+        $event_id = $this->security->xss_clean($event_id);           
+        $this->db->select('er.reg_email,er.payment_verified_user,er.is_payment_verified,er.payment_id,er.file_link,er.added_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch')
+            ->from('userRegister as u, events_registration as er')
+            ->where('er.event_id', $event_id)
+            ->where('er.reg_email=u.email');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     function get_event_details($event_id)
@@ -347,10 +351,10 @@ class Admin_model extends CI_Model
             'payment_verified_user' => $this->session->email
         );
         $this->db->update('events_registration', $temp);
-        if ($this->db->affected_rows() == 1) {            
+        if ($this->db->affected_rows() == 1) {
             $data = array(
                 'status' => true,
-                'session_user' => $this->session->email,               
+                'session_user' => $this->session->email,
             );
         } else {
             $data = array(
