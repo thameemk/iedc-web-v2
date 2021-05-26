@@ -20,26 +20,31 @@
         <div class="row stretch-card">
             <?php foreach (array_reverse($myevents) as $row) { ?>
 
-            <div class="col-md-3 grid-margin" style="background: #e8ebf1; padding:3px;margin:5px;">
-                <img width="auto" height="150" src="<?= $row['img_link_reg'] ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <center>
-                        <h5 class="card-title"><?= $row['event_title'] ?></h5>
-                        <?php if($row['is_cert_published']==0) {  ?>
-                            <button class="btn btn-danger" disabled>CERTIFICATE NOT ISSUED</button>
-                        <?php } else if($row['is_cert_published']==1) { ?>
-                            <?php if($row['is_attended']==0) {  ?>
-                                <button class="btn btn-danger" disabled>NOT ATTENDED</button>
-                            <?php } else if($row['is_attended']==1) { ?>                           
-                                <form action="<?=base_url()?>user/download_cert" method="post">
-                                    <input type="hidden" name="event_id" value="<?= $row['event_id'] ?>">
-                                    <button type="submit" class="btn btn-success">DOWNLOAD CERTIFICATE</button>
-                                </form>
-                            <?php } ?>    
-                        <?php } ?>
-                    </center>
+                <div class="col-md-3 grid-margin" style="background: #e8ebf1; padding:3px;margin:5px;">
+                    <img width="auto" height="150" src="<?= $row['img_link_reg'] ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title"><?= $row['event_title'] ?></h5>
+                            <?php if ($row['is_cert_published'] == 0) {  ?>
+                                <button class="btn btn-danger" disabled>CERTIFICATE NOT ISSUED</button>
+                            <?php } else if ($row['is_cert_published'] == 1) { ?>
+                                <?php if ($row['is_attended'] == 0) {  ?>
+                                    <button class="btn btn-danger" disabled>NOT ATTENDED</button>
+                                <?php } else if ($row['is_attended'] == 101 || $row['is_attended'] == 102) { ?>
+                                    <form action="<?= base_url() ?>certificate/appreciation" method="post">
+                                        <input type="hidden" name="event_id" value="<?= $row['event_id'] ?>">
+                                        <button type="submit" class="btn btn-success">DOWNLOAD CERTIFICATE</button>
+                                    </form>
+                                <?php } else if ($row['is_attended'] == 1) { ?>
+                                    <form action="<?= base_url() ?>certificate/download_default_cert" method="post">
+                                        <input type="hidden" name="event_id" value="<?= $row['event_id'] ?>">
+                                        <button type="submit" class="btn btn-success">DOWNLOAD CERTIFICATE</button>
+                                    </form>
+                                <?php } ?>
+                            <?php } ?>
+                        </center>
+                    </div>
                 </div>
-            </div>
 
             <?php } ?>
 
