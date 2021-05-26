@@ -415,15 +415,20 @@ class User_model extends CI_Model
             $teamMembers[] = $data['team_email'];
             $team_status = 1;
             foreach ($teamMembers[0] as $member) {
-                if ($this->check_duplicate_reg_events($member, $data['event_id']) == true)
-                {
-                    $team_status = 0;                   
+                if ($this->check_duplicate_reg_events($member, $data['event_id']) == true) {
+                    $team_status = 0;
                 }
             }
-            if($team_status==1)
-            {
+            if ($team_status == 1) {
                 $this->db->insert('events_registration', $temp);
                 foreach ($teamMembers[0] as $member) {
+                    if($this->is_available($member)==false)
+                    {
+                        $user_data = array(
+                            'email'=>$member,                            
+                        );
+                        $this->db->insert('userRegister', $user_data);
+                    }
                     $memberData = array(
                         'event_id' => $data['event_id'],
                         'reg_email' => $member,
@@ -435,9 +440,7 @@ class User_model extends CI_Model
                 }
                 $this->session->set_flashdata('success', 'Registration Successfull!! We Will inform the instructions through email.');
                 redirect($this->session->userdata('last_page'));
-            }
-            else
-            {
+            } else {
                 $this->session->set_flashdata('fail', 'One of your team member is already registred for the event!!');
                 redirect($this->session->userdata('last_page'));
             }
@@ -445,24 +448,31 @@ class User_model extends CI_Model
     }
 
 
+    function get_event_reg_data($event_id, $email)
+    {
+        $this->db->select('u.email,u.college,er.is_attended,er.cert_num,e.cert_file_0,e.cert_file_1')
+            ->from('userRegister as u')
+            ->where('u.email',$email)
+            ->join('events_registration as er', 'er.reg_email= "'.$email.'"')
+            ->join('events as e', 'e.event_id = "'.$event_id.'"');            
+        $query = $this->db->get();
+        return $query->row();
+    }
+
     function download_event_cert($event_id, $email)
     {
-        $this->db->where('event_id', $event_id);
-        $this->db->where('reg_email', $email);
-        $query = $this->db->get('events_registration');
-        $result = $query->row();
-        $path = base_url('assets/uploads/cert/' . $event_id . '/' . $result->cert_num . '.pdf');
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-        header("Cache-Control: public");
-        header("Content-Description: File Transfer");
-        header("Content-Type: application/pdf");
-        $headers  = get_headers($path, 1);
-        header('Content-Length: ' . ($headers['Content-Length']));
-        header('Content-Disposition: attachment; filename="' . basename($path) . '"');
-        header("Content-Transfer-Encoding: binary\n");
-        readfile($path); // outputs the content of the file
-        exit();
+        $data = $this->get_event_reg_data($event_id, $email);
+        if($data->is_attended==1)
+        {
+            echo "flag";
+        }
+        else if($data->is_attended==101)
+        {
+            echo "flag1";
+        }
+        else if($data->is_attended==102)
+        {
+            echo "flag2";
+        }
     }
 }
