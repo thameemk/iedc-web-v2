@@ -15,6 +15,7 @@ class Report_model extends CI_Model
 
     public function upcomingEvents()
     {
+        $this->db->where('is_public', 1);
         $query = $this->db->get('events');
         return $query->result_array();
     }

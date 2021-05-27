@@ -31,7 +31,7 @@
                                 <?php if ($row['is_attended'] == 0) {  ?>
                                     <button class="btn btn-danger" disabled>NOT ATTENDED</button>
                                 <?php } else if ($row['is_attended'] == 101 || $row['is_attended'] == 102) { ?>
-                                    <form action="<?= base_url() ?>certificate/appreciation" method="post">
+                                    <form action="<?= base_url() ?>certificate/download_merit_cert" method="post">
                                         <input type="hidden" name="event_id" value="<?= $row['event_id'] ?>">
                                         <button type="submit" class="btn btn-success">DOWNLOAD CERTIFICATE</button>
                                     </form>

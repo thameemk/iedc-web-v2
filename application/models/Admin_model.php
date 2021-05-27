@@ -290,7 +290,7 @@ class Admin_model extends CI_Model
 
     function get_participants($event_id)
     {
-        $event_id = $this->security->xss_clean($event_id);           
+        $event_id = $this->security->xss_clean($event_id);
         $this->db->select('er.reg_email,er.payment_verified_user,er.is_payment_verified,er.payment_id,er.file_link,er.added_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch')
             ->from('userRegister as u, events_registration as er')
             ->where('er.event_id', $event_id)
@@ -363,5 +363,34 @@ class Admin_model extends CI_Model
         }
         header('Content-Type: application/json');
         echo json_encode($data);
+    }
+
+    function update_certificate_position($data)
+    {
+        if ($data['cert_type'] == 0) {
+            $records = array(
+                'cert_file_0_name_x' => $data['name_x'],
+                'cert_file_0_name_y' => $data['name_y'],
+                'cert_file_0_college_x' => $data['college_x'],
+                'cert_file_0_college_y' => $data['college_y']
+            );
+        } else if ($data['cert_type'] == 1) {
+            $records = array(
+                'cert_file_1_name_x' => $data['name_x'],
+                'cert_file_1_name_y' => $data['name_y'],
+                'cert_file_1_college_x' => $data['college_x'],
+                'cert_file_1_college_y' => $data['college_y'],
+                'cert_file_1_merit_x' => $data['merit_x'],
+                'cert_file_1_merit_y' => $data['merit_y'],
+            );
+        }
+        $this->db->where('event_id', $data['event_id']);
+        $this->db->update('events', $records);
+        if ($this->db->affected_rows() == 1) {
+            $this->session->set_flashdata('success', 'successfully updated the positions');
+        } else {
+            $this->session->set_flashdata('success', 'error updating the positions');
+        }
+        redirect(base_url() . "admin/upload-certificate/" . $data['event_id']);
     }
 }

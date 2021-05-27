@@ -30,18 +30,21 @@ class SuperAdmin extends CI_Controller
 
     function issue_cert()
     {
-        $event_id = $this->security->xss_clean($this->input->post('event_id'));
-        if ($this->session->userdata('user_type') == 'super_admin') {
-            $data = array(
+        $data = $this->security->xss_clean($this->input->post());
+        if ($data['cet_status'] == 1) {
+
+            $records = array(
+                'is_cert_published' => 0,
+            );
+        } else {
+            $records = array(
                 'is_cert_published' => 1,
             );
-            $this->db->where('event_id', $event_id);
-            $this->db->update('events', $data);
-            $this->session->set_flashdata('success', 'Certificate issued successfully!!');
-        } else {
-            $this->session->set_flashdata('fail', 'You are not authorized!!');
         }
-        redirect(base_url() . "admin/upload-certificate/" . $event_id);
+        $this->db->where('event_id', $data['event_id']);
+        $this->db->update('events', $records);
+        $this->session->set_flashdata('success', 'Certificate status updated successfully!!');
+        redirect(base_url() . "admin/upload-certificate/" . $data['event_id']);
     }
 
     function upload_cert()
@@ -71,5 +74,11 @@ class SuperAdmin extends CI_Controller
             }
         }
         redirect(base_url() . "admin/upload-certificate/" . $data['event_id']);
+    }
+
+    function update_cert_position()
+    {
+        $data = $this->security->xss_clean($this->input->post());
+        $this->admin_model->update_certificate_position($data);
     }
 }

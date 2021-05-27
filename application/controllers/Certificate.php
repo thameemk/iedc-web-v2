@@ -37,7 +37,7 @@ class ZNW_PDFAA extends TCPDF
 class Certificate extends CI_Controller
 {
 
-    public function appreciation()
+    public function download_merit_cert()
     {
 
         $eventid = $this->security->xss_clean($this->input->post('event_id'));      
@@ -81,8 +81,8 @@ class Certificate extends CI_Controller
         $pdf->AddPage('L');
         $pdf->SetXY(0, 89);
         $html1 = "";
-        $fullname = "<h3><center>$records->fullname</center></h3>";
-        $htmlcollege = "<h3>$records->college</h3>";
+        $fullname = '<h1 style="font-size:2.5em"><b>'.$records->fullname.'</b></h1>';
+        $htmlcollege = '<h1 style="font-size:2em"><b>'.$records->college.'</b></h1>';
         $certno = "<h3>No : $records->cert_num</h3>";
         $position = "";
         switch ($records->is_attended) {
@@ -95,10 +95,10 @@ class Certificate extends CI_Controller
             default:
                 return;
         }
-        $poshtml = "<h3>$position</h3>";
-        $pdf->writeHTMLCell(380, 10, 118, 82, $fullname, 0, 1, 0, true, '', true);
-        $pdf->writeHTMLCell(380, 10, 118, 100, $htmlcollege, 0, 1, 0, true, '', true);
-        $pdf->writeHTMLCell(380, 10, 103, 109, $poshtml, 0, 1, 0, true, '', true);
+        $poshtml = '<h1 style="font-size:2em"><b>'.$position.'</b></h1>';
+        $pdf->writeHTMLCell(380, 10, $records->cert_file_1_name_x, $records->cert_file_1_name_y, $fullname, 0, 1, 0, true, '', true);
+        $pdf->writeHTMLCell(380, 10, $records->cert_file_1_college_x, $records->cert_file_1_college_y, $htmlcollege, 0, 1, 0, true, '', true);  
+        $pdf->writeHTMLCell(380, 10, $records->cert_file_1_merit_x, $records->cert_file_1_merit_y, $poshtml, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(300, 10, 224, 25, $certno, 0, 1, 0, true, '', true);
 
         $pdf->Output($records->cert_num.'.pdf', 'D');
@@ -151,8 +151,8 @@ class Certificate extends CI_Controller
         $fullname = '<h1 style="font-size:2.5em"><b>'.$records->fullname.'</b></h1>';
         $htmlcollege = '<h1 style="font-size:2em"><b>'.$records->college.'</b></h1>';
         $certno = "<h3>No : $records->cert_num</h3>";               
-        $pdf->writeHTMLCell(380, 10, 19, 110, $fullname, 0, 1, 0, true, '', true);
-        $pdf->writeHTMLCell(380, 10, 118, 110, $htmlcollege, 0, 1, 0, true, '', true);       
+        $pdf->writeHTMLCell(380, 10, $records->cert_file_0_name_x, $records->cert_file_0_name_y, $fullname, 0, 1, 0, true, '', true);
+        $pdf->writeHTMLCell(380, 10, $records->cert_file_0_college_x, $records->cert_file_0_college_y, $htmlcollege, 0, 1, 0, true, '', true);       
         $pdf->writeHTMLCell(300, 10, 224, 25, $certno, 0, 1, 0, true, '', true);
 
         $pdf->Output($records->cert_num.'.pdf', 'D');
