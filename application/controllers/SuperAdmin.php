@@ -54,7 +54,7 @@ class SuperAdmin extends CI_Controller
         if ($eventDetails->is_cert_published == 1) {
             $this->session->set_flashdata('fail', 'Certificate already published');
         } else {
-            $status = $this->upload_file->do_upload('assets/uploads/cert/', $_FILES["userfile"]['name'],'png');           
+            $status = $this->upload_file->do_upload('assets/uploads/cert/', $_FILES["userfile"]['name'], 'png');
             if ($status['status'] == true) {
                 if ($data['cert_type'] == 0) {
                     $temp = array(
@@ -80,5 +80,12 @@ class SuperAdmin extends CI_Controller
     {
         $data = $this->security->xss_clean($this->input->post());
         $this->admin_model->update_certificate_position($data);
+    }
+
+    function update_cert_font()
+    {
+        $data = $this->security->xss_clean($this->input->post());
+        $this->admin_model->update_certificate_font($data);
+       
     }
 }

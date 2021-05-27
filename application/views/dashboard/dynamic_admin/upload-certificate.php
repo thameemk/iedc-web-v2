@@ -132,6 +132,46 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">FONT</h6>
+                        <form class="forms-sample" action="<?= base_url() ?>superAdmin/update_cert_font" method="post">
+                            <div class="form-group">
+                                <label for="color">color</label>
+                                <input type="text" class="mb-1 form-control" name="cert_font_color" placeholder="cert_font_color" value="<?= $eventDetails->cert_font_color ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="color">name font size</label>
+                                <input type="text" class="mb-1 form-control" name="cert_name_font_size" placeholder="cert_name_font_size" value="<?= $eventDetails->cert_name_font_size ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="color">college font size</label>
+                                <input type="text" class="mb-1 form-control" name="cert_college_font_size" placeholder="cert_college_font_size" value="<?= $eventDetails->cert_college_font_size ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="color">merit font size</label>
+                                <input type="text" class="mb-1 form-control" name="cert_merit_font_size" placeholder="cert_merit_font_size" value="<?= $eventDetails->cert_merit_font_size ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="color">no font size</label>
+                                <input type="text" class="mb-1 form-control" name="cert_no_font_size" placeholder="cert_no_font_size" value="<?= $eventDetails->cert_no_font_size ?>" required>
+                            </div>
+
+                            <input type="hidden" name="event_id" value="<?= $eventDetails->event_id ?>">
+                            <button type="submit" class="btn btn-primary mr-2">Update</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     <?php } else { ?>
         <h5 style="color:red">You are not authorized to access this page</h5>
     <?php } ?>

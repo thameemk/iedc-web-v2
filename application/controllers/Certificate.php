@@ -16,7 +16,7 @@ class ZNW_PDFAA extends TCPDF
         // disable auto-page-break
         $this->SetAutoPageBreak(false, 0);
         // set background image
-        $img_file = 'assets/uploads/cert/'.$this->certFile;
+        $img_file = 'assets/uploads/cert/' . $this->certFile;
         $this->Image($img_file, 0, 0,  297, 210, '', '', '', false, 300, '', false, false, 0);
         // restore auto-page-break status
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
@@ -40,7 +40,7 @@ class Certificate extends CI_Controller
     public function download_merit_cert()
     {
 
-        $eventid = $this->security->xss_clean($this->input->post('event_id'));      
+        $eventid = $this->security->xss_clean($this->input->post('event_id'));
         require_once('./application/libraries/Classes/TCPDF/tcpdf.php');
 
         $this->load->model('user_model');
@@ -70,20 +70,13 @@ class Certificate extends CI_Controller
         $pdf->SetTopMargin(80);
         $pdf->SetProtection(array('modify'));
 
-        $style = array(
-            'border' => 1,
-            'padding' => 'auto',
-            'fgcolor' =>  array(0, 0, 0),
-            'bgcolor' => array(255, 255, 255)
-        );
-
 
         $pdf->AddPage('L');
         $pdf->SetXY(0, 89);
         $html1 = "";
-        $fullname = '<h1 style="font-size:2.5em"><b>'.$records->fullname.'</b></h1>';
-        $htmlcollege = '<h1 style="font-size:2em"><b>'.$records->college.'</b></h1>';
-        $certno = "<h3>No : $records->cert_num</h3>";
+        $fullname = '<font style="font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
+        $htmlcollege = '<font style="font-size:' . $records->cert_college_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '">' . $records->college . '</font>';
+        $certno = '<font style="font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
         $position = "";
         switch ($records->is_attended) {
             case "101":
@@ -95,19 +88,19 @@ class Certificate extends CI_Controller
             default:
                 return;
         }
-        $poshtml = '<h1 style="font-size:2em"><b>'.$position.'</b></h1>';
+        $poshtml = '<font style="font-size:' . $records->cert_merit_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $position . '</b></font>';
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_name_x, $records->cert_file_1_name_y, $fullname, 0, 1, 0, true, '', true);
-        $pdf->writeHTMLCell(380, 10, $records->cert_file_1_college_x, $records->cert_file_1_college_y, $htmlcollege, 0, 1, 0, true, '', true);  
+        $pdf->writeHTMLCell(380, 10, $records->cert_file_1_college_x, $records->cert_file_1_college_y, $htmlcollege, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_merit_x, $records->cert_file_1_merit_y, $poshtml, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(300, 10, 224, 25, $certno, 0, 1, 0, true, '', true);
 
-        $pdf->Output($records->cert_num.'.pdf', 'D');
+        $pdf->Output($records->cert_num . '.pdf', 'D');
     }
 
     public function download_default_cert()
     {
 
-        $eventid = $this->security->xss_clean($this->input->post('event_id'));      
+        $eventid = $this->security->xss_clean($this->input->post('event_id'));
         require_once('./application/libraries/Classes/TCPDF/tcpdf.php');
 
         $this->load->model('user_model');
@@ -128,33 +121,25 @@ class Certificate extends CI_Controller
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('IEDC TKMCE');
-        $pdf->SetTitle('Certificate of Participation');
+        $pdf->SetTitle('Certificate of Participation / Volunteering');
         $pdf->SetSubject('Certificate');
-        $pdf->SetKeywords('IEDC TKMCE Participation Certificate');
+        $pdf->SetKeywords('IEDC TKMCE Participation / Volunteering Certificate');
 
 
         $pdf->SetLeftMargin(100);
         $pdf->SetTopMargin(80);
         $pdf->SetProtection(array('modify'));
 
-        $style = array(
-            'border' => 1,
-            'padding' => 'auto',
-            'fgcolor' =>  array(0, 0, 0),
-            'bgcolor' => array(255, 255, 255)
-        );
-
-
         $pdf->AddPage('L');
         $pdf->SetXY(0, 89);
         $html1 = "";
-        $fullname = '<h1 style="font-size:2.5em"><b>'.$records->fullname.'</b></h1>';
-        $htmlcollege = '<h1 style="font-size:2em"><b>'.$records->college.'</b></h1>';
-        $certno = "<h3>No : $records->cert_num</h3>";               
+        $fullname = '<font style="font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
+        $htmlcollege = '<font style="font-size:' . $records->cert_college_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '">' . $records->college . '</font>';
+        $certno = '<font style="font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
         $pdf->writeHTMLCell(380, 10, $records->cert_file_0_name_x, $records->cert_file_0_name_y, $fullname, 0, 1, 0, true, '', true);
-        $pdf->writeHTMLCell(380, 10, $records->cert_file_0_college_x, $records->cert_file_0_college_y, $htmlcollege, 0, 1, 0, true, '', true);       
+        $pdf->writeHTMLCell(380, 10, $records->cert_file_0_college_x, $records->cert_file_0_college_y, $htmlcollege, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(300, 10, 224, 25, $certno, 0, 1, 0, true, '', true);
 
-        $pdf->Output($records->cert_num.'.pdf', 'D');
+        $pdf->Output($records->cert_num . '.pdf', 'D');
     }
 }

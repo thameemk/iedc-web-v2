@@ -389,8 +389,28 @@ class Admin_model extends CI_Model
         if ($this->db->affected_rows() == 1) {
             $this->session->set_flashdata('success', 'successfully updated the positions');
         } else {
-            $this->session->set_flashdata('success', 'error updating the positions');
+            $this->session->set_flashdata('fail', 'error updating the positions');
         }
         redirect(base_url() . "admin/upload-certificate/" . $data['event_id']);
+    }
+
+    function update_certificate_font($data)
+    {
+        $event_id = $data['event_id'];
+        $data = array(
+            'cert_font_color' => $data['cert_font_color'],
+            'cert_college_font_size' => $data['cert_college_font_size'],
+            'cert_name_font_size' => $data['cert_name_font_size'],
+            'cert_no_font_size' => $data['cert_no_font_size'],
+            'cert_merit_font_size' => $data['cert_merit_font_size'],
+        );
+        $this->db->where('event_id', $event_id);
+        $this->db->update('events', $data);
+        if ($this->db->affected_rows() == 1) {
+            $this->session->set_flashdata('success', 'successfully updated the font');
+        } else {
+            $this->session->set_flashdata('fail', 'error updating the font');
+        }
+        redirect(base_url() . "admin/upload-certificate/" . $event_id);
     }
 }
