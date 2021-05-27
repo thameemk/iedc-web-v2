@@ -95,6 +95,11 @@
                                 <input type="text" class="mb-1 form-control" name="college_x" placeholder="college position x" value="<?= $eventDetails->cert_file_0_college_x ?>" required>
                                 <input type="text" class="mb-1 form-control" name="college_y" placeholder="college position y" value="<?= $eventDetails->cert_file_0_college_y ?>" required>
                             </div>
+                            <div class="form-group">
+                                <label for="name">certificate no</label>
+                                <input type="text" class="mb-1 form-control" name="no_x" placeholder="no position x" value="<?= $eventDetails->cert_file_0_no_x ?>" required>
+                                <input type="text" class="mb-1 form-control" name="no_y" placeholder="no position y" value="<?= $eventDetails->cert_file_0_no_y ?>" required>
+                            </div>
                             <input type="hidden" name="event_id" value="<?= $eventDetails->event_id ?>">
                             <input type="hidden" name="cert_type" value="0">
                             <button type="submit" class="btn btn-primary mr-2">Update</button>
@@ -118,6 +123,11 @@
                                 <label for="name">college</label>
                                 <input type="text" class="mb-1 form-control" name="college_x" placeholder="college position x" value="<?= $eventDetails->cert_file_1_college_x ?>" required>
                                 <input type="text" class="mb-1 form-control" name="college_y" placeholder="college position y" value="<?= $eventDetails->cert_file_1_college_y ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">certificate no</label>
+                                <input type="text" class="mb-1 form-control" name="no_x" placeholder="no position x" value="<?= $eventDetails->cert_file_1_no_x ?>" required>
+                                <input type="text" class="mb-1 form-control" name="no_y" placeholder="no position y" value="<?= $eventDetails->cert_file_1_no_y ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">merit (first/second)</label>

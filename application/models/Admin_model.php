@@ -372,7 +372,9 @@ class Admin_model extends CI_Model
                 'cert_file_0_name_x' => $data['name_x'],
                 'cert_file_0_name_y' => $data['name_y'],
                 'cert_file_0_college_x' => $data['college_x'],
-                'cert_file_0_college_y' => $data['college_y']
+                'cert_file_0_college_y' => $data['college_y'],
+                'cert_file_0_no_x' => $data['no_x'],
+                'cert_file_0_no_y' => $data['no_y']
             );
         } else if ($data['cert_type'] == 1) {
             $records = array(
@@ -382,6 +384,8 @@ class Admin_model extends CI_Model
                 'cert_file_1_college_y' => $data['college_y'],
                 'cert_file_1_merit_x' => $data['merit_x'],
                 'cert_file_1_merit_y' => $data['merit_y'],
+                'cert_file_1_no_x' => $data['no_x'],
+                'cert_file_1_no_y' => $data['no_y']
             );
         }
         $this->db->where('event_id', $data['event_id']);

@@ -92,7 +92,7 @@ class Certificate extends CI_Controller
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_name_x, $records->cert_file_1_name_y, $fullname, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_college_x, $records->cert_file_1_college_y, $htmlcollege, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_merit_x, $records->cert_file_1_merit_y, $poshtml, 0, 1, 0, true, '', true);
-        $pdf->writeHTMLCell(300, 10, 224, 25, $certno, 0, 1, 0, true, '', true);
+        $pdf->writeHTMLCell(300, 10, $records->cert_file_1_no_x, $records->cert_file_1_no_y, $certno, 0, 1, 0, true, '', true);
 
         $pdf->Output($records->cert_num . '.pdf', 'D');
     }
@@ -116,6 +116,7 @@ class Certificate extends CI_Controller
 
         $pdf = new ZNW_PDFAA(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
+
         $pdf->certFile = $records->cert_file_1;
 
         // set document information
@@ -138,7 +139,7 @@ class Certificate extends CI_Controller
         $certno = '<font style="font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
         $pdf->writeHTMLCell(380, 10, $records->cert_file_0_name_x, $records->cert_file_0_name_y, $fullname, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_0_college_x, $records->cert_file_0_college_y, $htmlcollege, 0, 1, 0, true, '', true);
-        $pdf->writeHTMLCell(300, 10, 224, 25, $certno, 0, 1, 0, true, '', true);
+        $pdf->writeHTMLCell(300, 10, $records->cert_file_0_no_x, $records->cert_file_0_no_y, $certno, 0, 1, 0, true, '', true);
 
         $pdf->Output($records->cert_num . '.pdf', 'D');
     }
