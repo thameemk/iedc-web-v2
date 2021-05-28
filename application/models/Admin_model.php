@@ -411,6 +411,7 @@ class Admin_model extends CI_Model
             'cert_name_font_size' => $data['cert_name_font_size'],
             'cert_no_font_size' => $data['cert_no_font_size'],
             'cert_merit_font_size' => $data['cert_merit_font_size'],
+            'cert_qr_size' => $data['cert_qr_size']
         );
         $this->db->where('event_id', $event_id);
         $this->db->update('events', $data);

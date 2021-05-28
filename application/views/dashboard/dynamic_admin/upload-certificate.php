@@ -157,7 +157,7 @@
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">FONT</h6>
+                        <h6 class="card-title">FONT & QR</h6>
                         <form class="forms-sample" action="<?= base_url() ?>superAdmin/update_cert_font" method="post">
                             <div class="form-group">
                                 <label for="color">color</label>
@@ -182,6 +182,10 @@
                             <div class="form-group">
                                 <label for="color">no font size</label>
                                 <input type="text" class="mb-1 form-control" name="cert_no_font_size" placeholder="cert_no_font_size" value="<?= $eventDetails->cert_no_font_size ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="color">qr size</label>
+                                <input type="text" class="mb-1 form-control" name="cert_qr_size" placeholder="cert_no_font_size" value="<?= $eventDetails->cert_qr_size ?>" required>
                             </div>
 
                             <input type="hidden" name="event_id" value="<?= $eventDetails->event_id ?>">

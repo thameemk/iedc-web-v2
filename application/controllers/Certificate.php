@@ -75,20 +75,21 @@ class Certificate extends CI_Controller
         $pdf->SetXY(0, 89);
         $html1 = "";
 
+        list($r, $g, $b) = sscanf($records->cert_font_color, "#%02x%02x%02x");
 
         // set style for barcode
         $style = array(
             'border' => 0,
             'vpadding' => 'auto',
             'hpadding' => 'auto',
-            'fgcolor' => array(0, 0, 0),
+            'fgcolor' => array($r, $g, $b),
             'bgcolor' => false, //array(255,255,255)
             'module_width' => 1, // width of a single module in points
             'module_height' => 1 // height of a single module in points
         );
 
         // QRCODE,H : QR-CODE Best error correction
-        $pdf->write2DBarcode('https://www.iedctkmce.com/verify/' . $records->cert_num, 'QRCODE,H', $records->cert_file_1_no_x, $records->cert_file_1_no_y, 40, 40, $style, 'N');
+        $pdf->write2DBarcode('https://www.iedctkmce.com/pages/verify/' . $records->cert_num, 'QRCODE,H', $records->cert_file_1_qr_x, $records->cert_file_1_qr_y, $records->cert_qr_size, $records->cert_qr_size, $style, 'N');
 
 
         $fullname = '<font style="font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
@@ -109,7 +110,7 @@ class Certificate extends CI_Controller
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_name_x, $records->cert_file_1_name_y, $fullname, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_college_x, $records->cert_file_1_college_y, $htmlcollege, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_merit_x, $records->cert_file_1_merit_y, $poshtml, 0, 1, 0, true, '', true);
-        // $pdf->writeHTMLCell(300, 10, $records->cert_file_1_no_x, $records->cert_file_1_no_y, $certno, 0, 1, 0, true, '', true);
+        $pdf->writeHTMLCell(300, 10, $records->cert_file_1_no_x, $records->cert_file_1_no_y, $certno, 0, 1, 0, true, '', true);
 
         $pdf->Output($records->cert_num . '.pdf', 'D');
     }
@@ -152,19 +153,21 @@ class Certificate extends CI_Controller
         $pdf->SetXY(0, 89);
         $html1 = "";
 
+        list($r, $g, $b) = sscanf($records->cert_font_color, "#%02x%02x%02x");
+
         // set style for barcode
         $style = array(
             'border' => 0,
             'vpadding' => 'auto',
             'hpadding' => 'auto',
-            'fgcolor' => array(0, 0, 0),
+            'fgcolor' => array($r, $g, $b),
             'bgcolor' => false, //array(255,255,255)
             'module_width' => 1, // width of a single module in points
             'module_height' => 1 // height of a single module in points
         );
 
         // QRCODE,H : QR-CODE Best error correction
-        $pdf->write2DBarcode('https://www.iedctkmce.com/verify/' . $records->cert_num, 'QRCODE,H', $records->cert_file_0_no_x, $records->cert_file_0_no_y, 40, 40, $style, 'N');
+        $pdf->write2DBarcode('https://www.iedctkmce.com/pages/verify/' . $records->cert_num, 'QRCODE,H', $records->cert_file_0_qr_x, $records->cert_file_0_qr_y, $records->cert_qr_size, $records->cert_qr_size, $style, 'N');
 
 
         $fullname = '<font style="font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
@@ -172,7 +175,7 @@ class Certificate extends CI_Controller
         $certno = '<font style="font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
         $pdf->writeHTMLCell(380, 10, $records->cert_file_0_name_x, $records->cert_file_0_name_y, $fullname, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_0_college_x, $records->cert_file_0_college_y, $htmlcollege, 0, 1, 0, true, '', true);
-        // $pdf->writeHTMLCell(300, 10, $records->cert_file_0_no_x, $records->cert_file_0_no_y, $certno, 0, 1, 0, true, '', true);
+        $pdf->writeHTMLCell(300, 10, $records->cert_file_0_no_x, $records->cert_file_0_no_y, $certno, 0, 1, 0, true, '', true);
 
         $pdf->Output($records->cert_num . '.pdf', 'D');
     }
