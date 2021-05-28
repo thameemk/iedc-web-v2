@@ -96,8 +96,6 @@
                                                         <span class="badge badge-success">FIRST</span>
                                                     <?php } else if ($row['is_attended'] == 102) { ?>
                                                         <span class="badge badge-warning">SECOND</span>
-                                                    <?php } else if ($row['is_attended'] == 0) { ?>
-                                                        <span class="badge badge-danger">ABSENT</span>
                                                     <?php } else if ($row['is_attended'] == NULL) { ?>
                                                         <?php if ($eventDetails->is_cert_published == 0) { ?>
                                                             <div class="<?= $row['id'] ?>">
@@ -107,6 +105,8 @@
                                                         <?php } else { ?>
                                                             <button class="btn btn-warning">Not Allowed</button>
                                                         <?php }  ?>
+                                                    <?php } else if ($row['is_attended'] == 0) { ?>
+                                                        <span class="badge badge-danger">ABSENT</span>
                                                     <?php } ?>
 
                                                 </td>
