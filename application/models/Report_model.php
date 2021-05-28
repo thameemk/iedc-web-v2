@@ -58,13 +58,13 @@ class Report_model extends CI_Model
     {
         $this->db->insert('users_ai_ml', $data);
     }
-    
+
     public function new_user_registration($data)
     {
         $this->db->insert('member_registration20', $data);
         return 201;
     }
-    
+
     public function start_up_registration($data)
     {
         $this->db->insert('startup_call_2020', $data);
@@ -79,8 +79,8 @@ class Report_model extends CI_Model
         $configss['max_size'] = '10240';
         $configss['upload_path'] = 'assets/uploads/execom_reg/';
         $temp = $_FILES["coverletter"]['name'];
-        $file_name = $data['phone'].".".pathinfo($temp,PATHINFO_EXTENSION);
-        $configss['file_name'] = $file_name;    
+        $file_name = $data['phone'] . "." . pathinfo($temp, PATHINFO_EXTENSION);
+        $configss['file_name'] = $file_name;
         $this->load->library('upload', $configss);
         if (!$this->upload->do_upload('coverletter')) {
             $error = array('error' => $this->upload->display_errors());
@@ -89,14 +89,15 @@ class Report_model extends CI_Model
             redirect(base_url() . "application-for-excom-20-21");
         } else {
             $url = base_url("assets/uploads/execom_reg/");
-            $data['coverletter'] = $url.$file_name;
+            $data['coverletter'] = $url . $file_name;
             $this->db->insert('execom_reg', $data);
             return 201;
         }
     }
 
-    public function google_recaptcha($recaptcha){
-        $recaptchaResponse = trim($recaptcha);    
+    public function google_recaptcha($recaptcha)
+    {
+        $recaptchaResponse = trim($recaptcha);
         $secret = '';
         $credential = array(
             'secret' => $secret,
@@ -122,7 +123,21 @@ class Report_model extends CI_Model
 
     function get_cert_details($cert_no)
     {
-        $query = $this->db->query('select er.cert_num,e.event_title,u.fullname,u.college from events_registration er, events e, userRegister u where er.reg_email=u.email and er.event_id=e.event_id and er.cert_num="'.$cert_no.'"');
-        return  json_encode($query->row());
+        $query = $this->db->query('select er.cert_num,e.event_title,u.fullname,u.college from events_registration er, events e, userRegister u where er.reg_email=u.email and er.event_id=e.event_id and er.cert_num="' . $cert_no . '"');
+        if ($query->num_rows() == 1) {
+            $status = array(
+                'status' => true,
+                'fullname' => $query->row()->fullname,
+                'cert_num' => $query->row()->cert_num,
+                'event_title' => $query->row()->event_title,
+                'college' => $query->row()->college,
+            );
+        } else {
+            $status = array(
+                'cert_num'=>$cert_no,
+                'status' => false
+            );
+        }
+        return $status;
     }
 }
