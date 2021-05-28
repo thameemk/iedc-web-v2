@@ -96,6 +96,11 @@
                                 <input type="text" class="mb-1 form-control" name="college_y" placeholder="college position y" value="<?= $eventDetails->cert_file_0_college_y ?>" required>
                             </div>
                             <div class="form-group">
+                                <label for="name">qr code</label>
+                                <input type="text" class="mb-1 form-control" name="qr_x" placeholder="qr position x" value="<?= $eventDetails->cert_file_0_qr_x ?>" required>
+                                <input type="text" class="mb-1 form-control" name="qr_y" placeholder="qr position y" value="<?= $eventDetails->cert_file_0_qr_y ?>" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="name">certificate no</label>
                                 <input type="text" class="mb-1 form-control" name="no_x" placeholder="no position x" value="<?= $eventDetails->cert_file_0_no_x ?>" required>
                                 <input type="text" class="mb-1 form-control" name="no_y" placeholder="no position y" value="<?= $eventDetails->cert_file_0_no_y ?>" required>
@@ -123,6 +128,11 @@
                                 <label for="name">college</label>
                                 <input type="text" class="mb-1 form-control" name="college_x" placeholder="college position x" value="<?= $eventDetails->cert_file_1_college_x ?>" required>
                                 <input type="text" class="mb-1 form-control" name="college_y" placeholder="college position y" value="<?= $eventDetails->cert_file_1_college_y ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">qr code</label>
+                                <input type="text" class="mb-1 form-control" name="qr_x" placeholder="qr position x" value="<?= $eventDetails->cert_file_1_qr_x ?>" required>
+                                <input type="text" class="mb-1 form-control" name="qr_y" placeholder="qr position y" value="<?= $eventDetails->cert_file_1_qr_y ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">certificate no</label>
