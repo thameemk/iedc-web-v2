@@ -76,8 +76,8 @@
                                                             VERIFIED BY <br>
                                                             <span><?= $row['payment_verified_user'] ?> </span>
                                                         <?php } else { ?>
-                                                            <?php $cus='cus' ?>
-                                                            <div class="<?= $row['id'].$cus?>">
+                                                            <?php $cus = 'cus' ?>
+                                                            <div class="<?= $row['id'] . $cus ?>">
                                                                 <button id="<?= $row['id'] ?>" class="verifybutton badge badge-danger">VERIFY</button>
                                                             </div>
                                                         <?php } ?>
@@ -91,7 +91,13 @@
                                                 <td>
 
                                                     <?php if ($row['is_attended'] == 1) { ?>
-                                                        <span class="badge badge-success">PRSENT</span>
+                                                        <span class="badge badge-primary">PRSENT</span>
+                                                    <?php } else if ($row['is_attended'] == 101) { ?>
+                                                        <span class="badge badge-success">FIRST</span>
+                                                    <?php } else if ($row['is_attended'] == 102) { ?>
+                                                        <span class="badge badge-warning">SECOND</span>
+                                                    <?php } else if ($row['is_attended'] == 0) { ?>
+                                                        <span class="badge badge-danger">ABSENT</span>
                                                     <?php } else if ($row['is_attended'] == NULL) { ?>
                                                         <?php if ($eventDetails->is_cert_published == 0) { ?>
                                                             <div class="<?= $row['id'] ?>">
@@ -100,9 +106,7 @@
                                                             </div>
                                                         <?php } else { ?>
                                                             <button class="btn btn-warning">Not Allowed</button>
-                                                        <?php }
-                                                    } else { ?>
-                                                        <span class="badge badge-danger">ABSENT</span>
+                                                        <?php }  ?>
                                                     <?php } ?>
 
                                                 </td>
@@ -126,15 +130,200 @@
 
 <script>
     $(function() {
+        $(".domarkatnds").click(function() {
+            var participant_id = $(this).attr("id");
+            Swal.fire({
+                title: 'You cant change it later. Are you sure ?',
+                showConfirmButton: false,
+                showCloseButton: false,
+                html: `
+                <div>
+                <button class="btn btn-info" onclick="onBtnClicked('Present',` + participant_id + `)">Present</button>
+                <button class="btn btn-success" onclick="onBtnClicked('First',` + participant_id + `)">First</button>
+                <button class="btn btn-primary" onclick="onBtnClicked('Second',` + participant_id + `)">Second</button>         
+                <button class="btn btn-warning" onclick="onBtnClicked('Absent',` + participant_id + `)">Absent</button>
+                <button class="btn btn-danger" onclick="onBtnClicked('cancel')">Cancel</button>
+                </div>`
+            });
+        });
+    });
+
+    $(".verifybutton").click(function() {
+        var participant_reg_id = $(this).attr("id");
+        if (confirm("Sure you want to Verify this?.")) {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>admin/verify_event_fee_payment/" + participant_reg_id,
+                data: "",
+                async: false,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    // launchpreloader();
+                },
+                complete: function() {
+                    //  stopPreloader();
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result['status'] == true) {
+                        var modalHtml = "";
+                        $("#" + participant_reg_id).html(modalHtml);
+                        $("." + participant_reg_id).html();
+                        $("." + participant_reg_id + "cus").append('VERIFIED BY <br>' + result['session_user']);
+                    } else {
+                        alert("Some error has been occurred !!");
+                    }
+                }
+            });
+        }
+        return false;
+    });
+
+
+    function onBtnClicked(btnId, participant_id) {
+        Swal.close();
+        console.log(participant_id);
+        if (btnId == "Present") {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>admin/mark_attendence/" + participant_id + "/1",
+                data: "",
+                async: false,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    // launchpreloader();
+                },
+                complete: function() {
+                    //  stopPreloader();
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result['status'] == true) {
+                        var modalHtml = "";
+                        $("#" + participant_id).html(modalHtml);
+                        $("." + participant_id).html(modalHtml);
+                        $("." + participant_id).append(
+                            '<span class="badge badge-success">PRSENT</span>'
+                        );
+                        Swal.fire('Marked as present!', '', 'success')
+                    } else {
+                        alert("Some error has been occurred !!");
+                    }
+                }
+            });
+        } else if (btnId == "Absent") {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>admin/mark_attendence/" + participant_id + "/0",
+                data: "",
+                async: false,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    // launchpreloader();
+                },
+                complete: function() {
+                    //  stopPreloader();
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result['status'] == true) {
+                        var modalHtml = "";
+                        $("#" + participant_id).html(modalHtml);
+                        $("." + participant_id).html(modalHtml);
+                        $("." + participant_id).append(
+                            '<span class="badge badge-danger">ABSENT</span>'
+                        );
+                        Swal.fire('Marked as absent', '', 'info')
+                    } else {
+                        alert("Some error has been occurred !!");
+                    }
+                }
+            });
+        } else if (btnId == "First") {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>admin/mark_attendence/" + participant_id + "/101",
+                data: "",
+                async: false,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    // launchpreloader();
+                },
+                complete: function() {
+                    //  stopPreloader();
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result['status'] == true) {
+                        var modalHtml = "";
+                        $("#" + participant_id).html(modalHtml);
+                        $("." + participant_id).html(modalHtml);
+                        $("." + participant_id).append(
+                            '<span class="badge badge-success">FIRST</span>'
+                        );
+                        Swal.fire('Marked as first!', '', 'success')
+                    } else {
+                        alert("Some error has been occurred !!");
+                    }
+                }
+            });
+        } else if (btnId == "Second") {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>admin/mark_attendence/" + participant_id + "/102",
+                data: "",
+                async: false,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    // launchpreloader();
+                },
+                complete: function() {
+                    //  stopPreloader();
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result['status'] == true) {
+                        var modalHtml = "";
+                        $("#" + participant_id).html(modalHtml);
+                        $("." + participant_id).html(modalHtml);
+                        $("." + participant_id).append(
+                            '<span class="badge badge-success">Second</span>'
+                        );
+                        Swal.fire('Marked as Second!', '', 'success')
+                    } else {
+                        alert("Some error has been occurred !!");
+                    }
+                }
+            });
+        }
+
+    }
+</script>
+
+
+<!-- 
+<script>
+    $(function() {
 
         $(".domarkatnds").click(function() {
             var participant_id = $(this).attr("id");
             Swal.fire({
                 title: 'You cant change it later. Are you sure ?',
-                showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: `Present`,
-                denyButtonText: `Absent`,
+                showDenyButton: false,
+                showCancelButton: false,
+                html: `
+    <div>
+      <button class="btn btn-primary" onclick="onBtnClicked('Present')">Present</button>
+      <button class="btn btn-secondary" onclick="onBtnClicked('First')">First</button>
+      <button class="btn btn-secondary" onclick="onBtnClicked('Second')">Second</button>
+      <button class="btn btn-danger" onclick="onBtnClicked('delete')">Delete</button>
+      <button class="btn btn-secondary" onclick="onBtnClicked('Absent')">Absent</button>
+    </div>`
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
@@ -225,7 +414,7 @@
                             var modalHtml = "";
                             $("#" + participant_reg_id).html(modalHtml);
                             $("." + participant_reg_id).html();
-                            $("." + participant_reg_id+"cus").append('VERIFIED BY <br>'+result['session_user']);                           
+                            $("." + participant_reg_id + "cus").append('VERIFIED BY <br>' + result['session_user']);
                         } else {
                             alert("Some error has been occurred !!");
                         }
@@ -235,4 +424,4 @@
             return false;
         });
     });
-</script>
+</script> -->

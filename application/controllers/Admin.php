@@ -101,7 +101,7 @@ class Admin extends CI_Controller
     {
         $this->admin_model->save_component();
     }
-    
+
     function GetProjectTeamDetails($project_id)
     {
         echo $this->admin_model->get_project_team_details($project_id);
@@ -176,18 +176,21 @@ class Admin extends CI_Controller
     }
 
     // Mark attendence for the events
-    function mark_as_present($participant_id)
+    function mark_attendence($participant_id, $status)
     {
         $participant_id = $this->security->xss_clean($participant_id);
-        $this->admin_model->mark_attendence($participant_id, 1);
-    }
-    function mark_as_absent($participant_id)
-    {
-        $participant_id = $this->security->xss_clean($participant_id);
-        $this->admin_model->mark_attendence($participant_id, 0);
+        $status = $this->security->xss_clean($status);
+        if ($status == "1") {
+            $this->admin_model->mark_attendence($participant_id, 1);
+        } else if ($status == "0") {
+            $this->admin_model->mark_attendence($participant_id, 0);
+        } else if ($status == "101") {
+            $this->admin_model->mark_attendence($participant_id, 101);
+        } else if ($status == "102") {
+            $this->admin_model->mark_attendence($participant_id, 102);
+        }
     }
 
-    
     function event_participants($event_id)
     {
         $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
@@ -212,7 +215,7 @@ class Admin extends CI_Controller
         $data['profile_pic'] = $this->session->profile_pic;
         $data['link'] = $this->session->link;
         $data['loginURL'] = $this->googleplus->loginURL();
-        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);       
+        $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
         $this->load->view('dashboard/sidebar', $data);
         $this->load->view('dashboard/header', $data);
         $this->load->view('dashboard/dynamic_admin/upload-certificate', $data);
@@ -224,5 +227,4 @@ class Admin extends CI_Controller
         $participant_reg_id = $this->security->xss_clean($participant_reg_id);
         $this->admin_model->verify_event_payment($participant_reg_id);
     }
-    
 }
