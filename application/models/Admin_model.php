@@ -313,7 +313,7 @@ class Admin_model extends CI_Model
         $query = $this->db->get('events_registration');
         if ($query->row()->is_attended == NULL) {
             $this->db->where('id', $participant_id);
-            if ($status == 1) {
+            if ($status == 1 || $status == 101 || $status == 102) {
                 $cert_num = 'IEDC_TKM_' . $participant_id . '_' . rand(10000, 99999);;
                 $temp = array(
                     'is_attended' => $status,
