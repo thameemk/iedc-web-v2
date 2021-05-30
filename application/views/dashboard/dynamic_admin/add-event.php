@@ -42,15 +42,7 @@
                             <!-- Event Poster-->
                             <div class="form-group">
                                 <label>Event Poster</label>
-                                <input type="file" name="file_name" class="file-upload-default" />
-                                <div class="input-group col-xs-12">
-                                    <input type="text" name="img_link_public" class="form-control file-upload-info" disabled="" placeholder="Upload Image" />
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-primary" type="button">
-                                            Upload
-                                        </button>
-                                    </span>
-                                </div>
+                                <input type="file" name="file_name" class="form-control" placeholder="Upload poster" required/>                                
                             </div>
 
                             <!-- Is Public-->
