@@ -427,7 +427,7 @@ class Admin_model extends CI_Model
 
 
 
-    function add_event_details()
+    function add_event_details($file_name)
     {
         $data = $this->input->post();
         $data = $this->security->xss_clean($data);
@@ -448,6 +448,7 @@ class Admin_model extends CI_Model
             redirect('admin/dashboard/add-event');
         } else {
             $data = array(
+                'img_link_public' => $file_name,
                 'event_title' => $this->input->post('event_title'),
                 'event_desc' => $this->input->post('event_desc'),
                 'is_public' => $this->input->post('is_public'),

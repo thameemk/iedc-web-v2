@@ -231,6 +231,12 @@ class Admin extends CI_Controller
 
     function add_event()
     {
-        $this->admin_model->add_event_details();
+        $status = $this->upload_file->do_upload('assets/uploads/images/updates/', $_FILES["userfile"]['name'], 'png');
+        if ($status['status'] == true) {
+            $this->admin_model->add_event_details($status['file_name']);
+        } else {
+            $this->session->set_flashdata('fail', $status['message']['error']);
+            redirect('admin/dashboard/add-event');
+        }
     }
 }
