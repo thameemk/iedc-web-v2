@@ -125,7 +125,16 @@
 									<label class="sr-only">Phone</label>
 									<input name="phone" type="phone" placeholder="Phone Number" class="form-control">
 								</div>
-								<div class="col-lg-12 form-group">
+								<div class="col-lg-6 form-group">
+									<label class="sr-only">College</label>
+									<select name="college" class="form-control" onchange="selectCollege(this.value)" >
+											<option value="">Select College</option>
+											<option>TKM College of Engineering</option>
+											<option value="other">Other</option>
+									<selct>
+									<input style='display:none;' id="college" name="college" type="text" placeholder="Eneter your college" class="form-control mt-3">											
+								</div>							
+								<div class="col-lg-6 form-group">
 									<div class="form-group">
 
 										<select name="branch" class="form-control" id="exampleFormControlSelect1">
@@ -140,6 +149,7 @@
 											<option>Master of Computer Application</option>
 											<option>Mechanical Engineering</option>
 											<option>Mechanical Production</option>
+											<option>Other</option>
 										</select>
 									</div>
 								</div>
@@ -152,6 +162,9 @@
 										<option>2017</option>
 										<option>2018</option>
 										<option>2019</option>
+										<option>2020</option>	
+										<option>2021</option>
+										<option>2022</option>											
 									</select>
 								</div>
 
@@ -163,21 +176,20 @@
 										<option>2021</option>
 										<option>2022</option>
 										<option>2023</option>
+										<option>2024</option>
+										<option>2025</option>	
+										<option>2026</option>	
 									</select>
-								</div>
-								<div class="col-lg-6 form-group">
-									<label class="sr-only">Access Code</label>
-									<input name="access_code" type="text" placeholder="Enter your email id or given access code" class="form-control" required>
-								</div>
+								</div>							
 								<div class="col-lg-6 form-group">
 									<label class="sr-only">Admission Number</label>
-									<input name="admission_number" type="text" placeholder="Admission Number" class="form-control" required>
+									<input name="admission_number" type="text" placeholder="Admission Number" class="form-control">
 								</div>
-								<div class="col-lg-12">
+								<!-- <div class="col-lg-12">
 									<div class="form-group">
 										<textarea name="whyiedc" class="form-control" rows="3" placeholder="Why IEDC ?"></textarea>
 									</div>
-								</div>
+								</div> -->
 								<div class="col-lg-12 form-group">
 									<button type="submit" class="btn" type="button">SUBMIT</button>
 								</div>
@@ -235,7 +247,15 @@
 
 	</div>
 
-
+	<script>
+    function selectCollege(val) {
+        var element = document.getElementById('college');
+        if (val == 'select an option' || val == 'other')
+            element.style.display = 'block';
+        else
+            element.style.display = 'none';
+    }
+	</script>
 	<a id="scrollTop"><i class="icon-chevron-up1"></i><i class="icon-chevron-up1"></i></a>
 
 	<script src="<?= base_url() ?>assets/front/js/jquery.js"></script>

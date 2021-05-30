@@ -1,19 +1,4 @@
-        <!-- <section id="page-title" data-parallax-image="">
-            <div class="container">
-                <div class="page-title">
-                    <h1>IR-Cell</h1>
-                </div>
-                <div class="breadcrumb">
-                    <ul>
-                        <li><a href="<?=base_url()?>">Home</a> </li>
-
-                        <li class="active"><a href="<?=base_url()?>ircell">IR-Cell</a> </li>
-                    </ul>
-                </div>
-            </div>
-        </section> -->
-
-        <style>
+           <style>
             .banner-img-height {
                 height: 380px;
             }
@@ -34,6 +19,8 @@
         </style>
 <section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/IR CELL.png">
 </section>
+
+
         <section id="page-content">
             <div class="container">
 

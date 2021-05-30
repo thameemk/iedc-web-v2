@@ -15,9 +15,8 @@
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/fonts/feather-font/css/iconfont.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/css/demo_1/style.css">
 		<link rel="shortcut icon" href="<?= base_url() ?>assets/front/images/icon.png">
-		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/sweetalert2/sweetalert2.min.css">
-
-
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.min.css" integrity="sha512-/D4S05MnQx/q7V0+15CCVZIeJcV+Z+ejL1ZgkAcXE1KZxTE4cYDvu+Fz+cQO9GopKrDzMNNgGK+dbuqza54jgw==" crossorigin="anonymous" />
+		
 </head>
 
 <body>
@@ -59,6 +58,17 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="<?= base_url() ?>/events" class="nav-link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar link-icon">
+								<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+								<line x1="16" y1="2" x2="16" y2="6"></line>
+								<line x1="8" y1="2" x2="8" y2="6"></line>
+								<line x1="3" y1="10" x2="21" y2="10"></line>
+							</svg>
+							<span class="link-title">Events & programs</span>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a href="<?= base_url() ?>user/dashboard/project-proposal" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather link-icon">
 								<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
@@ -68,6 +78,7 @@
 							<span class="link-title">Project Proposal</span>
 						</a>
 					</li>
+
 					<li class="nav-item">
 						<a href="<?= base_url() ?>user/dashboard/incubation-application" class="nav-link">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox link-icon">
@@ -109,14 +120,32 @@
 						</a>
 					</li>
 					<hr>
-					<?php if ($admin == TRUE) { ?>
+					<?php if ($user_type == 'super_admin' or $user_type == 'admin') { ?>
 						<li class="nav-item nav-category">ADMIN TOOLS</li>
+						<li class="nav-item">
+							<a href="<?= base_url() ?>admin/dashboard/pre-incubation" class="nav-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+								<span class="link-title">Pre incubation requests</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="<?= base_url() ?>admin/dashboard/event-management" class="nav-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+								<span class="link-title">Event Management</span>
+							</a>
+						</li>
+
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/volunteer-database" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Volunteer Database </span>
+								<span class="link-title">Volunteer database </span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -124,7 +153,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Project Proposals </span>
+								<span class="link-title">Project proposals </span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -132,31 +161,24 @@
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Execom Registration</span>
+								<span class="link-title">Execom registration</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url() ?>admin/dashboard/ai-ml" class="nav-link">
+							<a href="<?= base_url() ?>admin/dashboard/new-membership" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">AI & ML Workshop</span>
+								<span class="link-title">New membership reg</span>
 							</a>
 						</li>
+
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/innovate-4-tkm" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
 								<span class="link-title">Innovate 4 TKM</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?= base_url() ?>admin/dashboard/add-user" class="nav-link">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
-									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-								</svg>
-								<span class="link-title">Add User</span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -168,11 +190,46 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="<?= base_url() ?>admin/dashboard/add-new-maker-component" class="nav-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+								<span class="link-title">Add new maker component </span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/edit-maker-library" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
-								<span class="link-title">Edit maker library </span>
+								<span class="link-title">Edit maker library</span>
+							</a>
+						</li>						
+						<li class="nav-item">
+							<a href="<?= base_url() ?>admin/dashboard/server-access" class="nav-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+								<span class="link-title">Server access</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="<?= base_url() ?>admin/dashboard/schedule-meeting" class="nav-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+								<span class="link-title">Schedule meeting</span>
+							</a>
+						</li>
+
+						<li class="nav-item nav-category">ADMIN TOOLS - ARCHIEVED</li>
+						<li class="nav-item">
+							<a href="<?= base_url() ?>admin/dashboard/ai-ml" class="nav-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+								<span class="link-title">AI & ML workshop</span>
 							</a>
 						</li>
 					<?php } ?>

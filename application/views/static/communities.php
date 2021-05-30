@@ -1,18 +1,3 @@
-<!-- <section id="page-title"  >
-	<div class="container">
-		<div class="page-title">
-			<h1>Community</h1>
-		</div>
-		<div class="breadcrumb">
-			<ul>
-				<li><a href="<?= base_url() ?>">Home</a> </li>
-
-				<li class="active"><a href="<?= base_url() ?>community">Community</a> </li>
-			</ul>
-		</div>
-	</div>
-</section> -->
-
 <style>
             .banner-img-height {
 				height: 380px;

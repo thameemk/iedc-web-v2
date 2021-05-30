@@ -115,11 +115,7 @@
                         <div class="row mb-4 paragraph">
                             <div class="mt-3">
                                 <span class="smalldesc">
-                                    <h5 align="justify" >The voice of innovation and passion that lies dormant in us is brought to life through Dare2Develop, your dose of inspiring tales of people who have made it big in all things entrepreneurial. Made by IEDC TKMCE, this podcast is the perfect blend of fun and facts in each scintillating episode. Join us on this journey as we unravel the how's and why's of being a successful entrepreneur.
-                                    </h5>
-                                    <h5>
-                                        Stay tuned to have some fun.
-                                    </h5>
+                   <p align="justify"> The voice of passion and sky high dreams that lies dormant in us is brought to life through Dare2Develop, your dose of inspiring tales of people who have made it big by going an extra mile. Made by IEDC TKMCE, this podcast is the perfect blend of fun and facts in each scintillating episode. Join us on this journey as we together unravel the lives of the people who always stood out from the rest.</p>
                                 </span>
                             </div>
 
@@ -188,7 +184,7 @@
             </div>
             <div class="copyright-content" style="background-color: #181918;">
                 <div class="container">
-                    <div class="copyright-text text-center">&copy; 2020 IEDC TKMCE</div>
+                    <div class="copyright-text text-center">&copy; <?php echo date("Y"); ?> IEDC TKMCE</div>
                 </div>
             </div>
         </footer>

@@ -1,5 +1,5 @@
 <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between">
-	<p class="text-muted text-center text-md-left">© 2020 <a href="https://www.iedctkmce.com/" target="_blank">IEDC TKMCE</a></p>
+	<p class="text-muted text-center text-md-left">&copy; <?php echo date("Y"); ?> <a href="https://www.iedctkmce.com/" target="_blank">IEDC TKMCE</a></p>
 	<p class="text-muted text-center text-md-left mb-0 d-none d-md-block">Made With <i class="mb-1 text-primary ml-1 icon-small" data-feather="heart"></i> in India </p>
 </footer>
 
@@ -25,8 +25,8 @@
 <script src="<?= base_url() ?>assets/dashboard/vendors/datatables.net/jquery.dataTables.js"></script>
 <script src="<?= base_url() ?>assets/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
 <script src="<?= base_url() ?>assets/dashboard/js/data-table.js"></script>
-<script src="<?= base_url() ?>assets/dashboard/js/sweet-alert.js"></script>
-<script src="<?= base_url() ?>assets/dashboard/vendors/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.min.js" integrity="sha512-CrNI25BFwyQ47q3MiZbfATg0ZoG6zuNh2ANn/WjyqvN4ShWfwPeoCOi9pjmX4DoNioMQ5gPcphKKF+oVz3UjRw==" crossorigin="anonymous"></script>
+
 <script>
 	$(function() {
 		'use strict';

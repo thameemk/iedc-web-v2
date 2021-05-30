@@ -8,6 +8,7 @@
     </nav>
 
     <section class="mt-5">
+        <?php if($this->session->userdata('user_type')=='super_admin' ||$this->session->userdata('user_type')=='admin') {?>
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -44,7 +45,7 @@
                                             <td><?= $row['position_2'] ?></td>
                                             <?php
                                                 $coverletter = $row['coverletter'];
-                                                $file = file_get_contents($coverletter); // to get file
+                                                // $file = file_get_contents($coverletter); // to get file
                                                 $name = basename($coverletter); // to get file name
                                                 $ext = pathinfo($coverletter, PATHINFO_EXTENSION); // to get extension
                                                 $name2 = pathinfo($coverletter, PATHINFO_FILENAME); //file name without extension
@@ -59,5 +60,8 @@
                 </div>
             </div>
         </div>
+        	<?php } else { ?>
+    <h5 style="color:red">You are not authorized to access this page</h5>
+    <?php } ?>
     </section>
 </div>

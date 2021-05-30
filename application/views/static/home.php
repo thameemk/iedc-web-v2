@@ -27,12 +27,12 @@
 		</div>
 		<div class="col-lg-4" data-animate="flipInX">
 			<div class="p-cb">
-				<h5 class="text-center text-bold">INNOVATE</h5>
+				<h5  class="text-center text-bold" >INNOVATE</h5>
 			</div>
 		</div>
 		<div class="col-lg-4" data-animate="flipInY">
 			<div class="p-cb">
-				<h5 class="text-center text-bold">IGNITE</h5>
+				<h5  class="text-center text-bold">IGNITE</h5>
 			</div>
 		</div>
 	</div>
@@ -62,26 +62,14 @@
 	<div class="container">
 
 		<div class="carousel arrows-visibile testimonial testimonial-single testimonial-left" data-items="1">
-			<!-- //formal -->
-			<div class="testimonial-item">
-				<div class="heading-text text-center">
-					<h3>Formal Nodal Officer's Message!</h3>
-				</div>
-				<img src="<?= base_url() ?>assets/uploads/images/nodal-officer.jpg" alt="Dr. Imthias Ahamed T.P">
-				<!-- <img src="https://tkmce.ac.in/wp-content/uploads/users/EEE02343-1416683315-thumb.jpg" alt="Dr. Imthias Ahamed T.P"> -->
-				<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
-				<span class="text-bold mt-3" style="color:black;">Dr. Imthias Ahamed T.P</span>
-				<span class="text-bold">Professor -
-					Department of Electrical and Electronics Engineering</span>
-			</div>
+			
 			<div class="testimonial-item">
 				<div class="heading-text text-center">
 					<h3>Nodal Officer's Message!</h3>
 				</div>
-				<img src="<?= base_url() ?>assets/uploads/images/sadiq-sir.jpg" alt="Dr. Imthias Ahamed T.P">
-				<!-- <img src="https://tkmce.ac.in/wp-content/uploads/users/EEE02343-1416683315-thumb.jpg" alt="Dr. Imthias Ahamed T.P"> -->
+				<img src="<?= base_url() ?>assets/uploads/images/MEEN320-1466140193-thumb.jpg" alt="Dr. Mohammed Sadhikh">
 				<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
-				<span class="text-bold mt-3" style="color:black;">Dr. A. Sadiq</span>
+				<span class="text-bold mt-3" style="color:black;">Dr. Mohammed Sadhikh</span>
 				<span class="text-bold">Professor -
 					Department of Mechanical Engineering</span>
 			</div>
@@ -90,14 +78,24 @@
 				<div class="heading-text text-center">
 					<h3>Assistant Nodal Officer's Message!</h3>
 				</div>
-				<img src="<?= base_url() ?>assets/uploads/images/shafi-sir.jpg" alt="Dr. Imthias Ahamed T.P">
-				<!-- <img src="https://tkmce.ac.in/wp-content/uploads/users/EEE02343-1416683315-thumb.jpg" alt="Dr. Imthias Ahamed T.P"> -->
+				<img src="<?= base_url() ?>assets/uploads/images/shafi-sir.jpg" alt="">
 				<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
 				<span class="text-bold mt-3" style="color:black;">Mr. Shafi M.N.</span>
 				<span class="text-bold">Professor -
 					Department of Electronics & Communication Engineering</span>
 			</div>
 			<!-- assi .nodal -->
+			<!-- //formal -->
+			<div class="testimonial-item">
+				<div class="heading-text text-center">
+					<h3>Formal Nodal Officer's Message!</h3>
+				</div>
+				<img src="<?= base_url() ?>assets/uploads/images/nodal-officer.jpg" alt="Dr. Imthias Ahamed T.P">
+				<span class="lead">Engineering students in general and TKMCE students in particular are full of passion from day one of their professional course. They are impatient to innovate, build and experiment. We teachers, want them to learn in a sequential fashion, starting from basic fundamentals of engineering to core engineering subjects and finally to build and experiment in their final year. IEDC TKMCE provides a space for impatient students to start experimenting and learn by collaborating with students faculty, alumni and experts around the world. We strive to compliment classroom learning with need-based learning while creating and experimenting new ideas. Thus, we act as a bridge connecting conventional learning and modern learning. Come join IEDC, and find joy in collaboration and networking.</span>
+				<span class="text-bold mt-3" style="color:black;">Dr. Imthias Ahamed T.P</span>
+				<span class="text-bold">Professor -
+					Department of Electrical and Electronics Engineering</span>
+			</div>
 		</div>
 
 	</div>
@@ -118,33 +116,36 @@
 				if ($i == 8) break;
 				$i++;
 			?>
-				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['uEvent'] ?>">
+				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['event_link'] ?>">
 					<div class="portfolio-item-wrap">
 						<div class="portfolio-image">
-							<img style="" src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
+							<img src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['img_link_public'] ?>" alt="<?= $row['event_title'] ?>">
 						</div>
 						<div class="portfolio-description">
 							<a href="javascript:;">
-								<h3><?= $row['uTitle'] ?></h3>
+								<h3><?= $row['event_title'] ?></h3>
 								<span>
 									<b>
-										<?php if ($row['uDate'] != NULL) { ?>
-											Date : <?= $row['uDate'] ?><br>
+										<?php if ($row['event_date'] != NULL) { ?>
+											Date : <?= $row['event_date'] ?><br>
 										<?php }
-										if ($row['uTime'] != NULL) { ?>
-											Time : <?= $row['uTime'] ?><br>
+										if ($row['event_time'] != NULL) { ?>
+											Time : <?= $row['event_time'] ?><br>
 										<?php }
-										if ($row['uVenue'] != NULL) { ?>
-											Venue : <?= $row['uVenue'] ?> <br>
+										if ($row['event_venue'] != NULL) { ?>
+											Venue : <?= $row['event_venue'] ?> <br>
 										<?php }
-										if ($row['uContact'] != NULL) { ?>
-											Contact : <?= $row['uContact'] ?><br>
+										if ($row['contact_1_num'] != NULL) { ?>
+											Contact : <?=$row['contact_1_name']?> <?= $row['contact_1_num'] ?><br>
+										<?php }
+										if ($row['contact_2_num'] != NULL) { ?>
+											Contact : <?=$row['contact_2_name']?> <?= $row['contact_2_num'] ?><br>
 										<?php } ?>
 									</b>
 								</span>
-								<?php if ($row['uRegistration'] != NULL) { ?>
-									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">View / Register</a>
-								<?php } ?>
+								
+									<a class="btn btn-red fadeInUp" href="<?=base_url()?>events/<?= $row['event_link'] ?>" style="animation-duration: 600ms;">View Event</a>
+								
 							</a>
 						</div>
 					</div>

@@ -33,7 +33,7 @@
 									<a href="https://calendar.google.com/" target="_blank"><i data-feather="calendar" class="icon-lg"></i>
 										<p>Calendar</p>
 									</a>
-									<a href="mailto:info@tkmce.ac.in"><i data-feather="mail" class="icon-lg"></i>
+									<a href="mailto:iedc@tkmce.ac.in"><i data-feather="mail" class="icon-lg"></i>
 										<p>Email</p>
 									</a>
 									<a href="https://www.instagram.com/iedc_tkmce/" target="_blank"><i data-feather="instagram" class="icon-lg"></i>
@@ -93,6 +93,12 @@
 										<a href="<?= base_url() ?>/user/dashboard/profile" class="nav-link">
 											<i data-feather="user"></i>
 											<span>Profile</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="<?= base_url() ?>/user/dashboard/myevents" class="nav-link">
+											<i data-feather="bookmark"></i>
+											<span>My Events</span>
 										</a>
 									</li>
 									<li class="nav-item">

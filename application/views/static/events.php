@@ -1,16 +1,3 @@
-<!-- <section id="page-title" >
-	<div class="container">
-		<div class="page-title">
-			<h1>Events & Programs</h1>
-		</div>
-		<div class="breadcrumb">
-			<ul>
-				<li><a href="<?= base_url() ?>">Home</a> </li>
-				<li class="active"><a href="<?= base_url() ?>events">Events & Programs</a> </li>
-			</ul>
-		</div>
-	</div>
-</section> -->
 <style>
             .banner-img-height {
                 height: 380px;
@@ -44,33 +31,34 @@
 			<?php
 			foreach (array_reverse($upcomingInfo) as $row) {
 			?>
-				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['uEvent'] ?>">
+				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['event_link'] ?>">
 					<div class="portfolio-item-wrap">
 						<div class="portfolio-image">
-							<img style="height:300px;" src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['imageLink'] ?>" alt="<?= $row['uTitle'] ?>">
+							<img src="<?= base_url() ?>assets/uploads/images/updates/<?= $row['img_link_public'] ?>" alt="<?= $row['event_title'] ?>">
 						</div>
 						<div class="portfolio-description">
 							<a href="javascript:;">
-								<h3><?= $row['uTitle'] ?></h3>
+								<h3><?= $row['event_title'] ?></h3>
 								<span>
 									<b>
-										<?php if ($row['uDate'] != NULL) { ?>
-											Date : <?= $row['uDate'] ?><br>
+										<?php if ($row['event_date'] != NULL) { ?>
+											Date : <?= $row['event_date'] ?><br>
 										<?php }
-										if ($row['uTime'] != NULL) { ?>
-											Time : <?= $row['uTime'] ?><br>
+										if ($row['event_time'] != NULL) { ?>
+											Time : <?= $row['event_time'] ?><br>
 										<?php }
-										if ($row['uVenue'] != NULL) { ?>
-											Venue : <?= $row['uVenue'] ?> <br>
+										if ($row['event_venue'] != NULL) { ?>
+											Venue : <?= $row['event_venue'] ?> <br>
 										<?php }
-										if ($row['uContact'] != NULL) { ?>
-											Contact : <?= $row['uContact'] ?><br>
+										if ($row['contact_1_num'] != NULL) { ?>
+											Contact : <?=$row['contact_1_name']?> <?= $row['contact_1_num'] ?><br>
+										<?php }
+										if ($row['contact_2_num'] != NULL) { ?>
+											Contact : <?=$row['contact_2_name']?> <?= $row['contact_2_num'] ?><br>
 										<?php } ?>
 									</b>
 								</span>
-								<?php if ($row['uRegistration'] != NULL) { ?>
-									<a class="btn btn-red fadeInUp" href="<?= $row['uRegistration'] ?>" style="animation-duration: 600ms;">View / Register</a>
-								<?php } ?>
+								<a class="btn btn-red fadeInUp" href="<?=base_url()?>events/<?= $row['event_link'] ?>" style="animation-duration: 600ms;">View Event</a>
 							</a>
 						</div>
 					</div>

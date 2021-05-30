@@ -7,6 +7,7 @@ class Contact extends CI_Controller
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper('url', 'form');
+		$this->load->model('report_model');
 	}
 
 	public function postmessage()
@@ -22,8 +23,21 @@ class Contact extends CI_Controller
 			$this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
 			redirect(base_url() . "contact");
 		} else {
-			if (!empty($this->input->post('spam_check'))) {
+            if (!empty($this->input->post('spam_check'))) {
 				die();
+				// redirect(base_url() . "contact");
+            }
+            else{
+			$this->load->model('report_model');
+			$data = $this->input->post();
+			$data = $this->security->xss_clean($data);
+			$this->form_validation->set_rules('email', 'Email', 'required');
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('subject', 'subject', 'required');
+			$this->form_validation->set_rules('message', 'Message', 'required');
+			if ($this->form_validation->run() == FALSE) {
+				$this->session->set_flashdata('fail', 'Fill all fields! ');
+				redirect(base_url() . "contact");
 			} else {
 				$this->load->model('report_model');
 				$data = $this->input->post();
@@ -61,6 +75,7 @@ class Contact extends CI_Controller
 					}
 				}
 			}
+		}
 		}
 	}
 }

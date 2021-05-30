@@ -1,16 +1,3 @@
-<!-- <section id="page-title" data-parallax-image="">
-    <div class="container">
-        <div class="page-title">
-            <h1>Web team</h1>
-        </div>
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="<?=base_url()?>">Home</a> </li>
-                <li class="active"><a href="<?=base_url()?>web-team">Web Team</a> </li>
-            </ul>
-        </div>
-    </div>
-</section> -->
 <style>
             .banner-img-height {
                 height: 380px;
@@ -32,6 +19,8 @@
         </style>
 <section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/WEB TEAM.png">
 </section>
+
+
 
 <section>
     <div class="container">
