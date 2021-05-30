@@ -290,6 +290,7 @@ class Pages extends CI_Controller
   {
     $data['page_title'] = 'Dare2Develop';
     $data['loginURL'] = $this->googleplus->loginURL();
+    $data['podcast_series'] = $this->report_model->podcast_series();
     $this->load->view('events/dare2develop', $data);
   }
 }

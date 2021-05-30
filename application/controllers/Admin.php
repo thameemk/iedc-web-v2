@@ -157,4 +157,9 @@ class Admin extends CI_Controller
   {
     $this->admin_model->add_volunteer();
   }
+
+  function add_event()
+  {
+    $this->admin_model->add_event_details();
+  }
 }

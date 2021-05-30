@@ -1,4 +1,4 @@
-<section id="page-title" >
+<!-- <section id="page-title" >
 	<div class="container">
 		<div class="page-title">
 			<h1>Contact Us</h1>
@@ -10,6 +10,27 @@
 			</ul>
 		</div>
 	</div>
+</section> -->
+<style>
+            .banner-img-height {
+                height: 380px;
+            }
+
+            @media screen and (max-width: 600px) {
+                .banner-img-height {
+                    height: 150px;
+                }
+            }
+
+            .first-letter {
+                font-size: 80px;
+            }
+
+            .custom-para {
+                line-height: 40px;
+            }
+        </style>
+<section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/CONTACT.png">
 </section>
 
 
@@ -44,6 +65,9 @@
 							<div class="form-group col-md-12">
 								<label for="subject">Your Subject</label>
 								<input type="text" name="subject" class="form-control" placeholder="Subject..." required>
+							</div>
+							<div class="form-group col-md-12">
+								<input type="text" name="spam_check" class="form-control" placeholder="" required>
 							</div>
 						</div>
 						<div class="form-group">

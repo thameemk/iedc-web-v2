@@ -40,6 +40,12 @@ class Report_model extends CI_Model
     return $query->result_array();
   }
 
+  public function podcast_series()
+  {
+    $query = $this->db->get('dare2develop');
+    return $query->result_array();
+  }
+
   public function messages($data)
   {
     $this->db->insert('contacts', $data);

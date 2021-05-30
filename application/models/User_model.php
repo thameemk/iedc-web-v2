@@ -131,6 +131,10 @@ class User_model extends CI_Model
     $data = $this->input->post();
     $data = $this->security->xss_clean($data);
     $this->form_validation->set_rules('title', 'title', 'required');
+    $this->form_validation->set_rules('innovation', 'innovation', 'required');
+    $this->form_validation->set_rules('importance', 'importance', 'required');
+    $this->form_validation->set_rules('incubated', 'incubated', 'required');
+    $this->form_validation->set_rules('prototype', 'prototype', 'required');
     $this->form_validation->set_rules('summary', 'summary', 'required');
     $this->form_validation->set_rules('faculty_recommend', 'faculty_recommend', 'required');
     if ($this->form_validation->run() == FALSE) {
@@ -141,6 +145,10 @@ class User_model extends CI_Model
         'reg_email' => $_SESSION['email'],
         'project_id' => $project_id,
         'title' => $this->input->post('title'),
+        'innovation' => $this->input->post('innovation'),
+        'importance' => $this->input->post('importance'),
+        'incubated' => $this->input->post('incubated'),
+        'prototype' => $this->input->post('prototype'),
         'summary' => $this->input->post('summary'),
         'faculty_recommend' => $this->input->post('faculty_recommend'),
       );
@@ -189,7 +197,7 @@ class User_model extends CI_Model
       return true;
     }
   }
-
+  
   function pre_incubation_reg()
   {
     $data = $this->input->post();
@@ -267,6 +275,105 @@ class User_model extends CI_Model
         $this->db->insert('pre_incubation_team_members', $data_1);
       }      
       return true;
+    }
+  }
+  
+  
+  public function get_event_details($event_id)
+  {
+      if($event_id==NULL)
+      {
+          $query = $this->db->get('events');
+          return $query->result_array();
+      }
+      else
+      {
+          $this->db->where('event_id', $event_id);
+          $query = $this->db->get('events');
+          return json_encode($query->result());
+      }
+  }
+
+  public function is_iedc_member($email)
+  {
+    $this->db->where('email', $email);
+		$query = $this->db->get('userRegister');	
+    $data = $query->result_array();
+		$user_type = $data[0]['user_type'];
+    if($user_type == 'super_admin' || $user_type == 'admin' || $user_type == 'iedc_member')
+      {
+        return true;        
+      }
+      else{
+        return false;
+      }
+  }
+
+  public function is_event_for_iedc_members($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('events');	
+    $data = $query->result_array();
+		$is_type = $data[0]['is_iedc_member'];
+    if($is_type == 1)
+    {
+      return true;      
+    }
+    else{
+      return false;
+    }
+  }
+
+  function check_duplicate_reg_events($email, $event_id)
+  {
+    $this->db->where('reg_email', $email);
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('event_registration');	
+    if ($query->num_rows() == 1)
+    {
+      return true;      
+    }
+    else
+    {
+      return false;
+    }
+  }
+  
+  function check_if_event_closed($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('events');	
+    $data = $query->result_array();
+		$is_reg_open = $data[0]['is_reg_open'];
+    if($is_reg_open == 1)
+    {
+      return true;      
+    }
+    else{
+      return false;
+    }
+  }
+   function get_total_reg($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('event_registration');
+    $rowcount = $query->num_rows();
+    return $rowcount;	
+  }
+
+  function check_is_reg_count_max($event_id)
+  {
+    $this->db->where('event_id', $event_id);
+		$query = $this->db->get('events');	
+    $data = $query->result_array();
+		$max_count = $data[0]['max_members'];
+    $total_reg = $this->get_total_reg($event_id);
+    if($max_count == $total_reg)
+    {
+      return true;      
+    }
+    else{
+      return false;
     }
   }
 }

@@ -189,4 +189,70 @@ class Admin_model extends CI_Model
       redirect('admin/dashboard/volunteer-database');
     }
   }
+
+
+
+  function add_event_details()
+  {
+    $data = $this->input->post();
+    $data = $this->security->xss_clean($data);
+    $this->form_validation->set_rules('event_title', 'Event title', 'required');
+    $this->form_validation->set_rules('event_desc', 'Event Description', 'required');
+    $this->form_validation->set_rules('img_link_public', 'Public Image Link', '');
+    $this->form_validation->set_rules('is_public', 'Is Public', 'required');
+    $this->form_validation->set_rules('image_link_reg', 'Registration Image Link', '');
+    $this->form_validation->set_rules('event_date', 'Evetn Date', '');
+    $this->form_validation->set_rules('event_time', 'Evetn time', '');
+    $this->form_validation->set_rules('event_venue', 'Event Venue', '');
+    $this->form_validation->set_rules('contact_1_name', 'Contact name 1', '');
+    $this->form_validation->set_rules('contact_1_num', 'Contact number 1', '');
+    $this->form_validation->set_rules('contact_2_name', 'Contact name 2', '');
+    $this->form_validation->set_rules('contact_2_num', 'Contact number 2', '');
+    $this->form_validation->set_rules('event_link', 'Event Link', '');
+    $this->form_validation->set_rules('event_fee', 'Event Fee', '');
+    $this->form_validation->set_rules('max_members', 'Maximum Members', '');
+    $this->form_validation->set_rules('is_iedc_member', 'Is IEDC Member', '');
+    $this->form_validation->set_rules('is_reg_open', 'Is Registration Open', '');
+    $this->form_validation->set_rules('is_certificate_published', 'Is certificate Published', '');
+    $this->form_validation->set_rules('is_file_submission', 'Is File Submission', '');
+    $this->form_validation->set_rules('is_team', 'Is Team', '');
+    $this->form_validation->set_rules('is_payment_id', 'Is Paid', '');
+    $this->form_validation->set_rules('cert_file_0', 'Cerfifcate 0', '');
+    $this->form_validation->set_rules('cert_file_1', 'Cerfifcate 1', '');
+    if ($this->form_validation->run() == FALSE) {
+      $this->session->set_flashdata('fail', 'Fill required fields');
+      redirect('admin/dashboard/add-event');
+    } else {
+      $data = array(
+        'event_title' => $this->input->post('event_title'),
+        'event_desc' => $this->input->post('event_desc'),
+        'img_link_public' => $this->input->post('img_link_public'),
+        'is_public' => $this->input->post('is_public'),
+        'image_link_reg' => $this->input->post('image_link_reg'),
+        'event_date' => $this->input->post('event_date'),
+        'event_time' => $this->input->post('event_time'),
+        'event_venue' => $this->input->post('event_venue'),
+        'contact_1_name' => $this->input->post('contact_1_name'),
+        'contact_1_num' => $this->input->post('contact_1_num'),
+        'contact_2_name' => $this->input->post('contact_2_name'),
+        'contact_2_num' => $this->input->post('contact_2_num'),
+        'event_link' => $this->input->post('event_link'),
+        'event_fee' => $this->input->post('event_fee'),
+        'max_members' => $this->input->post('max_members'),
+        'is_iedc_member' => $this->input->post('is_iedc_member'),
+        'is_reg_open' => $this->input->post('is_reg_open'),
+        'is_certificate_published' => $this->input->post('is_certificate_published'),
+        'is_file_submission' => $this->input->post('is_file_submission'),
+        'is_team' => $this->input->post('is_team'),
+        'is_payment_id' => $this->input->post('is_payment_id'),
+        'cert_file_0' => $this->input->post('cert_file_0'),
+        'cert_file_1' => $this->input->post('cert_file_1'),
+      );
+      $this->db->insert('events', $data);
+      $this->session->set_flashdata('success', 'Success!');
+      redirect('admin/dashboard/add-event');
+    }
+  }
+
+
 }

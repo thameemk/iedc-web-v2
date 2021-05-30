@@ -1,42 +1,48 @@
 <div class="body-inner">
 
 
-    <section id="page-title" data-parallax-image="polo/images/parallax/5.jpg">
-        <div class="container">
-            <div class="page-title">
-                <h1>Core team</h1>
-            </div>
-            <div class="breadcrumb">
-                <ul>
-                    <li><a href="#">Home</a> </li>
+    <style>
+        .banner-img-height {
+            height: 380px;
+        }
 
-                    <li class="active"><a href="#">Core Team</a> </li>
-                </ul>
-            </div>
-        </div>
+        @media screen and (max-width: 600px) {
+            .banner-img-height {
+                height: 150px;
+            }
+        }
+
+        .first-letter {
+            font-size: 80px;
+        }
+
+        .custom-para {
+            line-height: 40px;
+        }
+    </style>
+    <section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/CORE TEAM.png">
     </section>
-
 
     <section>
         <div class="container">
-
             <div class="heading-text heading-line text-center">
-                <h3>Core team 2020-21</h3>
+                <h3>Core Team 2020-21</h3>
             </div>
             <div class="row team-members m-b-40 ">
-                <div class="col-lg-4  ">
+                <div class="col-lg-4 ">
                     <div class="team-member">
                         <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/DARE1.jpg">
+                            <img src="<?= base_url() ?>assets/uploads/images/updates/DESIGN TEAM.jpg">
                         </div>
                         <div class="team-desc">
-                            <h3>Dare2Devolop Team</h3>
-
-
-                            <div class="align-center"></div>
+                            <h3>Design Team</h3>
+                            <div class="align-center">
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
                 <div class="col-lg-4 ">
                     <div class="team-member">
                         <div class="team-image">
@@ -52,13 +58,13 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 ">
+                <div class="col-lg-4 mx-auto">
                     <div class="team-member">
                         <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/DESIGN TEAM.jpg">
+                            <img src="<?= base_url() ?>assets/uploads/images/updates/SOCIAL1.jpg">
                         </div>
                         <div class="team-desc">
-                            <h3>Design Team</h3>
+                            <h3>Social Media Team</h3>
 
 
                             <div class="align-center">
@@ -71,19 +77,53 @@
 
 
             <div class="row team-members m-b-40">
+
+
                 <div class="col-lg-4  ">
                     <div class="team-member">
                         <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/HEADS2.jpg">
+                            <img src="<?= base_url() ?>assets/uploads/images/updates/marketing1.jpeg">
                         </div>
                         <div class="team-desc">
-                            <h3>E-Cell Heads</h3>
+                            <h3>Marketing Team</h3>
 
 
                             <div class="align-center"></div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 ">
+                    <div class="team-member">
+                        <div class="team-image">
+                            <img src="<?= base_url() ?>assets/uploads/images/updates/marketing2.jpeg">
+                        </div>
+                        <div class="team-desc">
+                            <h3>Marketing Team</h3>
+
+
+                            <div class="align-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mx-auto">
+                    <div class="team-member">
+                        <div class="team-image">
+                            <img src="<?= base_url() ?>assets/uploads/images/updates/marketing3.jpeg">
+                        </div>
+                        <div class="team-desc">
+                            <h3>Marketing Team</h3>
+
+
+                            <div class="align-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row team-members m-b-40">
+
                 <div class="col-lg-4 ">
                     <div class="team-member">
                         <div class="team-image">
@@ -98,76 +138,13 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 ">
-                    <div class="team-member">
-                        <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/IR2.jpg">
-                        </div>
-                        <div class="team-desc">
-                            <h3>IR Heads</h3>
-
-
-                            <div class="align-center">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row team-members m-b-40">
                 <div class="col-lg-4  ">
                     <div class="team-member">
                         <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/MARKETING 1 .jpg">
+                            <img src="<?= base_url() ?>assets/uploads/images/updates/DARE1.jpg">
                         </div>
                         <div class="team-desc">
-                            <h3>Marketing Team</h3>
-
-
-                            <div class="align-center"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="team-member">
-                        <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/MARKETING 2.jpg">
-                        </div>
-                        <div class="team-desc">
-                            <h3>Marketing Team</h3>
-
-
-                            <div class="align-center">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 ">
-                    <div class="team-member">
-                        <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/SOCIAL1.jpg">
-                        </div>
-                        <div class="team-desc">
-                            <h3>Social Team</h3>
-
-
-                            <div class="align-center">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row team-members m-b-40">
-                <div class="col-lg-4 offset-lg-4 ">
-                    <div class="team-member">
-                        <div class="team-image">
-                            <img src="<?= base_url() ?>assets/uploads/images/updates/WEB.jpg">
-                        </div>
-                        <div class="team-desc">
-                            <h3>Web Team</h3>
+                            <h3>Dare2Devolop Team</h3>
 
 
                             <div class="align-center"></div>
@@ -175,7 +152,6 @@
                     </div>
                 </div>
             </div>
-
 
 
     </section>

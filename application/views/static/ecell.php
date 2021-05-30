@@ -1,4 +1,4 @@
-<section id="page-title" >
+<!-- <section id="page-title" >
 	<div class="container">
 		<div class="page-title">
 			<h1>E - Cell</h1>
@@ -10,9 +10,29 @@
 			</ul>
 		</div>
 	</div>
+</section> -->
+
+<style>
+            .banner-img-height {
+                height: 380px;
+            }
+
+            @media screen and (max-width: 600px) {
+                .banner-img-height {
+                    height: 150px;
+                }
+            }
+
+            .first-letter {
+                font-size: 80px;
+            }
+
+            .custom-para {
+                line-height: 40px;
+            }
+        </style>
+<section class="banner-img-height" id="page-title" style="background-color: #181918;" data-parallax-image="<?= base_url() ?>assets/front/images/banner/e cell.png">
 </section>
-
-
 
 <section id="page-content">
 	<div class="container">
