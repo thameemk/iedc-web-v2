@@ -230,7 +230,7 @@ class Admin extends CI_Controller
 
 
     function add_event()
-  {
-    $this->admin_model->add_event_details();
-  }
+    {
+        $this->admin_model->add_event_details();
+    }
 }
