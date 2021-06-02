@@ -5,6 +5,13 @@
             <li class="breadcrumb-item"><a href="#">Admin</a></li>
             <li class="breadcrumb-item active" aria-current="page">Events Participants</li>
         </ol>
+        <section class="mt-4">
+            <form action="<?= base_url() ?>Admin/download_event_reg" method="post" ?>
+                <input type="hidden" name="event_id" value="<?= $eventDetails->event_id ?>" ?>
+                <button type="submit" class="btn btn-warning font-weight-bold">DOWNLOAD
+                    REGISTRATION DETAILS</button>
+            </form>
+        </section>
     </nav>
 
 

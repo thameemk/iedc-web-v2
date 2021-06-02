@@ -239,4 +239,22 @@ class Admin extends CI_Controller
             redirect('admin/dashboard/add-event');
         }
     }
+
+    function download_event_reg()
+    {
+        $event_id = $this->security->xss_clean($this->input->post('event_id'));
+        $this->db->select('er.id,er.reg_email,er.added_email,er.file_link,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch,er.payment_id,er.is_payment_verified,er.cert_num,er.is_attended,er.payment_verified_user')
+            ->from('userRegister as u, events_registration as er')
+            ->where('er.event_id', $event_id)
+            ->where('er.reg_email=u.email');
+        $query = $this->db->get();
+        $this->load->dbutil();
+        $this->load->helper('file');
+        $this->load->helper('download');
+        $delimiter = ",";
+        $newline = "\r\n";
+        $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
+        force_download('iedc_tkm_event_reg_' . $event_id . '.csv', $data);
+        redirect('admin/event-participants/'.$event_id);
+    }
 }
