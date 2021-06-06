@@ -3,7 +3,7 @@
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Admin</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Event</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Event - <?=$eventDetails->event_id?> - <?=$eventDetails->event_title?> </li>
         </ol>
     </nav>
 
@@ -19,11 +19,11 @@
                             <span style="line-height:3" class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
                         <?php endif; ?>
                         <div class="card-body">
-                            <h6 class="card-title">Edit EVENT</h6>
+                            <h6 class="card-title">Edit EVENT - <?=$eventDetails->event_id?> - <?=$eventDetails->event_title?></h6>
                             <form class="forms-sample" action="<?= base_url() ?>admin/edit_event" method="post">
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Event Title</label>
-                                    <input name="event_title" type="text" class="form-control" name="event_title" id="exampleInputUsername1" autocomplete="off" placeholder="Title" />
+                                    <input name="event_title" type="text" class="form-control" name="event_title" id="exampleInputUsername1" value="<?=$eventDetails->event_title?>" autocomplete="off" placeholder="Title" />
                                 </div>
 
                                 <div class="row">
@@ -37,12 +37,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Event Poster-->
-                                <div class="form-group">
-                                    <label>Event Poster</label>
-                                    <input type="file" name="userfile" class="form-control" placeholder="Upload poster" required />
-                                </div>
-
+                                
                                 <!-- Is Public-->
                                 <div class="radio-group">
                                     <label>Is this Public : </label>
