@@ -32,9 +32,26 @@ class Report_model extends CI_Model
     }
     public function podcast_series()
     {
-        $query = $this->db->get('dare2develop');
+        $this->db->select('*');
+        $this->db->order_by('id', 'desc');  
+        $this->db->from('dare2develop');
+        $this->db->limit(5);
+        $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function load_more($offset, $limit)
+    {
+        echo $limit;
+        echo 123;
+        $this->db->select('*');
+        $this->db->from('dare2develop');
+        $this->db->limit($limit, $offset);
+        $query = $this->db->get();
+        echo $query;
+        return $query->result_array();
+    }
+
     public function web_team_info()
     {
         $query = $this->db->get('web_team');
@@ -134,7 +151,7 @@ class Report_model extends CI_Model
             );
         } else {
             $status = array(
-                'cert_num'=>$cert_no,
+                'cert_num' => $cert_no,
                 'status' => false
             );
         }

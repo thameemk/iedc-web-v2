@@ -9,6 +9,9 @@
 <script src="<?= base_url() ?>assets/dashboard/vendors/core/core.js"></script>
 <script src="<?= base_url() ?>assets/dashboard/vendors/jquery-steps/jquery.steps.min.js"></script>
 
+<script src="<?= base_url() ?>assets/dashboard/vendors/simplemde/simplemde.min.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/js/simplemde.js"></script>
+
 
 <script src="<?= base_url() ?>assets/dashboard/vendors/chartjs/Chart.min.js"></script>
 <script src="<?= base_url() ?>assets/dashboard/vendors/jquery.flot/jquery.flot.js"></script>

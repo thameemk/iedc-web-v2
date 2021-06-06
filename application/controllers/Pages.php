@@ -319,6 +319,17 @@ class Pages extends CI_Controller
         $this->load->view('events/dare2develop', $data);
     }
 
+    function loadmore(){
+        echo 123;
+        $limit = $this->input->get('limit');
+        $offset = $this->input->get('offset');
+        $result  = $this->report_model->load_more($offset,$limit);
+        $data['view'] = $result;
+        $data['offset'] =$offset +10;
+        $data['limit'] =$limit;
+        echo json_encode($data);
+      }
+
     function forbidden()
     {
         $data['login_url'] = $this->googleplus->loginURL();

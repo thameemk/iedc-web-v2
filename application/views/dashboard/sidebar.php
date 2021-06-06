@@ -15,8 +15,9 @@
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/fonts/feather-font/css/iconfont.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/css/demo_1/style.css">
 		<link rel="shortcut icon" href="<?= base_url() ?>assets/front/images/icon.png">
+		<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/simplemde/simplemde.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.min.css" integrity="sha512-/D4S05MnQx/q7V0+15CCVZIeJcV+Z+ejL1ZgkAcXE1KZxTE4cYDvu+Fz+cQO9GopKrDzMNNgGK+dbuqza54jgw==" crossorigin="anonymous" />
-		
+
 </head>
 
 <body>
@@ -204,7 +205,7 @@
 								</svg>
 								<span class="link-title">Edit maker library</span>
 							</a>
-						</li>						
+						</li>
 						<li class="nav-item">
 							<a href="<?= base_url() ?>admin/dashboard/server-access" class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square link-icon">

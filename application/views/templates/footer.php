@@ -77,10 +77,16 @@
 		}
 	});
 </script>
-
+<script src="<?= base_url() ?>assets/dashboard/vendors/core/core.js"></script>
 <script src="<?= base_url() ?>assets/front/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/vendors/simplemde/simplemde.min.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/js/template.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/js/simplemde.js"></script>
 <script src="<?= base_url() ?>assets/front/js/plugins.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/js/file-upload.js"></script>
 <script src="<?= base_url() ?>assets/front/js/functions.js"></script>
+<script src="<?= base_url() ?>assets/dashboard/vendors/feather-icons/feather.min.js"></script>
+
 
 </body>
 

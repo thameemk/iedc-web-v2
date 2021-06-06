@@ -25,6 +25,15 @@
 	<link href="<?= base_url() ?>assets/front/css/plugins.css" rel="stylesheet">
 	<link href="<?= base_url() ?>assets/front/css/style.css" rel="stylesheet">
 	<link href="<?= base_url() ?>assets/front/css/responsive.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/core/core.css" />
+	<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/simplemde/simplemde.min.css" />
+	<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/fonts/feather-font/css/iconfont.css" />
+	<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/css/demo_1/style.css" />
+	<link rel="stylesheet" href="<?= base_url() ?>assets/dashboard/vendors/core/core.css" />
+
+	
+	
+	
 	<style>
 		.g-recaptcha {
 			margin: 0 0 25px 0;
@@ -68,11 +77,11 @@
 										<ul class="dropdown-menu">
 											<li> <a href="<?= base_url() ?>excom">Excom
 												</a> </li>
-												<li> <a href="<?= base_url() ?>core-team">Core team
+											<li> <a href="<?= base_url() ?>core-team">Core team
 												</a> </li>
 											<li> <a href="<?= base_url() ?>web-team">Web Team</a>
 											</li>
-										
+
 										</ul>
 									</li>
 									<li> <a href="<?= base_url() ?>events">Events</a></li>
