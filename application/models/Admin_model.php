@@ -443,6 +443,7 @@ class Admin_model extends CI_Model
         $this->form_validation->set_rules('is_file_submission', 'Is File Submission', '');
         $this->form_validation->set_rules('is_team', 'Is Team', '');
         $this->form_validation->set_rules('is_payment_id', 'Is Paid', '');
+        $this->form_validation->set_rules('need_registration', 'need_registration', '');
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('fail', 'Fill required fields');
             redirect('admin/dashboard/add-event');
@@ -466,6 +467,7 @@ class Admin_model extends CI_Model
                 'max_members' => $this->input->post('max_members'),
                 'is_iedc_member' => $this->input->post('is_iedc_member'),
                 'is_reg_open' => $this->input->post('is_reg_open'),
+                'need_registration' => $this->input->post('is_reg_open'),
                 'is_file_submission' => $this->input->post('is_file_submission'),
                 'is_team' => $this->input->post('is_team'),
                 'is_payment_id' => $this->input->post('is_payment_id'),

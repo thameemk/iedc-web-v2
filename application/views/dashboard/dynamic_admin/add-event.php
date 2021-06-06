@@ -144,6 +144,25 @@
                                     </div>
                                 </div>
 
+                                 <!-- Is Registration Open-->
+                                 <div class="radio-group">
+                                    <label>Is the event need registration
+                                    </label>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="need_registration" id="optionsRadios3" value="1" />
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="need_registration" id="optionsRadios4" value="0" />
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+
+
                                 <!-- Is Registration Open-->
                                 <div class="radio-group">
                                     <label>Enable registration now :
@@ -214,7 +233,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                <button type="reset" class="btn btn-light">Cancel</button>
+                                <button type="reset" class="btn btn-warning">Reset</button>
                             </form>
                         </div>
                     </div>
