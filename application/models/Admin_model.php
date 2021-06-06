@@ -448,11 +448,12 @@ class Admin_model extends CI_Model
             redirect('admin/dashboard/add-event');
         } else {
             $data = array(
+                'updated_user' => $this->session->email,
                 'img_link_public' => $file_name,
                 'event_title' => $this->input->post('event_title'),
-                'event_desc' => $this->input->post('event_desc'),
+                'event_disc' => $this->input->post('event_desc'),
                 'is_public' => $this->input->post('is_public'),
-                'image_link_reg' => $this->input->post('image_link_reg'),
+                'img_link_reg' => $this->input->post('image_link_reg'),
                 'event_date' => $this->input->post('event_date'),
                 'event_time' => $this->input->post('event_time'),
                 'event_venue' => $this->input->post('event_venue'),

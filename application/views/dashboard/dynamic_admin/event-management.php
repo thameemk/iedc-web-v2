@@ -16,7 +16,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h6 class="card-title">Event Management<button class="float-right  btn btn-danger font-weight-primary" disabled>ADD EVENT</button></h6>                       
+                    <h6 class="card-title">Event Management<a href="<?=base_url()?>admin/dashboard/add-event" class="float-right  btn btn-danger font-weight-primary" disabled>ADD EVENT</a></h6>                       
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>

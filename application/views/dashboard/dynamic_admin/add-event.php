@@ -10,7 +10,7 @@
     <section class="mt-5">
         <?php if ($this->session->userdata('user_type') == 'super_admin' || $this->session->userdata('user_type') == 'admin') { ?>
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <?php if ($this->session->flashdata('fail')) : ?>
                             <span style="line-height:3" class="badge badge-danger"><?php echo $this->session->flashdata('fail'); ?></span>
@@ -41,7 +41,7 @@
                                 <!-- Event Poster-->
                                 <div class="form-group">
                                     <label>Event Poster</label>
-                                    <input type="file" name="file_name" class="form-control" placeholder="Upload poster" required />
+                                    <input type="file" name="userfile" class="form-control" placeholder="Upload poster" required />
                                 </div>
 
                                 <!-- Is Public-->
