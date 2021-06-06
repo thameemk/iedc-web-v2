@@ -8,6 +8,7 @@ $route['events/(:any)'] = 'pages/view_event/$1';
 $route['admin/dashboard/(.+)'] = 'admin/dynamic_admin/$1';
 $route['admin/event-participants/(.+)'] = 'admin/event_participants/$1';
 $route['admin/upload-certificate/(.+)'] = 'admin/upload_certificate/$1';
+$route['admin/edit-event/(.+)'] = 'admin/edit_event/$1';
 $route['user/dashboard/(.+)'] = 'user/dynamic_user/$1';
 $route['forbidden'] = 'pages/forbidden';
 $route['(:any)'] = 'pages/view/$1';
