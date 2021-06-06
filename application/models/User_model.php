@@ -309,7 +309,7 @@ class User_model extends CI_Model
         }
     }
 
-    function check_duplicate_reg_events($email, $event_id)
+    function event_reg_duplicate_email($email, $event_id)
     {
         $this->db->where('reg_email', $email);
         $this->db->where('event_id', $event_id);
@@ -318,6 +318,41 @@ class User_model extends CI_Model
             return true;
         } else {
             return false;
+        }
+    }
+
+    function event_reg_duplicate_phone($email, $event_id)
+    {
+        $query = $this->db->query('select phone from userRegister where email="' . $email . '"');
+        $phone = $query->row()->phone;
+        if ($phone == null) {
+            return false;
+        } else {
+            $query_1 = $this->db->query('select email from userRegister where phone="' . $phone . '" and email!="' . $email . '"');
+            if ($query_1->num_rows() >= 1) {
+                $email_2  = $phone = $query_1->row()->email;
+                $this->db->where('reg_email', $email_2);
+                $this->db->where('event_id', $event_id);
+                $query_3 = $this->db->get('events_registration');
+                if ($query_3->num_rows() == 1) {
+                    return true;
+                } else {
+                    return false;                    
+                }
+            } else {
+                return false;
+            }
+        }
+    }
+
+    function check_duplicate_reg_events($email, $event_id)
+    {
+        $status_1 = $this->event_reg_duplicate_email($email, $event_id);
+        $status_2 = $this->event_reg_duplicate_phone($email, $event_id);
+        if ($status_1 == false && $status_2 == false) {
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -422,10 +457,9 @@ class User_model extends CI_Model
             if ($team_status == 1) {
                 $this->db->insert('events_registration', $temp);
                 foreach ($teamMembers[0] as $member) {
-                    if($this->is_available($member)==false)
-                    {
+                    if ($this->is_available($member) == false) {
                         $user_data = array(
-                            'email'=>$member,                            
+                            'email' => $member,
                         );
                         $this->db->insert('userRegister', $user_data);
                     }
@@ -452,11 +486,10 @@ class User_model extends CI_Model
     {
         $this->db->select('e.*,u.fullname,u.college,er.is_attended,er.cert_num')
             ->from('userRegister as u')
-            ->where('u.email',$email)
-            ->join('events_registration as er', 'er.reg_email= "'.$email.'"')
-            ->join('events as e', 'e.event_id = "'.$event_id.'"');            
+            ->where('u.email', $email)
+            ->join('events_registration as er', 'er.reg_email= "' . $email . '"')
+            ->join('events as e', 'e.event_id = "' . $event_id . '"');
         $query = $this->db->get();
         return $query->row();
     }
-
 }

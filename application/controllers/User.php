@@ -182,7 +182,7 @@ class User extends CI_Controller
                     }
                 } else {
 
-                    $this->session->set_flashdata('fail', 'You are already registred for this event!!');
+                    $this->session->set_flashdata('fail', 'You are already registred for this event!! (Email/Phone already registred for this event)');
                     redirect($this->session->userdata('last_page'));
                 }
             } else {
