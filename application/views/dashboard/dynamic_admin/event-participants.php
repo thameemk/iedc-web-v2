@@ -11,6 +11,9 @@
                 <button type="submit" class="btn btn-warning font-weight-bold">DOWNLOAD
                     REGISTRATION DETAILS</button>
             </form>
+            <?php if ($eventDetails->is_team == 1) { ?>
+                <br>Total Teams: <?php print_r($this->admin_model->get_total_team_registred($eventDetails->event_id)); ?>
+            <?php } ?>
         </section>
     </nav>
 

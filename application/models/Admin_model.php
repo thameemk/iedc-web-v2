@@ -477,4 +477,14 @@ class Admin_model extends CI_Model
             redirect('admin/dashboard/add-event');
         }
     }
+
+    function get_total_team_registred($event_id)
+    {
+        $this->db->select('count(*) as total')
+        ->from('events_registration as er')
+        ->where('er.event_id', $event_id)
+        ->group_by('er.added_email');         
+        $q = $this->db->get(); 
+        return $q->num_rows();
+    }
 }
