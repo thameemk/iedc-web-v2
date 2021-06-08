@@ -91,10 +91,14 @@ class Certificate extends CI_Controller
         // QRCODE,H : QR-CODE Best error correction
         $pdf->write2DBarcode('https://www.iedctkmce.com/pages/verify/' . $records->cert_num, 'QRCODE,H', $records->cert_file_1_qr_x, $records->cert_file_1_qr_y, $records->cert_qr_size, $records->cert_qr_size, $style, 'N');
 
+        $font1 = TCPDF_FONTS::addTTFfont('assets/uploads/cert/font/metropolis.bold.ttf', '', '', 32);
+        $pdf->AddFont($font1, '', 14, '', false);
+        $font2 = TCPDF_FONTS::addTTFfont('assets/uploads/cert/font/metropolis.regular.ttf', '', '', 32);
+        $pdf->AddFont($font2, '', 14, '', false);
 
-        $fullname = '<font style="font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
-        $htmlcollege = '<font style="font-size:' . $records->cert_college_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '">' . $records->college . '</font>';
-        $certno = '<font style="font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
+        $fullname = '<font style="font-family:metropolisb;font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
+        $htmlcollege = '<font style="font-family:metropolis;font-size:' . $records->cert_college_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '">' . $records->college . '</font>';
+        $certno = '<font style="font-family:metropolis;font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
         $position = "";
         switch ($records->is_attended) {
             case "101":
@@ -106,7 +110,7 @@ class Certificate extends CI_Controller
             default:
                 return;
         }
-        $poshtml = '<font style="font-size:' . $records->cert_merit_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $position . '</b></font>';
+        $poshtml = '<font style="font-family:metropolisb;font-size:' . $records->cert_merit_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $position . '</b></font>';
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_name_x, $records->cert_file_1_name_y, $fullname, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_college_x, $records->cert_file_1_college_y, $htmlcollege, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_1_merit_x, $records->cert_file_1_merit_y, $poshtml, 0, 1, 0, true, '', true);
@@ -170,9 +174,15 @@ class Certificate extends CI_Controller
         $pdf->write2DBarcode('https://www.iedctkmce.com/pages/verify/' . $records->cert_num, 'QRCODE,H', $records->cert_file_0_qr_x, $records->cert_file_0_qr_y, $records->cert_qr_size, $records->cert_qr_size, $style, 'N');
 
 
-        $fullname = '<font style="font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
-        $htmlcollege = '<font style="font-size:' . $records->cert_college_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '">' . $records->college . '</font>';
-        $certno = '<font style="font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
+        $font1 = TCPDF_FONTS::addTTFfont('assets/uploads/cert/font/metropolis.bold.ttf', '', '', 32);
+        $pdf->AddFont($font1, '', 14, '', false);
+        $font2 = TCPDF_FONTS::addTTFfont('assets/uploads/cert/font/metropolis.regular.ttf', '', '', 32);
+        $pdf->AddFont($font2, '', 14, '', false);
+    
+
+        $fullname = '<font style="font-family:metropolisb;font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
+        $htmlcollege = '<font style="font-family:metropolis;font-size:' . $records->cert_college_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '">' . $records->college . '</font>';
+        $certno = '<font style="font-family:metropolis;font-size:' . $records->cert_no_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>No: ' . $records->cert_num . '</b></font>';
         $pdf->writeHTMLCell(380, 10, $records->cert_file_0_name_x, $records->cert_file_0_name_y, $fullname, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(380, 10, $records->cert_file_0_college_x, $records->cert_file_0_college_y, $htmlcollege, 0, 1, 0, true, '', true);
         $pdf->writeHTMLCell(300, 10, $records->cert_file_0_no_x, $records->cert_file_0_no_y, $certno, 0, 1, 0, true, '', true);
