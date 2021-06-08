@@ -135,7 +135,7 @@ class Certificate extends CI_Controller
         $pdf = new ZNW_PDFAA(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 
-        $pdf->certFile = $records->cert_file_1;
+        $pdf->certFile = $records->cert_file_0;
 
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
