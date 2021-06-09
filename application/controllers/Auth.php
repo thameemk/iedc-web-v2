@@ -29,6 +29,8 @@ class Auth extends CI_Controller
 			'user_type' => $user_type
 		);
 		$this->session->set_userdata($session_data);
+		$this->load->model('logs');
+		$this->logs->auth($session_data);
 		redirect(base_url().'user/complete');		
 	}
 
