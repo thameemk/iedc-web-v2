@@ -32,4 +32,17 @@ class Logs extends CI_Model
         $data['user_ip'] = $this->get_client_ip();
         $this->db->insert('logs_auth', $data);
     }
+
+    function certificate($event_id, $email)
+    {
+        $event_id = $this->security->xss_clean($event_id);
+        $email = $this->security->xss_clean($email);
+
+        $log = array(
+            'email' => $email,
+            'event_id' => $event_id,
+            'user_ip' => $this->get_client_ip()
+        );
+        $this->db->insert('logs_cert', $log);
+    }
 }

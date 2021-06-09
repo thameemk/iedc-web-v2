@@ -54,6 +54,9 @@ class Certificate extends CI_Controller
             return;
         }
 
+        $this->load->model('logs');
+        $this->logs->certificate($records->event_id, $_SESSION['email']);
+
         $pdf = new ZNW_PDFAA(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         $pdf->certFile = $records->cert_file_1;
@@ -136,6 +139,9 @@ class Certificate extends CI_Controller
             return;
         }
 
+        $this->load->model('logs');
+        $this->logs->certificate($records->event_id, $_SESSION['email']);
+
         $pdf = new ZNW_PDFAA(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 
@@ -178,7 +184,7 @@ class Certificate extends CI_Controller
         $pdf->AddFont($font1, '', 14, '', false);
         $font2 = TCPDF_FONTS::addTTFfont('assets/uploads/cert/font/metropolis.regular.ttf', '', '', 32);
         $pdf->AddFont($font2, '', 14, '', false);
-    
+
 
         $fullname = '<font style="font-family:metropolisb;font-size:' . $records->cert_name_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '"><b>' . $records->fullname . '</b></font>';
         $htmlcollege = '<font style="font-family:metropolis;font-size:' . $records->cert_college_font_size . '; text-transform: uppercase;color:' . $records->cert_font_color . '">' . $records->college . '</font>';
