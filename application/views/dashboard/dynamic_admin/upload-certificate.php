@@ -10,7 +10,9 @@
         <h4>Event Details</h4>
         Event Id: <?= $eventDetails->event_id ?><br>
         Title: <?= $eventDetails->event_title ?><br>
-        Certificate Issued: <?php if ($eventDetails->is_cert_published == 1) { ?> Yes <?php } else { ?> No <?php } ?>
+        Certificate Issued: <?php if ($eventDetails->is_cert_published == 1) { ?> Yes <?php } else { ?> No <?php } ?><br>
+        Uploaded Template (PARTICIPATION/VOLUNTEERING) : <a href="<?= base_url() ?>assets/uploads/cert/<?= $eventDetails->cert_file_0 ?>" target="_blank"><?= $eventDetails->cert_file_0 ?></a><br>
+        Uploaded Template (MERIT) : <a href="<?= base_url() ?>assets/uploads/cert/<?= $eventDetails->cert_file_1 ?>" target="_blank"><?= $eventDetails->cert_file_1 ?></a>
     </section>
     <?php if ($eventDetails->is_cert_published == 0) { ?>
         <?php if ($this->session->userdata('user_type') == 'super_admin') { ?>
