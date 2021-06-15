@@ -485,10 +485,11 @@ class User_model extends CI_Model
     function get_event_reg_data($event_id, $email)
     {
         $this->db->select('e.*,u.fullname,u.college,er.is_attended,er.cert_num')
-            ->from('userRegister as u')
+            ->from('userRegister as u,events_registration as er,events as e')
             ->where('u.email', $email)
-            ->join('events_registration as er', 'er.reg_email= "' . $email . '"')
-            ->join('events as e', 'e.event_id = "' . $event_id . '"');
+            ->where('er.reg_email',$email)
+            ->where('er.event_id',$event_id)
+            ->where('e.event_id',$event_id);
         $query = $this->db->get();
         return $query->row();
     }
