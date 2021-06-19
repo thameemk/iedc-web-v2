@@ -2538,7 +2538,7 @@ var INSPIRO = {},
           element: $element,
           type: $type || "warning",
           delay: $delay || 10000,
-          template: '<div data-notify="container" ' + $backgroundImageContainer + ' class="bootstrap-notify ' + $elementContainer + ' alert alert-{0}" role="alert">' + '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">Ã—</button>' + '<span data-notify="icon"></span> ' + '<span data-notify="title">{1}</span> ' + '<span data-notify="message">{2}</span>' + "</div>",
+          template: '<div data-notify="container" ' + $backgroundImageContainer + ' class="bootstrap-notify ' + $elementContainer + ' alert alert-{0}" role="alert">' + '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' + '<span data-notify="icon"></span> ' + '<span data-notify="title">{1}</span> ' + '<span data-notify="message">{2}</span>' + "</div>",
           mouse_over: true,
           allow_dismiss: true,
           placement: {

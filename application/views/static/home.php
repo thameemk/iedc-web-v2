@@ -158,7 +158,7 @@
 <section>
 	<div class="container">
 		<div class="heading-text heading-section text-center">
-			<h2>SERVICES</h2>
+			<h2>What We do</h2>
 			<p>Find your right tools</p>
 		</div>
 		<div class="row">
@@ -204,8 +204,8 @@
 					<p>Submit your model for evaluation from our expert mentor pool.</p>
 				</div>
 			</div>
-
 		</div>
+		<h5>And many more services that may help you to boost your startups, projects, researches etc.</h5>
 	</div>
 </section>
 <section>

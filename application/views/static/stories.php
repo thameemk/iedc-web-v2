@@ -44,6 +44,12 @@
                     <h4 class="widget-title">Recent Tweets</h4>
                 </div>
                 <!-- end: Twitter widget-->
+                <!-- Instagram widget -->
+                <div class="widget widget-instagram" data-token="EAAOI7UqodgwBAPrN8ZCokByd42BE3DBTACUZBsVFeKNYRnkDSdcqCCFtK4p6TJO8X78OFudWuSO7PcIeIGaa0CEt2FjgHdUdZAuemuACZCOxZB3e7Ob5PjsFD8xn5kmvZB4uykve86kfzl17tnuBnvIYT7xz8yujUTCo3BhyCxFaAQ06zk6b9sLcqpleGWgc8EXWXcR6snOrf2ziE7L2jm"
+                    data-limit="12" data-col="3">
+                    <h4 class="widget-title">Instagram Feeds</h4>
+                </div>
+                <!-- end: Instagram widget-->
             </div>
 
 
