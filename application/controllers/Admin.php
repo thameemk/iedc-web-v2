@@ -33,6 +33,7 @@ class Admin extends CI_Controller
         if (!file_exists(APPPATH . 'views/dashboard/dynamic_admin/' . $admin . '.php')) {
             show_404();
         }
+        $data['allstories'] = $this->admin_model->get_all_stories();
         $data['allevents'] = $this->admin_model->get_all_events();
         $data['schedule_meeting']  =  $this->admin_model->get_schedule_meeting_requests();
         $data['pre_incubation'] =  $this->admin_model->get_pre_incubation_requests();
@@ -270,5 +271,16 @@ class Admin extends CI_Controller
         $this->load->view('dashboard/header', $data);
         $this->load->view('dashboard/dynamic_admin/edit-event', $data);
         $this->load->view('dashboard/footer', $data);
+    }
+
+    function add_stories()
+    {
+        $status = $this->upload_file->do_upload('assets/uploads/images/stories/', $_FILES["userfile"]['name'], 'png');
+        if ($status['status'] == true) {
+            $this->admin_model->add_story_details($status['file_name']);
+        } else {
+            $this->session->set_flashdata('fail', $status['message']['error']);
+            redirect('admin/dashboard/manage-stories');
+        }
     }
 }

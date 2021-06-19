@@ -487,4 +487,29 @@ class Admin_model extends CI_Model
         $q = $this->db->get(); 
         return $q->num_rows();
     }
+
+    function add_story_details($file_name)
+    {
+        $data = $this->input->post();
+        $data = $this->security->xss_clean($data);
+        $this->form_validation->set_rules('title', 'title', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('fail', 'Fill required fields');            
+        } else {
+            $data = array(
+                'updated_user' => $this->session->email,
+                'img' => $file_name,
+                'title' => $this->input->post('title')
+            );
+            $this->db->insert('stories', $data);
+            $this->session->set_flashdata('success', 'Success!');
+        }
+        redirect('admin/dashboard/manage-stories');
+    }
+
+    function get_all_stories()
+    {
+        $query = $this->db->get('stories');
+        return $query->result_array();
+    }
 }
