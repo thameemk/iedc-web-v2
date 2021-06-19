@@ -24,18 +24,27 @@
                 <!-- Gallery -->
                 <div class="grid-layout grid-3-columns" data-margin="20" data-item="grid-item" data-lightbox="gallery">
 
-                    <?php foreach($getStories as $row) { ?>
+                    <?php foreach(array_reverse($getStories) as $row) { ?>
                     <div class="grid-item">
                         <a class="image-hover-zoom" href="<?=base_url()?>assets/uploads/images/stories/<?=$row['img']?>"
                             data-lightbox="gallery-image"><img
                                 src="<?=base_url()?>assets/uploads/images/stories/<?=$row['img']?>"
                                 alt="<?=$row['img']?>"></a>
+                        <h4 align="center"><strong><?=$row['title']?></strong></h4>
                     </div>
                     <?php } ?>
                 </div>
                 <!-- end gallery -->
             </div>
             <!-- end stories -->
+            <!-- Sidebar-->
+            <div class="sidebar col-lg-3">
+                <!-- Twitter widget -->
+                <div class="widget widget-tweeter" data-username="iedctkmce" data-limit="3">
+                    <h4 class="widget-title">Recent Tweets</h4>
+                </div>
+                <!-- end: Twitter widget-->
+            </div>
 
 
         </div>
