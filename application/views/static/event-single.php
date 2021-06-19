@@ -40,10 +40,10 @@
             <br>
             <b>Venue :</b> <?= $eventDetails->event_venue ?>
             <br>
-            <b>Contact 1 : </b> <a href="tel:<?= $eventDetails->contact_1_num ?>"><?= $eventDetails->contact_1_name ?> :
+            <b>Contact 1 : </b> <a href="tel:<?= $eventDetails->contact_1_num ?>"><?= $eventDetails->contact_1_name ?> 
                 <?= $eventDetails->contact_1_num ?></a>
             <br>
-            <b>Contact 2 : </b><a href="tel:<?= $eventDetails->contact_2_num ?>"><?= $eventDetails->contact_2_name ?> :
+            <b>Contact 2 : </b><a href="tel:<?= $eventDetails->contact_2_num ?>"><?= $eventDetails->contact_2_name ?> 
                 <?= $eventDetails->contact_2_num ?></a>
         </p>
     </div>
@@ -82,7 +82,7 @@
                         <?php } ?>
                         <?php if ($eventDetails->is_payment_id == 1) { ?>
                             <div class="form-group">
-                                <label for="payment_id">Enter payment id (If you are a valid user for 'FREE' registration please type 'NA' )</label>
+                                <label for="payment_id">Enter payment id (If you are a 'ELGIBLE' user for 'FREE' registration please type 'NA' )</label>
                                 <input type="text" class="form-control" name="payment_id" id="payment_id" placeholder="Payment ID" required>
                             </div>
                         <?php } ?>

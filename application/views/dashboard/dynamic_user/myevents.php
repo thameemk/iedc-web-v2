@@ -17,6 +17,7 @@
                 <span style="line-height:3;width:100%;" class="badge badge-success"><?php echo $this->session->flashdata('success'); ?></span>
             <?php endif; ?>
         </div>
+        <!--<h3>under maintenance</h3>-->
         <div class="row stretch-card">
             <?php foreach (array_reverse($myevents) as $row) { ?>
 

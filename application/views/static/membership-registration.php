@@ -70,12 +70,14 @@
 						<br>
 						Pay the registration fee using the UPI or account details given below.
 						<br>
-						<pre>
-                        Chief Finance Officer - IEDC TKMCE                        
-                        UPI: nidhinbm.bm@oksbi
-                        Account Name: Nidhin B M
-                        Account Number: 39592169906
-                        IFSC: SBIN0070322
+						<center>
+                        <span></span>Chief Finance Officer - IEDC TKMCE<br>                        
+                        UPI: nidhinbm.bm@oksbi<br>
+                        Account Name: Nidhin B M<br>
+                        Account Number: 39592169906<br>
+                        IFSC: SBIN0070322<br>
+                        </span>
+                        </center>
                         </pre>
 					</h5>
 					<br>
@@ -116,6 +118,9 @@
 						<label class="required" for="Year of study">Year of Study</label>
 						<select name="year" class="form-control" required>
 							<option value="first-year">First Year</option>
+								<option value="second-year">Second Year</option>
+									<option value="third-year">Third Year</option>
+										<option value="fourth-year">Fourth Year</option>
 						</select>
 					</div>
 					<div class="form-group  col-md-6">
@@ -149,7 +154,7 @@
                     <span style="color:#0C4489">After the verification of your payment and data, you can access the portal.
                     <br>
                     We will inform you the procedures through Official WhatsApp group or by email</span>      <br><br>
-				<button class="btn" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;Register</button>
+				<button class="btn btn-danger" type="submit" disabled><i class="fa fa-paper-plane"></i>&nbsp;Registrtion Closed</button>
 			</form>
 		</div>
 	</div>

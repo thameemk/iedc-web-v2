@@ -28,6 +28,7 @@
                                         <th class="pt-0">Position 1</th>
                                         <th class="pt-0">Position 2</th>
                                         <th class="pt-0">Cover Letter Link</th>
+                                        <th class="pt-0">ExcomYear</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,6 +52,7 @@
                                                 $name2 = pathinfo($coverletter, PATHINFO_FILENAME); //file name without extension
                                             ?>
                                             <td><a href="<?=$row['coverletter']?>" target="_blank"><?php echo $name2.".".$ext; ?></a></td>
+                                            <td><?=$row['excomYear']?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

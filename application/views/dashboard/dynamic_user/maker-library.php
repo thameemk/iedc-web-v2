@@ -88,10 +88,10 @@
 <script>
     $(function() {
 
-        $(".newrequest").click(function() {           
+        $(".newrequest").click(function() {
             var comp_id = $(this).attr("id");
             if (confirm("Sure you want to book this?.")) {
-                $(".newrequest").attr("disabled", true);
+                 $(".newrequest").attr("disabled", true);
                 $.ajax({
                     type: "post",
                     url: "<?= base_url() ?>member/maker_request/" + comp_id,

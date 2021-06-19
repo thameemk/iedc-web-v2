@@ -27,7 +27,31 @@
                             <label for="title_">Title :</label>
                             <input type="text" class="form-control" name="title" required>
                         </div>
+                         <div class="form-group">
 
+                            <label for="innovation">Innovation in the project :</label>
+                            <textarea rows="2" type="text" class="form-control" name="innovation" style="display: inline;" required></textarea>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="importance">Importance of the project :</label>
+                            <textarea rows="2" type="text" class="form-control" name="importance" style="display: inline;" required></textarea>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="incubated">Can a startup be incubated from this project :</label>
+                            <textarea rows="2" type="text" class="form-control" name="incubated" style="display: inline;" required></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="prototype">Prototype developed? :</label>
+                            <select name="prototype" class="form-control" required>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
                         <div class="form-group">
 
                             <label for="summary">Abstract/Summary :</label>
@@ -136,7 +160,8 @@
                             <input type="text" class="form-control" name="faculty_recommend" required>
                         </div>
                         <div class="row">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                            <button type="submit" class="btn btn-danger" disabled>Application Closed</button>
                         </div>
                     </form>
                 </div>

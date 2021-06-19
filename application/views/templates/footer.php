@@ -20,6 +20,7 @@
 									<li><a href="<?= base_url() ?>#about">About us</a></li>
 									<li><a href="<?= base_url() ?>#mission">Mission</a></li>
 									<li><a href="<?= base_url() ?>#vision">Vision</a></li>
+									<li> <a href="<?= base_url() ?>ecell">Startups</a> </li>
 									<li><a href="<?= base_url() ?>events">Events</a></li>
 									<?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
 										<li> <a href="<?php echo $loginURL ?>">Login</a></li>
@@ -77,16 +78,10 @@
 		}
 	});
 </script>
-<script src="<?= base_url() ?>assets/dashboard/vendors/core/core.js"></script>
-<script src="<?= base_url() ?>assets/front/js/jquery.js"></script>
-<script src="<?= base_url() ?>assets/dashboard/vendors/simplemde/simplemde.min.js"></script>
-<script src="<?= base_url() ?>assets/dashboard/js/template.js"></script>
-<script src="<?= base_url() ?>assets/dashboard/js/simplemde.js"></script>
-<script src="<?= base_url() ?>assets/front/js/plugins.js"></script>
-<script src="<?= base_url() ?>assets/dashboard/js/file-upload.js"></script>
-<script src="<?= base_url() ?>assets/front/js/functions.js"></script>
-<script src="<?= base_url() ?>assets/dashboard/vendors/feather-icons/feather.min.js"></script>
 
+<script src="<?= base_url() ?>assets/front/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/front/js/plugins.js"></script>
+<script src="<?= base_url() ?>assets/front/js/functions.js"></script>
 
 </body>
 

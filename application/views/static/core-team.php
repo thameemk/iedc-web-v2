@@ -25,10 +25,7 @@
 
     <section>
         <div class="container">
-<<<<<<< HEAD
-=======
 
->>>>>>> 112124dbbdea74c2d82acb00d0cb1b483f953027
             <div class="heading-text heading-line text-center">
                 <h3>Core Team 2020-21</h3>
             </div>
@@ -130,11 +127,7 @@
 
             <div class="row team-members m-b-40">
 
-<<<<<<< HEAD
-                <div class="col-lg-4 ">
-=======
                 <div class="col-lg-4  mx-auto">
->>>>>>> 112124dbbdea74c2d82acb00d0cb1b483f953027
                     <div class="team-member">
                         <div class="team-image">
                             <img src="<?= base_url() ?>assets/uploads/images/updates/ECELL3.jpg">
@@ -148,21 +141,13 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="col-lg-4  ">
-=======
                 <div class="col-lg-4   mx-auto">
->>>>>>> 112124dbbdea74c2d82acb00d0cb1b483f953027
                     <div class="team-member">
                         <div class="team-image">
                             <img src="<?= base_url() ?>assets/uploads/images/updates/DARE1.jpg">
                         </div>
                         <div class="team-desc">
-<<<<<<< HEAD
-                            <h3>Dare2Devolop Team</h3>
-=======
                             <h3>Dare2Develop Team</h3>
->>>>>>> 112124dbbdea74c2d82acb00d0cb1b483f953027
 
 
                             <div class="align-center"></div>

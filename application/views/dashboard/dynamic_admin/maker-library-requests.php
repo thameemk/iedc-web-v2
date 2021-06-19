@@ -31,7 +31,7 @@
 						<table  id="dataTableExample" class="table table-hover mb-0">
 							<thead>
 								<tr>
-									<th class="pt-0">Id</th>
+								    <th class="pt-0">Id</th>
 									<th class="pt-0">Name</th>
 									<th class="pt-0">Email</th>
 									<th class="pt-0">Phone</th>
@@ -46,8 +46,8 @@
 							</thead>
 							<tbody>
 								<?php foreach ($maker_req as $row ){?>
-								<tr>
-								    <td><?=$row['id']?></td>					
+								<tr>			
+								     <td><?=$row['id']?></td>	
 									<td><?=$row['fullname']?></td>
 									<td><a href="mailto:<?=$row['user_email']?>"><?=$row['user_email']?></a></td>
 									<td><a href="tel:<?=$row['phone']?>"><?=$row['phone']?></a></td>

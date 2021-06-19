@@ -55,6 +55,7 @@
                             <nav>
                                 <ul>
                                     <li><a href="<?= base_url() ?>">Home</a></li>
+                                    	<li> <a href="<?= base_url() ?>ecell">Startups</a> </li>
                                     <li class="dropdown"> <a href="#">Initiatives</a>
                                         <ul class="dropdown-menu" style="background-color: #181918;">
                                             <li> <a href="<?= base_url() ?>ircell">IR cell</a> </li>
@@ -115,7 +116,7 @@
                         <div class="row mb-4 paragraph">
                             <div class="mt-3">
                                 <span class="smalldesc">
-                                    <p align="justify"> The voice of passion and sky high dreams that lies dormant in us is brought to life through Dare2Develop, your dose of inspiring tales of people who have made it big by going an extra mile. Made by IEDC TKMCE, this podcast is the perfect blend of fun and facts in each scintillating episode. Join us on this journey as we together unravel the lives of the people who always stood out from the rest.</p>
+                   <p align="justify"> The voice of passion and sky high dreams that lies dormant in us is brought to life through Dare2Develop, your dose of inspiring tales of people who have made it big by going an extra mile. Made by IEDC TKMCE, this podcast is the perfect blend of fun and facts in each scintillating episode. Join us on this journey as we together unravel the lives of the people who always stood out from the rest.</p>
                                 </span>
                             </div>
 
@@ -125,18 +126,13 @@
                             <button class="btn  fadeInUp" onclick=engLang(event) style="animation-duration: 600ms;">English</button>
                             <button class="btn  fadeInUp" onclick=malLang(event) style="animation-duration: 600ms;">Malayalam</button>
                         </div>
-                        <div class="podcasts row" id="load-more">
-                            <?php foreach ($podcast_series as $row) { ?>
+                        <div class="podcasts row">
+                            <?php foreach (array_reverse($podcast_series) as $row) { ?>
                                 <div class=" col-lg-6">
-                                    <?php if ($row['lang'] == 'ml' || 'en') echo ($row['embedded_code']) ?>
+                                    <?php if ($row['lang'] == 'ml' || 'en') echo ($row['embedded_code']) ?> 
                                 </div>
                             <?php } ?>
                         </div>
-                        <!-- <div id="load-more"> -->
-                        </div>
-                        <button type="button btn" onclick="loadmore()" value="loadmore">Load More</button>
-                        <input type="hidden" name="limit" id="limit" value="10" />
-                        <input type="hidden" name="offset" id="offset" value="5" />
                     </div>
         </section>
         <footer id="footer" class="text-white" style="background-color: #181918;">
@@ -161,6 +157,7 @@
                                             <li><a href="<?= base_url() ?>#about">About us</a></li>
                                             <li><a href="<?= base_url() ?>#mission">Mission</a></li>
                                             <li><a href="<?= base_url() ?>#vision">Vision</a></li>
+                                            	<li> <a href="<?= base_url() ?>ircell">Startups</a> </li>
                                             <li><a href="<?= base_url() ?>events">Events</a></li>
                                             <?php if ($this->session->userdata('sess_logged_in') == 0) { ?>
                                                 <li> <a href="<?php echo $loginURL ?>">Login</a></li>
@@ -199,73 +196,61 @@
 
     <a id="scrollTop"><i class="icon-chevron-up1"></i><i class="icon-chevron-up1"></i></a>
     <script>
-        function loadmore() {
-            console.log(123);
-            $.ajax({
-                url: '<?= base_url() ?>pages/loadmore',
-                data: {
-                    offset: $('#offset').val(),
-                    limit: $('#limit').val()
-                },
-                type: "json",
-                success: function(data) {
-                    $('#load-more').prepend(data.view)
-                    $('#offset').val(data.offset)
-                    $('#limit').val(data.limit)
-                },
-            })
-        }
-        var podcasts_div = document.querySelector('.podcasts');
-        window.onload = () => {
+        
+
+        var podcasts_div=document.querySelector('.podcasts');
+        window.onload=()=>{
             allLang();
         }
-        const allLang = (e) => {
-            podcasts_div.innerHTML = '';
-            var podcasts = <?= json_encode($podcast_series) ?>;
-            podcasts = podcasts.reverse();
-
-            podcasts.map(podcast => {
-                var podcast_div = document.createElement('div');
+        const allLang=(e)=>{
+            podcasts_div.innerHTML='';
+            var podcasts = <?=json_encode($podcast_series)?>;
+            podcasts=podcasts.reverse();
+            
+            podcasts.map(podcast=>{
+                var podcast_div=document.createElement('div');
                 podcast_div.classList.add('col-lg-6');
-                podcast_div.innerHTML = podcast['embedded_code'];
+                podcast_div.innerHTML=podcast['embedded_code'];
                 podcasts_div.appendChild(podcast_div);
-
-
-
+               
+                
+                
             });
         }
-        const engLang = (e) => {
-            podcasts_div.innerHTML = '';
-            var podcasts = <?= json_encode($podcast_series) ?>;
-            podcasts = podcasts.reverse();
-
-            podcasts.map(podcast => {
-                if (podcast['lang'] == 'en') {
-                    var podcast_div = document.createElement('div');
-                    podcast_div.classList.add('col-lg-6');
-                    podcast_div.innerHTML = podcast['embedded_code'];
-                    podcasts_div.appendChild(podcast_div);
+        const engLang=(e)=>{
+            podcasts_div.innerHTML='';
+            var podcasts = <?=json_encode($podcast_series)?>;
+            podcasts=podcasts.reverse();
+            
+            podcasts.map(podcast=>{
+                if(podcast['lang']=='en')
+                {
+                var podcast_div=document.createElement('div');
+                podcast_div.classList.add('col-lg-6');
+                podcast_div.innerHTML=podcast['embedded_code'];
+                podcasts_div.appendChild(podcast_div);
                 }
-
-
-
+               
+                
+                
             });
         }
-        const malLang = (e) => {
-            podcasts_div.innerHTML = '';
-            var podcasts = <?= json_encode($podcast_series) ?>;
-            podcasts = podcasts.reverse();
-
-            podcasts.map(podcast => {
-                if (podcast['lang'] == 'ml') {
-                    var podcast_div = document.createElement('div');
-                    podcast_div.classList.add('col-lg-6');
-                    podcast_div.innerHTML = podcast['embedded_code'];
-                    podcasts_div.appendChild(podcast_div);
+        const malLang=(e)=>{
+            podcasts_div.innerHTML='';
+            var podcasts = <?=json_encode($podcast_series)?>;
+            podcasts=podcasts.reverse();
+            
+            podcasts.map(podcast=>{
+                if(podcast['lang']=='ml')
+                {
+                var podcast_div=document.createElement('div');
+                podcast_div.classList.add('col-lg-6');
+                podcast_div.innerHTML=podcast['embedded_code'];
+                podcasts_div.appendChild(podcast_div);
                 }
-
-
-
+               
+                
+                
             });
         }
     </script>
@@ -274,34 +259,31 @@
     <script src="<?= base_url() ?>assets/front/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/front/js/functions.js"></script>
     <style>
-        .buttons {
+        .buttons{
             justify-content: center;
         }
-
-        .paragraph {
-            padding: 0% 5%;
-
+        .paragraph{
+            padding:0% 5%;
+            
         }
-
-        .buttons button {
+        .buttons button{
             border-color: #7E878C;
-            background-color: #7E878C;
+            background-color:#7E878C;
+        }
+        .buttons button:hover{
+            border-color: #ca0027;
+            background-color:#c31727;
         }
 
-        .buttons button:hover {
+        .buttons button:active{
             border-color: #ca0027;
-            background-color: #c31727;
+            background-color:#c31727;
         }
-
-        .buttons button:active {
+        .buttons button:focus{
             border-color: #ca0027;
-            background-color: #c31727;
+            background-color:#c31727;
         }
-
-        .buttons button:focus {
-            border-color: #ca0027;
-            background-color: #c31727;
-        }
+        
     </style>
 
 </body>

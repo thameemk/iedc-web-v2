@@ -7,12 +7,12 @@
 <section id="page-title" >
     <div class="container">
         <div class="page-title">
-            <h1>Application for excom 20-21</h1>
+            <h1>Application for excom 21-22</h1>
         </div>
         <div class="breadcrumb">
             <ul>
                 <li><a href="<?= base_url() ?>">Home</a> </li>
-                <li class="active"><a href="<?= base_url() ?>application-for-excom-20-21">Application for excom 20-21</a> </li>
+                <li class="active"><a href="<?= base_url() ?>application-for-excom">Application for excom 21-22</a> </li>
             </ul>
         </div>
     </div>
@@ -33,7 +33,7 @@
             <div class="col-lg-12 pr-3">
                 <div class="row">
                     <div class="mb-3 mt-5">
-                        <h3 class="text-bold" id="rules">EXCOM 20-21 GUIDELINES</h3>
+                        <h3 class="text-bold" id="rules">EXCOM 21-22 GUIDELINES</h3>
                         <p>To be a great place to work, we need great people to work with us. Everything we do, every
                             year, in more ways than one, helps to make a unique contribution to the spirit of Innovation
                             and Entrepreneurship in our Campus.</p>
@@ -316,6 +316,14 @@
                     <div class="m-t-30">
                         <?php echo form_open_multipart('Pages/execom_reg'); ?>
                         <div class="row">
+                             <div class="form-group col-md-6">
+                                <label class="required" for="name">Application For Excom </label>
+                                <select name="excomYear">
+                                    <option value="21-22" selected>21-22</option>
+                                </select>
+                                
+                            </div>
+                            
                             <div class="form-group col-md-6">
                                 <label class="required" for="name">Name </label>
                                 <input type="text" aria-required="true" name="name" class="form-control" placeholder="Enter your name" required>

@@ -93,7 +93,7 @@
                                     <th>Phone</th>
                                     <td><?= $row['phone'] ?></td>
                                 </tr>
-                                <tr>
+                                 <tr>
                                     <th>College</th>
                                     <td><?= $row['college'] ?></td>
                                 </tr>
