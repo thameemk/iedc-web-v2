@@ -38,7 +38,7 @@ class Pages extends CI_Controller
         $data['execom'] = $this->report_model->execomInfo();
         $data['webYear'] = $this->report_model->webYear();
         $data['web_team'] = $this->report_model->web_team_info();
-        $data['certrecords'] = $this->report_model->get_cert_details('0'); 
+        $data['certrecords'] = $this->report_model->get_cert_details('0');
         $this->load->view('templates/header', $data);
         $this->load->view('static/' . $page, $data);
         $this->load->view('templates/footer');
@@ -171,14 +171,14 @@ class Pages extends CI_Controller
         $status = json_decode($response, true);
         if (!$status['success']) {
             $this->session->set_flashdata('fail', 'Sorry Google Recaptcha Unsuccessful!!');
-            redirect(base_url() . "application-for-excom-20-21");
+            redirect(base_url() . "application-for-excom");
         } else {
             $this->form_validation->set_rules('email', 'Email', 'required|is_unique[execom_reg.email]');
             $this->form_validation->set_rules('phone', 'Phone', 'required|is_unique[execom_reg.phone]');
             $this->form_validation->set_rules('admission_number', 'admission_number', 'required|is_unique[execom_reg.admission_number]');
             if ($this->form_validation->run() == FALSE) {
                 $this->session->set_flashdata('fail', 'You have already registred');
-                redirect(base_url() . "application-for-excom-20-21");
+                redirect(base_url() . "application-for-excom");
             } else {
                 $this->form_validation->set_rules('name', 'Name', 'required');
                 $this->form_validation->set_rules('year', 'year of Study', 'required');
@@ -187,7 +187,7 @@ class Pages extends CI_Controller
                 $this->form_validation->set_rules('accept_rule', 'Rules and Regulations', 'required');
                 if ($this->form_validation->run() == FALSE) {
                     $this->session->set_flashdata('fail', 'Fill all fields! ');
-                    redirect(base_url() . "application-for-excom-20-21");
+                    redirect(base_url() . "application-for-excom");
                 } else {
                     $data = array(
                         'name' => $this->input->post('name'),
@@ -198,14 +198,15 @@ class Pages extends CI_Controller
                         'position_1' => $this->input->post('position_1'),
                         'position_2' => $this->input->post('position_2'),
                         'admission_number' => $this->input->post('admission_number'),
+                        'excomYear' => $this->input->post('excomYear')
                     );
                     $status = $this->report_model->execom_reg($data);
                     if ($status == 201) {
                         $this->session->set_flashdata('success', 'Registration successful! ');
-                        redirect(base_url() . "application-for-excom-20-21");
+                        redirect(base_url() . "application-for-excom");
                     } else {
                         $this->session->set_flashdata('fail', 'Some error has been occurred ! Contact Web Admin ');
-                        redirect(base_url() . "application-for-excom-20-21");
+                        redirect(base_url() . "application-for-excom");
                     }
                 }
             }
@@ -319,16 +320,17 @@ class Pages extends CI_Controller
         $this->load->view('events/dare2develop', $data);
     }
 
-    function loadmore(){
+    function loadmore()
+    {
         echo 123;
         $limit = $this->input->get('limit');
         $offset = $this->input->get('offset');
-        $result  = $this->report_model->load_more($offset,$limit);
+        $result  = $this->report_model->load_more($offset, $limit);
         $data['view'] = $result;
-        $data['offset'] =$offset +10;
-        $data['limit'] =$limit;
+        $data['offset'] = $offset + 10;
+        $data['limit'] = $limit;
         echo json_encode($data);
-      }
+    }
 
     function forbidden()
     {
@@ -338,11 +340,11 @@ class Pages extends CI_Controller
     }
 
     public function verify($cert_no)
-    {        
+    {
         $cert_no = $this->security->xss_clean($cert_no);
-        $data['certrecords'] = $this->report_model->get_cert_details($cert_no); 
+        $data['certrecords'] = $this->report_model->get_cert_details($cert_no);
         $data['page_title'] = 'Verify Certificate';
-        $data['loginURL'] = $this->googleplus->loginURL();       
+        $data['loginURL'] = $this->googleplus->loginURL();
         $this->load->view('templates/header', $data);
         $this->load->view('static/verify', $data);
         $this->load->view('templates/footer');
