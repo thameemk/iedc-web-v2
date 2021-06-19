@@ -32,6 +32,7 @@ class Pages extends CI_Controller
         $data['page_title'] = $temp1;
         $data['loginURL'] = $this->googleplus->loginURL();
         $data['upcomingInfo'] = $this->report_model->upcomingEvents();
+        $data['getStories'] = $this->report_model->getStories();        
         $data['incubated'] = $this->report_model->ecellInfo('incubated');
         $data['incubating'] = $this->report_model->ecellInfo('incubating');
         $data['execomYear'] = $this->report_model->execomYear();

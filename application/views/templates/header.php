@@ -58,6 +58,7 @@
 								<ul>
 									<li><a href="<?= base_url() ?>">Home</a></li>
 									<li> <a href="<?= base_url() ?>ecell">Startups</a> </li>
+									<li> <a href="<?= base_url() ?>stories">Stories</a> </li>
 									<li class="dropdown"> <a href="#">Initiatives</a>
 										<ul class="dropdown-menu">
 											<li> <a href="<?= base_url() ?>ircell">IR cell</a> </li>

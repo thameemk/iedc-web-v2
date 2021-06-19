@@ -157,4 +157,11 @@ class Report_model extends CI_Model
         }
         return $status;
     }
+
+    public function getStories()
+    {
+        $query = $this->db->get('stories');
+        return $query->result_array();
+    }
+
 }

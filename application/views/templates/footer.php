@@ -6,7 +6,8 @@
 					<div class="widget">
 						<div class="widget-title">IEDC TKMCE</div>
 						<a>About us</a>
-						<p align="justify">The Innovation and Entrepreneurship Development Cell of TKMCE is an organisation that aims to promote the institutional vision....</p>
+						<p align="justify">The Innovation and Entrepreneurship Development Cell of TKMCE is an
+							organisation that aims to promote the institutional vision....</p>
 						<a href="<?= base_url() ?>#about" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
 
 					</div>
@@ -34,6 +35,7 @@
 							<div class="widget">
 								<div class="widget-title">Pages</div>
 								<ul class="list">
+									<li><a href="<?= base_url() ?>stories">Stories</a></li>
 									<li><a href="<?= base_url() ?>ircell">IR-Cell</a></li>
 									<li><a href="<?= base_url() ?>ecell">E-Cell</a></li>
 									<li><a href="<?= base_url() ?>communities">Communities</a></li>
@@ -49,7 +51,7 @@
 	</div>
 	<div class="copyright-content">
 		<div class="container">
-			<div class="copyright-text text-center">&copy; <?php echo date("Y"); ?>  IEDC TKMCE</div>
+			<div class="copyright-text text-center">&copy; <?php echo date("Y"); ?> IEDC TKMCE</div>
 		</div>
 	</div>
 </footer>
