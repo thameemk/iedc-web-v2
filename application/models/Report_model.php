@@ -102,8 +102,8 @@ class Report_model extends CI_Model
         if (!$this->upload->do_upload('coverletter')) {
             $error = array('error' => $this->upload->display_errors());
             // print_r($error);exit;
-            $this->session->set_flashdata('fail', 'Some error while uploading file / Check your file type. !!');
-            redirect(base_url() . "application-for-excom-20-21");
+            $this->session->set_flashdata('fail', $error['error']);
+            redirect(base_url() . "application-for-excom");
         } else {
             $url = base_url("assets/uploads/execom_reg/");
             $data['coverletter'] = $url . $file_name;

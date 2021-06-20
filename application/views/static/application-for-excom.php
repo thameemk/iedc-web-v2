@@ -21,12 +21,12 @@
     <div class="container">
         <?php if ($this->session->flashdata('fail')) : ?>
             <div class="alert alert-danger" role="alert">
-                <center><?php echo $this->session->flashdata('fail'); ?></center>
+                <center><span style="color:white"><?php echo $this->session->flashdata('fail'); ?></span></center>
             </div>
         <?php endif; ?>
         <?php if ($this->session->flashdata('success')) : ?>
             <div class="alert alert-success" role="alert">
-                <center><?php echo $this->session->flashdata('success'); ?></center>
+                <center><span style="color:white"><?php echo $this->session->flashdata('success'); ?></span></center>
             </div>
         <?php endif; ?>
         <div class="row">
