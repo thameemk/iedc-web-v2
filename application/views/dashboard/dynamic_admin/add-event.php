@@ -1,3 +1,5 @@
+<!-- plugin css for this page -->
+<link rel="stylesheet" href="<?=base_url()?>assets/dashboard/vendors/simplemde/simplemde.min.css">
 <div class="page-content">
 
     <nav class="page-breadcrumb">
@@ -244,3 +246,7 @@
         <?php } ?>
     </section>
 </div>
+<!-- plugin js for this page -->
+<script src="<?=base_url()?>assets/dashboard/vendors/simplemde/simplemde.min.js"></script>
+<!-- custom js for this page -->
+<script src="<?=base_url()?>assets/dashboard/js/simplemde.js"></script>
