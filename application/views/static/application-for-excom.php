@@ -376,13 +376,14 @@
                             <div class="form-group  col-md-6">
                                 <label class="required" for="Branch">Select your Branch</label>
                                 <select name="branch" class="form-control" required>
+                                    <option>M-Tech</option>
                                     <option>Architecture</option>
                                     <option>Chemical Engineering</option>
                                     <option>Civil Engineering</option>
                                     <option>Computer Science & Engineering</option>
                                     <option>Electronics & Communication Engineering</option>
                                     <option>Electrical & Electronics Engineering</option>
-                                    <option>Master of Computer Application</option>
+                                    <option>Master of Computer Application (MCA)</option>
                                     <option>Mechanical Engineering</option>
                                     <option>Mechanical Production</option>
                                 </select>
