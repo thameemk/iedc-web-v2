@@ -27,12 +27,12 @@
 		</div>
 		<div class="col-lg-4" data-animate="flipInX">
 			<div class="p-cb">
-				<h5  class="text-center text-bold" >INNOVATE</h5>
+				<h5 class="text-center text-bold">INNOVATE</h5>
 			</div>
 		</div>
 		<div class="col-lg-4" data-animate="flipInY">
 			<div class="p-cb">
-				<h5  class="text-center text-bold">IGNITE</h5>
+				<h5 class="text-center text-bold">IGNITE</h5>
 			</div>
 		</div>
 	</div>
@@ -62,7 +62,7 @@
 	<div class="container">
 
 		<div class="carousel arrows-visibile testimonial testimonial-single testimonial-left" data-items="1">
-			
+
 			<div class="testimonial-item">
 				<div class="heading-text text-center">
 					<h3>Nodal Officer's Message!</h3>
@@ -110,10 +110,30 @@
 	<div class="portfolio">
 
 		<div id="portfolio" class="grid-layout portfolio-4-columns" data-margin="0">
+			<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="dare2develop">
+				<div class="portfolio-item-wrap">
+					<div class="portfolio-image">
+						<img src="//www.iedctkmce.com/assets/uploads/images/updates/dare2develop.jpeg" alt="Dare2Develop">
+					</div>
+					<div class="portfolio-description">
+						<a href="javascript:;">
+							<h3>Dare2Develop</h3>
+							<span>
+								<b>
+									Venue : Online <br>
+								</b>
+							</span>
+
+							<a class="btn btn-red fadeInUp" href="//www.iedctkmce.com/events/dare2develop" style="animation-duration: 600ms;">View Event</a>
+
+						</a>
+					</div>
+				</div>
+			</div>
 			<?php
 			$i = 0;
 			foreach (array_reverse($upcomingInfo) as $row) {
-				if ($i == 8) break;
+				if ($i == 7) break;
 				$i++;
 			?>
 				<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media" id="<?= $row['event_link'] ?>">
@@ -136,16 +156,16 @@
 											Venue : <?= $row['event_venue'] ?> <br>
 										<?php }
 										if ($row['contact_1_num'] != NULL) { ?>
-											Contact : <?=$row['contact_1_name']?> <?= $row['contact_1_num'] ?><br>
+											Contact : <?= $row['contact_1_name'] ?> <?= $row['contact_1_num'] ?><br>
 										<?php }
 										if ($row['contact_2_num'] != NULL) { ?>
-											Contact : <?=$row['contact_2_name']?> <?= $row['contact_2_num'] ?><br>
+											Contact : <?= $row['contact_2_name'] ?> <?= $row['contact_2_num'] ?><br>
 										<?php } ?>
 									</b>
 								</span>
-								
-									<a class="btn btn-red fadeInUp" href="<?=base_url()?>events/<?= $row['event_link'] ?>" style="animation-duration: 600ms;">View Event</a>
-								
+
+								<a class="btn btn-red fadeInUp" href="<?= base_url() ?>events/<?= $row['event_link'] ?>" style="animation-duration: 600ms;">View Event</a>
+
 							</a>
 						</div>
 					</div>
