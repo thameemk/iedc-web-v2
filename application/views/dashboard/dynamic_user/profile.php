@@ -67,7 +67,7 @@
                                 <tr>
                                     <th>Membership ID</th>
                                     <?php if($user_type == true){ ?>
-                                    <td>IEDC_TKMCE_00<?= $row['id'] ?>_<?= $row['admission_number'] ?>_<?= $row['course_duration_from'] ?>_<?= $row['course_duration_to'] ?>
+                                    <td>IEDC_TKMCE_<?= $row['admission_number'] ?>_<?= $row['course_duration_from'] ?>_<?= $row['course_duration_to'] ?>
                                     </td>
                                     <?php }else {?>
                                     <td style="color:#890C0C"><b>Not Member</b></td>
