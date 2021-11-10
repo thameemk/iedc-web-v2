@@ -24,6 +24,8 @@
 ### ___Features :___
     1 - Responsive UI
     2 - Event Management
+    3 - Attendance Management
+    4 - Certificate Automation & Management
     3 - Maker Library & Management    
     4 - Project Proposal, Server Accsess, Incubation Application etc.
     5 - Admin panel to add and change the privilege of IEDC members.
@@ -59,6 +61,10 @@ https://gist.github.com/thameemk612/1c7482cc8cf160613172cc160d289bb0
 ![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/6.png?token=AH47VIHZHWFS2PPKLLQRL4K6WL52A)
 
 ![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/4.png)
+
+![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/10.png)
+
+![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/11.png)
 
 ![Web Image](https://raw.githubusercontent.com/thameemk612/iedc-web-v2/master/git-img/3.png)
 
