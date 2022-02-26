@@ -244,7 +244,7 @@ class Admin extends CI_Controller
     function download_event_reg()
     {
         $event_id = $this->security->xss_clean($this->input->post('event_id'));
-        $this->db->select('er.id,er.reg_email,er.added_email,er.file_link,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch,er.payment_id,er.is_payment_verified,er.cert_num,er.is_attended,er.payment_verified_user')
+        $this->db->select('er.id,er.reg_email,er.team_lead_email,er.file_link,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch,er.payment_id,er.is_payment_verified,er.cert_num,er.is_attended,er.payment_verified_user,er.added_by')
             ->from('userRegister as u, events_registration as er')
             ->where('er.event_id', $event_id)
             ->where('er.reg_email=u.email');
@@ -256,11 +256,11 @@ class Admin extends CI_Controller
         $newline = "\r\n";
         $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
         force_download('iedc_tkm_event_reg_' . $event_id . '.csv', $data);
-        redirect('admin/event-participants/'.$event_id);
+        redirect('admin/event-participants/' . $event_id);
     }
 
     function edit_event($event_id)
-    {        
+    {
         $data['user_type'] = $this->admin_model->getusertype($this->session->email);
         $data['userinfo'] = $this->user_model->get_user_single($this->session->email);
         $data['profile_pic'] = $this->session->profile_pic;
@@ -281,6 +281,44 @@ class Admin extends CI_Controller
         } else {
             $this->session->set_flashdata('fail', $status['message']['error']);
             redirect('admin/dashboard/manage-stories');
+        }
+    }
+
+    function event_registration()
+    {
+        $data = $this->input->post();
+        $data = $this->security->xss_clean($data);
+        $is_iedc_member = $this->user_model->is_iedc_member($data['team_lead_email_id']);
+        $is_event_for_iedc_members = $this->user_model->is_event_for_iedc_members($data['event_id']);
+        $duplicate = $this->user_model->check_duplicate_reg_events($data['team_lead_email_id'], $data['event_id']);
+        $is_reg_open = $this->user_model->check_if_event_closed($data['event_id']);
+        $is_reg_count_max = $this->user_model->check_is_reg_count_max($data['event_id']);
+        if ($is_reg_count_max == false) {
+            if ($is_reg_open == true) {
+                if ($duplicate == false) {
+                    if ($is_event_for_iedc_members == true) {
+                        if ($is_iedc_member == true) {
+
+                            $this->user_model->event_registration($data,$data['team_lead_email_id']);
+                        } else {
+                            $this->session->set_flashdata('fail', 'Team lead is not an IEDC member!!');
+                            redirect('admin/dashboard/add-event-participants');
+                        }
+                    } else {
+                        $this->user_model->event_registration($data,$data['team_lead_email_id']);
+                    }
+                } else {
+
+                    $this->session->set_flashdata('fail', 'Already registred for this event!! (Email/Phone already registred for this event)');
+                    redirect('admin/dashboard/add-event-participants');
+                }
+            } else {
+                $this->session->set_flashdata('fail', 'Registration Closed!!');
+                redirect('admin/dashboard/add-event-participants');
+            }
+        } else {
+            $this->session->set_flashdata('fail', 'Registration count exceeded!!');
+            redirect('admin/dashboard/add-event-participants');
         }
     }
 }

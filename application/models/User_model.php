@@ -432,15 +432,16 @@ class User_model extends CI_Model
             return false;
     }
 
-    function event_registration($data)
+    function event_registration($data,$team_lead_email)
     {
         $status = $this->is_team($data['event_id']);
         $temp = array(
             'event_id' => $data['event_id'],
-            'reg_email' => $this->session->email,
-            'added_email' => $this->session->email,
+            'reg_email' => $team_lead_email,
+            'team_lead_email' => $team_lead_email,
             'file_link' => $data['file_link'],
-            'payment_id' => $data['payment_id']
+            'payment_id' => $data['payment_id'],
+            'added_by'=>$this->session->email
         );
         if ($status == false) {
             $this->db->insert('events_registration', $temp);
@@ -453,6 +454,7 @@ class User_model extends CI_Model
                 if ($this->check_duplicate_reg_events($member, $data['event_id']) == true) {
                     $team_status = 0;
                 }
+                #todo - check iedc membership
             }
             if ($team_status == 1) {
                 $this->db->insert('events_registration', $temp);
@@ -466,9 +468,10 @@ class User_model extends CI_Model
                     $memberData = array(
                         'event_id' => $data['event_id'],
                         'reg_email' => $member,
-                        'added_email' => $this->session->email,
+                        'team_lead_email' => $team_lead_email,
                         'file_link' => $data['file_link'],
-                        'payment_id' => $data['payment_id']
+                        'payment_id' => $data['payment_id'],
+                        'added_by'=>$this->session->email
                     );
                     $this->db->insert('events_registration', $memberData);
                 }

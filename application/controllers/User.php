@@ -172,13 +172,13 @@ class User extends CI_Controller
                     if ($is_event_for_iedc_members == true) {
                         if ($is_iedc_member == true) {
 
-                            $this->user_model->event_registration($data);
+                            $this->user_model->event_registration($data,$this->session->email);
                         } else {
                             $this->session->set_flashdata('fail', 'You are not an IEDC member!!');
                             redirect($this->session->userdata('last_page'));
                         }
                     } else {
-                        $this->user_model->event_registration($data);
+                        $this->user_model->event_registration($data,$this->session->email);
                     }
                 } else {
 

@@ -58,6 +58,7 @@
                                             <th class="pt-0">Branch</th>
                                             <th class="pt-0">Attendence</th>
                                             <th class="pt-0">CERT NO</th>
+                                            <th class="pt-0">Added By</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,7 +68,7 @@
                                                 <td><?= $row['id'] ?></td>
                                                 <td><?= $row['fullname'] ?></td>
                                                 <?php if ($eventDetails->is_team == 1) { ?>
-                                                    <td><?= $row['added_email'] ?></td>
+                                                    <td><?= $row['team_lead_email'] ?></td>
                                                 <?php } ?>
                                                 <td><?= $row['reg_email'] ?></td>
                                                 <td><?= $row['phone'] ?></td>
@@ -121,7 +122,7 @@
 
                                                 </td>
                                                 <td><?= $row['cert_num'] ?></td>
-
+                                                <td><?= $row['added_by'] ?></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

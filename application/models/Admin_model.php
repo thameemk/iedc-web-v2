@@ -291,7 +291,7 @@ class Admin_model extends CI_Model
     function get_participants($event_id)
     {
         $event_id = $this->security->xss_clean($event_id);
-        $this->db->select('er.reg_email,er.payment_verified_user,er.is_payment_verified,er.payment_id,er.file_link,er.added_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch')
+        $this->db->select('er.added_by,er.reg_email,er.payment_verified_user,er.is_payment_verified,er.payment_id,er.file_link,er.team_lead_email,er.id,er.cert_num,er.is_attended,er.reg_email,u.college,u.phone,u.fullname,u.course_duration_from,u.course_duration_to,u.branch')
             ->from('userRegister as u, events_registration as er')
             ->where('er.event_id', $event_id)
             ->where('er.reg_email=u.email');
@@ -483,7 +483,7 @@ class Admin_model extends CI_Model
         $this->db->select('count(*) as total')
         ->from('events_registration as er')
         ->where('er.event_id', $event_id)
-        ->group_by('er.added_email');         
+        ->group_by('er.team_lead_email');         
         $q = $this->db->get(); 
         return $q->num_rows();
     }
