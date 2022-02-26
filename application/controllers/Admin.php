@@ -288,41 +288,49 @@ class Admin extends CI_Controller
     {
         $data = $this->input->post();
         $data = $this->security->xss_clean($data);
+        if ($this->user_model->is_available($data['team_lead_email_id']) == false) {
+            $user_data = array(
+                'email' => $data['team_lead_email_id'],
+            );
+            $this->db->insert('userRegister', $user_data);
+        }
         $is_iedc_member = $this->user_model->is_iedc_member($data['team_lead_email_id']);
         $is_event_for_iedc_members = $this->user_model->is_event_for_iedc_members($data['event_id']);
         $duplicate = $this->user_model->check_duplicate_reg_events($data['team_lead_email_id'], $data['event_id']);
         $is_reg_open = $this->user_model->check_if_event_closed($data['event_id']);
         $is_reg_count_max = $this->user_model->check_is_reg_count_max($data['event_id']);
+        $this->session->set_userdata('last_page', base_url("admin/add-event-participants/{$data['event_id']}"));
         if ($is_reg_count_max == false) {
             if ($is_reg_open == true) {
                 if ($duplicate == false) {
                     if ($is_event_for_iedc_members == true) {
                         if ($is_iedc_member == true) {
 
-                            $this->user_model->event_registration($data,$data['team_lead_email_id']);
+                            $this->user_model->event_registration($data, $data['team_lead_email_id']);
                         } else {
                             $this->session->set_flashdata('fail', 'Team lead is not an IEDC member!!');
-                            redirect('admin/dashboard/add-event-participants');
+                            redirect("admin/add-event-participants/{$data['event_id']}");
                         }
                     } else {
-                        $this->user_model->event_registration($data,$data['team_lead_email_id']);
+                        $this->user_model->event_registration($data, $data['team_lead_email_id']);
                     }
                 } else {
 
                     $this->session->set_flashdata('fail', 'Already registred for this event!! (Email/Phone already registred for this event)');
-                    redirect('admin/dashboard/add-event-participants');
+                    redirect("admin/add-event-participants/{$data['event_id']}");
                 }
             } else {
                 $this->session->set_flashdata('fail', 'Registration Closed!!');
-                redirect('admin/dashboard/add-event-participants');
+                redirect("admin/add-event-participants/{$data['event_id']}");
             }
         } else {
             $this->session->set_flashdata('fail', 'Registration count exceeded!!');
-            redirect('admin/dashboard/add-event-participants');
+            redirect("admin/add-event-participants/{$data['event_id']}");
         }
     }
 
-    function add_event_participants($event_id){
+    function add_event_participants($event_id)
+    {
         $data['eventDetails'] = $this->admin_model->get_event_details($event_id);
         $data['user_type'] = $this->admin_model->getusertype($this->session->email);
         $data['userinfo'] = $this->user_model->get_user_single($this->session->email);

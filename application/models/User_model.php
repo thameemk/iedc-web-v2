@@ -435,6 +435,13 @@ class User_model extends CI_Model
     function event_registration($data,$team_lead_email)
     {
         $status = $this->is_team($data['event_id']);
+        if (!array_key_exists('file_link',$data)){
+            $data['file_link'] = NULL;
+        }
+        if (!array_key_exists('payment_id',$data)){
+            $data['payment_id'] = NULL;
+        }
+
         $temp = array(
             'event_id' => $data['event_id'],
             'reg_email' => $team_lead_email,
