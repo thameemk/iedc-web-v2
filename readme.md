@@ -6,10 +6,13 @@
 
 ### ___Web Team : https://www.iedctkmce.com/web-team___
 
-### ___Sources :___ 
+### ___Sources (Styles & Web Templates) :___ 
     1 - https://getbootstrap.com/
     2 - https://colorlib.com/
-	3 - Polo Theme (Themeforest)
+	3 - Polo - Responsive Multi-Purpose HTML5 Template
+    4 - NobleUI
+
+
 
 ### ___Framework :___
     Codeigniter - https://codeigniter.com/
